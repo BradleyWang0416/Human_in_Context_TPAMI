@@ -59,6 +59,11 @@ class Attention(nn.Module):
         vt = v.transpose(2, 3)  # (B, H, J, T, C)
 
         attn = (qt @ kt.transpose(-2, -1)) * self.scale  # (B, H, J, T, T)
+
+        if kwargs.get('input_mask', None) is not None:
+            temporal_mask = kwargs.get('input_mask', None)['temporal'].unsqueeze(1).unsqueeze(1).unsqueeze(1)    # (B,T)->(B,1,1,1,T)
+            attn = attn.masked_fill(temporal_mask == 0, float('-inf'))
+
         attn = attn.softmax(dim=-1)
         attn = self.attn_drop(attn)
 

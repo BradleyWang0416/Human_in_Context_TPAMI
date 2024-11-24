@@ -73,6 +73,9 @@ class Skeleton_in_Context(nn.Module):
                                                          num_classes=args.Context.class_head.num_class, 
                                                          num_joints=args.Context.class_head.num_joints, 
                                                          hidden_dim=args.Context.class_head.hidden_dim)
+        
+        if args.get('apply_attnmask', False):
+            self.apply_attnmask = True
 
 
     def joint_head(self, x):
@@ -110,6 +113,46 @@ class Skeleton_in_Context(nn.Module):
 
         if self.fully_connected_graph:
             batched_spatial_adj = torch.ones(B,T,J,J).to(query_input.device)
+            if self.apply_attnmask:
+                temporal_mask = input_mask['temporal']    # (B,T)
+                adj_eye = torch.eye(J)
+                adj_allone = torch.ones(J,J)
+                adj_set = torch.stack([adj_eye, adj_allone], dim=0).to(query_input.device).unsqueeze(0).expand(B,-1,-1,-1) # (2,J,J) -> (B,2,J,J)
+                batched_spatial_adj = adj_set.gather(1, temporal_mask.long().unsqueeze(-1).unsqueeze(-1).expand(-1,-1,J,J)) # (B,2,J,J) (B,T,J,J) --> (B,T,J,J)
+
+                spatial_mask = input_mask['spatial']    # (B,J)
+                spatial_adj_mask = torch.einsum('bik,bkj->bij', spatial_mask.unsqueeze(-1), spatial_mask.unsqueeze(-2))    # (B,J,J)
+                for j in range(J): spatial_adj_mask[:, j, j] = 1
+
+                batched_spatial_adj = batched_spatial_adj * spatial_adj_mask.unsqueeze(1).expand(-1,T,-1,-1).to(query_input.device)     # (B,T,J,J)
+
+                # 找到COCO数据集的batch_id: np.where(np.array(info_dict['dataset'])=='COCO')[0]
+                # 找到MeshCompletion任务的batch_id: np.where(np.array(info_dict['task']) == 'MeshCompletion')[0]
+                # 找到MeshCompletion / MeshPred / MeshInBetween任务的batch_id: 
+                #   np.concatenate([ np.where(np.array(info_dict['task']) == 'MeshCompletion')[0],
+                #                    np.where(np.array(info_dict['task']) == 'MeshPred')[0],
+                #                    np.where(np.array(info_dict['task']) == 'MeshInBetween')[0]
+                #                 ])
+
+                ## Run this if you want to double-check if batched_spatial_adj is correctly constructed
+                # for b in range(B):
+                #     if (info_dict['dataset'][b] == 'COCO') and (info_dict['task'][b] in ['PE', 'FPE', 'MC', 'MP', 'MIB']):  # 是COCO数据集; joint任务
+                #         assert (batched_spatial_adj[b, 1:] == torch.eye(J).unsqueeze(0).to(query_input.device)).all()
+                #         spatial_mask_ = input_mask['spatial'][b]    # (J,)
+                #         spatial_adj_mask_ = torch.einsum('ik,kj->ij', spatial_mask_.unsqueeze(-1), spatial_mask_.unsqueeze(-2))    # (J,J)
+                #         for j in range(J): spatial_adj_mask_[j, j] = 1
+                #         assert (batched_spatial_adj[b, 0] == spatial_adj_mask_.to(query_input.device)).all()
+                #     elif (info_dict['dataset'][b] == 'COCO'):   # 是COCO数据集; mesh任务
+                #         assert (batched_spatial_adj[b, 0] == 1).all()
+                #         assert (batched_spatial_adj[b, 1:] == torch.eye(J).unsqueeze(0).to(query_input.device)).all()
+                #     elif (info_dict['task'][b] in ['PE', 'FPE', 'MC', 'MP', 'MIB']): # 不是COCO数据集; joint任务
+                #         spatial_mask_ = input_mask['spatial'][b]    # (J,)
+                #         spatial_adj_mask_ = torch.einsum('ik,kj->ij', spatial_mask_.unsqueeze(-1), spatial_mask_.unsqueeze(-2))    # (J,J)
+                #         for j in range(J): spatial_adj_mask_[j, j] = 1
+                #         assert (batched_spatial_adj[b] == spatial_adj_mask_.unsqueeze(0).to(query_input.device)).all()
+                #     else:   # 不是COCO数据集; mesh任务
+                #         assert (batched_spatial_adj[b] == 1).all()
+                    
         else:    
             batched_spatial_adj = None
 
@@ -118,7 +161,7 @@ class Skeleton_in_Context(nn.Module):
         PROMPTS = (prompt,)
 
         for layer in self.MotionAGFormer['prompt'].layers:
-            prompt = layer(prompt, batched_spatial_adj=batched_spatial_adj)    # TODO: design spatial adj
+            prompt = layer(prompt, batched_spatial_adj=batched_spatial_adj, input_mask=input_mask if self.apply_attnmask else None)    # TODO: design spatial adj
             PROMPTS = PROMPTS + (prompt,)
 
 
@@ -127,7 +170,7 @@ class Skeleton_in_Context(nn.Module):
         query += PROMPTS[0]
 
         for i, layer in enumerate(self.MotionAGFormer['query'].layers):
-            query = layer(query, batched_spatial_adj=batched_spatial_adj)
+            query = layer(query, batched_spatial_adj=batched_spatial_adj, input_mask=input_mask if self.apply_attnmask else None)
             query += PROMPTS[1+i]
         
         query = self.MotionAGFormer['query'].norm(query)
@@ -152,7 +195,15 @@ class Skeleton_in_Context(nn.Module):
         if vertex_x1000:
             output_joint = output_joint / 1000
 
+
         target_joint, target_smpl = self.get_target_joint_and_smpl(query_target_dict, vertex_x1000)
+
+        if self.apply_attnmask:
+            output_joint = output_joint * input_mask['temporal'].unsqueeze(-1).unsqueeze(-1) + target_joint.clone() * (1 - input_mask['temporal']).unsqueeze(-1).unsqueeze(-1)
+            for s in output_smpl:
+                s['theta'] = s['theta'] * input_mask['temporal'].unsqueeze(-1) + target_smpl['theta'].clone() * (1 - input_mask['temporal']).unsqueeze(-1)
+                s['verts'] = s['verts'] * input_mask['temporal'].unsqueeze(-1).unsqueeze(-1) + target_smpl['verts'].clone() * (1 - input_mask['temporal']).unsqueeze(-1).unsqueeze(-1)
+                s['kp_3d'] = s['kp_3d'] * input_mask['temporal'].unsqueeze(-1).unsqueeze(-1) + target_smpl['kp_3d'].clone() * (1 - input_mask['temporal']).unsqueeze(-1).unsqueeze(-1)
 
 
         if return_context:

@@ -98,6 +98,7 @@ def train_epoch(args, model, train_loader, losses, optimizer, epoch=None, if_viz
             for info_key in INFO_DICT.keys():
                 info_dict[info_key] = INFO_DICT[info_key][slices]
             input_mask = torch.cat(info_dict['input_mask']) if 'input_mask' in info_dict else None     # [B, 24]
+            input_temporal_mask = torch.cat(info_dict['input_temporal_mask']) if 'input_temporal_mask' in info_dict else None     # [B, 24]
 
             batch_size = len(info_dict['query_index'])    # <= batch_size
 
@@ -113,6 +114,7 @@ def train_epoch(args, model, train_loader, losses, optimizer, epoch=None, if_viz
                         prompt_target_dict = {k: v.cuda() for k, v in prompt_target_dict.items()}
                     if input_mask is not None:
                         input_mask = input_mask.cuda()
+                        input_temporal_mask = input_temporal_mask.cuda()
                 else:
                     if rank == 0 and idx == 0 and batch_id == 0: print(f'\tDDP is being applied.')
                     query_input_tensor = query_input_tensor.cuda(rank)
@@ -125,6 +127,7 @@ def train_epoch(args, model, train_loader, losses, optimizer, epoch=None, if_viz
                         prompt_target_dict = {k: v.cuda(rank) for k, v in prompt_target_dict.items()}
                     if input_mask is not None:
                         input_mask = input_mask.cuda(rank)
+                        input_temporal_mask = input_temporal_mask.cuda()
             
             if use_smpl:
                 query_target_vertex = compute_smpl_vertex(args, query_target_dict, SMPL_MODEL, info_dict)
@@ -139,9 +142,10 @@ def train_epoch(args, model, train_loader, losses, optimizer, epoch=None, if_viz
             # preprocessing input already done in perpare_motion
 
             output_dict = model(
-                                query_input_tensor, prompt_input_tensor, input_mask,
+                                query_input_tensor, prompt_input_tensor, {'spatial': input_mask, 'temporal': input_temporal_mask},
                                 query_target_tensor, prompt_target_tensor,
-                                query_target_dict, prompt_target_dict, info_dict, epoch, vertex_x1000=args.vertex_x1000, deactivate_prompt_branch=args.deactivate_prompt_branch,
+                                query_target_dict, prompt_target_dict, 
+                                info_dict, epoch, vertex_x1000=args.vertex_x1000, deactivate_prompt_branch=args.deactivate_prompt_branch,
                                 return_context=args.get('use_context', None)
                                 )
             # output_joint: [B, T, 17, 3]

@@ -99,12 +99,20 @@ class GCN(nn.Module):
         """
         x: tensor with shape [B, T, J, C]
         """
+
+        
+           
         b, t, j, c = x.shape
         if self.mode == 'temporal':
             x = x.transpose(1, 2)  # (B, T, J, C) -> (B, J, T, C)
-            x = x.reshape(-1, t, c)
+            x = x.reshape(-1, t, c) # (B*J,T,C)
             if self.use_temporal_similarity:
-                similarity = x @ x.transpose(1, 2)
+                similarity = x @ x.transpose(1, 2)  # (B*J,T,T)
+
+                if kwargs.get('input_mask', None) is not None:
+                    temporal_mask = kwargs.get('input_mask', None)['temporal'].unsqueeze(1).expand(-1,j,-1).reshape(b*j,1,t)    # (B,T)->(B,J,T)->(B*J,1,T)
+                    similarity = similarity.masked_fill(temporal_mask == 0, float('-inf'))
+
                 threshold = similarity.topk(k=self.neighbour_num, dim=-1, largest=True)[0][..., -1].view(b * j, t, 1)
                 adj = (similarity >= threshold).float()
             else:
@@ -113,8 +121,8 @@ class GCN(nn.Module):
                 adj = adj.repeat(b * j, 1, 1)
 
         else:
-            x = x.reshape(-1, j, c)
-            batched_spatial_adj = kwargs.get('batched_spatial_adj', None)
+            x = x.reshape(-1, j, c) # (B, T, J, C) -> (B*T, J, C)
+            batched_spatial_adj = kwargs.get('batched_spatial_adj', None)   # (B,T,J,J)
             if batched_spatial_adj is not None:
                 adj = batched_spatial_adj.reshape(b*t, j, j)
             else:

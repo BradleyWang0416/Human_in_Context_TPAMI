@@ -124,16 +124,18 @@
             //      "-gpu" , "2",
             // ],
             "args": [
-                "--config", "ckpt/0702_base070100/14_Train4dt_PWstrd1_COCO/config.yaml",
+                "--config", "ckpt/0702_base070100/20_TrAHC/config.yaml",
                 "-c", "ckpt/0702_base070100/tmp",
                 "-vertex_x1000",
                 "-fully_connected_graph",
                 "-data_efficient",
+                "-apply_attnmask",
                 // "-predict_context",
                 // "-fix_prompt", "FPS_selected",
-                "-gpu", "1,2",
-                "-bs", "4",
+                "-gpu", "1",
+                "-bs", "64",
                 "-mp", "28888",
+                "-debug"
             ],
             
         }

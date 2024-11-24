@@ -1,0 +1,394 @@
+Adding new arg: args.config = ckpt/0702_base070100/21_TrAHC_applyMask/config.yaml
+Adding new arg: args.checkpoint = ckpt/0702_base070100/21_TrAHC_applyMask
+Adding new arg: args.seed = 0
+Adding new arg: args.visualize = 
+Adding new arg: args.eval_generalization = False
+Adding new arg: args.quick_debug = False
+Adding new arg: args.gpu = 2,3,4,5,6,7
+Overriding existing arg: args.batch_size = 92
+Adding new arg: args.classifier_type = task
+Adding new arg: args.num_class = 4
+Adding new arg: args.use_task_id_as_prompt = False
+Adding new arg: args.reverse_query_prompt = False
+Adding new arg: args.shuffle_batch = False
+Adding new arg: args.reverse_query_prompt_per_iter = False
+Adding new arg: args.aug2D = False
+Adding new arg: args.deactivate_prompt_branch = False
+Adding new arg: args.gpu0_bs = 0
+Adding new arg: args.train_simultaneously = False
+Adding new arg: args.local_rank = -1
+Adding new arg: args.master_port = 12356
+Adding new arg: args.apply_attnmask = True
+Adding new arg: args.data_efficient = True
+Adding new arg: args.vertex_x1000 = True
+Adding new arg: args.fully_connected_graph = True
+
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6, 'MeshRecover': 7, 'FutureMeshRecover': 8, 'MeshPred': 9, 'MeshCompletion': 10, 'MeshInBetween': 11}, 'dataset_to_flag': {'H36M_3D': 0, 'AMASS': 1, 'PW3D_MESH': 2, 'H36M_MESH': 3, 'H36M_MESH_TCMR': 4, 'COCO': 5}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB', '7': 'MeshRecover', '8': 'FutureMeshRecover', '9': 'MeshPred', '10': 'MeshCompletion', '11': 'MeshInBetween'}, 'flag_to_dataset': {'0': 'H36M_3D', '1': 'AMASS', '2': 'PW3D_MESH', '3': 'H36M_MESH', '4': 'H36M_MESH_TCMR', '5': 'COCO'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'dataset_task_info': {'train': {'AMASS': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween'], 'H36M_MESH': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween'], 'COCO': ['PE', 'MC', 'MeshCompletion']}, 'test': {'AMASS': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween'], 'H36M_MESH': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween'], 'PW3D_MESH': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween'], 'COCO': ['PE', 'MC', 'MeshCompletion']}}, 'Mesh': {'enable': True, 'loss_type': 'L1', 'losses': {'loss_3d_pos': 0.5, 'loss_3d_velocity': 10, 'loss_pose': 1000, 'loss_shape': 1, 'loss_norm': 20, 'loss_3d_scale': 0, 'loss_lv': 0, 'loss_lg': 0, 'loss_a': 0, 'loss_av': 0}}, 'dataset_file': {'PW3D_MESH': 'data_icl_gen/VER5_DATA/PW3D_MESH/mesh_det_pw3d_EXTENDED.pkl', 'H36M_MESH': 'data_icl_gen/VER5_DATA/H36M_MESH/mesh_det_h36m_EXTENDED.pkl', 'AMASS': 'data_icl_gen/VER5_DATA/AMASS', 'COCO': 'data_icl_gen/VER5_DATA/COCO/mesh_det_coco_EXTENDED.pkl', 'H36M_3D': 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl', 'H36M_MESH_TCMR': 'data_icl_gen/VER5_DATA/H36M_TCMR/h36m_train_25fps_db_RENAMED.pt'}, 'use_presave_data': True, 'aug': False, 'aug_shuffle_joints': False, 'current_as_history': True, 'clip_len': 16, 'max_len': 16, 'num_joint': 17, 'joint_mask_ratio': 0.4, 'frame_mask_ratio': 0.4, 'mesh_joint_mask_ratio': 0.4, 'presave_folder': 'data_icl_gen/presave_data/', 'dataset_config': {'PW3D_MESH': {'sample_stride': 1, 'data_stride': {'train': 1, 'test': 16}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_MESH': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'AMASS': {'sample_stride': 1, 'data_stride': {'train': 128, 'test': 256}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'COCO': {'sample_stride': 2, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_3D': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'scale_3D': 1}, 'H36M_MESH_TCMR': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}}, 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': '7_ICL', 'evaluate_non_AR': '7_ICL', 'train_epoch_non_AR': '7_ICL', 'model_name': 'model_mesh_VER7.M01V02_MotionAGFormer'}, 'epochs': 120, 'batch_size': 92, 'test_batch_size': 512, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'loss_mpjpe': 1.0, 'n_mpjpe': 0.5, 'loss_velocity': 20.0, 'loss_limb_var': 0, 'loss_limb_gt': 0, 'loss_angle': 0, 'loss_angle_velocity': 0}, 'no_eval': False, 'use_partial_data': False, 'partial_data': None, 'full_data': None, 'name': 'config', 'config': 'ckpt/0702_base070100/21_TrAHC_applyMask/config.yaml', 'checkpoint': 'ckpt/0702_base070100/21_TrAHC_applyMask', 'seed': 0, 'visualize': '', 'eval_generalization': False, 'quick_debug': False, 'gpu': '2,3,4,5,6,7', 'classifier_type': 'task', 'num_class': 4, 'use_task_id_as_prompt': False, 'reverse_query_prompt': False, 'shuffle_batch': False, 'reverse_query_prompt_per_iter': False, 'aug2D': False, 'deactivate_prompt_branch': False, 'gpu0_bs': 0, 'train_simultaneously': False, 'local_rank': -1, 'master_port': '12356', 'apply_attnmask': True, 'data_efficient': True, 'vertex_x1000': True, 'fully_connected_graph': True, 'data': None}
+
+python train_DDP.py --config ckpt/0702_base070100/21_TrAHC_applyMask/config.yaml -c ckpt/0702_base070100/21_TrAHC_applyMask -vertex_x1000 -fully_connected_graph -data_efficient -apply_attnmask -gpu 2,3,4,5,6,7 -bs 92
+
+PID:  658960
+Linked folder: ckpt/0702_base070100/21_TrAHC_applyMask/all_epochs
+Linked folder: ckpt/0702_base070100/21_TrAHC_applyMask/best_epochs
+Linked folder: ckpt/0702_base070100/21_TrAHC_applyMask/latest_epoch
+	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... 	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... 	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... 	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... 
+Loading dataset...
+	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... 	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading joint masks... Loading joint masks...Loading joint masks...  Loading joint masks... Loading joint masks... Loading frame masks... Loading frame masks... Loading frame masks... Loading frame masks... costs 1.31s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading joint masks... costs 1.31s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... costs 1.31s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... costs 1.32s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading frame masks... costs 1.35s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading frame masks... costs 1.40s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading joint masks... Loading joint masks... Loading joint masks... Loading joint masks... Loading joint masks... Loading frame masks... Loading frame masks... Loading frame masks... Loading frame masks... costs 0.77s... has 18644/18644 query/prompt samples
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... costs 0.76s... has 18644/18644 query/prompt samples
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... costs 0.77s... has 18644/18644 query/prompt samples
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... costs 0.77s... has 18644/18644 query/prompt samples
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... Loading frame masks... Loading joint masks... costs 0.77s... has 18644/18644 query/prompt samples
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... Loading frame masks... costs 0.77s... has 18644/18644 query/prompt samples
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... Loading joint masks... Loading joint masks... Loading joint masks... costs 1.33s... has 37416/37416 query/prompt samples
+costs 1.33s... has 37416/37416 query/prompt samples
+costs 1.33s... has 37416/37416 query/prompt samples
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... 	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading mesh joint masks...
+Loading joint masks... costs 1.39s... has 37416/37416 query/prompt samples
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading joint masks... costs 1.34s... has 37416/37416 query/prompt samples
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... 	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... 	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading presaved... 	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading joint masks... 	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+costs 1.37s... has 37416/37416 query/prompt samples
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... 	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... 	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading joint masks...Loading joint masks...  Loading joint masks... Loading joint masks... Loading frame masks... Loading frame masks... Loading joint masks... Loading frame masks... costs 1.33s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... costs 1.33s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... costs 1.33s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading joint masks... Loading frame masks... Loading frame masks... costs 1.34s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... costs 1.38s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading frame masks... costs 1.36s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading joint masks... Loading joint masks... Loading joint masks... Loading frame masks... Loading frame masks... Loading frame masks... costs 0.69s... has 18644/18644 query/prompt samplescosts 0.68s... has 18644/18644 query/prompt samples
+
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... 	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... Loading presaved... costs 0.68s... has 18644/18644 query/prompt samples
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... Loading joint masks... Loading frame masks... Loading joint masks... costs 0.69s... has 18644/18644 query/prompt samples
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... Loading frame masks... costs 0.69s... has 18644/18644 query/prompt samples
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... Loading joint masks... Loading frame masks... costs 0.70s... has 18644/18644 query/prompt samples
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... Loading joint masks... Loading joint masks... Loading joint masks... costs 1.36s... has 37416/37416 query/prompt samples
+costs 1.36s... has 37416/37416 query/prompt samples
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+costs 1.37s... has 37416/37416 query/prompt samples
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading joint masks... Loading joint masks... costs 1.34s... has 37416/37416 query/prompt samples
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+costs 1.35s... has 37416/37416 query/prompt samples
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading joint masks... costs 1.37s... has 37416/37416 query/prompt samples
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Training (non-AR) sample count: 102786
+	Loading test data from [AMASS] for task: ['PE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['FPE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Training (non-AR) sample count: 102786
+	Loading test data from [AMASS] for task: ['MC']... 	Loading test data from [AMASS] for task: ['PE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['FPE']... Loading joint masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MC']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MP']... Loading joint masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MIB']... 	Training (non-AR) sample count: 102786
+	Loading test data from [AMASS] for task: ['PE']... costs 0.00s... has 8492/46726 query/prompt samples
+costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MP']... 	Loading test data from [AMASS] for task: ['FPE']... Loading frame masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MC']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshCompletion']... costs 0.00s... has 8492/46726 query/prompt samples
+Loading joint masks... 	Loading test data from [AMASS] for task: ['MIB']... costs 0.00s... has 8492/46726 query/prompt samples
+	Preparing test [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading frame masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MP']... 	Loading test data from [AMASS] for task: ['MeshPred']... costs 0.00s... has 8492/46726 query/prompt samples
+costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MIB']... 	Loading test data from [AMASS] for task: ['MeshCompletion']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshInBetween']... costs 0.00s... has 8492/46726 query/prompt samples
+Loading frame masks... 	Preparing test [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading frame masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshCompletion']... 	Loading test data from [AMASS] for task: ['MeshPred']...costs 0.00s... has 8492/46726 query/prompt samples 
+	Loading test data from [H36M_MESH] for task: ['PE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['FPE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Preparing test [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+costs 0.00s... has 8492/46726 query/prompt samples
+costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshInBetween']... 	Loading test data from [H36M_MESH] for task: ['MC']... Loading joint masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MP']... Loading frame masks... 	Loading test data from [AMASS] for task: ['MeshPred']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MIB']... Loading frame masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshInBetween']... costs 0.00s... has 3088/18644 query/prompt samplescosts 0.00s... has 8492/46726 query/prompt samples
+
+	Loading test data from [H36M_MESH] for task: ['MeshCompletion']... 	Loading test data from [H36M_MESH] for task: ['PE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['FPE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Preparing test [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+costs 0.00s... has 3088/18644 query/prompt samples
+Loading frame masks... 	Loading test data from [H36M_MESH] for task: ['MC']... 	Loading test data from [H36M_MESH] for task: ['MeshPred']... costs 0.00s... has 3088/18644 query/prompt samples
+Loading joint masks... 	Loading test data from [H36M_MESH] for task: ['MeshInBetween']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MP']... Loading frame masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['PE']... costs 0.00s... has 3088/18644 query/prompt samples
+costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['PE']... Loading presaved... 	Loading test data from [H36M_MESH] for task: ['MIB']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['FPE']... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MC']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshCompletion']... Loading joint masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Preparing test [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MP']... 	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [H36M_MESH] for task: ['MeshPred']... costs 0.00s... has 3088/18644 query/prompt samples
+costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MIB']... 	Loading test data from [H36M_MESH] for task: ['MeshInBetween']... Loading frame masks... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshCompletion']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['PE']... Loading presaved... costs 0.00s... has 3088/18644 query/prompt samples
+	Preparing test [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [H36M_MESH] for task: ['MeshPred']... 	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshInBetween']... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['PE']... Loading presaved... 	Training (non-AR) sample count: 102786
+	Loading test data from [AMASS] for task: ['PE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['FPE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MC']... 	Training (non-AR) sample count: 102786
+	Loading test data from [AMASS] for task: ['PE']... Loading joint masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['FPE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MP']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MC']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MIB']... Loading joint masks... Loading frame masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MP']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshCompletion']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MIB']... costs 0.00s... has 8492/46726 query/prompt samples
+	Preparing test [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading frame masks... 	Loading test data from [AMASS] for task: ['MeshPred']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshCompletion']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshInBetween']... costs 0.00s... has 8492/46726 query/prompt samples
+	Preparing test [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading frame masks... 	Loading test data from [AMASS] for task: ['MeshPred']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['PE']... costs 0.00s... has 8492/46726 query/prompt samples
+costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshInBetween']... 	Loading test data from [H36M_MESH] for task: ['FPE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MC']... Loading frame masks... Loading joint masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MP']... costs 0.00s... has 3088/18644 query/prompt samples
+costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MIB']... 	Loading test data from [H36M_MESH] for task: ['PE']... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['FPE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshCompletion']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MC']... costs 0.00s... has 3088/18644 query/prompt samples
+	Preparing test [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading joint masks... Loading mesh joint masks...
+costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshPred']... 	Loading test data from [H36M_MESH] for task: ['MP']... costs 0.00s... has 3088/18644 query/prompt samples
+costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshInBetween']... 	Loading test data from [H36M_MESH] for task: ['MIB']... Loading frame masks... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samplescosts 0.00s... has 3088/18644 query/prompt samples
+
+	Loading test data from [H36M_MESH] for task: ['MeshCompletion']...	Loading test data from [PW3D_MESH] for task: ['PE']...  Loading presaved... costs 0.00s... has 3088/18644 query/prompt samples
+	Preparing test [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [H36M_MESH] for task: ['MeshPred']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshInBetween']... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['PE']... Loading presaved... 	Training (non-AR) sample count: 102786
+	Loading test data from [AMASS] for task: ['PE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['FPE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MC']... Loading joint masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MP']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MIB']... Loading frame masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshCompletion']... costs 0.00s... has 8492/46726 query/prompt samples
+	Preparing test [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [AMASS] for task: ['MeshPred']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshInBetween']... Loading frame masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['PE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['FPE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MC']... Loading joint masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MP']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MIB']... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshCompletion']... costs 0.00s... has 3088/18644 query/prompt samples
+	Preparing test [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [H36M_MESH] for task: ['MeshPred']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshInBetween']... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['PE']... Loading presaved... costs 0.85s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['FPE']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['FPE']... Loading presaved... costs 0.85s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['FPE']... Loading presaved... costs 0.85s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['FPE']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['FPE']... Loading presaved... costs 0.87s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['FPE']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MC']... costs 0.84s... has 2165/21678 query/prompt samples
+Loading presaved... 	Loading test data from [PW3D_MESH] for task: ['MC']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MC']... Loading presaved... costs 0.83s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MC']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MC']... Loading presaved... costs 0.88s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MC']... Loading presaved... Loading joint masks... costs 0.84s... has 2165/21678 query/prompt samples
+Loading joint masks... 	Loading test data from [PW3D_MESH] for task: ['MP']... Loading presaved... costs 0.83s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MP']... Loading presaved... Loading joint masks... costs 0.85s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MP']... Loading presaved... Loading joint masks... costs 0.83s... has 2165/21678 query/prompt samples
+Loading joint masks... 	Loading test data from [PW3D_MESH] for task: ['MP']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MP']... Loading presaved... Loading joint masks... costs 0.86s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MP']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MIB']... Loading presaved... costs 0.83s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MIB']... Loading presaved... costs 0.83s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MIB']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MIB']... Loading presaved... costs 0.93s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MIB']... Loading presaved... costs 0.87s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MIB']... Loading presaved... Loading frame masks... Loading frame masks... costs 0.84s... has 2165/21678 query/prompt samples
+costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MeshCompletion']... 	Loading test data from [PW3D_MESH] for task: ['MeshCompletion']...Loading presaved...  Loading presaved... Loading frame masks... costs 0.83s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MeshCompletion']... Loading presaved... Loading frame masks... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MeshCompletion']... Loading presaved... Loading frame masks... costs 0.89s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MeshCompletion']... Loading presaved... Loading frame masks... costs 0.86s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MeshCompletion']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+	Preparing test [mesh joint masks] from [PW3D_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+costs 0.84s... has 2165/21678 query/prompt samples
+	Preparing test [mesh joint masks] from [PW3D_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [PW3D_MESH] for task: ['MeshPred']... Loading presaved... 	Loading test data from [PW3D_MESH] for task: ['MeshPred']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+costs 0.84s... has 2165/21678 query/prompt samples
+	Preparing test [mesh joint masks] from [PW3D_MESH] for task: [MeshCompletion]... 	Preparing test [mesh joint masks] from [PW3D_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading mesh joint masks...
+	Loading test data from [PW3D_MESH] for task: ['MeshPred']... Loading presaved... 	Loading test data from [PW3D_MESH] for task: ['MeshPred']... Loading presaved... costs 0.86s... has 2165/21678 query/prompt samples
+	Preparing test [mesh joint masks] from [PW3D_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [PW3D_MESH] for task: ['MeshPred']... Loading presaved... costs 0.86s... has 2165/21678 query/prompt samples
+	Preparing test [mesh joint masks] from [PW3D_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [PW3D_MESH] for task: ['MeshPred']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samplescosts 0.84s... has 2165/21678 query/prompt samples
+
+	Loading test data from [PW3D_MESH] for task: ['MeshInBetween']...	Loading test data from [PW3D_MESH] for task: ['MeshInBetween']...  Loading presaved...Loading presaved...  costs 0.84s... has 2165/21678 query/prompt samplescosts 0.84s... has 2165/21678 query/prompt samples
+
+	Loading test data from [PW3D_MESH] for task: ['MeshInBetween']...	Loading test data from [PW3D_MESH] for task: ['MeshInBetween']...  Loading presaved...Loading presaved...  costs 0.85s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MeshInBetween']... Loading presaved... costs 0.85s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MeshInBetween']... Loading presaved... Loading frame masks...Loading frame masks...  costs 0.84s... has 2165/21678 query/prompt samplescosts 0.84s... has 2165/21678 query/prompt samples
+
+	Loading test data from [COCO] for task: ['PE']...	Loading test data from [COCO] for task: ['PE']...  costs 0.00s... has 5254/37416 query/prompt samples
+costs 0.00s... has 5254/37416 query/prompt samples
+	Loading test data from [COCO] for task: ['MC']... 	Loading test data from [COCO] for task: ['MC']... Loading joint masks... Loading joint masks... costs 0.00s... has 5254/37416 query/prompt samplescosts 0.00s... has 5254/37416 query/prompt samples
+
+	Loading test data from [COCO] for task: ['MeshCompletion']...	Loading test data from [COCO] for task: ['MeshCompletion']...  costs 0.00s... has 5254/37416 query/prompt samples
+costs 0.00s... has 5254/37416 query/prompt samples
+	Preparing test [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing test [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading frame masks... Loading frame masks... costs 0.84s... has 2165/21678 query/prompt samples
+costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [COCO] for task: ['PE']... 	Loading test data from [COCO] for task: ['PE']... costs 0.00s... has 5254/37416 query/prompt samples
+costs 0.00s... has 5254/37416 query/prompt samples
+	Loading test data from [COCO] for task: ['MC']... 	Loading test data from [COCO] for task: ['MC']... Loading joint masks...Loading joint masks...  costs 0.00s... has 5254/37416 query/prompt samplescosts 0.00s... has 5254/37416 query/prompt samples
+
+	Loading test data from [COCO] for task: ['MeshCompletion']... 	Loading test data from [COCO] for task: ['MeshCompletion']... costs 0.00s... has 5254/37416 query/prompt samplescosts 0.00s... has 5254/37416 query/prompt samples
+
+	Preparing test [mesh joint masks] from [COCO] for task: [MeshCompletion]... 	Preparing test [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading mesh joint masks...
+
+Loading model...
+	Model: model_mesh_VER7.M01V02_MotionAGFormer
+Loading frame masks... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [COCO] for task: ['PE']... costs 0.00s... has 5254/37416 query/prompt samples
+	Loading test data from [COCO] for task: ['MC']... Loading joint masks... costs 0.00s... has 5254/37416 query/prompt samples
+	Loading test data from [COCO] for task: ['MeshCompletion']... costs 0.00s... has 5254/37416 query/prompt samples
+	Preparing test [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+Loading frame masks... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [COCO] for task: ['PE']... costs 0.00s... has 5254/37416 query/prompt samples
+	Loading test data from [COCO] for task: ['MC']... Loading joint masks... costs 0.00s... has 5254/37416 query/prompt samples
+	Loading test data from [COCO] for task: ['MeshCompletion']... costs 0.00s... has 5254/37416 query/prompt samples
+	Preparing test [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Trainable parameter count: 48.895466M
+
+Training on [['non_AR', 187]] batches for 120 epochs. batch size: 92
+[1 start]
+	Total sub-batch: 7
+	DDP is being applied.
+	[check randomness] query_id: 0, prompt_id: 13855
+	Iter: 62/187; time cost: 13.61min; current batch has {'AMASS': 312, 'H36M_MESH': 104, 'COCO': 120} samples; batch_size (total/sub): 536/76
+	Iter: 124/187; time cost: 26.98min; current batch has {'AMASS': 360, 'H36M_MESH': 152, 'COCO': 84} samples; batch_size (total/sub): 596/44
+	Evaluating [PE] on [AMASS]... costs 27.18s
+	Evaluating [FPE] on [AMASS]... costs 23.94s
+	Evaluating [MC] on [AMASS]... costs 23.44s
+	Evaluating [MP] on [AMASS]... costs 23.20s
+	Evaluating [MIB] on [AMASS]... costs 23.31s
+	Evaluating [MeshCompletion] on [AMASS]... costs 23.25s
+	Evaluating [MeshPred] on [AMASS]... costs 23.09s
+	Evaluating [MeshInBetween] on [AMASS]... costs 23.57s
+	Evaluating [PE] on [H36M_MESH]... costs 9.25s
+	Evaluating [FPE] on [H36M_MESH]... costs 9.10s
+	Evaluating [MC] on [H36M_MESH]... costs 9.27s
+	Evaluating [MP] on [H36M_MESH]... costs 9.21s
+	Evaluating [MIB] on [H36M_MESH]... costs 9.20s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 9.24s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 9.11s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 9.35s
+	Evaluating [PE] on [PW3D_MESH]... costs 6.65s
+	Evaluating [FPE] on [PW3D_MESH]... costs 6.80s
+	Evaluating [MC] on [PW3D_MESH]... costs 6.65s
+	Evaluating [MP] on [PW3D_MESH]... costs 6.80s
+	Evaluating [MIB] on [PW3D_MESH]... costs 6.64s
+	Evaluating [MeshCompletion] on [PW3D_MESH]... costs 6.61s
+	Evaluating [MeshPred] on [PW3D_MESH]... costs 6.74s
+	Evaluating [MeshInBetween] on [PW3D_MESH]... costs 6.62s
+	Evaluating [PE] on [COCO]... costs 14.78s
+	Evaluating [MC] on [COCO]... costs 14.61s
+	Evaluating [MeshCompletion] on [COCO]... costs 14.63s
++-------+------------+---------+-----------+-----------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS  |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               |  COCO |        |                | AMASS  |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               |  COCO |        |                |
++-------+------------+---------+-----------+-----------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+
+|   1   | 0.00020000 | 0.46157 | 361.46036 | 361.92193 |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |   PE  |   MC   | MeshCompletion |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |   PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 147.67 | 149.14 | 173.87 | 147.72 | 148.96 |     206.06     |  204.04  |     204.85    |   210.74  | 218.29 | 226.20 | 207.98 | 199.33 |     250.32     |  250.42  |     246.43    |   193.25  | 194.03 | 193.62 | 176.00 | 170.93 |     210.39     |  211.34  |     209.00    | 14.11 | 14.10  |     14.33      | 157.64 | 160.99 | 179.02 | 159.82 | 160.44 |     293.92     |  292.39  |     292.46    |   322.52  | 325.68 | 325.68 | 314.10 | 312.08 |     351.42     |  345.99  |     345.96    |   255.08  | 257.44 | 252.73 | 245.43 | 241.08 |     273.30     |  273.88  |     271.70    | 16.73 | 16.18  |     17.18      |
++-------+------------+---------+-----------+-----------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+
+	Saving best checkpoints: [AMASS,PE] [AMASS,FPE] [AMASS,MC] [AMASS,MP] [AMASS,MIB] [AMASS,MeshCompletion] [AMASS,MeshPred] [AMASS,MeshInBetween] [H36M_MESH,PE] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MP] [H36M_MESH,MIB] [H36M_MESH,MeshCompletion] [H36M_MESH,MeshPred] [H36M_MESH,MeshInBetween] [PW3D_MESH,PE] [PW3D_MESH,FPE] [PW3D_MESH,MC] [PW3D_MESH,MP] [PW3D_MESH,MIB] [PW3D_MESH,MeshCompletion] [PW3D_MESH,MeshPred] [PW3D_MESH,MeshInBetween] [COCO,PE] [COCO,MC] [COCO,MeshCompletion] 
+
+[1 end] Time cost: 48.11min 	| lr: 0.00020000
+[2 start]
+	Total sub-batch: 7
+	DDP is being applied.
+	Iter: 62/187; time cost: 13.67min; current batch has {'AMASS': 296, 'H36M_MESH': 192, 'COCO': 93} samples; batch_size (total/sub): 581/29
+	Iter: 124/187; time cost: 26.68min; current batch has {'AMASS': 328, 'H36M_MESH': 144, 'COCO': 99} samples; batch_size (total/sub): 571/19
+	[check randomness] query_id: 0, prompt_id: 20744
+	Evaluating [PE] on [AMASS]... costs 23.20s
+	Evaluating [FPE] on [AMASS]... costs 22.92s
+	Evaluating [MC] on [AMASS]... costs 23.09s
+	Evaluating [MP] on [AMASS]... costs 23.11s
+	Evaluating [MIB] on [AMASS]... costs 23.23s
+	Evaluating [MeshCompletion] on [AMASS]... costs 22.87s
+	Evaluating [MeshPred] on [AMASS]... costs 22.73s
+	Evaluating [MeshInBetween] on [AMASS]... costs 23.50s
+	Evaluating [PE] on [H36M_MESH]... costs 9.06s
+	Evaluating [FPE] on [H36M_MESH]... costs 9.03s
+	Evaluating [MC] on [H36M_MESH]... costs 9.17s
+	Evaluating [MP] on [H36M_MESH]... costs 9.21s
+	Evaluating [MIB] on [H36M_MESH]... costs 9.14s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 9.13s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 9.08s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 9.17s
+	Evaluating [PE] on [PW3D_MESH]... costs 6.62s
+	Evaluating [FPE] on [PW3D_MESH]... costs 6.71s
+	Evaluating [MC] on [PW3D_MESH]... costs 6.76s
+	Evaluating [MP] on [PW3D_MESH]... costs 6.63s
+	Evaluating [MIB] on [PW3D_MESH]... costs 6.65s
+	Evaluating [MeshCompletion] on [PW3D_MESH]... costs 6.58s
+	Evaluating [MeshPred] on [PW3D_MESH]... costs 6.57s
+	Evaluating [MeshInBetween] on [PW3D_MESH]... costs 6.61s
+	Evaluating [PE] on [COCO]... costs 14.65s
+	Evaluating [MC] on [COCO]... costs 14.73s
+	Evaluating [MeshCompletion] on [COCO]... costs 14.74s
++-------+------------+---------+-----------+-----------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS  |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               |  COCO |        |                | AMASS  |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               |  COCO |        |                |
++-------+------------+---------+-----------+-----------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+
+|   2   | 0.00019800 | 0.42569 | 342.13492 | 342.56061 |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |   PE  |   MC   | MeshCompletion |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |   PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 124.60 | 125.82 | 139.42 | 123.29 | 121.79 |     186.14     |  185.46  |     186.18    |   212.37  | 219.96 | 238.36 | 211.85 | 207.20 |     253.13     |  250.20  |     246.99    |   176.76  | 178.08 | 191.48 | 169.12 | 169.62 |     202.75     |  201.57  |     199.71    | 13.34 | 14.09  |     14.01      | 153.80 | 156.92 | 156.97 | 149.56 | 145.88 |     291.99     |  289.59  |     290.27    |   320.98  | 326.48 | 325.90 | 313.81 | 312.91 |     351.96     |  343.59  |     343.71    |   257.11  | 259.49 | 257.10 | 247.40 | 249.25 |     274.66     |  273.45  |     270.52    | 16.14 | 15.88  |     16.88      |
++-------+------------+---------+-----------+-----------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+
+	Saving best checkpoints: [AMASS,PE] [AMASS,FPE] [AMASS,MC] [AMASS,MP] [AMASS,MIB] [AMASS,MeshCompletion] [AMASS,MeshPred] [AMASS,MeshInBetween] [H36M_MESH,MeshPred] [PW3D_MESH,PE] [PW3D_MESH,FPE] [PW3D_MESH,MC] [PW3D_MESH,MP] [PW3D_MESH,MIB] [PW3D_MESH,MeshCompletion] [PW3D_MESH,MeshPred] [PW3D_MESH,MeshInBetween] [COCO,PE] [COCO,MC] [COCO,MeshCompletion] 
+
+[2 end] Time cost: 48.01min 	| lr: 0.00019800
+[3 start]
+	Total sub-batch: 7
+	DDP is being applied.
+	Iter: 62/187; time cost: 13.70min; current batch has {'AMASS': 320, 'H36M_MESH': 128, 'COCO': 108} samples; batch_size (total/sub): 556/4
+	[check randomness] query_id: 0, prompt_id: 31764

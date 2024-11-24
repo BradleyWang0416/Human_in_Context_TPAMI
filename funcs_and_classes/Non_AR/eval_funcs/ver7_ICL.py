@@ -59,6 +59,7 @@ def evaluate(args, TEST_LOADER, h36m_datareader, model, dataset, eval_task, epoc
             assert info_dict['task'] == [eval_task]*batch_size
 
             input_mask = torch.cat(info_dict['input_mask']) if 'input_mask' in info_dict else None     # [B, 24] 
+            input_temporal_mask = torch.cat(info_dict['input_temporal_mask']) if 'input_temporal_mask' in info_dict else None     # [B, 24]
 
             if torch.cuda.is_available():
                 query_input_tensor = query_input_tensor.cuda()
@@ -68,7 +69,9 @@ def evaluate(args, TEST_LOADER, h36m_datareader, model, dataset, eval_task, epoc
                 query_target_dict = {k: v.cuda() for k, v in query_target_dict.items()}
                 if prompt_target_dict is not None: prompt_target_dict = {k: v.cuda() for k, v in prompt_target_dict.items()}
 
-                if input_mask is not None: input_mask = input_mask.cuda()
+                if input_mask is not None: 
+                    input_mask = input_mask.cuda()
+                    input_temporal_mask = input_temporal_mask.cuda()
             
             if use_smpl:
                 query_target_vertex = compute_smpl_vertex(args, query_target_dict, SMPL_MODEL, info_dict)
@@ -82,9 +85,12 @@ def evaluate(args, TEST_LOADER, h36m_datareader, model, dataset, eval_task, epoc
                 prompt_target_dict = test_loader.dataset.preprocess(prompt_target_dict)
 
             output_joint, output_smpl, target_joint, target_smpl = \
-                model(query_input_tensor, prompt_input_tensor, input_mask,
+                model(
+                      query_input_tensor, prompt_input_tensor, {'spatial': input_mask, 'temporal': input_temporal_mask},
                       query_target_tensor, prompt_target_tensor,
-                      query_target_dict, prompt_target_dict, info_dict, epoch, vertex_x1000=args.vertex_x1000, deactivate_prompt_branch=args.deactivate_prompt_branch)
+                      query_target_dict, prompt_target_dict, 
+                      info_dict, epoch, vertex_x1000=args.vertex_x1000, deactivate_prompt_branch=args.deactivate_prompt_branch
+                      )
             # output_joint: [B, T, 17, 3]
             # output_smpl: 1 element list.
             #   output_smpl[0]:

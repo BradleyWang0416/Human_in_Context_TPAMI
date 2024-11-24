@@ -43,6 +43,7 @@ def parse_args():
     parser.add_argument('-mp', '--master_port', type=str, default='12356', help='master port for DistributedDataParallel')
     parser.add_argument('-use_context', type=str, default='')
 
+    parser.add_argument('-apply_attnmask', action='store_true')
     parser.add_argument('-data_efficient', action='store_true')
     parser.add_argument('-vertex_x1000', action='store_true')
     parser.add_argument('-fully_connected_graph', action='store_true')

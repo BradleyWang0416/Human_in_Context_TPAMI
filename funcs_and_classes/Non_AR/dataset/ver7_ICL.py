@@ -311,7 +311,11 @@ class MotionDatasetICL(MotionDatasetICL_VER5):
             INFO_DICT['query_index'].append(query_index)
             INFO_DICT['use_global_orient'].append(int(self.dataset_config[dataset_name]['use_global_orient']))
 
-            # INFO_DICT['input_mask'].append(input_mask)
+            INFO_DICT['input_mask'].append(input_mask)
+            temporal_mask = torch.ones(query_input_tensor.shape[:2])
+            if dataset_name == 'COCO':
+                temporal_mask[:, 1:] = 0.
+            INFO_DICT['input_temporal_mask'].append(temporal_mask)
 
             if self.visualize == self.__class__.__name__:
                 if dataset_name == 'PW3D_MESH' and task == 'MP':
