@@ -1,0 +1,2406 @@
+Training on 4 tasks: ['PE', 'MP', 'MC', 'FPE']
+
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': 0, 'evaluate_non_AR': 0, 'train_epoch_non_AR': 0, 'model_name': 'M07_MixSTE_v1'}, 'use_partial_data': False, 'partial_data': {'datasets': {'PE': None, 'MP': None, 'FPE': None, 'MC': None}, 'train_stride': None, 'sample_stride': None, 'clip_len': None, 'num_joints': None, 'drop_ratios_MC': None, 'root_path': None, 'source_file_h36m': None, 'clip_len_2DAR': None, 'batch_size_2DAR': None, 'label_stride_2DAR': None}, 'full_data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.4, 0.6], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}, 'maxlen': 16, 'dim_in': 3, 'dim_out': 3, 'dim_feat': 256, 'mlp_ratio': 2, 'depth': 5, 'dim_rep': 256, 'num_heads': 8, 'att_fuse': True, 'merge_idx': 2, 'epochs': 120, 'batch_size': 128, 'test_batch_size': 512, 'dropout': 0.0, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'mpjpe': 1.0, 'n_mpjpe': 0.0, 'velocity': 0.0, 'limb_var': 0.0, 'limb_gt': 0.0, 'angle': 0.0, 'angle_velocity': 0.0}, 'label_type_2DAR': 'default', 'rootrel_input': True, 'rootrel_input_2DAR': False, 'rootrel_target_MP': True, 'rootrel_target_PE': True, 'rootrel_target_FPE': True, 'flip_h36m_y_axis': False, 'flip_h36mFPE_y_axis': False, 'scale_h36m_skeleton': 2.0, 'scale_h36mFPE_skeleton': 2.0, 'no_eval': False, 'amass_to_h36m': [[2], [0], [3], [6], [1], [4], [7], [5], [8], [8, 11], [11], [10], [13], [15], [9], [12], [14]], 'name': '04_func000_model07_T16', 'data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.4, 0.6], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}}
+
+python train.py --config configs/02_train_on_non_AR/04_func000_model07_T16.yaml -c ckpt/02_train_on_non_AR/04_func000_model07_T16
+
+Loading dataset...
+train sample count: {'PE': 97196, 'MP': 139151, 'FPE': 96596, 'MC': 23049}
+Training (non-AR) sample count: 355992
+test sample count: {'PE': 35328, 'MP': 45619, 'FPE': 17596, 'MC': 9970}
+Testing (non-AR) sample count: 108513
+
+Loading model...
+Model: M07_MixSTE_v1
+[MODEL INFO] prompt_enabled: True
+Trainable parameter count: 235.739396M
+
+Training on [['non_AR', 2782]] batches for 120 epochs. batch size: 128
+[1 start]
+	Iter: 927/2782; time cost: 19.77min; current batch has {'PE': 31, 'MP': 57, 'MC': 7, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.48min; current batch has {'PE': 37, 'MP': 52, 'MC': 10, 'FPE': 29} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+--------+-----------+---------+--------+--------+-------+--------+-------+----------+---------+-------------+-------+--------+-------+---------+---------+
+|    PE   |  Avg   | Direction | Discuss | Eating | Greet  | Phone | Photo  |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait  |  Walk | WalkDog | WalkTwo |
++---------+--------+-----------+---------+--------+--------+-------+--------+-------+----------+---------+-------------+-------+--------+-------+---------+---------+
+|  MPJPE  | 102.20 |   85.79   |  97.50  | 88.51  | 100.90 | 91.67 | 119.91 | 88.74 |  112.63  |  109.12 |    144.66   | 91.98 | 104.88 | 87.53 |  117.03 |  92.17  |
+| P-MPJPE | 71.73  |   63.78   |  67.84  | 63.68  | 72.53  | 64.50 | 79.02  | 60.76 |  72.00   |  77.22  |    105.06   | 64.97 | 71.98  | 66.15 |  75.89  |  70.51  |
++---------+--------+-----------+---------+--------+--------+-------+--------+-------+----------+---------+-------------+-------+--------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 65.69 | 46.27 | 55.69 | 61.89 | 78.78 | 85.80 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+--------+--------+--------+
+|   MC  |  Avg   |  0.4   |  0.6   |
++-------+--------+--------+--------+
+| MPJPE | 108.54 | 107.76 | 109.32 |
++-------+--------+--------+--------+
++-------+--------+--------+--------+
+|  FPE  |  Avg   |  200   |  300   |
++-------+--------+--------+--------+
+| MPJPE | 107.95 | 105.13 | 110.77 |
++-------+--------+--------+--------+
+[1 end] Time cost: 65.23min 	| lr: 0.00020000 	| train loss: 0.11162933858864152
+[2 start]
+	Iter: 927/2782; time cost: 19.74min; current batch has {'PE': 35, 'MP': 52, 'MC': 8, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.46min; current batch has {'PE': 38, 'MP': 51, 'MC': 9, 'FPE': 30} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 80.67 |   67.76   |  74.65  | 71.82  | 78.22 | 76.87 | 98.35 | 73.09 |  80.17   |  83.13  |    108.98   | 75.99 | 80.07 | 76.78 |  87.61  |  76.56  |
+| P-MPJPE | 57.92 |   49.25   |  52.40  | 51.67  | 56.42 | 55.52 | 65.37 | 50.05 |  53.47   |  64.60  |    84.53    | 54.91 | 55.52 | 56.54 |  61.09  |  57.46  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 55.98 | 40.90 | 45.50 | 50.96 | 68.25 | 74.26 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 83.53 | 78.90 | 88.16 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 90.56 | 87.40 | 93.71 |
++-------+-------+-------+-------+
+[2 end] Time cost: 65.60min 	| lr: 0.00019800 	| train loss: 0.06386929931972865
+[3 start]
+	Iter: 927/2782; time cost: 19.73min; current batch has {'PE': 39, 'MP': 52, 'MC': 6, 'FPE': 31} samples
+	Iter: 1854/2782; time cost: 39.45min; current batch has {'PE': 41, 'MP': 46, 'MC': 7, 'FPE': 34} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 70.32 |   58.90   |  64.30  | 65.93  | 67.27 | 67.13 | 85.99 | 63.32 |  66.15   |  76.46  |    98.09    | 67.11 | 66.17 | 63.90 |  76.89  |  67.15  |
+| P-MPJPE | 53.98 |   46.40   |  49.22  | 50.63  | 53.09 | 52.17 | 61.16 | 47.38 |  48.04   |  60.33  |    75.29    | 52.23 | 49.66 | 51.87 |  57.63  |  54.67  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 45.61 | 30.86 | 37.76 | 42.90 | 55.65 | 60.87 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 66.11 | 59.48 | 72.75 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 82.71 | 79.41 | 86.01 |
++-------+-------+-------+-------+
+[3 end] Time cost: 65.61min 	| lr: 0.00019602 	| train loss: 0.05381491447341461
+[4 start]
+	Iter: 927/2782; time cost: 19.73min; current batch has {'PE': 38, 'MP': 47, 'MC': 10, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.46min; current batch has {'PE': 37, 'MP': 44, 'MC': 9, 'FPE': 38} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 64.70 |   52.67   |  59.97  | 56.84  | 61.62 | 63.70 | 81.14 | 58.20 |  60.89   |  69.98  |    89.44    | 62.62 | 61.36 | 59.32 |  70.26  |  62.55  |
+| P-MPJPE | 51.46 |   42.93   |  47.85  | 46.41  | 49.86 | 51.03 | 58.11 | 44.85 |  47.07   |  58.78  |    73.32    | 51.17 | 47.82 | 48.14 |  55.18  |  49.35  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 39.76 | 23.68 | 32.56 | 37.19 | 49.61 | 55.79 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 57.05 | 50.27 | 63.83 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 78.42 | 74.79 | 82.06 |
++-------+-------+-------+-------+
+[4 end] Time cost: 65.59min 	| lr: 0.00019406 	| train loss: 0.04857378374306244
+[5 start]
+	Iter: 927/2782; time cost: 19.75min; current batch has {'PE': 34, 'MP': 52, 'MC': 10, 'FPE': 32} samples
+	Iter: 1854/2782; time cost: 39.48min; current batch has {'PE': 45, 'MP': 46, 'MC': 8, 'FPE': 29} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 63.63 |   51.89   |  61.13  | 56.18  | 60.06 | 61.85 | 77.55 | 56.57 |  58.97   |  69.08  |    87.67    | 61.42 | 60.68 | 58.94 |  70.20  |  62.20  |
+| P-MPJPE | 50.95 |   42.20   |  47.36  | 47.12  | 49.34 | 50.28 | 58.04 | 44.35 |  45.09   |  57.84  |    72.40    | 50.54 | 46.36 | 48.73 |  54.18  |  50.50  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 35.27 | 20.50 | 29.10 | 33.26 | 43.64 | 49.83 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 56.95 | 50.15 | 63.75 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 76.53 | 72.94 | 80.11 |
++-------+-------+-------+-------+
+[5 end] Time cost: 65.64min 	| lr: 0.00019212 	| train loss: 0.04491520354856148
+[6 start]
+	Iter: 927/2782; time cost: 19.75min; current batch has {'PE': 38, 'MP': 52, 'MC': 8, 'FPE': 30} samples
+	Iter: 1854/2782; time cost: 39.50min; current batch has {'PE': 34, 'MP': 51, 'MC': 7, 'FPE': 36} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 61.42 |   50.10   |  57.25  | 55.47  | 57.41 | 61.36 | 75.75 | 56.19 |  57.81   |  68.46  |    85.44    | 60.26 | 57.84 | 54.54 |  65.77  |  57.60  |
+| P-MPJPE | 49.81 |   41.64   |  45.88  | 46.81  | 47.84 | 50.25 | 56.82 | 44.81 |  44.98   |  57.23  |    69.90    | 50.45 | 45.26 | 45.26 |  51.90  |  48.07  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 32.79 | 18.33 | 26.62 | 30.74 | 40.99 | 47.26 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 52.40 | 46.99 | 57.80 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 75.53 | 71.93 | 79.14 |
++-------+-------+-------+-------+
+[6 end] Time cost: 65.71min 	| lr: 0.00019020 	| train loss: 0.042206988596198786
+[7 start]
+	Iter: 927/2782; time cost: 19.75min; current batch has {'PE': 49, 'MP': 44, 'MC': 9, 'FPE': 26} samples
+	Iter: 1854/2782; time cost: 39.51min; current batch has {'PE': 38, 'MP': 49, 'MC': 3, 'FPE': 38} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 57.96 |   48.06   |  55.77  | 52.05  | 53.64 | 59.51 | 72.47 | 53.80 |  53.70   |  64.91  |    81.15    | 57.73 | 56.54 | 47.46 |  61.04  |  51.56  |
+| P-MPJPE | 45.96 |   38.56   |  43.57  | 41.97  | 43.14 | 47.34 | 53.72 | 41.42 |  42.38   |  53.83  |    66.25    | 47.28 | 43.10 | 37.58 |  47.99  |  41.31  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 33.10 | 19.34 | 27.13 | 31.11 | 41.08 | 46.83 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 48.44 | 41.60 | 55.28 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 70.93 | 67.29 | 74.57 |
++-------+-------+-------+-------+
+[7 end] Time cost: 65.61min 	| lr: 0.00018830 	| train loss: 0.03855431116628502
+[8 start]
+	Iter: 927/2782; time cost: 19.75min; current batch has {'PE': 37, 'MP': 58, 'MC': 4, 'FPE': 29} samples
+	Iter: 1854/2782; time cost: 39.52min; current batch has {'PE': 34, 'MP': 49, 'MC': 9, 'FPE': 36} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 55.79 |   45.62   |  53.13  | 51.72  | 50.44 | 57.82 | 71.68 | 50.08 |  51.84   |  64.33  |    79.94    | 56.28 | 52.18 | 43.78 |  61.35  |  46.61  |
+| P-MPJPE | 44.97 |   37.83   |  42.82  | 42.31  | 42.10 | 47.45 | 52.90 | 39.62 |  40.68   |  54.18  |    65.04    | 47.20 | 41.01 | 35.21 |  47.68  |  38.59  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 30.71 | 15.70 | 24.38 | 28.74 | 39.20 | 45.54 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 46.62 | 39.51 | 53.73 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 69.88 | 66.42 | 73.33 |
++-------+-------+-------+-------+
+[8 end] Time cost: 65.72min 	| lr: 0.00018641 	| train loss: 0.03617251925904613
+[9 start]
+	Iter: 927/2782; time cost: 19.76min; current batch has {'PE': 32, 'MP': 59, 'MC': 12, 'FPE': 25} samples
+	Iter: 1854/2782; time cost: 39.54min; current batch has {'PE': 30, 'MP': 62, 'MC': 7, 'FPE': 29} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 56.24 |   47.23   |  55.15  | 48.16  | 51.85 | 58.69 | 70.94 | 52.21 |  51.75   |  63.94  |    78.87    | 55.68 | 54.70 | 45.70 |  58.68  |  50.09  |
+| P-MPJPE | 45.05 |   37.76   |  42.99  | 40.35  | 42.56 | 47.27 | 52.89 | 40.24 |  41.31   |  53.45  |    65.43    | 46.44 | 42.34 | 36.50 |  46.25  |  39.99  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 29.95 | 16.13 | 24.05 | 28.01 | 38.13 | 43.43 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 47.33 | 39.37 | 55.29 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 66.76 | 63.32 | 70.21 |
++-------+-------+-------+-------+
+[9 end] Time cost: 65.53min 	| lr: 0.00018455 	| train loss: 0.03433022027800382
+[10 start]
+	Iter: 927/2782; time cost: 19.77min; current batch has {'PE': 46, 'MP': 42, 'MC': 9, 'FPE': 31} samples
+	Iter: 1854/2782; time cost: 39.52min; current batch has {'PE': 39, 'MP': 54, 'MC': 6, 'FPE': 29} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 56.40 |   49.05   |  57.32  | 49.90  | 51.62 | 58.26 | 68.24 | 52.66 |  51.29   |  64.42  |    80.13    | 56.61 | 55.36 | 44.94 |  57.76  |  48.48  |
+| P-MPJPE | 45.35 |   39.68   |  44.63  | 42.19  | 42.42 | 47.34 | 52.39 | 40.78 |  40.74   |  53.43  |    65.82    | 47.04 | 42.50 | 35.58 |  46.26  |  39.43  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 29.47 | 16.47 | 24.01 | 27.51 | 36.83 | 42.54 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 45.50 | 38.30 | 52.69 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 68.40 | 65.18 | 71.62 |
++-------+-------+-------+-------+
+[10 end] Time cost: 65.49min 	| lr: 0.00018270 	| train loss: 0.03300558405436543
+[11 start]
+	Iter: 927/2782; time cost: 19.77min; current batch has {'PE': 41, 'MP': 43, 'MC': 10, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.54min; current batch has {'PE': 36, 'MP': 43, 'MC': 7, 'FPE': 42} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 54.10 |   46.09   |  53.24  | 50.39  | 49.32 | 57.25 | 69.43 | 49.90 |  48.59   |  62.32  |    76.67    | 54.63 | 51.59 | 41.22 |  56.20  |  44.66  |
+| P-MPJPE | 43.55 |   37.27   |  42.66  | 41.43  | 40.70 | 46.01 | 51.84 | 38.95 |  39.30   |  51.65  |    64.43    | 45.43 | 39.75 | 32.88 |  44.53  |  36.51  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 28.39 | 14.57 | 22.37 | 26.15 | 36.37 | 42.47 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 46.49 | 39.59 | 53.39 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 66.57 | 63.45 | 69.69 |
++-------+-------+-------+-------+
+[11 end] Time cost: 65.67min 	| lr: 0.00018088 	| train loss: 0.03198505380619976
+[12 start]
+	Iter: 927/2782; time cost: 19.78min; current batch has {'PE': 33, 'MP': 46, 'MC': 7, 'FPE': 42} samples
+	Iter: 1854/2782; time cost: 39.55min; current batch has {'PE': 32, 'MP': 57, 'MC': 8, 'FPE': 31} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[12 end] Time cost: 59.42min 	| lr: 0.00017907 	| train loss: 0.031088007419376205
+[13 start]
+	Iter: 927/2782; time cost: 19.77min; current batch has {'PE': 29, 'MP': 51, 'MC': 10, 'FPE': 38} samples
+	Iter: 1854/2782; time cost: 39.55min; current batch has {'PE': 36, 'MP': 49, 'MC': 11, 'FPE': 32} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 54.14 |   47.09   |  52.66  | 50.65  | 49.66 | 56.66 | 69.51 | 48.37 |  49.40   |  61.08  |    75.59    | 55.13 | 51.93 | 42.17 |  56.28  |  45.95  |
+| P-MPJPE | 43.64 |   37.59   |  42.25  | 41.83  | 40.81 | 45.45 | 52.23 | 37.91 |  39.55   |  50.84  |    63.69    | 45.62 | 40.10 | 34.03 |  45.10  |  37.67  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 28.10 | 14.78 | 22.45 | 26.18 | 35.81 | 41.28 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 43.44 | 36.17 | 50.71 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 64.90 | 61.63 | 68.17 |
++-------+-------+-------+-------+
+[13 end] Time cost: 65.64min 	| lr: 0.00017728 	| train loss: 0.030268342914786625
+[14 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 33, 'MP': 51, 'MC': 8, 'FPE': 36} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 40, 'MP': 53, 'MC': 4, 'FPE': 31} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[14 end] Time cost: 59.51min 	| lr: 0.00017550 	| train loss: 0.029529129165214496
+[15 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 39, 'MP': 53, 'MC': 5, 'FPE': 31} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 23, 'MP': 52, 'MC': 6, 'FPE': 47} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 52.64 |   46.28   |  53.34  | 48.10  | 48.25 | 55.64 | 65.83 | 48.40 |  48.58   |  59.21  |    74.64    | 53.20 | 51.10 | 40.40 |  53.88  |  42.80  |
+| P-MPJPE | 42.69 |   36.77   |  42.25  | 40.47  | 40.18 | 45.20 | 50.66 | 38.17 |  39.06   |  49.68  |    62.29    | 44.97 | 39.61 | 32.40 |  43.60  |  35.07  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 26.63 | 12.85 | 20.43 | 24.24 | 34.93 | 40.69 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 41.85 | 34.37 | 49.34 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 64.03 | 60.92 | 67.14 |
++-------+-------+-------+-------+
+[15 end] Time cost: 65.87min 	| lr: 0.00017375 	| train loss: 0.028809584968217145
+[16 start]
+	Iter: 927/2782; time cost: 19.81min; current batch has {'PE': 33, 'MP': 50, 'MC': 10, 'FPE': 35} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 47, 'MP': 42, 'MC': 8, 'FPE': 31} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[16 end] Time cost: 59.50min 	| lr: 0.00017201 	| train loss: 0.02819646415555688
+[17 start]
+	Iter: 927/2782; time cost: 19.81min; current batch has {'PE': 32, 'MP': 47, 'MC': 11, 'FPE': 38} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 34, 'MP': 48, 'MC': 8, 'FPE': 38} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 52.41 |   45.58   |  52.06  | 48.47  | 47.76 | 55.58 | 68.06 | 48.70 |  48.89   |  60.90  |    72.17    | 53.78 | 50.62 | 38.74 |  52.31  |  42.50  |
+| P-MPJPE | 42.55 |   36.81   |  41.49  | 39.97  | 39.85 | 45.14 | 50.94 | 38.67 |  39.53   |  50.67  |    61.40    | 44.93 | 39.08 | 31.36 |  43.08  |  35.26  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 25.16 | 11.94 | 19.30 | 22.90 | 32.80 | 38.84 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 41.89 | 34.78 | 49.00 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 63.95 | 60.86 | 67.05 |
++-------+-------+-------+-------+
+[17 end] Time cost: 66.20min 	| lr: 0.00017029 	| train loss: 0.027665270758526667
+[18 start]
+	Iter: 927/2782; time cost: 19.81min; current batch has {'PE': 44, 'MP': 44, 'MC': 6, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.60min; current batch has {'PE': 38, 'MP': 48, 'MC': 12, 'FPE': 30} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[18 end] Time cost: 59.50min 	| lr: 0.00016859 	| train loss: 0.027159632615357126
+[19 start]
+	Iter: 927/2782; time cost: 19.78min; current batch has {'PE': 27, 'MP': 55, 'MC': 5, 'FPE': 41} samples
+	Iter: 1854/2782; time cost: 39.54min; current batch has {'PE': 32, 'MP': 49, 'MC': 7, 'FPE': 40} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 52.78 |   46.24   |  53.17  | 48.48  | 48.47 | 55.69 | 67.26 | 49.16 |  48.38   |  60.92  |    75.18    | 53.27 | 52.29 | 38.50 |  52.78  |  41.91  |
+| P-MPJPE | 42.48 |   36.72   |  42.07  | 40.18  | 39.90 | 44.68 | 50.50 | 38.08 |  38.98   |  51.16  |    62.60    | 44.76 | 40.05 | 30.45 |  43.26  |  33.83  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 25.02 | 12.20 | 19.37 | 22.93 | 32.48 | 38.13 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 42.70 | 35.87 | 49.53 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 64.03 | 61.11 | 66.95 |
++-------+-------+-------+-------+
+[19 end] Time cost: 65.42min 	| lr: 0.00016690 	| train loss: 0.026619052242397842
+[20 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 33, 'MP': 52, 'MC': 6, 'FPE': 37} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 42, 'MP': 47, 'MC': 5, 'FPE': 34} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[20 end] Time cost: 59.43min 	| lr: 0.00016523 	| train loss: 0.026154441345390057
+[21 start]
+	Iter: 927/2782; time cost: 19.91min; current batch has {'PE': 28, 'MP': 48, 'MC': 6, 'FPE': 46} samples
+	Iter: 1854/2782; time cost: 39.68min; current batch has {'PE': 31, 'MP': 47, 'MC': 12, 'FPE': 38} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 63.00 |   52.34   |  62.24  | 57.19  | 60.27 | 62.93 | 75.15 | 56.93 |  59.00   |  65.65  |    79.76    | 60.13 | 59.06 | 62.81 |  67.71  |  63.77  |
+| P-MPJPE | 49.90 |   41.98   |  47.96  | 46.90  | 48.78 | 49.98 | 56.39 | 44.59 |  45.17   |  53.43  |    64.78    | 48.85 | 44.32 | 51.29 |  52.32  |  51.82  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 25.51 | 12.63 | 19.70 | 23.22 | 33.12 | 38.91 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 40.20 | 32.84 | 47.57 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 61.57 | 58.30 | 64.85 |
++-------+-------+-------+-------+
+[21 end] Time cost: 65.69min 	| lr: 0.00016358 	| train loss: 0.025726118178620798
+[22 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 33, 'MP': 55, 'MC': 5, 'FPE': 35} samples
+	Iter: 1854/2782; time cost: 39.55min; current batch has {'PE': 34, 'MP': 45, 'MC': 11, 'FPE': 38} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[22 end] Time cost: 59.42min 	| lr: 0.00016195 	| train loss: 0.025264606354873462
+[23 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 46, 'MP': 39, 'MC': 7, 'FPE': 36} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 36, 'MP': 46, 'MC': 12, 'FPE': 34} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 52.41 |   45.05   |  52.19  | 48.27  | 47.92 | 55.36 | 67.27 | 47.85 |  48.00   |  59.76  |    73.08    | 53.03 | 51.00 | 40.52 |  53.85  |  43.02  |
+| P-MPJPE | 42.62 |   36.30   |  41.60  | 39.99  | 39.80 | 45.12 | 51.02 | 37.91 |  38.92   |  50.11  |    61.06    | 44.31 | 40.02 | 32.76 |  43.99  |  36.35  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 25.00 | 12.09 | 19.34 | 22.83 | 32.52 | 38.22 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 40.67 | 33.32 | 48.03 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 61.71 | 58.52 | 64.89 |
++-------+-------+-------+-------+
+[23 end] Time cost: 65.46min 	| lr: 0.00016033 	| train loss: 0.024874366468919946
+[24 start]
+	Iter: 927/2782; time cost: 19.83min; current batch has {'PE': 40, 'MP': 51, 'MC': 8, 'FPE': 29} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 43, 'MP': 43, 'MC': 10, 'FPE': 32} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[24 end] Time cost: 59.52min 	| lr: 0.00015872 	| train loss: 0.024419108332373814
+[25 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 39, 'MP': 52, 'MC': 6, 'FPE': 31} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 30, 'MP': 51, 'MC': 8, 'FPE': 39} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 53.25 |   47.02   |  52.55  | 49.50  | 48.17 | 55.84 | 66.95 | 49.01 |  48.73   |  60.08  |    74.33    | 54.15 | 50.50 | 41.58 |  55.24  |  45.14  |
+| P-MPJPE | 42.88 |   37.67   |  41.69  | 41.69  | 39.80 | 44.80 | 51.29 | 37.91 |  38.48   |  50.05  |    60.94    | 44.76 | 39.12 | 33.73 |  44.19  |  37.07  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.97 | 10.96 | 18.21 | 21.73 | 31.65 | 37.30 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 40.89 | 33.34 | 48.44 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 61.75 | 58.62 | 64.89 |
++-------+-------+-------+-------+
+[25 end] Time cost: 65.45min 	| lr: 0.00015714 	| train loss: 0.024045576709362294
+[26 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 42, 'MP': 46, 'MC': 12, 'FPE': 28} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 44, 'MP': 45, 'MC': 8, 'FPE': 31} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[26 end] Time cost: 59.51min 	| lr: 0.00015556 	| train loss: 0.02372454378504677
+[27 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 41, 'MP': 44, 'MC': 5, 'FPE': 38} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 38, 'MP': 43, 'MC': 11, 'FPE': 36} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 51.32 |   45.63   |  51.66  | 47.24  | 46.20 | 53.53 | 65.97 | 48.05 |  46.99   |  59.55  |    73.33    | 52.38 | 50.06 | 37.04 |  52.14  |  40.06  |
+| P-MPJPE | 41.58 |   36.00   |  41.22  | 39.35  | 38.23 | 43.85 | 50.72 | 37.72 |  37.86   |  49.65  |    60.78    | 43.72 | 38.57 | 29.54 |  42.82  |  33.70  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 24.45 | 11.70 | 18.84 | 22.35 | 31.93 | 37.43 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 40.45 | 32.96 | 47.94 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 62.74 | 59.66 | 65.83 |
++-------+-------+-------+-------+
+[27 end] Time cost: 65.49min 	| lr: 0.00015401 	| train loss: 0.023329458988362632
+[28 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 39, 'MP': 44, 'MC': 4, 'FPE': 41} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 32, 'MP': 55, 'MC': 9, 'FPE': 32} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[28 end] Time cost: 59.53min 	| lr: 0.00015247 	| train loss: 0.023029529070346666
+[29 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 41, 'MP': 50, 'MC': 12, 'FPE': 25} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 32, 'MP': 51, 'MC': 9, 'FPE': 36} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 51.48 |   45.17   |  52.04  | 46.82  | 46.47 | 53.40 | 65.59 | 47.87 |  47.07   |  59.62  |    73.48    | 52.65 | 50.16 | 38.24 |  52.78  |  40.90  |
+| P-MPJPE | 41.76 |   36.42   |  41.21  | 39.70  | 38.86 | 43.43 | 50.46 | 37.58 |  37.76   |  49.80  |    60.70    | 44.26 | 39.03 | 30.41 |  42.81  |  33.90  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 24.59 | 11.97 | 18.97 | 22.41 | 32.04 | 37.58 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 39.06 | 31.90 | 46.21 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 61.73 | 58.68 | 64.77 |
++-------+-------+-------+-------+
+[29 end] Time cost: 65.46min 	| lr: 0.00015094 	| train loss: 0.022691564490952644
+[30 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 27, 'MP': 53, 'MC': 5, 'FPE': 43} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 37, 'MP': 48, 'MC': 12, 'FPE': 31} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[30 end] Time cost: 59.52min 	| lr: 0.00014943 	| train loss: 0.022401088743604282
+[31 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 32, 'MP': 49, 'MC': 7, 'FPE': 40} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 27, 'MP': 50, 'MC': 12, 'FPE': 39} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 51.50 |   44.74   |  51.91  | 47.70  | 46.79 | 53.12 | 65.08 | 47.99 |  48.02   |  58.59  |    71.86    | 51.97 | 49.86 | 39.54 |  53.21  |  42.17  |
+| P-MPJPE | 41.79 |   35.63   |  40.69  | 40.29  | 38.92 | 43.16 | 50.14 | 37.73 |  38.73   |  49.58  |    59.62    | 43.42 | 38.54 | 32.00 |  43.18  |  35.23  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.76 | 11.18 | 18.19 | 21.64 | 31.10 | 36.68 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.97 | 30.63 | 45.32 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.26 | 57.04 | 63.48 |
++-------+-------+-------+-------+
+[31 end] Time cost: 65.68min 	| lr: 0.00014794 	| train loss: 0.02206037518560991
+[32 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 29, 'MP': 45, 'MC': 11, 'FPE': 43} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 25, 'MP': 57, 'MC': 7, 'FPE': 39} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[32 end] Time cost: 59.51min 	| lr: 0.00014646 	| train loss: 0.021777529490970112
+[33 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 34, 'MP': 44, 'MC': 8, 'FPE': 42} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 28, 'MP': 58, 'MC': 7, 'FPE': 35} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 52.81 |   45.31   |  53.27  | 48.80  | 48.39 | 55.19 | 66.05 | 49.67 |  49.72   |  58.55  |    74.58    | 53.04 | 51.26 | 41.09 |  53.28  |  43.97  |
+| P-MPJPE | 42.86 |   37.09   |  42.20  | 40.81  | 40.11 | 44.48 | 50.72 | 38.75 |  39.63   |  49.75  |    61.37    | 44.41 | 39.89 | 33.39 |  43.72  |  36.51  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.86 | 11.00 | 18.22 | 21.81 | 31.54 | 36.71 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 38.37 | 31.19 | 45.55 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.63 | 57.44 | 63.82 |
++-------+-------+-------+-------+
+[33 end] Time cost: 65.34min 	| lr: 0.00014500 	| train loss: 0.02150081467247503
+[34 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 36, 'MP': 51, 'MC': 9, 'FPE': 32} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 39, 'MP': 49, 'MC': 6, 'FPE': 34} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[34 end] Time cost: 59.44min 	| lr: 0.00014355 	| train loss: 0.021228524776508682
+[35 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 35, 'MP': 44, 'MC': 14, 'FPE': 35} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 37, 'MP': 51, 'MC': 4, 'FPE': 36} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.49 |   44.94   |  51.17  | 47.75  | 46.01 | 53.49 | 63.89 | 46.35 |  45.66   |  57.96  |    71.80    | 51.47 | 49.09 | 36.79 |  51.26  |  39.77  |
+| P-MPJPE | 41.16 |   35.80   |  40.47  | 40.12  | 38.37 | 43.44 | 49.42 | 36.69 |  37.53   |  49.71  |    59.69    | 43.23 | 38.30 | 29.61 |  41.90  |  33.06  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 24.25 | 11.26 | 18.69 | 22.22 | 31.80 | 37.30 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.94 | 30.44 | 45.43 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 61.90 | 58.92 | 64.89 |
++-------+-------+-------+-------+
+[35 end] Time cost: 65.57min 	| lr: 0.00014211 	| train loss: 0.020966343625836815
+[36 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 35, 'MP': 54, 'MC': 11, 'FPE': 28} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 33, 'MP': 44, 'MC': 8, 'FPE': 43} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[36 end] Time cost: 59.52min 	| lr: 0.00014069 	| train loss: 0.020726102948933522
+[37 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 39, 'MP': 47, 'MC': 8, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 35, 'MP': 51, 'MC': 5, 'FPE': 37} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 51.98 |   46.09   |  53.11  | 47.58  | 47.28 | 54.39 | 65.08 | 48.99 |  48.12   |  58.05  |    73.44    | 52.45 | 50.97 | 38.84 |  53.21  |  42.17  |
+| P-MPJPE | 41.79 |   36.36   |  41.09  | 40.10  | 38.96 | 44.05 | 49.90 | 38.31 |  38.46   |  48.49  |    60.40    | 43.45 | 38.90 | 31.13 |  42.59  |  34.71  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 24.00 | 11.15 | 18.32 | 21.88 | 31.64 | 37.02 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 38.30 | 31.08 | 45.52 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.76 | 57.61 | 63.91 |
++-------+-------+-------+-------+
+[37 end] Time cost: 65.34min 	| lr: 0.00013928 	| train loss: 0.020441094919045968
+[38 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 41, 'MP': 40, 'MC': 5, 'FPE': 42} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 34, 'MP': 47, 'MC': 8, 'FPE': 39} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[38 end] Time cost: 59.45min 	| lr: 0.00013789 	| train loss: 0.02016392219080416
+[39 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 36, 'MP': 41, 'MC': 11, 'FPE': 40} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 37, 'MP': 55, 'MC': 5, 'FPE': 31} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 51.06 |   45.29   |  51.94  | 47.49  | 46.45 | 53.59 | 64.37 | 47.36 |  46.75   |  57.65  |    72.51    | 52.27 | 50.35 | 37.73 |  51.49  |  40.70  |
+| P-MPJPE | 41.75 |   36.57   |  41.30  | 40.39  | 38.85 | 44.02 | 50.01 | 37.31 |  38.33   |  48.88  |    60.44    | 44.15 | 39.13 | 30.73 |  42.12  |  34.01  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.42 | 10.74 | 17.73 | 21.17 | 30.91 | 36.58 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.29 | 30.03 | 44.54 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.53 | 57.38 | 63.68 |
++-------+-------+-------+-------+
+[39 end] Time cost: 65.57min 	| lr: 0.00013651 	| train loss: 0.019888842895678258
+[40 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 31, 'MP': 60, 'MC': 8, 'FPE': 29} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 37, 'MP': 53, 'MC': 5, 'FPE': 33} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[40 end] Time cost: 59.51min 	| lr: 0.00013515 	| train loss: 0.01965884559510981
+[41 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 36, 'MP': 55, 'MC': 7, 'FPE': 30} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 27, 'MP': 57, 'MC': 9, 'FPE': 35} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.90 |   44.90   |  51.12  | 49.06  | 45.98 | 53.22 | 64.81 | 47.16 |  46.01   |  58.82  |    72.83    | 52.06 | 49.88 | 36.83 |  51.27  |  39.56  |
+| P-MPJPE | 41.30 |   36.05   |  40.63  | 40.50  | 38.57 | 43.00 | 49.39 | 37.13 |  37.68   |  49.67  |    60.32    | 43.27 | 38.49 | 29.70 |  42.05  |  33.07  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.55 | 10.67 | 18.01 | 21.57 | 31.08 | 36.43 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 38.01 | 30.42 | 45.61 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.68 | 57.57 | 63.80 |
++-------+-------+-------+-------+
+[41 end] Time cost: 65.34min 	| lr: 0.00013379 	| train loss: 0.01939077130998443
+[42 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 33, 'MP': 46, 'MC': 11, 'FPE': 38} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 37, 'MP': 50, 'MC': 7, 'FPE': 34} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[42 end] Time cost: 59.45min 	| lr: 0.00013246 	| train loss: 0.019211112707083127
+[43 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 25, 'MP': 53, 'MC': 5, 'FPE': 45} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 33, 'MP': 41, 'MC': 12, 'FPE': 42} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.22 |   44.66   |  50.81  | 47.46  | 45.25 | 52.40 | 63.91 | 46.32 |  46.08   |  57.31  |    72.27    | 50.73 | 49.43 | 36.38 |  51.79  |  38.48  |
+| P-MPJPE | 40.67 |   35.85   |  40.01  | 39.36  | 37.72 | 42.82 | 49.15 | 36.46 |  37.17   |  48.11  |    59.43    | 42.79 | 38.14 | 29.26 |  41.79  |  31.93  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.49 | 10.75 | 17.90 | 21.38 | 30.95 | 36.49 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.92 | 30.63 | 45.21 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.82 | 57.64 | 64.00 |
++-------+-------+-------+-------+
+[43 end] Time cost: 65.44min 	| lr: 0.00013113 	| train loss: 0.018961833906435837
+[44 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 35, 'MP': 50, 'MC': 6, 'FPE': 37} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 37, 'MP': 42, 'MC': 9, 'FPE': 40} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[44 end] Time cost: 59.52min 	| lr: 0.00012982 	| train loss: 0.01877753860981773
+[45 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 36, 'MP': 49, 'MC': 6, 'FPE': 37} samples
+	Iter: 1854/2782; time cost: 39.55min; current batch has {'PE': 35, 'MP': 44, 'MC': 9, 'FPE': 40} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.82 |   45.39   |  50.32  | 48.64  | 45.75 | 53.14 | 64.96 | 47.92 |  46.78   |  58.30  |    73.98    | 51.18 | 49.30 | 36.67 |  50.65  |  39.26  |
+| P-MPJPE | 40.88 |   35.66   |  39.61  | 40.23  | 37.70 | 43.03 | 49.56 | 37.12 |  37.47   |  49.08  |    60.90    | 42.73 | 37.91 | 28.84 |  41.22  |  32.06  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.57 | 10.63 | 17.78 | 21.29 | 31.18 | 36.99 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.04 | 29.68 | 44.41 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 61.88 | 58.82 | 64.94 |
++-------+-------+-------+-------+
+[45 end] Time cost: 65.42min 	| lr: 0.00012852 	| train loss: 0.01851908369962399
+[46 start]
+	Iter: 927/2782; time cost: 19.81min; current batch has {'PE': 38, 'MP': 49, 'MC': 8, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.60min; current batch has {'PE': 38, 'MP': 55, 'MC': 10, 'FPE': 25} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[46 end] Time cost: 59.50min 	| lr: 0.00012724 	| train loss: 0.018331346285816102
+[47 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 31, 'MP': 54, 'MC': 5, 'FPE': 38} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 32, 'MP': 43, 'MC': 12, 'FPE': 41} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 52.36 |   46.69   |  53.26  | 49.54  | 48.82 | 54.02 | 66.05 | 47.62 |  49.15   |  57.90  |    73.63    | 52.25 | 50.92 | 39.29 |  53.83  |  42.37  |
+| P-MPJPE | 42.26 |   36.99   |  41.63  | 41.25  | 40.46 | 43.83 | 50.50 | 37.33 |  39.25   |  48.84  |    60.44    | 43.44 | 39.45 | 31.96 |  43.45  |  35.15  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.39 | 10.60 | 17.69 | 21.24 | 30.98 | 36.47 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.31 | 29.75 | 44.88 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.08 | 56.90 | 63.27 |
++-------+-------+-------+-------+
+[47 end] Time cost: 65.56min 	| lr: 0.00012596 	| train loss: 0.018113476914965655
+[48 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 38, 'MP': 47, 'MC': 12, 'FPE': 31} samples
+	Iter: 1854/2782; time cost: 39.63min; current batch has {'PE': 29, 'MP': 47, 'MC': 16, 'FPE': 36} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[48 end] Time cost: 59.53min 	| lr: 0.00012471 	| train loss: 0.01787696559127884
+[49 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 34, 'MP': 51, 'MC': 8, 'FPE': 35} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 37, 'MP': 52, 'MC': 5, 'FPE': 34} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.38 |   45.20   |  50.96  | 48.02  | 45.51 | 52.94 | 64.20 | 46.83 |  47.03   |  57.66  |    73.06    | 51.39 | 48.72 | 35.84 |  50.89  |  37.43  |
+| P-MPJPE | 40.79 |   35.82   |  40.36  | 40.11  | 37.77 | 43.23 | 49.35 | 36.76 |  37.78   |  48.71  |    59.38    | 43.21 | 37.80 | 28.85 |  41.38  |  31.36  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.32 | 10.41 | 17.72 | 21.25 | 30.89 | 36.34 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.99 | 29.56 | 44.43 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.74 | 57.60 | 63.87 |
++-------+-------+-------+-------+
+[49 end] Time cost: 65.62min 	| lr: 0.00012346 	| train loss: 0.0176731595552825
+[50 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 27, 'MP': 62, 'MC': 6, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 36, 'MP': 45, 'MC': 11, 'FPE': 36} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[50 end] Time cost: 59.50min 	| lr: 0.00012222 	| train loss: 0.017516521643384696
+[51 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 31, 'MP': 52, 'MC': 10, 'FPE': 35} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 36, 'MP': 46, 'MC': 8, 'FPE': 38} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 52.58 |   46.18   |  53.04  | 49.91  | 48.64 | 54.84 | 66.55 | 48.16 |  47.47   |  58.37  |    73.37    | 53.07 | 50.39 | 41.33 |  53.90  |  43.44  |
+| P-MPJPE | 42.39 |   37.13   |  41.77  | 41.57  | 40.03 | 44.25 | 50.37 | 37.69 |  38.10   |  49.03  |    60.10    | 44.29 | 38.48 | 33.53 |  43.74  |  35.73  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.46 | 10.41 | 17.67 | 21.24 | 31.11 | 36.87 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.34 | 29.93 | 44.75 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 59.69 | 56.48 | 62.91 |
++-------+-------+-------+-------+
+[51 end] Time cost: 65.52min 	| lr: 0.00012100 	| train loss: 0.017401031776668303
+[52 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 29, 'MP': 45, 'MC': 11, 'FPE': 43} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 32, 'MP': 57, 'MC': 7, 'FPE': 32} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[52 end] Time cost: 59.51min 	| lr: 0.00011979 	| train loss: 0.01715751736188344
+[53 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 35, 'MP': 58, 'MC': 2, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 44, 'MP': 43, 'MC': 6, 'FPE': 35} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.64 |   44.55   |  51.28  | 47.60  | 45.71 | 52.41 | 64.09 | 47.28 |  46.62   |  58.75  |    72.28    | 51.60 | 50.06 | 37.17 |  51.13  |  39.02  |
+| P-MPJPE | 40.94 |   35.54   |  40.51  | 39.56  | 37.80 | 42.70 | 49.03 | 36.97 |  37.27   |  49.29  |    59.69    | 43.24 | 38.41 | 29.97 |  41.72  |  32.37  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.27 | 10.13 | 17.49 | 21.09 | 31.01 | 36.63 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.62 | 30.16 | 45.08 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.43 | 57.21 | 63.65 |
++-------+-------+-------+-------+
+[53 end] Time cost: 65.47min 	| lr: 0.00011859 	| train loss: 0.016976017128793295
+[54 start]
+	Iter: 927/2782; time cost: 19.83min; current batch has {'PE': 39, 'MP': 49, 'MC': 7, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.63min; current batch has {'PE': 42, 'MP': 38, 'MC': 10, 'FPE': 38} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[54 end] Time cost: 59.54min 	| lr: 0.00011741 	| train loss: 0.016825990336864577
+[55 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 36, 'MP': 48, 'MC': 8, 'FPE': 36} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 29, 'MP': 60, 'MC': 7, 'FPE': 32} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.29 |   44.78   |  51.02  | 46.93  | 45.54 | 52.29 | 64.21 | 47.38 |  46.64   |  57.58  |    71.98    | 51.14 | 49.92 | 36.05 |  50.21  |  38.76  |
+| P-MPJPE | 40.86 |   35.71   |  40.37  | 39.30  | 37.88 | 42.81 | 49.61 | 37.05 |  37.72   |  48.96  |    59.49    | 43.08 | 38.46 | 29.00 |  41.30  |  32.22  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 23.18 | 9.98 | 17.36 | 20.94 | 30.89 | 36.74 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.47 | 29.86 | 45.08 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.54 | 57.40 | 63.69 |
++-------+-------+-------+-------+
+[55 end] Time cost: 65.47min 	| lr: 0.00011623 	| train loss: 0.01666636476757622
+[56 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 31, 'MP': 49, 'MC': 13, 'FPE': 35} samples
+	Iter: 1854/2782; time cost: 39.63min; current batch has {'PE': 37, 'MP': 52, 'MC': 10, 'FPE': 29} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[56 end] Time cost: 59.54min 	| lr: 0.00011507 	| train loss: 0.0164391375759714
+[57 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 36, 'MP': 37, 'MC': 7, 'FPE': 48} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 34, 'MP': 49, 'MC': 9, 'FPE': 36} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.01 |   44.79   |  50.87  | 46.88  | 45.14 | 52.37 | 63.93 | 46.88 |  45.86   |  57.03  |    72.17    | 50.78 | 49.10 | 35.82 |  50.06  |  38.39  |
+| P-MPJPE | 40.45 |   35.63   |  40.06  | 39.61  | 37.33 | 42.57 | 49.06 | 36.30 |  36.82   |  48.32  |    59.11    | 42.54 | 37.67 | 28.68 |  41.07  |  31.98  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.06 | 10.09 | 17.38 | 20.91 | 30.59 | 36.31 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.06 | 29.41 | 44.71 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.42 | 57.31 | 63.52 |
++-------+-------+-------+-------+
+[57 end] Time cost: 65.59min 	| lr: 0.00011392 	| train loss: 0.016257650698640103
+[58 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 34, 'MP': 52, 'MC': 5, 'FPE': 37} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 32, 'MP': 53, 'MC': 10, 'FPE': 33} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[58 end] Time cost: 59.53min 	| lr: 0.00011278 	| train loss: 0.016082959942074797
+[59 start]
+	Iter: 927/2782; time cost: 19.83min; current batch has {'PE': 33, 'MP': 58, 'MC': 9, 'FPE': 28} samples
+	Iter: 1854/2782; time cost: 39.64min; current batch has {'PE': 42, 'MP': 44, 'MC': 6, 'FPE': 36} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.76 |   45.35   |  51.26  | 48.23  | 45.69 | 53.32 | 64.48 | 46.96 |  46.45   |  57.40  |    72.55    | 51.62 | 49.47 | 37.58 |  51.16  |  39.88  |
+| P-MPJPE | 41.14 |   36.24   |  40.54  | 40.33  | 38.00 | 43.49 | 49.38 | 37.10 |  37.07   |  48.55  |    59.60    | 43.33 | 38.25 | 30.35 |  41.66  |  33.25  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.15 | 10.09 | 17.39 | 20.97 | 30.80 | 36.52 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.56 | 29.33 | 43.79 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.02 | 56.73 | 63.31 |
++-------+-------+-------+-------+
+[59 end] Time cost: 65.57min 	| lr: 0.00011165 	| train loss: 0.015994352182664026
+[60 start]
+	Iter: 927/2782; time cost: 19.83min; current batch has {'PE': 34, 'MP': 51, 'MC': 12, 'FPE': 31} samples
+	Iter: 1854/2782; time cost: 39.63min; current batch has {'PE': 40, 'MP': 50, 'MC': 5, 'FPE': 33} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[60 end] Time cost: 59.54min 	| lr: 0.00011054 	| train loss: 0.01580174866853298
+[61 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 38, 'MP': 49, 'MC': 5, 'FPE': 36} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 38, 'MP': 54, 'MC': 5, 'FPE': 31} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.87 |   44.56   |  51.20  | 47.81  | 45.56 | 53.24 | 64.95 | 47.44 |  46.77   |  57.68  |    73.78    | 51.69 | 49.38 | 37.70 |  51.29  |  39.92  |
+| P-MPJPE | 41.11 |   35.73   |  40.63  | 39.89  | 37.73 | 43.22 | 49.19 | 36.98 |  37.34   |  48.59  |    60.41    | 43.35 | 38.06 | 30.32 |  42.05  |  33.21  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.20 | 10.17 | 17.48 | 21.00 | 30.80 | 36.55 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.09 | 29.97 | 44.21 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.44 | 57.15 | 63.73 |
++-------+-------+-------+-------+
+[61 end] Time cost: 65.34min 	| lr: 0.00010943 	| train loss: 0.015643337986845637
+[62 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 28, 'MP': 52, 'MC': 11, 'FPE': 37} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 36, 'MP': 58, 'MC': 4, 'FPE': 30} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[62 end] Time cost: 59.52min 	| lr: 0.00010834 	| train loss: 0.015515607409861498
+[63 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 36, 'MP': 47, 'MC': 7, 'FPE': 38} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 36, 'MP': 45, 'MC': 9, 'FPE': 38} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 51.02 |   46.07   |  52.17  | 47.19  | 47.06 | 53.19 | 65.32 | 48.05 |  46.90   |  57.73  |    73.45    | 51.27 | 50.74 | 36.21 |  50.98  |  38.98  |
+| P-MPJPE | 41.25 |   36.41   |  40.79  | 39.81  | 38.73 | 43.12 | 50.01 | 37.35 |  38.00   |  48.99  |    60.15    | 43.11 | 39.14 | 29.12 |  41.61  |  32.49  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.30 | 10.28 | 17.46 | 21.04 | 30.95 | 36.76 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.75 | 29.24 | 44.26 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 61.09 | 57.94 | 64.25 |
++-------+-------+-------+-------+
+[63 end] Time cost: 65.34min 	| lr: 0.00010725 	| train loss: 0.015324277793548866
+[64 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 38, 'MP': 58, 'MC': 8, 'FPE': 24} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 27, 'MP': 48, 'MC': 15, 'FPE': 38} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[64 end] Time cost: 59.43min 	| lr: 0.00010618 	| train loss: 0.015205069154724651
+[65 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 29, 'MP': 51, 'MC': 8, 'FPE': 40} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 39, 'MP': 48, 'MC': 8, 'FPE': 33} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 51.03 |   44.58   |  51.84  | 47.98  | 46.12 | 53.43 | 65.05 | 47.40 |  47.51   |  57.37  |    72.29    | 51.87 | 49.83 | 38.35 |  52.04  |  39.81  |
+| P-MPJPE | 41.36 |   35.91   |  40.95  | 39.90  | 38.40 | 43.49 | 49.56 | 37.51 |  38.13   |  48.47  |    59.43    | 43.70 | 38.39 | 30.98 |  42.58  |  32.92  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.34 | 10.22 | 17.52 | 21.13 | 31.00 | 36.84 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.47 | 28.91 | 44.02 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 59.78 | 56.49 | 63.06 |
++-------+-------+-------+-------+
+[65 end] Time cost: 65.44min 	| lr: 0.00010512 	| train loss: 0.01507435436983701
+[66 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 38, 'MP': 48, 'MC': 8, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 38, 'MP': 45, 'MC': 11, 'FPE': 34} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[66 end] Time cost: 59.52min 	| lr: 0.00010407 	| train loss: 0.01495570284292792
+[67 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 33, 'MP': 57, 'MC': 5, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.55min; current batch has {'PE': 29, 'MP': 58, 'MC': 5, 'FPE': 36} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 51.06 |   45.88   |  51.73  | 47.76  | 46.49 | 53.23 | 64.72 | 47.49 |  46.44   |  57.81  |    72.44    | 51.37 | 50.08 | 37.97 |  52.13  |  40.37  |
+| P-MPJPE | 41.38 |   36.56   |  40.78  | 39.99  | 38.76 | 43.46 | 49.53 | 37.50 |  37.58   |  48.74  |    59.46    | 43.35 | 38.59 | 30.55 |  42.42  |  33.39  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.15 | 10.10 | 17.37 | 20.94 | 30.76 | 36.57 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.64 | 29.15 | 44.12 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.14 | 56.86 | 63.43 |
++-------+-------+-------+-------+
+[67 end] Time cost: 65.32min 	| lr: 0.00010303 	| train loss: 0.01478887355419828
+[68 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 34, 'MP': 56, 'MC': 4, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 41, 'MP': 43, 'MC': 10, 'FPE': 34} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[68 end] Time cost: 59.52min 	| lr: 0.00010200 	| train loss: 0.014700736609460037
+[69 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 36, 'MP': 44, 'MC': 8, 'FPE': 40} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 36, 'MP': 48, 'MC': 9, 'FPE': 35} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.11 |   44.79   |  51.27  | 47.34  | 45.17 | 52.79 | 64.85 | 46.60 |  46.10   |  57.10  |    72.03    | 50.71 | 49.41 | 35.27 |  49.93  |  38.25  |
+| P-MPJPE | 40.63 |   35.81   |  40.56  | 39.67  | 37.58 | 43.01 | 49.20 | 36.62 |  37.33   |  48.04  |    59.47    | 42.73 | 37.82 | 28.59 |  41.12  |  31.86  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.47 | 10.54 | 17.68 | 21.17 | 31.00 | 36.95 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.60 | 29.16 | 44.05 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.35 | 57.15 | 63.54 |
++-------+-------+-------+-------+
+[69 end] Time cost: 65.34min 	| lr: 0.00010098 	| train loss: 0.014530241065554925
+[70 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 37, 'MP': 43, 'MC': 8, 'FPE': 40} samples
+	Iter: 1854/2782; time cost: 39.58min; current batch has {'PE': 30, 'MP': 52, 'MC': 15, 'FPE': 31} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[70 end] Time cost: 59.48min 	| lr: 0.00009997 	| train loss: 0.014366098314410847
+[71 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 39, 'MP': 43, 'MC': 13, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 36, 'MP': 58, 'MC': 4, 'FPE': 30} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 51.88 |   46.36   |  52.83  | 48.61  | 47.99 | 53.62 | 65.44 | 49.20 |  47.26   |  58.28  |    72.65    | 51.92 | 51.18 | 38.86 |  53.02  |  40.93  |
+| P-MPJPE | 41.81 |   36.86   |  41.37  | 40.43  | 39.58 | 43.74 | 49.79 | 38.20 |  38.18   |  48.67  |    59.71    | 43.46 | 39.14 | 31.30 |  42.88  |  33.88  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 23.39 | 10.19 | 17.50 | 21.12 | 31.15 | 37.00 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.94 | 29.31 | 44.57 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 59.99 | 56.63 | 63.35 |
++-------+-------+-------+-------+
+[71 end] Time cost: 65.34min 	| lr: 0.00009897 	| train loss: 0.014293889217197563
+[72 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 40, 'MP': 44, 'MC': 6, 'FPE': 38} samples
+	Iter: 1854/2782; time cost: 39.59min; current batch has {'PE': 28, 'MP': 48, 'MC': 11, 'FPE': 41} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[72 end] Time cost: 59.50min 	| lr: 0.00009798 	| train loss: 0.014142842473220996
+[73 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 33, 'MP': 53, 'MC': 13, 'FPE': 29} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 34, 'MP': 58, 'MC': 3, 'FPE': 33} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 49.95 |   44.70   |  50.57  | 46.92  | 44.75 | 52.53 | 64.91 | 46.52 |  46.51   |  56.55  |    72.00    | 50.52 | 48.88 | 35.55 |  50.24  |  38.13  |
+| P-MPJPE | 40.27 |   35.43   |  39.80  | 39.18  | 36.96 | 42.63 | 49.15 | 36.30 |  37.37   |  47.81  |    59.43    | 42.47 | 37.47 | 28.14 |  40.73  |  31.16  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 23.06 | 9.98 | 17.21 | 20.76 | 30.72 | 36.65 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.23 | 29.35 | 45.10 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.07 | 56.79 | 63.35 |
++-------+-------+-------+-------+
+[73 end] Time cost: 65.48min 	| lr: 0.00009700 	| train loss: 0.014042120760607216
+[74 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 32, 'MP': 52, 'MC': 6, 'FPE': 38} samples
+	Iter: 1854/2782; time cost: 39.59min; current batch has {'PE': 50, 'MP': 49, 'MC': 6, 'FPE': 23} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[74 end] Time cost: 59.50min 	| lr: 0.00009603 	| train loss: 0.013903886618732625
+[75 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 36, 'MP': 53, 'MC': 9, 'FPE': 30} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 32, 'MP': 48, 'MC': 7, 'FPE': 41} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.63 |   45.66   |  51.61  | 47.80  | 45.56 | 53.11 | 64.48 | 47.55 |  46.68   |  57.41  |    72.54    | 51.27 | 49.61 | 37.00 |  50.18  |  39.04  |
+| P-MPJPE | 40.89 |   36.15   |  40.33  | 39.87  | 37.48 | 43.19 | 49.37 | 37.01 |  37.38   |  48.21  |    59.91    | 43.11 | 38.24 | 29.45 |  41.37  |  32.27  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 23.03 | 9.85 | 17.17 | 20.78 | 30.71 | 36.62 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.69 | 28.99 | 44.39 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.29 | 56.99 | 63.59 |
++-------+-------+-------+-------+
+[75 end] Time cost: 65.46min 	| lr: 0.00009507 	| train loss: 0.013801143683141361
+[76 start]
+	Iter: 927/2782; time cost: 19.84min; current batch has {'PE': 33, 'MP': 54, 'MC': 2, 'FPE': 39} samples
+	Iter: 1854/2782; time cost: 39.64min; current batch has {'PE': 39, 'MP': 54, 'MC': 9, 'FPE': 26} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[76 end] Time cost: 59.55min 	| lr: 0.00009412 	| train loss: 0.01364374665724306
+[77 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 35, 'MP': 51, 'MC': 11, 'FPE': 31} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 38, 'MP': 52, 'MC': 11, 'FPE': 27} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.19 |   44.69   |  51.00  | 47.57  | 45.04 | 52.68 | 64.36 | 47.09 |  45.27   |  57.71  |    72.92    | 50.56 | 49.25 | 35.85 |  50.34  |  38.44  |
+| P-MPJPE | 40.44 |   35.19   |  39.96  | 39.60  | 37.06 | 42.71 | 49.21 | 36.74 |  36.60   |  48.53  |    59.84    | 42.42 | 37.57 | 28.34 |  41.05  |  31.77  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 23.17 | 9.90 | 17.32 | 20.98 | 30.93 | 36.71 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 35.86 | 28.43 | 43.30 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.67 | 57.42 | 63.93 |
++-------+-------+-------+-------+
+[77 end] Time cost: 65.46min 	| lr: 0.00009318 	| train loss: 0.013545093217573677
+[78 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 34, 'MP': 59, 'MC': 4, 'FPE': 31} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 31, 'MP': 59, 'MC': 6, 'FPE': 32} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[78 end] Time cost: 59.53min 	| lr: 0.00009224 	| train loss: 0.013460983281028844
+[79 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 44, 'MP': 52, 'MC': 5, 'FPE': 27} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 41, 'MP': 49, 'MC': 9, 'FPE': 29} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.34 |   44.87   |  50.67  | 48.36  | 45.15 | 53.04 | 64.37 | 46.50 |  46.43   |  57.83  |    72.24    | 51.29 | 49.18 | 35.99 |  49.94  |  39.17  |
+| P-MPJPE | 40.78 |   35.83   |  40.34  | 40.33  | 37.41 | 43.11 | 49.14 | 36.60 |  37.56   |  48.68  |    59.30    | 43.16 | 37.75 | 28.85 |  41.09  |  32.51  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 23.11 | 9.89 | 17.25 | 20.86 | 30.85 | 36.71 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.40 | 28.71 | 44.08 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 59.93 | 56.63 | 63.23 |
++-------+-------+-------+-------+
+[79 end] Time cost: 65.33min 	| lr: 0.00009132 	| train loss: 0.01332972576203501
+[80 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 38, 'MP': 51, 'MC': 7, 'FPE': 32} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 28, 'MP': 54, 'MC': 6, 'FPE': 40} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[80 end] Time cost: 59.53min 	| lr: 0.00009041 	| train loss: 0.013248281342359855
+[81 start]
+	Iter: 927/2782; time cost: 19.83min; current batch has {'PE': 37, 'MP': 46, 'MC': 9, 'FPE': 36} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 30, 'MP': 60, 'MC': 4, 'FPE': 34} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.09 |   44.69   |  51.07  | 47.70  | 45.11 | 52.46 | 64.12 | 46.51 |  45.52   |  57.23  |    72.03    | 50.73 | 49.27 | 36.02 |  50.74  |  38.19  |
+| P-MPJPE | 40.58 |   35.57   |  40.28  | 39.79  | 37.55 | 42.78 | 49.24 | 36.35 |  36.88   |  48.03  |    59.28    | 42.82 | 37.77 | 28.72 |  41.83  |  31.80  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.95 | 9.90 | 17.18 | 20.72 | 30.55 | 36.41 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.40 | 28.79 | 44.00 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.26 | 56.95 | 63.57 |
++-------+-------+-------+-------+
+[81 end] Time cost: 65.54min 	| lr: 0.00008950 	| train loss: 0.01314238969170644
+[82 start]
+	Iter: 927/2782; time cost: 19.83min; current batch has {'PE': 41, 'MP': 49, 'MC': 10, 'FPE': 28} samples
+	Iter: 1854/2782; time cost: 39.63min; current batch has {'PE': 39, 'MP': 50, 'MC': 9, 'FPE': 30} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[82 end] Time cost: 59.53min 	| lr: 0.00008861 	| train loss: 0.013057375927082034
+[83 start]
+	Iter: 927/2782; time cost: 19.83min; current batch has {'PE': 43, 'MP': 40, 'MC': 6, 'FPE': 39} samples
+	Iter: 1854/2782; time cost: 39.63min; current batch has {'PE': 25, 'MP': 53, 'MC': 8, 'FPE': 42} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 49.69 |   43.84   |  50.25  | 46.81  | 44.54 | 52.87 | 64.11 | 46.07 |  45.66   |  57.12  |    71.91    | 50.51 | 48.81 | 35.13 |  49.94  |  37.84  |
+| P-MPJPE | 40.28 |   35.12   |  39.84  | 39.20  | 36.84 | 42.83 | 48.90 | 36.05 |  36.92   |  48.03  |    59.20    | 42.54 | 37.58 | 28.44 |  40.94  |  31.74  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.96 | 9.79 | 17.12 | 20.70 | 30.63 | 36.57 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 37.28 | 29.57 | 44.98 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.09 | 56.81 | 63.38 |
++-------+-------+-------+-------+
+[83 end] Time cost: 65.54min 	| lr: 0.00008772 	| train loss: 0.012960846450010458
+[84 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 41, 'MP': 46, 'MC': 7, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.62min; current batch has {'PE': 29, 'MP': 54, 'MC': 12, 'FPE': 33} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[84 end] Time cost: 59.53min 	| lr: 0.00008685 	| train loss: 0.012847262172294599
+[85 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 39, 'MP': 46, 'MC': 10, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 41, 'MP': 48, 'MC': 4, 'FPE': 35} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_FPE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.97 |   44.92   |  51.54  | 48.37  | 46.70 | 52.99 | 65.06 | 47.71 |  46.60   |  57.73  |    73.28    | 51.39 | 49.87 | 37.28 |  51.64  |  39.44  |
+| P-MPJPE | 41.16 |   36.03   |  40.66  | 40.21  | 38.51 | 42.98 | 49.60 | 37.36 |  37.43   |  48.31  |    59.75    | 43.26 | 38.39 | 30.16 |  41.88  |  32.80  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 23.16 | 9.96 | 17.25 | 20.86 | 30.87 | 36.85 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.34 | 28.77 | 43.91 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 59.44 | 56.05 | 62.83 |
++-------+-------+-------+-------+
+[85 end] Time cost: 65.45min 	| lr: 0.00008598 	| train loss: 0.012768067352765236
+[86 start]
+	Iter: 927/2782; time cost: 19.83min; current batch has {'PE': 29, 'MP': 51, 'MC': 9, 'FPE': 39} samples
+	Iter: 1854/2782; time cost: 39.63min; current batch has {'PE': 27, 'MP': 59, 'MC': 8, 'FPE': 34} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[86 end] Time cost: 59.52min 	| lr: 0.00008512 	| train loss: 0.012668855013294207
+[87 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 32, 'MP': 57, 'MC': 6, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 36, 'MP': 54, 'MC': 11, 'FPE': 27} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 49.85 |   44.41   |  50.78  | 46.95  | 45.12 | 52.40 | 64.37 | 46.53 |  45.26   |  56.96  |    72.05    | 50.58 | 49.27 | 35.28 |  49.69  |  38.05  |
+| P-MPJPE | 40.41 |   35.64   |  40.22  | 39.23  | 37.55 | 42.46 | 49.18 | 36.50 |  36.83   |  47.70  |    59.49    | 42.70 | 37.98 | 28.19 |  40.96  |  31.54  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 23.15 | 9.82 | 17.21 | 20.83 | 30.96 | 36.95 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.63 | 29.06 | 44.20 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.52 | 57.20 | 63.84 |
++-------+-------+-------+-------+
+[87 end] Time cost: 65.34min 	| lr: 0.00008427 	| train loss: 0.012566788095603574
+[88 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 35, 'MP': 42, 'MC': 8, 'FPE': 43} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 24, 'MP': 60, 'MC': 6, 'FPE': 38} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[88 end] Time cost: 59.46min 	| lr: 0.00008342 	| train loss: 0.01252315999382613
+[89 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 45, 'MP': 41, 'MC': 6, 'FPE': 36} samples
+	Iter: 1854/2782; time cost: 39.58min; current batch has {'PE': 40, 'MP': 46, 'MC': 12, 'FPE': 30} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.93 |   45.33   |  51.74  | 47.93  | 46.04 | 53.10 | 65.00 | 47.50 |  46.56   |  58.37  |    73.48    | 51.57 | 50.14 | 37.07 |  51.23  |  38.93  |
+| P-MPJPE | 41.04 |   36.01   |  40.63  | 40.03  | 37.90 | 43.43 | 49.65 | 37.12 |  37.30   |  48.98  |    59.59    | 43.32 | 38.19 | 29.57 |  41.57  |  32.27  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 23.04 | 9.81 | 17.24 | 20.88 | 30.72 | 36.55 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.09 | 28.40 | 43.79 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.27 | 56.88 | 63.66 |
++-------+-------+-------+-------+
+[89 end] Time cost: 65.37min 	| lr: 0.00008259 	| train loss: 0.012387363356886063
+[90 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 35, 'MP': 50, 'MC': 6, 'FPE': 37} samples
+	Iter: 1854/2782; time cost: 39.58min; current batch has {'PE': 33, 'MP': 52, 'MC': 8, 'FPE': 35} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[90 end] Time cost: 59.46min 	| lr: 0.00008176 	| train loss: 0.012316844368373117
+[91 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 41, 'MP': 42, 'MC': 11, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 33, 'MP': 54, 'MC': 7, 'FPE': 34} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.20 |   44.80   |  50.84  | 47.82  | 45.10 | 52.93 | 63.93 | 46.92 |  45.77   |  57.36  |    72.21    | 51.07 | 49.80 | 36.43 |  50.16  |  37.85  |
+| P-MPJPE | 40.65 |   35.78   |  40.15  | 39.98  | 37.35 | 43.16 | 48.93 | 36.58 |  36.84   |  48.47  |    59.35    | 43.24 | 38.11 | 29.13 |  41.21  |  31.44  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 23.12 | 9.81 | 17.22 | 20.82 | 30.87 | 36.88 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.08 | 28.50 | 43.65 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.34 | 56.97 | 63.72 |
++-------+-------+-------+-------+
+[91 end] Time cost: 65.34min 	| lr: 0.00008095 	| train loss: 0.01224228727266833
+[92 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 29, 'MP': 58, 'MC': 5, 'FPE': 36} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 37, 'MP': 47, 'MC': 9, 'FPE': 35} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[92 end] Time cost: 59.45min 	| lr: 0.00008014 	| train loss: 0.012154132908876498
+[93 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 42, 'MP': 48, 'MC': 9, 'FPE': 29} samples
+	Iter: 1854/2782; time cost: 39.58min; current batch has {'PE': 38, 'MP': 46, 'MC': 9, 'FPE': 35} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.45 |   45.32   |  51.29  | 47.15  | 45.95 | 53.09 | 64.65 | 47.08 |  46.01   |  56.95  |    73.09    | 51.19 | 49.73 | 36.49 |  50.18  |  38.63  |
+| P-MPJPE | 40.68 |   35.89   |  40.56  | 38.95  | 37.78 | 43.01 | 49.25 | 36.48 |  37.20   |  47.97  |    59.90    | 43.05 | 37.93 | 29.27 |  41.05  |  31.98  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.86 | 9.73 | 17.07 | 20.64 | 30.49 | 36.39 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 35.91 | 28.37 | 43.44 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 59.90 | 56.50 | 63.31 |
++-------+-------+-------+-------+
+[93 end] Time cost: 65.49min 	| lr: 0.00007934 	| train loss: 0.012076739962239845
+[94 start]
+	Iter: 927/2782; time cost: 19.83min; current batch has {'PE': 25, 'MP': 50, 'MC': 10, 'FPE': 43} samples
+	Iter: 1854/2782; time cost: 39.65min; current batch has {'PE': 34, 'MP': 53, 'MC': 6, 'FPE': 35} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[94 end] Time cost: 59.57min 	| lr: 0.00007854 	| train loss: 0.011974679766840116
+[95 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 40, 'MP': 49, 'MC': 4, 'FPE': 35} samples
+	Iter: 1854/2782; time cost: 39.58min; current batch has {'PE': 37, 'MP': 55, 'MC': 9, 'FPE': 27} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 51.20 |   45.47   |  52.49  | 47.70  | 47.04 | 52.94 | 64.79 | 47.88 |  47.23   |  57.60  |    73.37    | 50.85 | 49.98 | 38.19 |  52.09  |  40.31  |
+| P-MPJPE | 41.28 |   36.22   |  41.10  | 39.82  | 38.76 | 43.40 | 49.45 | 37.24 |  37.62   |  48.41  |    59.85    | 42.95 | 38.25 | 30.53 |  42.19  |  33.40  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.91 | 9.73 | 17.07 | 20.64 | 30.56 | 36.58 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.14 | 28.46 | 43.83 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 59.69 | 56.26 | 63.11 |
++-------+-------+-------+-------+
+[95 end] Time cost: 65.36min 	| lr: 0.00007776 	| train loss: 0.011890537045580778
+[96 start]
+	Iter: 927/2782; time cost: 19.81min; current batch has {'PE': 30, 'MP': 53, 'MC': 9, 'FPE': 36} samples
+	Iter: 1854/2782; time cost: 39.59min; current batch has {'PE': 44, 'MP': 43, 'MC': 10, 'FPE': 31} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[96 end] Time cost: 59.48min 	| lr: 0.00007698 	| train loss: 0.01180123290725863
+[97 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 42, 'MP': 48, 'MC': 9, 'FPE': 29} samples
+	Iter: 1854/2782; time cost: 39.58min; current batch has {'PE': 34, 'MP': 47, 'MC': 6, 'FPE': 41} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MP.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 49.75 |   44.54   |  50.21  | 47.59  | 44.71 | 52.08 | 64.03 | 46.63 |  45.51   |  57.69  |    71.84    | 50.63 | 48.76 | 35.04 |  49.60  |  37.36  |
+| P-MPJPE | 40.37 |   35.56   |  39.90  | 39.55  | 37.19 | 42.65 | 49.28 | 36.66 |  36.79   |  48.26  |    59.17    | 42.88 | 37.57 | 28.14 |  40.75  |  31.27  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.85 | 9.73 | 17.03 | 20.58 | 30.49 | 36.42 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 35.87 | 28.26 | 43.47 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.33 | 57.01 | 63.66 |
++-------+-------+-------+-------+
+[97 end] Time cost: 65.48min 	| lr: 0.00007621 	| train loss: 0.011720835242002105
+[98 start]
+	Iter: 927/2782; time cost: 19.83min; current batch has {'PE': 30, 'MP': 59, 'MC': 7, 'FPE': 32} samples
+	Iter: 1854/2782; time cost: 39.63min; current batch has {'PE': 29, 'MP': 52, 'MC': 4, 'FPE': 43} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[98 end] Time cost: 59.55min 	| lr: 0.00007545 	| train loss: 0.01166129482529086
+[99 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 28, 'MP': 62, 'MC': 5, 'FPE': 33} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 34, 'MP': 59, 'MC': 6, 'FPE': 29} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 49.97 |   44.60   |  50.90  | 47.36  | 44.83 | 52.59 | 63.91 | 46.80 |  45.14   |  57.32  |    71.87    | 50.75 | 49.28 | 35.88 |  50.07  |  38.32  |
+| P-MPJPE | 40.41 |   35.50   |  40.24  | 39.51  | 37.09 | 42.85 | 48.96 | 36.66 |  36.59   |  48.18  |    58.76    | 42.78 | 37.65 | 28.64 |  41.11  |  31.61  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.88 | 9.79 | 17.07 | 20.65 | 30.50 | 36.38 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.54 | 29.08 | 43.99 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.27 | 56.87 | 63.67 |
++-------+-------+-------+-------+
+[99 end] Time cost: 65.35min 	| lr: 0.00007469 	| train loss: 0.01159317577045741
+[100 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 40, 'MP': 51, 'MC': 6, 'FPE': 31} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 41, 'MP': 51, 'MC': 5, 'FPE': 31} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[100 end] Time cost: 59.45min 	| lr: 0.00007395 	| train loss: 0.011540431012733209
+[101 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 41, 'MP': 43, 'MC': 9, 'FPE': 35} samples
+	Iter: 1854/2782; time cost: 39.58min; current batch has {'PE': 38, 'MP': 50, 'MC': 11, 'FPE': 29} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 51.06 |   45.63   |  51.95  | 47.95  | 46.00 | 53.24 | 65.25 | 48.14 |  46.61   |  57.38  |    72.50    | 51.62 | 49.55 | 38.15 |  51.82  |  40.14  |
+| P-MPJPE | 41.20 |   36.44   |  40.91  | 40.02  | 38.02 | 43.25 | 49.47 | 37.62 |  37.60   |  48.11  |    59.19    | 43.46 | 37.84 | 30.80 |  42.20  |  33.05  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 23.00 | 9.97 | 17.24 | 20.79 | 30.58 | 36.44 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.51 | 28.80 | 44.23 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 59.64 | 56.14 | 63.14 |
++-------+-------+-------+-------+
+[101 end] Time cost: 65.37min 	| lr: 0.00007321 	| train loss: 0.011440162311982985
+[102 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 31, 'MP': 54, 'MC': 8, 'FPE': 35} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 45, 'MP': 49, 'MC': 5, 'FPE': 29} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[102 end] Time cost: 59.45min 	| lr: 0.00007247 	| train loss: 0.011362827909787335
+[103 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 36, 'MP': 55, 'MC': 7, 'FPE': 30} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 27, 'MP': 49, 'MC': 8, 'FPE': 44} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.93 |   45.18   |  51.57  | 48.17  | 46.43 | 53.25 | 64.70 | 47.09 |  46.56   |  57.61  |    72.51    | 51.60 | 49.93 | 37.55 |  51.46  |  40.33  |
+| P-MPJPE | 41.24 |   36.10   |  40.67  | 40.21  | 38.52 | 43.36 | 49.26 | 37.04 |  37.79   |  48.41  |    59.62    | 43.45 | 38.29 | 30.32 |  41.98  |  33.60  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 23.16 | 9.82 | 17.25 | 20.89 | 30.91 | 36.93 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.16 | 28.50 | 43.81 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 59.87 | 56.40 | 63.34 |
++-------+-------+-------+-------+
+[103 end] Time cost: 65.36min 	| lr: 0.00007175 	| train loss: 0.011324577871184743
+[104 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 32, 'MP': 57, 'MC': 10, 'FPE': 29} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 38, 'MP': 45, 'MC': 12, 'FPE': 33} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[104 end] Time cost: 59.44min 	| lr: 0.00007103 	| train loss: 0.011242481891589313
+[105 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 33, 'MP': 45, 'MC': 5, 'FPE': 45} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 39, 'MP': 50, 'MC': 9, 'FPE': 30} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 49.90 |   44.09   |  50.78  | 47.22  | 45.03 | 52.09 | 64.05 | 46.59 |  45.78   |  57.20  |    72.97    | 50.58 | 49.10 | 35.24 |  49.87  |  37.84  |
+| P-MPJPE | 40.40 |   35.40   |  40.24  | 39.66  | 37.35 | 42.50 | 49.16 | 36.65 |  36.78   |  47.80  |    59.24    | 42.73 | 37.57 | 28.37 |  41.05  |  31.45  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.95 | 9.80 | 17.10 | 20.67 | 30.60 | 36.61 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 35.91 | 28.20 | 43.63 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.22 | 56.82 | 63.63 |
++-------+-------+-------+-------+
+[105 end] Time cost: 65.34min 	| lr: 0.00007032 	| train loss: 0.011185336036379874
+[106 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 37, 'MP': 44, 'MC': 13, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 34, 'MP': 55, 'MC': 8, 'FPE': 31} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[106 end] Time cost: 59.44min 	| lr: 0.00006962 	| train loss: 0.011091648732011503
+[107 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 31, 'MP': 59, 'MC': 9, 'FPE': 29} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 36, 'MP': 52, 'MC': 5, 'FPE': 35} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 49.79 |   44.46   |  50.75  | 47.48  | 44.76 | 52.54 | 64.09 | 46.79 |  45.38   |  57.24  |    71.79    | 50.61 | 49.06 | 34.74 |  49.71  |  37.44  |
+| P-MPJPE | 40.35 |   35.55   |  40.16  | 39.62  | 37.21 | 42.87 | 49.18 | 36.88 |  36.66   |  47.99  |    58.98    | 42.70 | 37.62 | 27.75 |  40.89  |  31.14  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.99 | 9.86 | 17.20 | 20.77 | 30.58 | 36.52 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 35.92 | 28.22 | 43.63 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.45 | 57.09 | 63.80 |
++-------+-------+-------+-------+
+[107 end] Time cost: 65.34min 	| lr: 0.00006892 	| train loss: 0.01100880270781769
+[108 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 35, 'MP': 54, 'MC': 4, 'FPE': 35} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 26, 'MP': 57, 'MC': 10, 'FPE': 35} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[108 end] Time cost: 59.44min 	| lr: 0.00006823 	| train loss: 0.010970843006615657
+[109 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 43, 'MP': 46, 'MC': 5, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.57min; current batch has {'PE': 32, 'MP': 47, 'MC': 10, 'FPE': 39} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 49.72 |   44.26   |  50.64  | 46.50  | 44.98 | 52.71 | 64.33 | 46.05 |  44.80   |  56.91  |    72.26    | 50.74 | 49.05 | 35.22 |  49.68  |  37.74  |
+| P-MPJPE | 40.41 |   35.51   |  40.19  | 39.09  | 37.24 | 43.18 | 49.02 | 36.51 |  36.51   |  47.99  |    59.55    | 43.02 | 37.64 | 28.57 |  40.90  |  31.30  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.94 | 9.68 | 17.04 | 20.65 | 30.66 | 36.69 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.14 | 28.48 | 43.81 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.03 | 56.58 | 63.49 |
++-------+-------+-------+-------+
+[109 end] Time cost: 65.35min 	| lr: 0.00006755 	| train loss: 0.010898912718005175
+[110 start]
+	Iter: 927/2782; time cost: 19.80min; current batch has {'PE': 35, 'MP': 53, 'MC': 6, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 42, 'MP': 44, 'MC': 9, 'FPE': 33} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[110 end] Time cost: 59.44min 	| lr: 0.00006688 	| train loss: 0.010844835583424892
+[111 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 38, 'MP': 53, 'MC': 7, 'FPE': 30} samples
+	Iter: 1854/2782; time cost: 39.56min; current batch has {'PE': 37, 'MP': 46, 'MC': 6, 'FPE': 39} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 49.57 |   44.55   |  50.32  | 46.96  | 44.65 | 51.83 | 64.10 | 46.36 |  45.11   |  57.00  |    71.34    | 50.35 | 48.65 | 35.07 |  49.53  |  37.67  |
+| P-MPJPE | 40.17 |   35.27   |  39.75  | 39.01  | 37.07 | 42.38 | 49.06 | 36.40 |  36.45   |  48.10  |    59.15    | 42.51 | 37.19 | 28.19 |  40.66  |  31.37  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.97 | 9.74 | 17.05 | 20.65 | 30.68 | 36.74 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.14 | 28.30 | 43.98 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.21 | 56.72 | 63.71 |
++-------+-------+-------+-------+
+[111 end] Time cost: 65.44min 	| lr: 0.00006621 	| train loss: 0.010784389895009789
+[112 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 33, 'MP': 47, 'MC': 6, 'FPE': 42} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 35, 'MP': 51, 'MC': 4, 'FPE': 38} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[112 end] Time cost: 59.51min 	| lr: 0.00006554 	| train loss: 0.010744402381104082
+[113 start]
+	Iter: 927/2782; time cost: 19.79min; current batch has {'PE': 42, 'MP': 50, 'MC': 4, 'FPE': 32} samples
+	Iter: 1854/2782; time cost: 39.85min; current batch has {'PE': 41, 'MP': 53, 'MC': 6, 'FPE': 28} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 49.67 |   44.23   |  50.73  | 46.94  | 44.55 | 52.11 | 64.06 | 46.46 |  45.61   |  57.24  |    71.63    | 50.55 | 48.84 | 35.26 |  49.69  |  37.22  |
+| P-MPJPE | 40.37 |   35.50   |  40.23  | 39.16  | 37.25 | 42.60 | 49.01 | 36.57 |  37.03   |  48.21  |    59.30    | 42.79 | 37.55 | 28.39 |  40.83  |  31.11  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.87 | 9.64 | 16.98 | 20.57 | 30.56 | 36.58 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 35.43 | 27.96 | 42.89 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.20 | 56.72 | 63.68 |
++-------+-------+-------+-------+
+[113 end] Time cost: 65.72min 	| lr: 0.00006489 	| train loss: 0.010666785152971125
+[114 start]
+	Iter: 927/2782; time cost: 19.81min; current batch has {'PE': 27, 'MP': 48, 'MC': 9, 'FPE': 44} samples
+	Iter: 1854/2782; time cost: 39.60min; current batch has {'PE': 43, 'MP': 48, 'MC': 5, 'FPE': 32} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[114 end] Time cost: 59.49min 	| lr: 0.00006424 	| train loss: 0.010589842816775894
+[115 start]
+	Iter: 927/2782; time cost: 19.81min; current batch has {'PE': 40, 'MP': 49, 'MC': 3, 'FPE': 36} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 36, 'MP': 55, 'MC': 5, 'FPE': 32} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.43 |   44.67   |  51.11  | 47.29  | 45.52 | 52.69 | 64.95 | 47.16 |  46.87   |  57.54  |    72.00    | 51.08 | 49.39 | 36.42 |  50.58  |  39.16  |
+| P-MPJPE | 40.79 |   35.69   |  40.27  | 39.60  | 37.73 | 42.97 | 49.37 | 37.02 |  37.53   |  48.32  |    59.37    | 42.98 | 37.70 | 29.30 |  41.42  |  32.65  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.89 | 9.66 | 17.02 | 20.61 | 30.58 | 36.59 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 36.36 | 28.72 | 44.01 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 59.97 | 56.46 | 63.49 |
++-------+-------+-------+-------+
+[115 end] Time cost: 65.40min 	| lr: 0.00006360 	| train loss: 0.01056767431148256
+[116 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 44, 'MP': 35, 'MC': 8, 'FPE': 41} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 38, 'MP': 48, 'MC': 11, 'FPE': 31} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[116 end] Time cost: 59.60min 	| lr: 0.00006296 	| train loss: 0.010479598861597822
+[117 start]
+	Iter: 927/2782; time cost: 19.82min; current batch has {'PE': 30, 'MP': 55, 'MC': 9, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.61min; current batch has {'PE': 32, 'MP': 48, 'MC': 9, 'FPE': 39} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 50.71 |   44.84   |  51.43  | 48.31  | 46.32 | 52.81 | 64.85 | 47.08 |  46.80   |  57.41  |    72.17    | 51.28 | 49.37 | 37.58 |  50.92  |  39.47  |
+| P-MPJPE | 41.08 |   36.10   |  40.76  | 40.12  | 38.38 | 43.02 | 49.55 | 37.03 |  37.48   |  48.28  |    59.39    | 43.24 | 38.03 | 30.30 |  41.79  |  32.70  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.93 | 9.76 | 17.09 | 20.67 | 30.57 | 36.58 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 35.97 | 28.26 | 43.69 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 59.85 | 56.34 | 63.36 |
++-------+-------+-------+-------+
+[117 end] Time cost: 65.40min 	| lr: 0.00006233 	| train loss: 0.010421698929951645
+[118 start]
+	Iter: 927/2782; time cost: 19.81min; current batch has {'PE': 30, 'MP': 51, 'MC': 11, 'FPE': 36} samples
+	Iter: 1854/2782; time cost: 39.60min; current batch has {'PE': 39, 'MP': 52, 'MC': 13, 'FPE': 24} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[118 end] Time cost: 59.49min 	| lr: 0.00006171 	| train loss: 0.010376041180493603
+[119 start]
+	Iter: 927/2782; time cost: 19.81min; current batch has {'PE': 32, 'MP': 53, 'MC': 9, 'FPE': 34} samples
+	Iter: 1854/2782; time cost: 39.60min; current batch has {'PE': 38, 'MP': 40, 'MC': 6, 'FPE': 44} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/best_epoch_PE.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 49.52 |   43.96   |  49.98  | 46.97  | 44.43 | 51.85 | 64.13 | 46.42 |  45.32   |  57.48  |    71.89    | 50.36 | 48.97 | 34.72 |  49.41  |  36.91  |
+| P-MPJPE | 40.11 |   35.16   |  39.78  | 39.07  | 36.88 | 42.41 | 49.07 | 36.44 |  36.60   |  48.00  |    58.91    | 42.65 | 37.49 | 27.91 |  40.52  |  30.77  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+------+-------+-------+-------+-------+
+|   MP  |  Avg  |  80  |  160  |  200  |  320  |  400  |
++-------+-------+------+-------+-------+-------+-------+
+| MPJPE | 22.90 | 9.62 | 17.04 | 20.67 | 30.63 | 36.56 |
++-------+-------+------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 35.87 | 28.15 | 43.59 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 60.50 | 57.08 | 63.93 |
++-------+-------+-------+-------+
+[119 end] Time cost: 65.51min 	| lr: 0.00006109 	| train loss: 0.01030412988804659
+[120 start]
+	Iter: 927/2782; time cost: 19.81min; current batch has {'PE': 31, 'MP': 57, 'MC': 5, 'FPE': 35} samples
+	Iter: 1854/2782; time cost: 39.60min; current batch has {'PE': 36, 'MP': 52, 'MC': 2, 'FPE': 38} samples
+	Saving checkpoint to ckpt/02_train_on_non_AR/04_func000_model07_T16/latest_epoch.bin
+[120 end] Time cost: 59.50min 	| lr: 0.00006048 	| train loss: 0.010249964088120653
+Training took 125.49h
+All results:
++-------+--------+-------+-------+--------+--------+
+| Epoch | PE e1  | PE e2 |   MP  |   MC   |  FPE   |
++-------+--------+-------+-------+--------+--------+
+|   1   | 102.20 | 71.73 | 65.69 | 108.54 | 107.95 |
+|   2   | 80.67  | 57.92 | 55.98 | 83.53  | 90.56  |
+|   3   | 70.32  | 53.98 | 45.61 | 66.11  | 82.71  |
+|   4   | 64.70  | 51.46 | 39.76 | 57.05  | 78.42  |
+|   5   | 63.63  | 50.95 | 35.27 | 56.95  | 76.53  |
+|   6   | 61.42  | 49.81 | 32.79 | 52.40  | 75.53  |
+|   7   | 57.96  | 45.96 | 33.10 | 48.44  | 70.93  |
+|   8   | 55.79  | 44.97 | 30.71 | 46.62  | 69.88  |
+|   9   | 56.24  | 45.05 | 29.95 | 47.33  | 66.76  |
+|   10  | 56.40  | 45.35 | 29.47 | 45.50  | 68.40  |
+|   11  | 54.10  | 43.55 | 28.39 | 46.49  | 66.57  |
+|   13  | 54.14  | 43.64 | 28.10 | 43.44  | 64.90  |
+|   15  | 52.64  | 42.69 | 26.63 | 41.85  | 64.03  |
+|   17  | 52.41  | 42.55 | 25.16 | 41.89  | 63.95  |
+|   19  | 52.78  | 42.48 | 25.02 | 42.70  | 64.03  |
+|   21  | 63.00  | 49.90 | 25.51 | 40.20  | 61.57  |
+|   23  | 52.41  | 42.62 | 25.00 | 40.67  | 61.71  |
+|   25  | 53.25  | 42.88 | 23.97 | 40.89  | 61.75  |
+|   27  | 51.32  | 41.58 | 24.45 | 40.45  | 62.74  |
+|   29  | 51.48  | 41.76 | 24.59 | 39.06  | 61.73  |
+|   31  | 51.50  | 41.79 | 23.76 | 37.97  | 60.26  |
+|   33  | 52.81  | 42.86 | 23.86 | 38.37  | 60.63  |
+|   35  | 50.49  | 41.16 | 24.25 | 37.94  | 61.90  |
+|   37  | 51.98  | 41.79 | 24.00 | 38.30  | 60.76  |
+|   39  | 51.06  | 41.75 | 23.42 | 37.29  | 60.53  |
+|   41  | 50.90  | 41.30 | 23.55 | 38.01  | 60.68  |
+|   43  | 50.22  | 40.67 | 23.49 | 37.92  | 60.82  |
+|   45  | 50.82  | 40.88 | 23.57 | 37.04  | 61.88  |
+|   47  | 52.36  | 42.26 | 23.39 | 37.31  | 60.08  |
+|   49  | 50.38  | 40.79 | 23.32 | 36.99  | 60.74  |
+|   51  | 52.58  | 42.39 | 23.46 | 37.34  | 59.69  |
+|   53  | 50.64  | 40.94 | 23.27 | 37.62  | 60.43  |
+|   55  | 50.29  | 40.86 | 23.18 | 37.47  | 60.54  |
+|   57  | 50.01  | 40.45 | 23.06 | 37.06  | 60.42  |
+|   59  | 50.76  | 41.14 | 23.15 | 36.56  | 60.02  |
+|   61  | 50.87  | 41.11 | 23.20 | 37.09  | 60.44  |
+|   63  | 51.02  | 41.25 | 23.30 | 36.75  | 61.09  |
+|   65  | 51.03  | 41.36 | 23.34 | 36.47  | 59.78  |
+|   67  | 51.06  | 41.38 | 23.15 | 36.64  | 60.14  |
+|   69  | 50.11  | 40.63 | 23.47 | 36.60  | 60.35  |
+|   71  | 51.88  | 41.81 | 23.39 | 36.94  | 59.99  |
+|   73  | 49.95  | 40.27 | 23.06 | 37.23  | 60.07  |
+|   75  | 50.63  | 40.89 | 23.03 | 36.69  | 60.29  |
+|   77  | 50.19  | 40.44 | 23.17 | 35.86  | 60.67  |
+|   79  | 50.34  | 40.78 | 23.11 | 36.40  | 59.93  |
+|   81  | 50.09  | 40.58 | 22.95 | 36.40  | 60.26  |
+|   83  | 49.69  | 40.28 | 22.96 | 37.28  | 60.09  |
+|   85  | 50.97  | 41.16 | 23.16 | 36.34  | 59.44  |
+|   87  | 49.85  | 40.41 | 23.15 | 36.63  | 60.52  |
+|   89  | 50.93  | 41.04 | 23.04 | 36.09  | 60.27  |
+|   91  | 50.20  | 40.65 | 23.12 | 36.08  | 60.34  |
+|   93  | 50.45  | 40.68 | 22.86 | 35.91  | 59.90  |
+|   95  | 51.20  | 41.28 | 22.91 | 36.14  | 59.69  |
+|   97  | 49.75  | 40.37 | 22.85 | 35.87  | 60.33  |
+|   99  | 49.97  | 40.41 | 22.88 | 36.54  | 60.27  |
+|  101  | 51.06  | 41.20 | 23.00 | 36.51  | 59.64  |
+|  103  | 50.93  | 41.24 | 23.16 | 36.16  | 59.87  |
+|  105  | 49.90  | 40.40 | 22.95 | 35.91  | 60.22  |
+|  107  | 49.79  | 40.35 | 22.99 | 35.92  | 60.45  |
+|  109  | 49.72  | 40.41 | 22.94 | 36.14  | 60.03  |
+|  111  | 49.57  | 40.17 | 22.97 | 36.14  | 60.21  |
+|  113  | 49.67  | 40.37 | 22.87 | 35.43  | 60.20  |
+|  115  | 50.43  | 40.79 | 22.89 | 36.36  | 59.97  |
+|  117  | 50.71  | 41.08 | 22.93 | 35.97  | 59.85  |
+|  119  | 49.52  | 40.11 | 22.90 | 35.87  | 60.50  |
++-------+--------+-------+-------+--------+--------+
+Best results:
+PE 	 | 	 49.5202558451482mm (epoch 119)
+MP 	 | 	 22.851033977745278mm (epoch 97)
+MC 	 | 	 35.426257385844096mm (epoch 113)
+FPE 	 | 	 59.439991882698834mm (epoch 85)
+All 	 | 	 1000000mm (epoch 1000000)

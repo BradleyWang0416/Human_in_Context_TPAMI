@@ -1,0 +1,51 @@
+Training on 4 tasks: ['PE', 'MP', 'MC', 'FPE']
+
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': 0, 'evaluate_non_AR': 0, 'train_epoch_non_AR': 0, 'model_name': 'M05_SiC_CrossAttn'}, 'use_partial_data': False, 'partial_data': {'datasets': {'PE': None, 'MP': None, 'FPE': None, 'MC': None}, 'train_stride': None, 'sample_stride': None, 'clip_len': None, 'num_joints': None, 'drop_ratios_MC': None, 'root_path': None, 'source_file_h36m': None, 'clip_len_2DAR': None, 'batch_size_2DAR': None, 'label_stride_2DAR': None}, 'full_data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.4, 0.6], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}, 'maxlen': 16, 'dim_in': 3, 'dim_out': 3, 'dim_feat': 256, 'mlp_ratio': 2, 'depth': 5, 'dim_rep': 256, 'num_heads': 8, 'att_fuse': True, 'merge_idx': 2, 'epochs': 120, 'batch_size': 128, 'test_batch_size': 512, 'dropout': 0.0, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'mpjpe': 1.0, 'n_mpjpe': 0.0, 'velocity': 0.0, 'limb_var': 0.0, 'limb_gt': 0.0, 'angle': 0.0, 'angle_velocity': 0.0}, 'label_type_2DAR': 'default', 'rootrel_input': True, 'rootrel_input_2DAR': False, 'rootrel_target_MP': True, 'rootrel_target_PE': True, 'rootrel_target_FPE': True, 'flip_h36m_y_axis': False, 'flip_h36mFPE_y_axis': False, 'scale_h36m_skeleton': 2.0, 'scale_h36mFPE_skeleton': 2.0, 'no_eval': False, 'amass_to_h36m': [[2], [0], [3], [6], [1], [4], [7], [5], [8], [8, 11], [11], [10], [13], [15], [9], [12], [14]], 'name': '02_func000_model05_T16', 'data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.4, 0.6], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}}
+
+Loading dataset...
+train sample count: {'PE': 97196, 'MP': 139151, 'FPE': 96596, 'MC': 23049}
+Training (non-AR) sample count: 355992
+test sample count: {'PE': 35328, 'MP': 45619, 'FPE': 17596, 'MC': 9970}
+Testing (non-AR) sample count: 108513
+
+Loading model...
+Model: M05_SiC_CrossAttn
+Trainable parameter count: 21.194541M
+
+Training on [['non_AR', 2782]] batches for 120 epochs. batch size: 128
+[1 start]
+	Iter: 927/2782; time cost: 18.57min; current batch has {'PE': 33, 'MP': 45, 'MC': 13, 'FPE': 37} samples
+	Iter: 1854/2782; time cost: 37.10min; current batch has {'PE': 36, 'MP': 47, 'MC': 14, 'FPE': 31} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/02_func000_model05_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/02_func000_model05_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/02_func000_model05_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/02_func000_model05_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/02_func000_model05_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 75.52 |   61.45   |  70.01  | 64.60  | 76.00 | 70.74 | 94.10 | 64.57 |  72.29   |  82.86  |    106.75   | 68.85 | 72.29 | 71.29 |  81.81  |  75.20  |
+| P-MPJPE | 58.62 |   50.57   |  54.16  | 51.89  | 59.68 | 55.07 | 65.73 | 49.40 |  52.99   |  66.37  |    83.44    | 55.14 | 53.62 | 58.84 |  62.01  |  60.35  |
++---------+-------+-----------+---------+--------+-------+-------+-------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 53.76 | 43.79 | 45.61 | 48.15 | 60.30 | 70.94 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+-------+-------+-------+
+|   MC  |  Avg  |  0.4  |  0.6  |
++-------+-------+-------+-------+
+| MPJPE | 78.03 | 75.58 | 80.48 |
++-------+-------+-------+-------+
++-------+-------+-------+-------+
+|  FPE  |  Avg  |  200  |  300  |
++-------+-------+-------+-------+
+| MPJPE | 84.58 | 80.31 | 88.85 |
++-------+-------+-------+-------+
+[1 end] Time cost: 61.22min 	| lr: 0.00020000 	| train loss: 0.07381369470183738
+[2 start]
+	Iter: 927/2782; time cost: 18.52min; current batch has {'PE': 41, 'MP': 52, 'MC': 8, 'FPE': 27} samples

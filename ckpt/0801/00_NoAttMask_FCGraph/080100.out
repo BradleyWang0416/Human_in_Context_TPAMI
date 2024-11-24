@@ -1,0 +1,264 @@
+Adding new arg: args.config = ckpt/0801/00_NoAttMask_FCGraph/config.yaml
+Adding new arg: args.checkpoint = ckpt/0801/00_NoAttMask_FCGraph/
+Adding new arg: args.seed = 0
+Adding new arg: args.visualize = 
+Adding new arg: args.eval_generalization = False
+Adding new arg: args.quick_debug = False
+Adding new arg: args.gpu = 4,5,6,7
+Overriding existing arg: args.batch_size = 370
+Adding new arg: args.classifier_type = task
+Adding new arg: args.num_class = 4
+Adding new arg: args.use_task_id_as_prompt = False
+Adding new arg: args.reverse_query_prompt = False
+Adding new arg: args.shuffle_batch = False
+Adding new arg: args.reverse_query_prompt_per_iter = False
+Adding new arg: args.vertex_x1000 = True
+Adding new arg: args.aug2D = False
+Adding new arg: args.out = 080100
+Adding new arg: args.deactivate_prompt_branch = False
+Adding new arg: args.data_efficient = False
+Adding new arg: args.fully_connected_graph = True
+Adding new arg: args.gpu0_bs = 82
+
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6, 'MeshRecover': 7, 'FutureMeshRecover': 8, 'MeshPred': 9, 'MeshCompletion': 10, 'MeshInBetween': 11}, 'dataset_to_flag': {'H36M_3D': 0, 'AMASS': 1, 'PW3D_MESH': 2, 'H36M_MESH': 3, 'H36M_MESH_TCMR': 4}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB', '7': 'MeshRecover', '8': 'FutureMeshRecover', '9': 'MeshPred', '10': 'MeshCompletion', '11': 'MeshInBetween'}, 'flag_to_dataset': {'0': 'H36M_3D', '1': 'AMASS', '2': 'PW3D_MESH', '3': 'H36M_MESH', '4': 'H36M_MESH_TCMR'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'dataset_task_info': {'train': {'AMASS': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshRecover', 'FutureMeshRecover', 'MeshPred', 'MeshCompletion', 'MeshInBetween'], 'H36M_MESH': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshRecover', 'FutureMeshRecover', 'MeshPred', 'MeshCompletion', 'MeshInBetween']}, 'test': {'AMASS': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshRecover', 'FutureMeshRecover', 'MeshPred', 'MeshCompletion', 'MeshInBetween'], 'H36M_MESH': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshRecover', 'FutureMeshRecover', 'MeshPred', 'MeshCompletion', 'MeshInBetween']}}, 'Mesh': {'enable': True, 'loss_type': 'L1', 'losses': {'loss_3d_pos': 0.5, 'loss_3d_velocity': 10, 'loss_pose': 1000, 'loss_shape': 1, 'loss_norm': 20, 'loss_3d_scale': 0, 'loss_lv': 0, 'loss_lg': 0, 'loss_a': 0, 'loss_av': 0}}, 'dataset_file': {'PW3D_MESH': 'data_icl_gen/VER5_DATA/PW3D_MESH/mesh_det_pw3d_EXTENDED.pkl', 'H36M_MESH': 'data_icl_gen/VER5_DATA/H36M_MESH/mesh_det_h36m_EXTENDED.pkl', 'AMASS': 'data_icl_gen/VER5_DATA/AMASS', 'H36M_3D': 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl', 'H36M_MESH_TCMR': 'data_icl_gen/VER5_DATA/H36M_TCMR/h36m_train_25fps_db_RENAMED.pt'}, 'use_presave_data': True, 'aug': False, 'aug_shuffle_joints': False, 'current_as_history': True, 'clip_len': 16, 'max_len': 16, 'num_joint': 17, 'joint_mask_ratio': 0.4, 'frame_mask_ratio': 0.4, 'mesh_joint_mask_ratio': 0.4, 'presave_folder': 'data_icl_gen/presave_data/', 'dataset_config': {'PW3D_MESH': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_MESH': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'AMASS': {'sample_stride': 1, 'data_stride': {'train': 128, 'test': 256}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_3D': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'scale_3D': 1}, 'H36M_MESH_TCMR': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}}, 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': '8_ICL', 'evaluate_non_AR': '8_ICL', 'train_epoch_non_AR': '8_ICL', 'model_name': 'model_mesh_VER8.M01V02_MotionAGFormer'}, 'epochs': 120, 'batch_size': 370, 'test_batch_size': 512, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'loss_mpjpe': 1.0, 'n_mpjpe': 0.5, 'loss_velocity': 20.0, 'loss_limb_var': 0, 'loss_limb_gt': 0, 'loss_angle': 0, 'loss_angle_velocity': 0}, 'no_eval': False, 'use_partial_data': False, 'partial_data': None, 'full_data': None, 'name': 'config', 'config': 'ckpt/0801/00_NoAttMask_FCGraph/config.yaml', 'checkpoint': 'ckpt/0801/00_NoAttMask_FCGraph/', 'seed': 0, 'visualize': '', 'eval_generalization': False, 'quick_debug': False, 'gpu': '4,5,6,7', 'classifier_type': 'task', 'num_class': 4, 'use_task_id_as_prompt': False, 'reverse_query_prompt': False, 'shuffle_batch': False, 'reverse_query_prompt_per_iter': False, 'vertex_x1000': True, 'aug2D': False, 'out': '080100', 'deactivate_prompt_branch': False, 'data_efficient': False, 'fully_connected_graph': True, 'gpu0_bs': 82, 'data': None}
+
+python train.py --config ckpt/0801/00_NoAttMask_FCGraph/config.yaml -c ckpt/0801/00_NoAttMask_FCGraph/ -vertex_x1000 -fully_connected_graph -gpu 4,5,6,7 -bs 370 -gpu0_bs 82 -out 080100
+
+PID:  3925656
+
+Loading dataset...
+	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshRecover', 'FutureMeshRecover', 'MeshPred', 'MeshCompletion', 'MeshInBetween']... Loading presaved... Loading joint masks... Loading frame masks... costs 1.54s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshRecover', 'FutureMeshRecover', 'MeshPred', 'MeshCompletion', 'MeshInBetween']... Loading presaved... Loading joint masks... Loading frame masks... costs 0.91s... has 18644/18644 query/prompt samples
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Training (non-AR) sample count: 65370
+	Loading test data from [AMASS] for task: ['PE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['FPE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MC']... Loading joint masks... costs 0.01s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MP']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MIB']... Loading frame masks... costs 0.01s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshRecover']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['FutureMeshRecover']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshPred']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshCompletion']... costs 0.01s... has 8492/46726 query/prompt samples
+	Preparing test [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [AMASS] for task: ['MeshInBetween']... Loading frame masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['PE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['FPE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MC']... Loading joint masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MP']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MIB']... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshRecover']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['FutureMeshRecover']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshPred']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshCompletion']... costs 0.00s... has 3088/18644 query/prompt samples
+	Preparing test [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [H36M_MESH] for task: ['MeshInBetween']... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+
+Loading model...
+	Model: model_mesh_VER8.M01V02_MotionAGFormer
+	Trainable parameter count: 48.895466M
+
+Training on [['non_AR', 177]] batches for 120 epochs. batch size: 370
+[1 start]
+	Iter: 59/177; time cost: 21.85min; current batch has {'AMASS': 1360, 'H36M_MESH': 490} samples; batch_size (total/sub): 1850/370
+	Iter: 118/177; time cost: 42.86min; current batch has {'AMASS': 1250, 'H36M_MESH': 600} samples; batch_size (total/sub): 1850/370
+	[check randomness] query_id: 0, prompt_id: 14243
+	Evaluating [PE] on [AMASS]... costs 114.91s
+	Evaluating [FPE] on [AMASS]... costs 110.98s
+	Evaluating [MC] on [AMASS]... costs 111.06s
+	Evaluating [MP] on [AMASS]... costs 110.17s
+	Evaluating [MIB] on [AMASS]... costs 109.77s
+	Evaluating [MeshRecover] on [AMASS]... costs 109.43s
+	Evaluating [FutureMeshRecover] on [AMASS]... costs 110.69s
+	Evaluating [MeshPred] on [AMASS]... costs 109.41s
+	Evaluating [MeshCompletion] on [AMASS]... costs 111.06s
+	Evaluating [MeshInBetween] on [AMASS]... costs 111.40s
+	Evaluating [PE] on [H36M_MESH]... costs 40.74s
+	Evaluating [FPE] on [H36M_MESH]... costs 40.90s
+	Evaluating [MC] on [H36M_MESH]... costs 41.42s
+	Evaluating [MP] on [H36M_MESH]... costs 41.26s
+	Evaluating [MIB] on [H36M_MESH]... costs 41.76s
+	Evaluating [MeshRecover] on [H36M_MESH]... costs 40.99s
+	Evaluating [FutureMeshRecover] on [H36M_MESH]... costs 40.41s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 40.64s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 41.03s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 41.77s
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+| Epoch |     lr     |  JOINT  |    MESH   |   ALL   | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+|   1   | 0.00020000 | 1.05585 | 384.35066 | 0.00000 |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |
+|       |            |         |           |         | 491.70 | 491.62 | 525.49 | 491.05 | 494.33 |    446.07   |       446.30      |  446.71  |     446.52     |     446.24    |   645.85  | 642.78 | 686.10 | 640.22 | 643.52 |    591.53   |       589.41      |  596.39  |     599.17     |     597.97    | 220.98 | 219.84 | 252.44 | 229.73 | 228.67 |    155.64   |       155.57      |  156.48  |     156.72     |     156.64    |   497.51  | 495.14 | 523.58 | 498.64 | 499.60 |    365.42   |       363.20      |  382.51  |     396.33     |     384.57    |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+	Saving best checkpoints: [AMASS,PE] [AMASS,FPE] [AMASS,MC] [AMASS,MP] [AMASS,MIB] [AMASS,MeshRecover] [AMASS,FutureMeshRecover] [AMASS,MeshPred] [AMASS,MeshCompletion] [AMASS,MeshInBetween] [H36M_MESH,PE] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MP] [H36M_MESH,MIB] [H36M_MESH,MeshRecover] [H36M_MESH,FutureMeshRecover] [H36M_MESH,MeshPred] [H36M_MESH,MeshCompletion] [H36M_MESH,MeshInBetween] 
+
+[1 end] Time cost: 89.23min 	| lr: 0.00020000
+[2 start]
+	Iter: 59/177; time cost: 21.41min; current batch has {'AMASS': 1315, 'H36M_MESH': 535} samples; batch_size (total/sub): 1850/370
+	Iter: 118/177; time cost: 42.43min; current batch has {'AMASS': 1340, 'H36M_MESH': 510} samples; batch_size (total/sub): 1850/370
+	[check randomness] query_id: 0, prompt_id: 19757
+	Evaluating [PE] on [AMASS]... costs 109.70s
+	Evaluating [FPE] on [AMASS]... costs 109.93s
+	Evaluating [MC] on [AMASS]... costs 113.00s
+	Evaluating [MP] on [AMASS]... costs 112.63s
+	Evaluating [MIB] on [AMASS]... costs 110.60s
+	Evaluating [MeshRecover] on [AMASS]... costs 109.36s
+	Evaluating [FutureMeshRecover] on [AMASS]... costs 109.69s
+	Evaluating [MeshPred] on [AMASS]... costs 111.33s
+	Evaluating [MeshCompletion] on [AMASS]... costs 111.50s
+	Evaluating [MeshInBetween] on [AMASS]... costs 107.73s
+	Evaluating [PE] on [H36M_MESH]... costs 40.38s
+	Evaluating [FPE] on [H36M_MESH]... costs 39.84s
+	Evaluating [MC] on [H36M_MESH]... costs 39.85s
+	Evaluating [MP] on [H36M_MESH]... costs 40.28s
+	Evaluating [MIB] on [H36M_MESH]... costs 40.46s
+	Evaluating [MeshRecover] on [H36M_MESH]... costs 39.74s
+	Evaluating [FutureMeshRecover] on [H36M_MESH]... costs 39.69s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 39.69s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 39.60s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 40.02s
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+| Epoch |     lr     |  JOINT  |    MESH   |   ALL   | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+|   2   | 0.00019800 | 1.08136 | 366.69445 | 0.00000 |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |
+|       |            |         |           |         | 570.05 | 570.32 | 615.03 | 573.36 | 579.18 |    540.29   |       540.57      |  539.54  |     539.77     |     540.08    |   619.62  | 617.48 | 656.10 | 615.66 | 620.71 |    612.52   |       610.05      |  608.39  |     612.70     |     612.20    | 335.04 | 331.82 | 336.70 | 320.62 | 356.98 |    195.48   |       195.61      |  173.32  |     172.85     |     190.30    |   617.59  | 609.22 | 626.32 | 631.15 | 618.14 |    362.50   |       358.90      |  364.74  |     374.69     |     364.39    |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MP] [H36M_MESH,MIB] 
+
+[2 end] Time cost: 88.44min 	| lr: 0.00019800
+[3 start]
+	[check randomness] query_id: 0, prompt_id: 44710
+	Iter: 59/177; time cost: 21.38min; current batch has {'AMASS': 1330, 'H36M_MESH': 520} samples; batch_size (total/sub): 1850/370
+	Iter: 118/177; time cost: 42.45min; current batch has {'AMASS': 1360, 'H36M_MESH': 490} samples; batch_size (total/sub): 1850/370
+	Evaluating [PE] on [AMASS]... costs 105.97s
+	Evaluating [FPE] on [AMASS]... costs 106.94s
+	Evaluating [MC] on [AMASS]... costs 107.54s
+	Evaluating [MP] on [AMASS]... costs 108.54s
+	Evaluating [MIB] on [AMASS]... costs 109.23s
+	Evaluating [MeshRecover] on [AMASS]... costs 107.11s
+	Evaluating [FutureMeshRecover] on [AMASS]... costs 107.63s
+	Evaluating [MeshPred] on [AMASS]... costs 106.71s
+	Evaluating [MeshCompletion] on [AMASS]... costs 108.05s
+	Evaluating [MeshInBetween] on [AMASS]... costs 107.01s
+	Evaluating [PE] on [H36M_MESH]... costs 39.73s
+	Evaluating [FPE] on [H36M_MESH]... costs 39.30s
+	Evaluating [MC] on [H36M_MESH]... costs 40.21s
+	Evaluating [MP] on [H36M_MESH]... costs 40.26s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.96s
+	Evaluating [MeshRecover] on [H36M_MESH]... costs 41.30s
+	Evaluating [FutureMeshRecover] on [H36M_MESH]... costs 40.97s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 39.63s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 40.70s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 39.90s
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+| Epoch |     lr     |  JOINT  |    MESH   |   ALL   | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+|   3   | 0.00019602 | 1.09961 | 370.70588 | 0.00000 |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |
+|       |            |         |           |         | 234.02 | 232.98 | 255.63 | 233.07 | 240.09 |    229.78   |       230.42      |  228.39  |     226.61     |     230.44    |   368.79  | 367.60 | 391.82 | 367.77 | 370.68 |    338.62   |       336.79      |  334.90  |     337.92     |     336.67    | 204.70 | 203.96 | 224.35 | 205.93 | 219.20 |    228.66   |       231.12      |  225.12  |     219.18     |     230.75    |   392.12  | 389.26 | 392.04 | 387.38 | 392.06 |    359.22   |       355.65      |  354.76  |     358.96     |     358.31    |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+	Saving best checkpoints: [AMASS,PE] [AMASS,FPE] [AMASS,MC] [AMASS,MP] [AMASS,MIB] [AMASS,MeshRecover] [AMASS,FutureMeshRecover] [AMASS,MeshPred] [AMASS,MeshCompletion] [AMASS,MeshInBetween] [H36M_MESH,PE] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MP] [H36M_MESH,MIB] [H36M_MESH,MeshRecover] [H36M_MESH,FutureMeshRecover] [H36M_MESH,MeshPred] [H36M_MESH,MeshCompletion] [H36M_MESH,MeshInBetween] 
+
+[3 end] Time cost: 88.86min 	| lr: 0.00019602
+[4 start]
+	Iter: 59/177; time cost: 21.39min; current batch has {'AMASS': 1350, 'H36M_MESH': 500} samples; batch_size (total/sub): 1850/370
+	[check randomness] query_id: 0, prompt_id: 26209
+	Iter: 118/177; time cost: 42.37min; current batch has {'AMASS': 1270, 'H36M_MESH': 580} samples; batch_size (total/sub): 1850/370
+	Evaluating [PE] on [AMASS]... costs 106.86s
+	Evaluating [FPE] on [AMASS]... costs 108.50s
+	Evaluating [MC] on [AMASS]... costs 109.32s
+	Evaluating [MP] on [AMASS]... costs 107.35s
+	Evaluating [MIB] on [AMASS]... costs 110.50s
+	Evaluating [MeshRecover] on [AMASS]... costs 106.66s
+	Evaluating [FutureMeshRecover] on [AMASS]... costs 107.36s
+	Evaluating [MeshPred] on [AMASS]... costs 107.30s
+	Evaluating [MeshCompletion] on [AMASS]... costs 108.31s
+	Evaluating [MeshInBetween] on [AMASS]... costs 108.62s
+	Evaluating [PE] on [H36M_MESH]... costs 40.48s
+	Evaluating [FPE] on [H36M_MESH]... costs 40.42s
+	Evaluating [MC] on [H36M_MESH]... costs 39.71s
+	Evaluating [MP] on [H36M_MESH]... costs 39.61s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.95s
+	Evaluating [MeshRecover] on [H36M_MESH]... costs 39.76s
+	Evaluating [FutureMeshRecover] on [H36M_MESH]... costs 40.05s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 39.43s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 40.05s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 40.15s
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+| Epoch |     lr     |  JOINT  |    MESH   |   ALL   | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+|   4   | 0.00019406 | 0.96133 | 378.73333 | 0.00000 |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |
+|       |            |         |           |         | 472.53 | 471.98 | 503.45 | 469.44 | 473.61 |    457.55   |       457.06      |  458.91  |     459.43     |     460.23    |   518.64  | 522.15 | 556.05 | 522.95 | 518.06 |    505.95   |       506.26      |  501.32  |     501.69     |     495.75    | 319.89 | 319.88 | 322.54 | 317.41 | 322.33 |    303.13   |       303.18      |  311.53  |     309.23     |     312.56    |   367.92  | 368.84 | 374.41 | 371.49 | 368.13 |    349.61   |       346.67      |  353.05  |     353.67     |     351.25    |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+	Saving best checkpoints: 
+
+[4 end] Time cost: 87.71min 	| lr: 0.00019406
+[5 start]
+	Iter: 59/177; time cost: 21.35min; current batch has {'AMASS': 1305, 'H36M_MESH': 545} samples; batch_size (total/sub): 1850/370
+	[check randomness] query_id: 0, prompt_id: 40266
+	Iter: 118/177; time cost: 42.44min; current batch has {'AMASS': 1355, 'H36M_MESH': 495} samples; batch_size (total/sub): 1850/370
+	Evaluating [PE] on [AMASS]... costs 106.27s
+	Evaluating [FPE] on [AMASS]... costs 106.79s
+	Evaluating [MC] on [AMASS]... costs 108.41s
+	Evaluating [MP] on [AMASS]... costs 107.34s
+	Evaluating [MIB] on [AMASS]... costs 109.10s
+	Evaluating [MeshRecover] on [AMASS]... costs 107.73s
+	Evaluating [FutureMeshRecover] on [AMASS]... costs 107.63s
+	Evaluating [MeshPred] on [AMASS]... costs 108.38s
+	Evaluating [MeshCompletion] on [AMASS]... costs 106.98s
+	Evaluating [MeshInBetween] on [AMASS]... costs 108.43s
+	Evaluating [PE] on [H36M_MESH]... costs 40.52s
+	Evaluating [FPE] on [H36M_MESH]... costs 39.40s
+	Evaluating [MC] on [H36M_MESH]... costs 40.08s
+	Evaluating [MP] on [H36M_MESH]... costs 39.90s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.92s
+	Evaluating [MeshRecover] on [H36M_MESH]... costs 39.99s
+	Evaluating [FutureMeshRecover] on [H36M_MESH]... costs 39.79s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 39.56s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 40.18s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 40.09s
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+| Epoch |     lr     |  JOINT  |    MESH   |   ALL   | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+|   5   | 0.00019212 | 0.96308 | 369.57071 | 0.00000 |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |
+|       |            |         |           |         | 635.21 | 636.51 | 678.48 | 632.69 | 638.61 |    623.71   |       623.94      |  622.10  |     623.16     |     621.26    |   810.96  | 809.04 | 861.98 | 813.13 | 808.45 |    800.65   |       798.35      |  785.99  |     795.10     |     788.55    | 192.69 | 194.77 | 205.34 | 183.15 | 207.76 |    160.37   |       160.65      |  163.00  |     159.21     |     161.15    |   398.24  | 396.01 | 409.82 | 412.00 | 398.89 |    355.47   |       352.29      |  353.47  |     357.54     |     355.58    |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+	Saving best checkpoints: 
+
+[5 end] Time cost: 87.85min 	| lr: 0.00019212
+[6 start]
+	Iter: 59/177; time cost: 21.31min; current batch has {'AMASS': 1265, 'H36M_MESH': 585} samples; batch_size (total/sub): 1850/370
+	[check randomness] query_id: 0, prompt_id: 39294
+	Iter: 118/177; time cost: 42.38min; current batch has {'AMASS': 1305, 'H36M_MESH': 545} samples; batch_size (total/sub): 1850/370
+	Evaluating [PE] on [AMASS]... costs 107.35s
+	Evaluating [FPE] on [AMASS]... costs 107.94s
+	Evaluating [MC] on [AMASS]... costs 109.35s
+	Evaluating [MP] on [AMASS]... costs 110.85s
+	Evaluating [MIB] on [AMASS]... costs 108.39s
+	Evaluating [MeshRecover] on [AMASS]... costs 110.48s
+	Evaluating [FutureMeshRecover] on [AMASS]... costs 108.79s
+	Evaluating [MeshPred] on [AMASS]... costs 108.82s
+	Evaluating [MeshCompletion] on [AMASS]... costs 111.36s
+	Evaluating [MeshInBetween] on [AMASS]... costs 107.02s
+	Evaluating [PE] on [H36M_MESH]... costs 40.24s
+	Evaluating [FPE] on [H36M_MESH]... costs 40.55s
+	Evaluating [MC] on [H36M_MESH]... costs 42.00s
+	Evaluating [MP] on [H36M_MESH]... costs 40.49s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.93s
+	Evaluating [MeshRecover] on [H36M_MESH]... costs 40.20s
+	Evaluating [FutureMeshRecover] on [H36M_MESH]... costs 39.48s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 39.72s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 40.14s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 40.07s
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+| Epoch |     lr     |  JOINT  |    MESH   |   ALL   | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               | AMASS  |        |        |        |        |             |                   |          |                |               | H36M_MESH |        |        |        |        |             |                   |          |                |               |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+|   6   | 0.00019020 | 0.98722 | 359.93348 | 0.00000 |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshRecover | FutureMeshRecover | MeshPred | MeshCompletion | MeshInBetween |
+|       |            |         |           |         | 680.80 | 681.27 | 736.66 | 679.00 | 684.44 |    664.80   |       665.54      |  659.69  |     662.32     |     660.27    |   825.13  | 822.78 | 873.72 | 823.53 | 821.94 |    821.30   |       818.78      |  811.32  |     817.53     |     816.26    | 199.32 | 199.24 | 226.88 | 201.55 | 214.25 |    159.78   |       160.98      |  174.79  |     173.93     |     169.86    |   390.20  | 389.23 | 383.19 | 379.95 | 385.12 |    351.73   |       347.91      |  346.62  |     350.02     |     349.37    |
++-------+------------+---------+-----------+---------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+--------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+-----------+--------+--------+--------+--------+-------------+-------------------+----------+----------------+---------------+
+	Saving best checkpoints: 
+
+[6 end] Time cost: 87.98min 	| lr: 0.00019020
+[7 start]
+	Iter: 59/177; time cost: 21.43min; current batch has {'AMASS': 1335, 'H36M_MESH': 515} samples; batch_size (total/sub): 1850/370
+	[check randomness] query_id: 0, prompt_id: 26917
+	Iter: 118/177; time cost: 42.47min; current batch has {'AMASS': 1340, 'H36M_MESH': 510} samples; batch_size (total/sub): 1850/370

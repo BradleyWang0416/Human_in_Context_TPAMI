@@ -1,0 +1,169 @@
+# Task custom param
+tasks: [PE, MP, MC, FPE]       # default: [PE, MP, MC, FPE, 2DAR]
+
+# Global task param. Do not modify.
+task_to_flag: {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6}
+dataset_to_flag: {'H36M_3D': 0, 'AMASS': 1, 'PW3D_MESH': 2, 'H36M_MESH': 3, 'H36M_MESH_TCMR': 4}
+
+flag_to_task: {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB'}
+flag_to_dataset: {'0': 'H36M_3D', '1': 'AMASS', '2': 'PW3D_MESH', '3': 'H36M_MESH', '4': 'H36M_MESH_TCMR'}
+
+task_metrics:
+    PE: [PE e1, PE e2]
+    MP: [MP]
+    FPE: [FPE]
+    MC: [MC]
+    2DAR: [2DAR]
+    AR: [AR]
+
+dataset_task_info:
+    train:
+        H36M_MESH: [PE, MP, FPE, MC, MIB]
+        # AMASS: [PE, MP, FPE, MC]
+        # H36M_MESH_TCMR: [PE, MP, FPE, MC, MIB]
+        # PW3D_MESH: [PE, MP, FPE, MC]
+        # H36M_3D: [PE, MP, FPE, MC]
+        
+    test:
+        H36M_MESH: [PE, MP, FPE, MC, MIB]
+        # H36M_MESH_TCMR: [PE, MP, FPE, MC, MIB]
+        # H36M_3D: [PE]
+        # AMASS: [PE, MP]
+        # PW3D_MESH: [MC, MIB]
+
+Mesh:
+    enable: True
+    loss_type: 'L1'
+    losses:
+        loss_3d_pos: 0.5
+        loss_3d_velocity: 10
+        loss_pose: 1000
+        loss_shape: 1
+        loss_norm: 20
+        loss_3d_scale: 0
+        loss_lv: 0
+        loss_lg: 0
+        loss_a: 0
+        loss_av: 0
+
+dataset_file:
+    PW3D_MESH: 'data_icl_gen/VER5_DATA/PW3D_MESH/mesh_det_pw3d_EXTENDED.pkl'
+    H36M_MESH: 'data_icl_gen/VER5_DATA/H36M_MESH/mesh_det_h36m_EXTENDED.pkl'
+    AMASS: 'data_icl_gen/VER5_DATA/AMASS'
+    H36M_3D: 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl'
+    H36M_MESH_TCMR: 'data_icl_gen/VER5_DATA/H36M_TCMR/h36m_25fps_db_RENAMED.pt'
+
+use_presave_data: True
+aug: False
+aug_shuffle_joints: False
+current_as_history: True
+clip_len: 16
+max_len: 16
+num_joint: 17
+joint_mask_ratio: 0.4
+frame_mask_ratio: 0.4
+presave_folder: data_icl_gen/presave_data/
+
+
+dataset_config:
+    PW3D_MESH:
+        sample_stride: 1
+        data_stride: 
+            train: 16
+            test: 16
+        read_confidence: False
+        rootrel_input: True
+        rootrel_target: True
+        flip: True
+        use_global_orient: True
+    AMASS:
+        sample_stride: 1
+        data_stride: 
+            train: 64
+            test: 128
+        read_confidence: False
+        rootrel_input: True
+        rootrel_target: True
+        flip: True
+        use_global_orient: True
+    H36M_MESH:
+        sample_stride: 1
+        data_stride: 
+            train: 8
+            test: 16
+        read_confidence: False
+        rootrel_input: True
+        rootrel_target: True
+        flip: True
+        use_global_orient: True
+    H36M_MESH_TCMR:
+        sample_stride: 1
+        data_stride: 
+            train: 8
+            test: 16
+        read_confidence: False
+        rootrel_input: True
+        rootrel_target: True
+        flip: True
+        use_global_orient: True
+    H36M_3D:
+        sample_stride: 1
+        data_stride:
+            train: 16
+            test: 32
+        read_confidence: False
+        rootrel_input: True
+        rootrel_target: True
+        flip: True
+        scale_3D: 1
+
+func_ver:
+  dataset_action_recognition:
+  evaluate_action_recognition:
+  train_epoch_action_recognition:
+
+  dataset_non_AR: 6_ICL
+  evaluate_non_AR: 5_ICL
+  train_epoch_non_AR: 6_ICL
+
+  model_name: model_mesh.M01V01_MotionAGFormer
+
+
+# Traning
+epochs: 120
+batch_size: 128                # default: 200
+test_batch_size: 512
+learning_rate: 0.0002
+weight_decay: 0.01
+lr_decay: 0.99
+
+# Loss
+losses:
+  loss_mpjpe: 1.
+  n_mpjpe: 0.5
+  loss_velocity: 20.
+  loss_limb_var: 0
+  loss_limb_gt: 0
+  loss_angle: 0
+  loss_angle_velocity: 0
+
+# General
+no_eval: False
+
+
+# # Data
+use_partial_data: False
+partial_data:  
+full_data:
+
+# # Model
+# maxlen: 16
+# dim_in: 3
+# dim_out: 3
+# dim_feat: 256
+# mlp_ratio: 2
+# depth: 5        # default: 5
+# dim_rep: 256
+# num_heads: 8
+# att_fuse: True
+# merge_idx: 2        # default: 2

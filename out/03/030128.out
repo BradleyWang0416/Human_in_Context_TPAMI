@@ -1,0 +1,566 @@
+Adding new arg: args.config = ckpt/0301/28_base05_loss_m_nm_v_lgt_a_av_1gpu/config.yaml
+Adding new arg: args.checkpoint = ckpt/0301/28_base05_loss_m_nm_v_lgt_a_av_1gpu/
+Adding new arg: args.seed = 0
+Adding new arg: args.visualize = 
+Adding new arg: args.eval_generalization = False
+Adding new arg: args.quick_debug = False
+Adding new arg: args.gpu = 0
+Overriding existing arg: args.batch_size = 320
+Adding new arg: args.classifier_type = task
+Adding new arg: args.num_class = 4
+Adding new arg: args.use_task_id_as_prompt = False
+Adding new arg: args.reverse_query_prompt = False
+Adding new arg: args.shuffle_batch = False
+Adding new arg: args.reverse_query_prompt_per_iter = False
+
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6}, 'dataset_to_flag': {'H36M_3D': 0, 'AMASS': 1, 'PW3D_MESH': 2, 'H36M_MESH': 3}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB'}, 'flag_to_dataset': {'0': 'H36M_3D', '1': 'AMASS', '2': 'PW3D_MESH', '3': 'H36M_MESH'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'dataset_task_info': {'train': {'H36M_3D': ['PE', 'MP', 'FPE', 'MC'], 'AMASS': ['PE', 'MP', 'FPE', 'MC']}, 'test': {'H36M_3D': ['PE', 'MP', 'FPE', 'MC', 'MIB'], 'AMASS': ['PE', 'MP', 'FPE', 'MC', 'MIB'], 'PW3D_MESH': ['PE', 'MP', 'FPE', 'MC', 'MIB']}}, 'dataset_file': {'PW3D_MESH': 'data_icl_gen/processed_data/PW3D/mesh_det_pw3d.pkl', 'H36M_MESH': 'data_icl_gen/processed_data/H36M_MESH/mesh_det_h36m.pkl', 'H36M_3D': 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl', 'AMASS': 'data_icl_gen/processed_data/AMASS/amass_joints_h36m_60.pkl'}, 'use_presave_data': True, 'normalize_2d': False, 'normalize_3d': False, 'aug': False, 'aug_shuffle_joints': False, 'clip_len': 16, 'max_len': 16, 'num_joint': 17, 'joint_mask_ratio': 0.4, 'frame_mask_ratio': 0.4, 'presave_folder': 'data_icl_gen/presave_data', 'dataset_config': {'H36M_3D': {'sample_stride': 1, 'data_stride_train': 16, 'data_stride_test': 32, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'scale_3D': 1}, 'PW3D_MESH': {'sample_stride': 1, 'data_stride_train': 1, 'data_stride_test': 16, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'return_3d': True}, 'AMASS': {'sample_stride': 1, 'data_stride_train': 64, 'data_stride_test': 128, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'return_3d': True}, 'H36M_MESH': {'sample_stride': 1, 'data_stride_train': 32, 'data_stride_test': 32, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'return_3d': True}}, 'data_root_path': 'data/non_default_ICL', 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': '3_ICL', 'evaluate_non_AR': '3_ICL', 'train_epoch_non_AR': '3_ICL', 'model_name': 'M06_MixSTE_v0_maxlen'}, 'current_as_history': True, 'rotate_prob': 0.25, 'keep_original_joints': True, 'use_partial_data': False, 'partial_data': {'datasets': {'PE': None, 'MP': None, 'FPE': None, 'MC': None}, 'train_stride': None, 'sample_stride': None, 'clip_len': None, 'num_joints': None, 'drop_ratios_MC': None, 'root_path': None, 'source_file_h36m': None, 'clip_len_2DAR': None, 'batch_size_2DAR': None, 'label_stride_2DAR': None}, 'full_data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.5], 'drop_ratios_MIB': [0.5], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}, 'maxlen': 16, 'dim_in': 3, 'dim_out': 3, 'dim_feat': 256, 'mlp_ratio': 2, 'depth': 5, 'dim_rep': 256, 'num_heads': 8, 'att_fuse': True, 'merge_idx': 2, 'epochs': 120, 'batch_size': 320, 'test_batch_size': 512, 'dropout': 0.0, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'mpjpe': 1.0, 'n_mpjpe': 0.5, 'velocity': 20.0, 'limb_var': 0, 'limb_gt': 0.5, 'angle': 0.5, 'angle_velocity': 0.5}, 'label_type_2DAR': 'default', 'rootrel_input': True, 'rootrel_input_2DAR': False, 'rootrel_target_MP': True, 'rootrel_target_PE': True, 'rootrel_target_FPE': True, 'flip_h36m_y_axis': False, 'flip_h36mFPE_y_axis': False, 'scale_h36m_skeleton': 2.0, 'scale_h36mFPE_skeleton': 2.0, 'no_eval': False, 'amass_to_h36m': [[2], [0], [3], [6], [1], [4], [7], [5], [8], [8, 11], [11], [10], [13], [15], [9], [12], [14]], 'name': 'config', 'config': 'ckpt/0301/28_base05_loss_m_nm_v_lgt_a_av_1gpu/config.yaml', 'checkpoint': 'ckpt/0301/28_base05_loss_m_nm_v_lgt_a_av_1gpu/', 'seed': 0, 'visualize': '', 'eval_generalization': False, 'quick_debug': False, 'gpu': '0', 'classifier_type': 'task', 'num_class': 4, 'use_task_id_as_prompt': False, 'reverse_query_prompt': False, 'shuffle_batch': False, 'reverse_query_prompt_per_iter': False, 'data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.5], 'drop_ratios_MIB': [0.5], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}}
+
+python train.py --config ckpt/0301/28_base05_loss_m_nm_v_lgt_a_av_1gpu/config.yaml -c ckpt/0301/28_base05_loss_m_nm_v_lgt_a_av_1gpu/ -gpu 0 -bs 320
+
+PID:  4053683
+
+Loading dataset...
+	Dataset attribute [use_global_orient=True]
+	Dataset attribute [normalize_2d=False]
+	Dataset attribute [normalize_3d=False]
+	Loading train data from [H36M_3D] for task: ['PE', 'MP', 'FPE', 'MC']... costs 4.32s... has 96596 samples
+	Loading train data from [AMASS] for task: ['PE', 'MP', 'FPE', 'MC']... costs 5.67s... has 89678 samples
+	Training (non-AR) sample count: 186274
+	Loading test data from [H36M_3D] for task: ['PE']... costs 3.18s... has 17596 samples
+	Loading test data from [H36M_3D] for task: ['MP']... costs 3.04s... has 17596 samples
+	Loading test data from [H36M_3D] for task: ['FPE']... costs 3.02s... has 17596 samples
+	Loading test data from [H36M_3D] for task: ['MC']... costs 3.30s... has 17596 samples
+	Loading test data from [H36M_3D] for task: ['MIB']... costs 3.15s... has 17596 samples
+	Loading test data from [AMASS] for task: ['PE']... costs 4.15s... has 15516 samples
+	Loading test data from [AMASS] for task: ['MP']... costs 3.62s... has 15516 samples
+	Loading test data from [AMASS] for task: ['FPE']... costs 4.08s... has 15516 samples
+	Loading test data from [AMASS] for task: ['MC']... costs 3.79s... has 15516 samples
+	Loading test data from [AMASS] for task: ['MIB']... costs 3.70s... has 15516 samples
+	Loading test data from [PW3D_MESH] for task: ['PE']... costs 0.47s... has 2165 samples
+	Loading test data from [PW3D_MESH] for task: ['MP']... costs 0.46s... has 2165 samples
+	Loading test data from [PW3D_MESH] for task: ['FPE']... costs 0.45s... has 2165 samples
+	Loading test data from [PW3D_MESH] for task: ['MC']... costs 0.46s... has 2165 samples
+	Loading test data from [PW3D_MESH] for task: ['MIB']... costs 0.46s... has 2165 samples
+
+Loading model...
+	Model: M06_MixSTE_v0_maxlen
+	Trainable parameter count: 235.739396M
+
+Training on [['non_AR', 583]] batches for 120 epochs. batch size: 320
+[1 start]
+	Iter: 194/583; time cost: 41.13min; current batch has {'H36M_3D': 668, 'AMASS': 612} samples
+	Iter: 388/583; time cost: 81.95min; current batch has {'H36M_3D': 640, 'AMASS': 640} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 66.38s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 58.78s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 58.97s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 61.45s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 61.12s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 52.42s
+	Evaluating [Motion Prediction] on [AMASS]... costs 53.13s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 52.47s
+	Evaluating [Motion Completion] on [AMASS]... costs 54.88s
+	Evaluating [Motion In Between] on [AMASS]... costs 55.05s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 11.86s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 12.13s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 12.23s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 11.27s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 12.16s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+-------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |       | PW3D_MESH |       |        |        |       |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+-------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB  |     PE    |   MP  |  FPE   |   MC   |  MIB  |
+|   1   | 0.00020000 |  0.09293   |  81.35  | 23.35 | 41.94 | 53.38 | 61.95 | 60.86 | 55.29 | 69.01 | 96.67 | 84.95 |   224.95  | 65.30 | 227.75 | 162.78 | 99.59 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+-------+
+	Saving best checkpoints: [H36M_3D,PE] [H36M_3D,MP] [H36M_3D,FPE] [H36M_3D,MC] [H36M_3D,MIB] [AMASS,PE] [AMASS,MP] [AMASS,FPE] [AMASS,MC] [AMASS,MIB] [PW3D_MESH,PE] [PW3D_MESH,MP] [PW3D_MESH,FPE] [PW3D_MESH,MC] [PW3D_MESH,MIB] 
+
+[1 end] Time cost: 133.54min 	| lr: 0.00020000 	| train loss: 0.09293456733252368
+[2 start]
+	Iter: 194/583; time cost: 41.04min; current batch has {'H36M_3D': 680, 'AMASS': 600} samples
+	Iter: 388/583; time cost: 81.91min; current batch has {'H36M_3D': 680, 'AMASS': 600} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 60.63s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.31s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.33s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 56.82s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 57.01s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 47.94s
+	Evaluating [Motion Prediction] on [AMASS]... costs 47.94s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.02s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.23s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.30s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.91s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.92s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.88s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.18s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.16s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |        | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB   |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   2   | 0.00019800 |  0.04368   |  86.39  | 32.68 | 45.42 | 49.92 | 73.07 | 56.76 | 60.10 | 75.79 | 73.76 | 167.41 |   224.84  | 75.33 | 230.67 | 149.82 | 190.11 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,MC] [AMASS,PE] [AMASS,MC] [PW3D_MESH,PE] [PW3D_MESH,MC] 
+
+[2 end] Time cost: 132.79min 	| lr: 0.00019800 	| train loss: 0.04368399175906857
+[3 start]
+	Iter: 194/583; time cost: 41.07min; current batch has {'H36M_3D': 660, 'AMASS': 620} samples
+	Iter: 388/583; time cost: 81.95min; current batch has {'H36M_3D': 624, 'AMASS': 656} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 59.67s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.43s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.47s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 56.95s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 56.91s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 47.90s
+	Evaluating [Motion Prediction] on [AMASS]... costs 47.91s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.18s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.04s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.16s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.91s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.86s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.86s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.16s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.15s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |        | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB   |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   3   | 0.00019602 |  0.03456   |  68.09  | 18.13 | 36.88 | 39.71 | 90.46 | 33.13 | 30.61 | 50.59 | 57.93 | 318.91 |   224.70  | 58.10 | 223.69 | 127.26 | 334.80 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,PE] [H36M_3D,MP] [H36M_3D,FPE] [H36M_3D,MC] [AMASS,PE] [AMASS,MP] [AMASS,FPE] [AMASS,MC] [PW3D_MESH,PE] [PW3D_MESH,MP] [PW3D_MESH,FPE] [PW3D_MESH,MC] 
+
+[3 end] Time cost: 133.62min 	| lr: 0.00019602 	| train loss: 0.034564397319793036
+[4 start]
+	Iter: 194/583; time cost: 41.00min; current batch has {'H36M_3D': 700, 'AMASS': 580} samples
+	Iter: 388/583; time cost: 81.84min; current batch has {'H36M_3D': 636, 'AMASS': 644} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 59.70s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.61s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.24s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 57.07s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 56.92s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.15s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.04s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.12s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.47s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.13s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.84s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.84s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.81s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.13s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.11s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |        | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB   |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   4   | 0.00019406 |  0.02988   |  58.94  | 14.52 | 35.51 | 36.70 | 74.28 | 28.43 | 27.98 | 46.13 | 54.07 | 262.59 |   219.58  | 57.25 | 218.89 | 139.25 | 250.26 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,PE] [H36M_3D,MP] [H36M_3D,FPE] [H36M_3D,MC] [AMASS,PE] [AMASS,MP] [AMASS,FPE] [AMASS,MC] [PW3D_MESH,PE] [PW3D_MESH,MP] [PW3D_MESH,FPE] 
+
+[4 end] Time cost: 133.44min 	| lr: 0.00019406 	| train loss: 0.029875055768840197
+[5 start]
+	Iter: 194/583; time cost: 40.98min; current batch has {'H36M_3D': 648, 'AMASS': 632} samples
+	Iter: 388/583; time cost: 81.74min; current batch has {'H36M_3D': 704, 'AMASS': 576} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 60.00s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.36s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.33s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 56.89s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 57.15s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 47.97s
+	Evaluating [Motion Prediction] on [AMASS]... costs 47.89s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.17s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.02s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.15s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.85s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.83s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.86s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.16s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.15s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |        | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB   |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   5   | 0.00019212 |  0.02556   |  62.35  | 16.68 | 36.55 | 35.29 | 45.07 | 32.16 | 28.86 | 44.98 | 49.67 | 114.62 |   220.70  | 56.58 | 219.13 | 119.65 | 129.09 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,MC] [H36M_3D,MIB] [AMASS,FPE] [AMASS,MC] [PW3D_MESH,MP] [PW3D_MESH,MC] 
+
+[5 end] Time cost: 132.67min 	| lr: 0.00019212 	| train loss: 0.025564204328027647
+[6 start]
+	Iter: 194/583; time cost: 40.97min; current batch has {'H36M_3D': 652, 'AMASS': 628} samples
+	Iter: 388/583; time cost: 81.76min; current batch has {'H36M_3D': 628, 'AMASS': 652} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 60.21s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.39s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.40s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 56.90s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 56.77s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.17s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.00s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 47.95s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.11s
+	Evaluating [Motion In Between] on [AMASS]... costs 49.91s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.82s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.83s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.82s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.11s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.17s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |        | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB   |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   6   | 0.00019020 |  0.02327   |  62.43  | 14.78 | 35.45 | 34.68 | 56.69 | 31.69 | 22.53 | 48.88 | 47.60 | 128.70 |   219.59  | 50.35 | 217.72 | 143.17 | 140.47 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,FPE] [H36M_3D,MC] [AMASS,MP] [AMASS,MC] [PW3D_MESH,MP] [PW3D_MESH,FPE] 
+
+[6 end] Time cost: 132.63min 	| lr: 0.00019020 	| train loss: 0.023271569558297324
+[7 start]
+	Iter: 194/583; time cost: 40.97min; current batch has {'H36M_3D': 648, 'AMASS': 632} samples
+	Iter: 388/583; time cost: 81.77min; current batch has {'H36M_3D': 676, 'AMASS': 604} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 59.94s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.36s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.52s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 57.19s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 57.27s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.38s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.19s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.17s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.16s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.07s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.87s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.85s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.86s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.15s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.14s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |        | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB   |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   7   | 0.00018830 |  0.02199   |  56.88  | 12.60 | 33.40 | 32.66 | 53.80 | 24.11 | 20.61 | 38.44 | 46.90 | 127.48 |   219.87  | 48.89 | 217.40 | 102.08 | 136.74 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,PE] [H36M_3D,MP] [H36M_3D,FPE] [H36M_3D,MC] [AMASS,PE] [AMASS,MP] [AMASS,FPE] [AMASS,MC] [PW3D_MESH,MP] [PW3D_MESH,FPE] [PW3D_MESH,MC] 
+
+[7 end] Time cost: 133.17min 	| lr: 0.00018830 	| train loss: 0.021987283793499974
+[8 start]
+	Iter: 194/583; time cost: 41.13min; current batch has {'H36M_3D': 600, 'AMASS': 680} samples
+	Iter: 388/583; time cost: 82.06min; current batch has {'H36M_3D': 616, 'AMASS': 664} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 267.00s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 53.72s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.23s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 56.97s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 62.46s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.12s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.10s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.26s
+	Evaluating [Motion Completion] on [AMASS]... costs 52.63s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.23s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.85s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.91s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.84s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.20s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.17s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |        | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB   |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   8   | 0.00018641 |  0.02034   |  56.62  | 10.52 | 31.99 | 31.15 | 61.62 | 21.18 | 18.38 | 32.07 | 43.06 | 157.10 |   222.93  | 47.08 | 218.43 | 123.52 | 166.57 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,PE] [H36M_3D,MP] [H36M_3D,FPE] [H36M_3D,MC] [AMASS,PE] [AMASS,MP] [AMASS,FPE] [AMASS,MC] [PW3D_MESH,MP] 
+
+[8 end] Time cost: 136.97min 	| lr: 0.00018641 	| train loss: 0.02033815038989879
+[9 start]
+	Iter: 194/583; time cost: 41.20min; current batch has {'H36M_3D': 636, 'AMASS': 644} samples
+	Iter: 388/583; time cost: 82.18min; current batch has {'H36M_3D': 708, 'AMASS': 572} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 304.02s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 53.81s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.19s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 175.83s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 56.38s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 47.84s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.24s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.63s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.77s
+	Evaluating [Motion In Between] on [AMASS]... costs 133.98s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.74s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.78s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.79s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.10s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.09s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |        | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB   |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   9   | 0.00018455 |  0.01937   |  61.13  | 15.23 | 33.68 | 32.97 | 57.59 | 27.60 | 23.55 | 33.30 | 46.02 | 134.08 |   226.87  | 49.36 | 221.06 | 111.70 | 150.63 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[9 end] Time cost: 139.97min 	| lr: 0.00018455 	| train loss: 0.019373486388735425
+[10 start]
+	Iter: 194/583; time cost: 41.18min; current batch has {'H36M_3D': 716, 'AMASS': 564} samples
+	Iter: 388/583; time cost: 82.16min; current batch has {'H36M_3D': 648, 'AMASS': 632} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 292.28s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 53.76s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.12s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 56.98s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 56.94s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.13s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.08s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.17s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.19s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.19s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.90s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.91s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.88s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.17s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.15s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |       | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB  |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   10  | 0.00018270 |  0.01846   |  52.31  | 10.39 | 33.00 | 30.71 | 38.11 | 21.19 | 17.95 | 31.82 | 43.23 | 97.27 |   221.97  | 45.90 | 216.71 | 119.02 | 116.86 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,PE] [H36M_3D,MP] [H36M_3D,MC] [H36M_3D,MIB] [AMASS,MP] [AMASS,FPE] [PW3D_MESH,MP] [PW3D_MESH,FPE] 
+
+[10 end] Time cost: 137.30min 	| lr: 0.00018270 	| train loss: 0.018456379812612278
+[11 start]
+	Iter: 194/583; time cost: 41.26min; current batch has {'H36M_3D': 656, 'AMASS': 624} samples
+	Iter: 388/583; time cost: 82.28min; current batch has {'H36M_3D': 672, 'AMASS': 608} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 59.94s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.44s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.52s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 57.06s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 57.01s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.04s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.30s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.16s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.06s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.07s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.85s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.88s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.85s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.17s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.14s
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |      |       |       |       | AMASS |       |       |       |       | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |  MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB  |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   11  | 0.00018088 |  0.01681   |  51.26  | 8.98 | 31.52 | 29.85 | 41.87 | 21.81 | 19.24 | 39.77 | 42.67 | 89.56 |   222.51  | 44.36 | 216.64 | 123.27 | 105.91 |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,PE] [H36M_3D,MP] [H36M_3D,FPE] [H36M_3D,MC] [AMASS,MC] [PW3D_MESH,MP] [PW3D_MESH,FPE] 
+
+[11 end] Time cost: 133.52min 	| lr: 0.00018088 	| train loss: 0.016807204673443422
+[12 start]
+	Iter: 194/583; time cost: 41.09min; current batch has {'H36M_3D': 656, 'AMASS': 624} samples
+	Iter: 388/583; time cost: 81.98min; current batch has {'H36M_3D': 684, 'AMASS': 596} samples
+[12 end] Time cost: 122.79min 	| lr: 0.00017907 	| train loss: 0.016224609835480432
+[13 start]
+	Iter: 194/583; time cost: 41.11min; current batch has {'H36M_3D': 696, 'AMASS': 584} samples
+	Iter: 388/583; time cost: 82.00min; current batch has {'H36M_3D': 716, 'AMASS': 564} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 60.21s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.70s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.47s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 57.08s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 57.54s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.07s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.12s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.13s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.49s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.39s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.86s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.85s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.85s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.18s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.16s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |       | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB  |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   13  | 0.00017728 |  0.01600   |  51.99  | 11.04 | 30.27 | 30.33 | 49.32 | 24.51 | 19.95 | 31.15 | 43.18 | 96.27 |   224.58  | 46.20 | 218.78 | 103.76 | 111.84 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,FPE] [AMASS,FPE] 
+
+[13 end] Time cost: 132.45min 	| lr: 0.00017728 	| train loss: 0.01600405093987851
+[14 start]
+	Iter: 194/583; time cost: 41.09min; current batch has {'H36M_3D': 640, 'AMASS': 640} samples
+	Iter: 388/583; time cost: 81.98min; current batch has {'H36M_3D': 652, 'AMASS': 628} samples
+[14 end] Time cost: 122.81min 	| lr: 0.00017550 	| train loss: 0.015159271543900718
+[15 start]
+	Iter: 194/583; time cost: 41.11min; current batch has {'H36M_3D': 640, 'AMASS': 640} samples
+	Iter: 388/583; time cost: 81.99min; current batch has {'H36M_3D': 672, 'AMASS': 608} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 60.08s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.54s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.53s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 57.01s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 56.88s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.05s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.24s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.03s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.05s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.12s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.91s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.85s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.87s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.16s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.16s
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |      |       |       |       | AMASS |       |       |       |       | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |  MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB  |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   15  | 0.00017375 |  0.01482   |  52.07  | 8.37 | 29.35 | 28.22 | 37.46 | 19.68 | 16.33 | 27.29 | 40.25 | 87.05 |   230.19  | 43.75 | 223.82 | 112.54 | 101.90 |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,MP] [H36M_3D,FPE] [H36M_3D,MC] [H36M_3D,MIB] [AMASS,PE] [AMASS,MP] [AMASS,FPE] [AMASS,MC] [PW3D_MESH,MP] 
+
+[15 end] Time cost: 133.25min 	| lr: 0.00017375 	| train loss: 0.014820916486201034
+[16 start]
+	Iter: 194/583; time cost: 41.08min; current batch has {'H36M_3D': 616, 'AMASS': 664} samples
+	Iter: 388/583; time cost: 81.96min; current batch has {'H36M_3D': 644, 'AMASS': 636} samples
+[16 end] Time cost: 122.79min 	| lr: 0.00017201 	| train loss: 0.014389974930867099
+[17 start]
+	Iter: 194/583; time cost: 41.13min; current batch has {'H36M_3D': 700, 'AMASS': 580} samples
+	Iter: 388/583; time cost: 82.02min; current batch has {'H36M_3D': 664, 'AMASS': 616} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 60.08s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.42s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.44s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 57.18s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 56.92s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.38s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.14s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.29s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.30s
+	Evaluating [Motion In Between] on [AMASS]... costs 49.98s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.85s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.85s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.84s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.13s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.13s
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |       |       |       |       | AMASS |       |       |       |       | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |   MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB  |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   17  | 0.00017029 |  0.01376   |  52.91  | 10.06 | 30.88 | 29.03 | 37.62 | 18.90 | 16.58 | 28.80 | 39.69 | 90.76 |   227.43  | 43.49 | 221.70 | 103.49 | 107.66 |
++-------+------------+------------+---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [AMASS,PE] [AMASS,MC] [PW3D_MESH,MP] 
+
+[17 end] Time cost: 132.57min 	| lr: 0.00017029 	| train loss: 0.013759640488532057
+[18 start]
+	Iter: 194/583; time cost: 41.10min; current batch has {'H36M_3D': 700, 'AMASS': 580} samples
+	Iter: 388/583; time cost: 81.99min; current batch has {'H36M_3D': 728, 'AMASS': 552} samples
+[18 end] Time cost: 122.79min 	| lr: 0.00016859 	| train loss: 0.013345809425469273
+[19 start]
+	Iter: 194/583; time cost: 41.11min; current batch has {'H36M_3D': 732, 'AMASS': 548} samples
+	Iter: 388/583; time cost: 82.01min; current batch has {'H36M_3D': 660, 'AMASS': 620} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 60.07s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.44s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.65s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 57.42s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 56.98s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.13s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.59s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.11s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.12s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.28s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.84s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.87s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.88s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.20s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.15s
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |      |       |       |       | AMASS |       |       |       |       | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |  MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB  |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   19  | 0.00016690 |  0.01339   |  50.22  | 7.51 | 28.97 | 27.68 | 35.84 | 18.95 | 15.90 | 29.97 | 38.98 | 90.76 |   227.42  | 43.82 | 221.15 | 100.46 | 101.89 |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,PE] [H36M_3D,MP] [H36M_3D,FPE] [H36M_3D,MC] [H36M_3D,MIB] [AMASS,MP] [AMASS,MC] [PW3D_MESH,MC] 
+
+[19 end] Time cost: 133.15min 	| lr: 0.00016690 	| train loss: 0.013388162543585292
+[20 start]
+	Iter: 194/583; time cost: 41.10min; current batch has {'H36M_3D': 624, 'AMASS': 656} samples
+	Iter: 388/583; time cost: 81.99min; current batch has {'H36M_3D': 736, 'AMASS': 544} samples
+[20 end] Time cost: 122.82min 	| lr: 0.00016523 	| train loss: 0.01288624706579322
+[21 start]
+	Iter: 194/583; time cost: 41.10min; current batch has {'H36M_3D': 684, 'AMASS': 596} samples
+	Iter: 388/583; time cost: 82.00min; current batch has {'H36M_3D': 668, 'AMASS': 612} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 60.19s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.57s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.86s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 57.26s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 57.24s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.27s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.63s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.29s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.36s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.22s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.90s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.87s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.84s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.19s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.16s
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |      |       |       |       | AMASS |       |       |       |       | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |  MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB  |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   21  | 0.00016358 |  0.01276   |  49.39  | 7.14 | 28.42 | 27.75 | 41.08 | 18.16 | 15.54 | 26.46 | 38.08 | 88.84 |   228.62  | 43.81 | 222.44 | 108.98 | 104.10 |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [H36M_3D,PE] [H36M_3D,MP] [H36M_3D,FPE] [AMASS,PE] [AMASS,MP] [AMASS,FPE] [AMASS,MC] 
+
+[21 end] Time cost: 133.17min 	| lr: 0.00016358 	| train loss: 0.012755070727425693
+[22 start]
+	Iter: 194/583; time cost: 41.17min; current batch has {'H36M_3D': 652, 'AMASS': 628} samples
+	Iter: 388/583; time cost: 82.16min; current batch has {'H36M_3D': 668, 'AMASS': 612} samples
+[22 end] Time cost: 123.07min 	| lr: 0.00016195 	| train loss: 0.01225503951994108
+[23 start]
+	Iter: 194/583; time cost: 41.20min; current batch has {'H36M_3D': 684, 'AMASS': 596} samples
+	Iter: 388/583; time cost: 82.17min; current batch has {'H36M_3D': 660, 'AMASS': 620} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 60.27s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.46s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.49s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 57.32s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 57.22s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.39s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.20s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.44s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.50s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.35s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.91s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.87s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.86s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.17s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.16s
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |      |       |       |       | AMASS |       |       |       |        | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |  MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB   |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   23  | 0.00016033 |  0.01218   |  53.26  | 8.40 | 28.58 | 28.04 | 38.46 | 19.07 | 15.66 | 26.44 | 38.61 | 106.40 |   225.52  | 43.17 | 219.24 | 127.97 | 116.48 |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+--------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [AMASS,FPE] [PW3D_MESH,MP] 
+
+[23 end] Time cost: 132.76min 	| lr: 0.00016033 	| train loss: 0.012178006855880512
+[24 start]
+	Iter: 194/583; time cost: 41.20min; current batch has {'H36M_3D': 664, 'AMASS': 616} samples
+	Iter: 388/583; time cost: 82.19min; current batch has {'H36M_3D': 668, 'AMASS': 612} samples
+[24 end] Time cost: 123.13min 	| lr: 0.00015872 	| train loss: 0.011895176848199117
+[25 start]
+	Iter: 194/583; time cost: 41.21min; current batch has {'H36M_3D': 592, 'AMASS': 688} samples
+	Iter: 388/583; time cost: 82.22min; current batch has {'H36M_3D': 636, 'AMASS': 644} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 60.22s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 54.69s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 54.63s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 57.33s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 57.35s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 48.33s
+	Evaluating [Motion Prediction] on [AMASS]... costs 48.19s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 48.22s
+	Evaluating [Motion Completion] on [AMASS]... costs 50.28s
+	Evaluating [Motion In Between] on [AMASS]... costs 50.11s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 6.87s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 6.86s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 6.85s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 7.15s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 7.18s
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+| Epoch |     lr     | train_loss | H36M_3D |      |       |       |       | AMASS |       |       |       |       | PW3D_MESH |       |        |        |        |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+|       |            |            |    PE   |  MP  |  FPE  |   MC  |  MIB  |   PE  |   MP  |  FPE  |   MC  |  MIB  |     PE    |   MP  |  FPE   |   MC   |  MIB   |
+|   25  | 0.00015714 |  0.01166   |  53.09  | 8.46 | 28.83 | 28.93 | 38.36 | 17.75 | 15.52 | 26.01 | 37.86 | 84.45 |   225.52  | 43.96 | 218.86 | 101.56 | 100.63 |
++-------+------------+------------+---------+------+-------+-------+-------+-------+-------+-------+-------+-------+-----------+-------+--------+--------+--------+
+	Saving best checkpoints: [AMASS,PE] [AMASS,MP] [AMASS,FPE] [AMASS,MC] [AMASS,MIB] 
+
+[25 end] Time cost: 133.44min 	| lr: 0.00015714 	| train loss: 0.011662263901861838
+[26 start]
+	Iter: 194/583; time cost: 41.19min; current batch has {'H36M_3D': 644, 'AMASS': 636} samples
+	Iter: 388/583; time cost: 82.19min; current batch has {'H36M_3D': 604, 'AMASS': 676} samples

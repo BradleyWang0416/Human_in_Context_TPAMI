@@ -1,0 +1,967 @@
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'dataset_to_flag': {'H36M': 0, 'AMASS': 1, 'PW3D': 2}, 'flag_to_dataset': {'0': 'H36M', '1': 'AMASS', '2': 'PW3D'}, 'dataset_task_info': {'train': {'PW3D_MESH': ['PE', 'MP', 'FPE', 'MC'], 'H36M_3D': ['PE', 'MP', 'FPE', 'MC'], 'AMASS': ['PE', 'MP', 'FPE', 'MC']}, 'test': {'PW3D_MESH': ['PE', 'MP', 'FPE', 'MC'], 'H36M_3D': ['PE', 'MP', 'FPE', 'MC'], 'AMASS': ['PE', 'MP', 'FPE', 'MC']}}, 'dataset_file': {'PW3D_MESH': 'data_icl_gen/processed_data/PW3D/mesh_det_pw3d.pkl', 'H36M_MESH': 'data_icl_gen/processed_data/H36M_MESH/mesh_det_h36m.pkl', 'H36M_3D': 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl', 'AMASS': 'data_icl_gen/processed_data/AMASS/amass_joints_h36m_60.pkl'}, 'clip_len': 16, 'num_joint': 17, 'sample_stride': 1, 'data_stride': 8, 'joint_mask_ratio': 0.4, 'frame_mask_ratio': 0.4, 'data_root_path': 'data/non_default_ICL', 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': '3_ICL', 'evaluate_non_AR': '3_ICL', 'train_epoch_non_AR': '3_ICL', 'model_name': 'M06_MixSTE_v0'}, 'current_as_history': True, 'aug': True, 'rotate_prob': 0.25, 'keep_original_joints': True, 'use_partial_data': False, 'partial_data': {'datasets': {'PE': None, 'MP': None, 'FPE': None, 'MC': None}, 'train_stride': None, 'sample_stride': None, 'clip_len': None, 'num_joints': None, 'drop_ratios_MC': None, 'root_path': None, 'source_file_h36m': None, 'clip_len_2DAR': None, 'batch_size_2DAR': None, 'label_stride_2DAR': None}, 'full_data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.5], 'drop_ratios_MIB': [0.5], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}, 'maxlen': 16, 'dim_in': 3, 'dim_out': 3, 'dim_feat': 256, 'mlp_ratio': 2, 'depth': 5, 'dim_rep': 256, 'num_heads': 8, 'att_fuse': True, 'merge_idx': 2, 'epochs': 120, 'batch_size': 640, 'test_batch_size': 512, 'dropout': 0.0, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'mpjpe': 1.0, 'n_mpjpe': 0.0, 'velocity': 0.0, 'limb_var': 0.0, 'limb_gt': 0.0, 'angle': 0.0, 'angle_velocity': 0.0}, 'label_type_2DAR': 'default', 'rootrel_input': True, 'rootrel_input_2DAR': False, 'rootrel_target_MP': True, 'rootrel_target_PE': True, 'rootrel_target_FPE': True, 'flip_h36m_y_axis': False, 'flip_h36mFPE_y_axis': False, 'scale_h36m_skeleton': 2.0, 'scale_h36mFPE_skeleton': 2.0, 'no_eval': False, 'amass_to_h36m': [[2], [0], [3], [6], [1], [4], [7], [5], [8], [8, 11], [11], [10], [13], [15], [9], [12], [14]], 'name': '01_func333_model06_T16_DataTask00', 'data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.5], 'drop_ratios_MIB': [0.5], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}}
+python train.py -gpu 3,5,6,7 --config configs/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00.yaml -c ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00
+
+PID:  3436855
+
+Loading dataset...
+	Loading train data from [PW3D_MESH] for task: ['PE', 'MP', 'FPE', 'MC']... costs 0.21s
+	Loading train data from [H36M_3D] for task: ['PE', 'MP', 'FPE', 'MC']... costs 36.33s
+	Loading train data from [AMASS] for task: ['PE', 'MP', 'FPE', 'MC']... costs 19.69s
+	Training (non-AR) sample count: 883988
+	Loading test data from [PW3D_MESH] for task: ['PE']... costs 0.16s
+	Loading test data from [PW3D_MESH] for task: ['MP']... costs 0.05s
+	Loading test data from [PW3D_MESH] for task: ['FPE']... costs 0.05s
+	Loading test data from [PW3D_MESH] for task: ['MC']... costs 0.06s
+	Loading test data from [H36M_3D] for task: ['PE']... costs 34.62s
+	Loading test data from [H36M_3D] for task: ['MP']... costs 1.04s
+	Loading test data from [H36M_3D] for task: ['FPE']... costs 1.04s
+	Loading test data from [H36M_3D] for task: ['MC']... costs 1.13s
+	Loading test data from [AMASS] for task: ['PE']... costs 14.94s
+	Loading test data from [AMASS] for task: ['MP']... costs 1.01s
+	Loading test data from [AMASS] for task: ['FPE']... costs 1.02s
+	Loading test data from [AMASS] for task: ['MC']... costs 1.32s
+
+Loading model...
+Model: M06_MixSTE_v0
+[MODEL INFO] prompt_enabled: True
+Trainable parameter count: 235.739396M
+
+Training on [['non_AR', 1382]] batches for 120 epochs. batch size: 640
+[1 start]
+	Iter: 460/1382; time cost: 55.57min; current batch has {'PW3D_MESH': 8, 'H36M_3D': 536, 'AMASS': 2016} samples
+	Iter: 921/1382; time cost: 111.07min; current batch has {'PW3D_MESH': 12, 'H36M_3D': 576, 'AMASS': 1972} samples
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 24.14s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 23.99s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 24.43s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 24.56s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 19.90s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 20.05s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 20.12s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 22.56s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 63.11s
+	Evaluating [Motion Prediction] on [AMASS]... costs 63.08s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 62.93s
+	Evaluating [Motion Completion] on [AMASS]... costs 69.89s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_0.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MC.bin
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | PW3D_MESH |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 281.43 | 282.15 | 282.05 | 281.78 | 281.70 | 281.57 | 281.46 | 281.42 | 281.45 | 281.35 | 281.30 | 281.32 | 281.26 | 281.22 | 281.01 | 280.94 | 280.97 |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++----------------+--------+--------+--------+--------+--------+--------+
+| MP | PW3D_MESH |  Avg   |   80   |  160   |  200   |  320   |  400   |
++----------------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 115.04 | 121.37 | 118.42 | 116.63 | 111.36 | 107.43 |
++----------------+--------+--------+--------+--------+--------+--------+
++-----------------+--------+--------+--------+
+| FPE | PW3D_MESH |  Avg   |  200   |  300   |
++-----------------+--------+--------+--------+
+|      MPJPE      | 280.40 | 279.96 | 280.84 |
++-----------------+--------+--------+--------+
++----------------+--------+--------+
+| MC | PW3D_MESH |  Avg   |  0.5   |
++----------------+--------+--------+
+|     MPJPE      | 188.93 | 188.93 |
++----------------+--------+--------+
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| PE | H36M_3D |  Avg  |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  |   11  |   12  |   13  |   14  |   15  |   16  |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 68.75 | 76.38 | 75.20 | 74.03 | 72.88 | 71.76 | 70.67 | 69.61 | 68.58 | 67.61 | 66.70 | 65.86 | 65.12 | 64.48 | 63.97 | 63.62 | 63.46 |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+
+| MP | H36M_3D |  Avg  |   80  |  160  |  200  |  320  |  400  |
++--------------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 57.68 | 63.71 | 60.57 | 58.98 | 54.17 | 50.95 |
++--------------+-------+-------+-------+-------+-------+-------+
++---------------+-------+-------+-------+
+| FPE | H36M_3D |  Avg  |  200  |  300  |
++---------------+-------+-------+-------+
+|     MPJPE     | 73.12 | 70.31 | 75.94 |
++---------------+-------+-------+-------+
++--------------+-------+-------+
+| MC | H36M_3D |  Avg  |  0.5  |
++--------------+-------+-------+
+|    MPJPE     | 97.41 | 97.41 |
++--------------+-------+-------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | AMASS |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 261.56 | 288.65 | 284.90 | 281.10 | 277.24 | 273.36 | 269.47 | 265.59 | 261.77 | 258.03 | 254.44 | 251.06 | 247.97 | 245.28 | 243.14 | 241.71 | 241.22 |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++------------+--------+--------+--------+--------+--------+--------+
+| MP | AMASS |  Avg   |   80   |  160   |  200   |  320   |  400   |
++------------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 195.95 | 214.04 | 204.84 | 200.09 | 185.41 | 175.36 |
++------------+--------+--------+--------+--------+--------+--------+
++-------------+--------+--------+--------+
+| FPE | AMASS |  Avg   |  200   |  300   |
++-------------+--------+--------+--------+
+|    MPJPE    | 278.68 | 269.27 | 288.10 |
++-------------+--------+--------+--------+
++------------+--------+--------+
+| MC | AMASS |  Avg   |  0.5   |
++------------+--------+--------+
+|   MPJPE    | 153.77 | 153.77 |
++------------+--------+--------+
+[1 end] Time cost: 173.97min 	| lr: 0.00020000 	| train loss: 0.2506738511159409
+[2 start]
+	Iter: 460/1382; time cost: 55.49min; current batch has {'PW3D_MESH': 8, 'H36M_3D': 532, 'AMASS': 2020} samples
+	Iter: 921/1382; time cost: 110.97min; current batch has {'PW3D_MESH': 12, 'H36M_3D': 528, 'AMASS': 2020} samples
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.03s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 22.32s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.02s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.29s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 18.86s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 18.88s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 19.11s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 21.49s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.94s
+	Evaluating [Motion Prediction] on [AMASS]... costs 61.88s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.88s
+	Evaluating [Motion Completion] on [AMASS]... costs 69.00s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_1.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MC.bin
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | PW3D_MESH |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 297.04 | 298.70 | 298.42 | 298.05 | 297.88 | 297.77 | 297.50 | 297.37 | 297.20 | 297.00 | 296.71 | 296.55 | 296.32 | 296.03 | 295.78 | 295.60 | 295.71 |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++----------------+--------+--------+--------+--------+--------+-------+
+| MP | PW3D_MESH |  Avg   |   80   |  160   |  200   |  320   |  400  |
++----------------+--------+--------+--------+--------+--------+-------+
+|     MPJPE      | 105.55 | 111.05 | 108.52 | 107.07 | 102.35 | 98.76 |
++----------------+--------+--------+--------+--------+--------+-------+
++-----------------+--------+--------+--------+
+| FPE | PW3D_MESH |  Avg   |  200   |  300   |
++-----------------+--------+--------+--------+
+|      MPJPE      | 298.15 | 297.03 | 299.27 |
++-----------------+--------+--------+--------+
++----------------+--------+--------+
+| MC | PW3D_MESH |  Avg   |  0.5   |
++----------------+--------+--------+
+|     MPJPE      | 170.02 | 170.02 |
++----------------+--------+--------+
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| PE | H36M_3D |  Avg  |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  |   11  |   12  |   13  |   14  |   15  |   16  |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 60.49 | 65.65 | 64.76 | 63.97 | 63.30 | 62.62 | 61.96 | 61.29 | 60.52 | 59.86 | 59.14 | 58.66 | 58.17 | 57.52 | 57.05 | 56.81 | 56.53 |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+
+| MP | H36M_3D |  Avg  |   80  |  160  |  200  |  320  |  400  |
++--------------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 46.47 | 50.29 | 48.34 | 47.35 | 44.22 | 42.16 |
++--------------+-------+-------+-------+-------+-------+-------+
++---------------+-------+-------+-------+
+| FPE | H36M_3D |  Avg  |  200  |  300  |
++---------------+-------+-------+-------+
+|     MPJPE     | 57.34 | 54.93 | 59.74 |
++---------------+-------+-------+-------+
++--------------+--------+--------+
+| MC | H36M_3D |  Avg   |  0.5   |
++--------------+--------+--------+
+|    MPJPE     | 331.36 | 331.36 |
++--------------+--------+--------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | AMASS |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 307.26 | 323.58 | 321.34 | 318.90 | 316.57 | 314.34 | 312.08 | 309.84 | 307.66 | 305.51 | 303.48 | 301.44 | 299.47 | 297.64 | 296.01 | 294.67 | 293.72 |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++------------+--------+--------+--------+--------+--------+--------+
+| MP | AMASS |  Avg   |   80   |  160   |  200   |  320   |  400   |
++------------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 162.54 | 170.43 | 166.22 | 164.38 | 158.15 | 153.53 |
++------------+--------+--------+--------+--------+--------+--------+
++-------------+--------+--------+--------+
+| FPE | AMASS |  Avg   |  200   |  300   |
++-------------+--------+--------+--------+
+|    MPJPE    | 298.11 | 292.11 | 304.10 |
++-------------+--------+--------+--------+
++------------+--------+--------+
+| MC | AMASS |  Avg   |  0.5   |
++------------+--------+--------+
+|   MPJPE    | 111.93 | 111.93 |
++------------+--------+--------+
+[2 end] Time cost: 174.51min 	| lr: 0.00019800 	| train loss: 0.14237420650089488
+[3 start]
+	Iter: 460/1382; time cost: 55.52min; current batch has {'PW3D_MESH': 8, 'H36M_3D': 568, 'AMASS': 1984} samples
+	Iter: 921/1382; time cost: 111.02min; current batch has {'PW3D_MESH': 12, 'H36M_3D': 588, 'AMASS': 1960} samples
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 22.58s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 22.25s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 22.91s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.17s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 18.78s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 18.97s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 19.10s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 21.31s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.93s
+	Evaluating [Motion Prediction] on [AMASS]... costs 61.97s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.83s
+	Evaluating [Motion Completion] on [AMASS]... costs 68.63s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_2.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MC.bin
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | PW3D_MESH |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 239.36 | 242.69 | 242.29 | 241.75 | 241.50 | 241.12 | 240.69 | 240.30 | 239.81 | 239.31 | 238.68 | 238.15 | 237.58 | 237.01 | 236.51 | 236.09 | 236.26 |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++----------------+-------+--------+--------+-------+-------+-------+
+| MP | PW3D_MESH |  Avg  |   80   |  160   |  200  |  320  |  400  |
++----------------+-------+--------+--------+-------+-------+-------+
+|     MPJPE      | 98.56 | 104.07 | 101.41 | 99.77 | 95.46 | 92.12 |
++----------------+-------+--------+--------+-------+-------+-------+
++-----------------+--------+--------+--------+
+| FPE | PW3D_MESH |  Avg   |  200   |  300   |
++-----------------+--------+--------+--------+
+|      MPJPE      | 242.19 | 240.29 | 244.09 |
++-----------------+--------+--------+--------+
++----------------+--------+--------+
+| MC | PW3D_MESH |  Avg   |  0.5   |
++----------------+--------+--------+
+|     MPJPE      | 149.76 | 149.76 |
++----------------+--------+--------+
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| PE | H36M_3D |  Avg  |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  |   11  |   12  |   13  |   14  |   15  |   16  |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 56.04 | 60.82 | 60.02 | 59.18 | 58.61 | 57.74 | 57.27 | 56.56 | 56.01 | 55.53 | 54.93 | 54.34 | 53.90 | 53.33 | 53.00 | 52.96 | 52.46 |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+
+| MP | H36M_3D |  Avg  |   80  |  160  |  200  |  320  |  400  |
++--------------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 44.09 | 47.21 | 45.55 | 44.45 | 42.31 | 40.91 |
++--------------+-------+-------+-------+-------+-------+-------+
++---------------+-------+-------+-------+
+| FPE | H36M_3D |  Avg  |  200  |  300  |
++---------------+-------+-------+-------+
+|     MPJPE     | 51.46 | 49.11 | 53.81 |
++---------------+-------+-------+-------+
++--------------+--------+--------+
+| MC | H36M_3D |  Avg   |  0.5   |
++--------------+--------+--------+
+|    MPJPE     | 323.00 | 323.00 |
++--------------+--------+--------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | AMASS |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 282.60 | 298.13 | 295.74 | 293.40 | 291.25 | 289.16 | 287.06 | 285.09 | 283.07 | 281.02 | 279.06 | 277.10 | 275.39 | 273.73 | 272.23 | 270.81 | 269.36 |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++------------+--------+--------+--------+--------+--------+--------+
+| MP | AMASS |  Avg   |   80   |  160   |  200   |  320   |  400   |
++------------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 157.47 | 163.90 | 161.39 | 159.74 | 153.68 | 148.64 |
++------------+--------+--------+--------+--------+--------+--------+
++-------------+--------+--------+--------+
+| FPE | AMASS |  Avg   |  200   |  300   |
++-------------+--------+--------+--------+
+|    MPJPE    | 266.24 | 260.01 | 272.46 |
++-------------+--------+--------+--------+
++------------+-------+-------+
+| MC | AMASS |  Avg  |  0.5  |
++------------+-------+-------+
+|   MPJPE    | 85.45 | 85.45 |
++------------+-------+-------+
+[3 end] Time cost: 174.95min 	| lr: 0.00019602 	| train loss: 0.12157655015790085
+[4 start]
+	Iter: 460/1382; time cost: 55.53min; current batch has {'PW3D_MESH': 8, 'H36M_3D': 584, 'AMASS': 1968} samples
+	Iter: 921/1382; time cost: 111.06min; current batch has {'PW3D_MESH': 16, 'H36M_3D': 484, 'AMASS': 2060} samples
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 22.66s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 22.63s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.23s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.36s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 18.89s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 19.01s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 19.19s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 21.43s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.92s
+	Evaluating [Motion Prediction] on [AMASS]... costs 61.80s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.89s
+	Evaluating [Motion Completion] on [AMASS]... costs 68.70s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_3.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MC.bin
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | PW3D_MESH |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 228.61 | 234.54 | 233.81 | 233.15 | 232.64 | 231.96 | 230.97 | 230.01 | 229.14 | 228.31 | 227.31 | 226.45 | 225.53 | 224.65 | 223.66 | 222.96 | 222.67 |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++----------------+-------+-------+-------+-------+-------+-------+
+| MP | PW3D_MESH |  Avg  |   80  |  160  |  200  |  320  |  400  |
++----------------+-------+-------+-------+-------+-------+-------+
+|     MPJPE      | 93.87 | 97.84 | 95.93 | 94.69 | 91.57 | 89.33 |
++----------------+-------+-------+-------+-------+-------+-------+
++-----------------+--------+--------+--------+
+| FPE | PW3D_MESH |  Avg   |  200   |  300   |
++-----------------+--------+--------+--------+
+|      MPJPE      | 231.00 | 228.90 | 233.10 |
++-----------------+--------+--------+--------+
++----------------+--------+--------+
+| MC | PW3D_MESH |  Avg   |  0.5   |
++----------------+--------+--------+
+|     MPJPE      | 121.92 | 121.92 |
++----------------+--------+--------+
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| PE | H36M_3D |  Avg  |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  |   11  |   12  |   13  |   14  |   15  |   16  |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 51.64 | 56.66 | 55.71 | 55.18 | 54.63 | 54.00 | 53.27 | 52.63 | 51.92 | 51.27 | 50.57 | 49.80 | 49.14 | 48.56 | 48.02 | 47.56 | 47.31 |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+
+| MP | H36M_3D |  Avg  |   80  |  160  |  200  |  320  |  400  |
++--------------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 33.01 | 35.87 | 34.56 | 33.83 | 31.33 | 29.47 |
++--------------+-------+-------+-------+-------+-------+-------+
++---------------+-------+-------+-------+
+| FPE | H36M_3D |  Avg  |  200  |  300  |
++---------------+-------+-------+-------+
+|     MPJPE     | 43.63 | 41.16 | 46.11 |
++---------------+-------+-------+-------+
++--------------+--------+--------+
+| MC | H36M_3D |  Avg   |  0.5   |
++--------------+--------+--------+
+|    MPJPE     | 336.70 | 336.70 |
++--------------+--------+--------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | AMASS |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 292.75 | 304.66 | 302.60 | 301.31 | 300.06 | 298.71 | 297.22 | 295.93 | 294.36 | 292.95 | 291.26 | 289.30 | 287.48 | 285.62 | 283.41 | 280.86 | 278.34 |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++------------+--------+--------+--------+--------+--------+--------+
+| MP | AMASS |  Avg   |   80   |  160   |  200   |  320   |  400   |
++------------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 146.96 | 153.47 | 150.40 | 149.13 | 143.55 | 138.27 |
++------------+--------+--------+--------+--------+--------+--------+
++-------------+--------+--------+--------+
+| FPE | AMASS |  Avg   |  200   |  300   |
++-------------+--------+--------+--------+
+|    MPJPE    | 272.68 | 267.01 | 278.35 |
++-------------+--------+--------+--------+
++------------+-------+-------+
+| MC | AMASS |  Avg  |  0.5  |
++------------+-------+-------+
+|   MPJPE    | 83.10 | 83.10 |
++------------+-------+-------+
+[4 end] Time cost: 174.88min 	| lr: 0.00019406 	| train loss: 0.1098163793556291
+[5 start]
+	Iter: 460/1382; time cost: 55.51min; current batch has {'PW3D_MESH': 8, 'H36M_3D': 536, 'AMASS': 2016} samples
+	Iter: 921/1382; time cost: 110.95min; current batch has {'PW3D_MESH': 12, 'H36M_3D': 508, 'AMASS': 2040} samples
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 22.76s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 22.44s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 22.79s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 22.95s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 18.87s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 18.95s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 19.05s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 21.25s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.84s
+	Evaluating [Motion Prediction] on [AMASS]... costs 61.86s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.69s
+	Evaluating [Motion Completion] on [AMASS]... costs 68.60s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_4.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MC.bin
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | PW3D_MESH |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 313.10 | 317.17 | 316.67 | 316.20 | 315.62 | 314.96 | 314.35 | 313.78 | 313.21 | 312.70 | 312.09 | 311.67 | 310.98 | 310.54 | 309.95 | 309.76 | 310.01 |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++----------------+-------+-------+-------+-------+-------+-------+
+| MP | PW3D_MESH |  Avg  |   80  |  160  |  200  |  320  |  400  |
++----------------+-------+-------+-------+-------+-------+-------+
+|     MPJPE      | 90.39 | 98.94 | 94.55 | 92.19 | 85.45 | 80.80 |
++----------------+-------+-------+-------+-------+-------+-------+
++-----------------+--------+--------+--------+
+| FPE | PW3D_MESH |  Avg   |  200   |  300   |
++-----------------+--------+--------+--------+
+|      MPJPE      | 311.28 | 308.75 | 313.82 |
++-----------------+--------+--------+--------+
++----------------+--------+--------+
+| MC | PW3D_MESH |  Avg   |  0.5   |
++----------------+--------+--------+
+|     MPJPE      | 150.88 | 150.88 |
++----------------+--------+--------+
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| PE | H36M_3D |  Avg  |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  |   11  |   12  |   13  |   14  |   15  |   16  |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 55.24 | 58.58 | 57.84 | 57.55 | 57.12 | 56.78 | 56.20 | 55.98 | 55.31 | 55.03 | 54.60 | 54.25 | 53.66 | 53.30 | 52.74 | 52.58 | 52.39 |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+
+| MP | H36M_3D |  Avg  |   80  |  160  |  200  |  320  |  400  |
++--------------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 34.67 | 38.88 | 36.52 | 35.34 | 32.17 | 30.43 |
++--------------+-------+-------+-------+-------+-------+-------+
++---------------+-------+-------+-------+
+| FPE | H36M_3D |  Avg  |  200  |  300  |
++---------------+-------+-------+-------+
+|     MPJPE     | 46.44 | 43.90 | 48.97 |
++---------------+-------+-------+-------+
++--------------+--------+--------+
+| MC | H36M_3D |  Avg   |  0.5   |
++--------------+--------+--------+
+|    MPJPE     | 295.16 | 295.16 |
++--------------+--------+--------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | AMASS |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 406.86 | 413.72 | 411.93 | 411.52 | 410.74 | 410.25 | 409.17 | 409.15 | 407.99 | 407.67 | 406.66 | 405.81 | 404.26 | 403.07 | 401.12 | 399.37 | 397.32 |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++------------+--------+--------+--------+--------+-------+-------+
+| MP | AMASS |  Avg   |   80   |  160   |  200   |  320  |  400  |
++------------+--------+--------+--------+--------+-------+-------+
+|   MPJPE    | 106.05 | 117.53 | 111.09 | 108.25 | 99.53 | 93.85 |
++------------+--------+--------+--------+--------+-------+-------+
++-------------+--------+--------+--------+
+| FPE | AMASS |  Avg   |  200   |  300   |
++-------------+--------+--------+--------+
+|    MPJPE    | 380.57 | 376.13 | 385.00 |
++-------------+--------+--------+--------+
++------------+-------+-------+
+| MC | AMASS |  Avg  |  0.5  |
++------------+-------+-------+
+|   MPJPE    | 76.86 | 76.86 |
++------------+-------+-------+
+[5 end] Time cost: 173.82min 	| lr: 0.00019212 	| train loss: 0.10396478070258015
+[6 start]
+	Iter: 460/1382; time cost: 55.46min; current batch has {'PW3D_MESH': 16, 'H36M_3D': 412, 'AMASS': 2132} samples
+	Iter: 921/1382; time cost: 110.94min; current batch has {'PW3D_MESH': 8, 'H36M_3D': 548, 'AMASS': 2004} samples
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.34s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 23.25s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.38s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.01s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 18.88s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 18.98s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 18.93s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 21.23s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.97s
+	Evaluating [Motion Prediction] on [AMASS]... costs 61.83s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.79s
+	Evaluating [Motion Completion] on [AMASS]... costs 68.62s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_5.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MC.bin
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | PW3D_MESH |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 251.00 | 257.56 | 256.87 | 256.31 | 255.51 | 254.67 | 253.61 | 252.58 | 251.62 | 250.72 | 249.59 | 248.58 | 247.45 | 246.40 | 245.46 | 244.62 | 244.43 |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++----------------+-------+-------+-------+-------+-------+-------+
+| MP | PW3D_MESH |  Avg  |   80  |  160  |  200  |  320  |  400  |
++----------------+-------+-------+-------+-------+-------+-------+
+|     MPJPE      | 88.11 | 97.20 | 92.13 | 89.64 | 82.95 | 78.61 |
++----------------+-------+-------+-------+-------+-------+-------+
++-----------------+--------+--------+--------+
+| FPE | PW3D_MESH |  Avg   |  200   |  300   |
++-----------------+--------+--------+--------+
+|      MPJPE      | 251.33 | 249.18 | 253.48 |
++-----------------+--------+--------+--------+
++----------------+--------+--------+
+| MC | PW3D_MESH |  Avg   |  0.5   |
++----------------+--------+--------+
+|     MPJPE      | 110.89 | 110.89 |
++----------------+--------+--------+
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| PE | H36M_3D |  Avg  |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  |   11  |   12  |   13  |   14  |   15  |   16  |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 51.67 | 55.67 | 55.07 | 54.60 | 54.15 | 53.69 | 53.00 | 52.61 | 51.91 | 51.43 | 50.77 | 50.42 | 49.73 | 49.15 | 48.40 | 48.18 | 47.99 |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+
+| MP | H36M_3D |  Avg  |   80  |  160  |  200  |  320  |  400  |
++--------------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 25.03 | 29.65 | 26.96 | 25.83 | 22.32 | 20.41 |
++--------------+-------+-------+-------+-------+-------+-------+
++---------------+-------+-------+-------+
+| FPE | H36M_3D |  Avg  |  200  |  300  |
++---------------+-------+-------+-------+
+|     MPJPE     | 41.78 | 39.17 | 44.39 |
++---------------+-------+-------+-------+
++--------------+--------+--------+
+| MC | H36M_3D |  Avg   |  0.5   |
++--------------+--------+--------+
+|    MPJPE     | 334.68 | 334.68 |
++--------------+--------+--------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | AMASS |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 328.74 | 336.56 | 335.19 | 334.39 | 333.61 | 332.78 | 331.63 | 331.13 | 329.92 | 329.14 | 327.84 | 327.13 | 325.49 | 323.90 | 321.88 | 320.46 | 318.72 |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++------------+--------+--------+--------+--------+--------+--------+
+| MP | AMASS |  Avg   |   80   |  160   |  200   |  320   |  400   |
++------------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 122.94 | 134.74 | 128.51 | 125.48 | 116.02 | 109.97 |
++------------+--------+--------+--------+--------+--------+--------+
++-------------+--------+--------+--------+
+| FPE | AMASS |  Avg   |  200   |  300   |
++-------------+--------+--------+--------+
+|    MPJPE    | 301.62 | 296.54 | 306.69 |
++-------------+--------+--------+--------+
++------------+-------+-------+
+| MC | AMASS |  Avg  |  0.5  |
++------------+-------+-------+
+|   MPJPE    | 69.30 | 69.30 |
++------------+-------+-------+
+[6 end] Time cost: 174.22min 	| lr: 0.00019020 	| train loss: 0.09551760973568955
+[7 start]
+	Iter: 460/1382; time cost: 55.41min; current batch has {'PW3D_MESH': 16, 'H36M_3D': 548, 'AMASS': 1996} samples
+	Iter: 921/1382; time cost: 110.82min; current batch has {'PW3D_MESH': 0, 'H36M_3D': 472, 'AMASS': 2088} samples
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.01s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 22.44s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.03s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.00s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 18.78s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 18.96s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 19.08s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 21.26s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.87s
+	Evaluating [Motion Prediction] on [AMASS]... costs 62.02s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.82s
+	Evaluating [Motion Completion] on [AMASS]... costs 68.57s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_6.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MP.bin
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | PW3D_MESH |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 247.99 | 257.40 | 256.33 | 255.15 | 253.72 | 252.39 | 251.00 | 249.86 | 248.41 | 246.97 | 245.65 | 244.55 | 243.41 | 242.14 | 240.90 | 240.12 | 239.91 |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++----------------+-------+--------+-------+-------+-------+-------+
+| MP | PW3D_MESH |  Avg  |   80   |  160  |  200  |  320  |  400  |
++----------------+-------+--------+-------+-------+-------+-------+
+|     MPJPE      | 96.06 | 103.38 | 98.72 | 96.73 | 91.87 | 89.61 |
++----------------+-------+--------+-------+-------+-------+-------+
++-----------------+--------+--------+--------+
+| FPE | PW3D_MESH |  Avg   |  200   |  300   |
++-----------------+--------+--------+--------+
+|      MPJPE      | 247.61 | 245.08 | 250.14 |
++-----------------+--------+--------+--------+
++----------------+--------+--------+
+| MC | PW3D_MESH |  Avg   |  0.5   |
++----------------+--------+--------+
+|     MPJPE      | 111.58 | 111.58 |
++----------------+--------+--------+
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| PE | H36M_3D |  Avg  |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  |   11  |   12  |   13  |   14  |   15  |   16  |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 52.75 | 56.27 | 55.66 | 55.33 | 55.09 | 54.49 | 54.07 | 53.36 | 53.00 | 52.52 | 52.15 | 51.54 | 51.00 | 50.33 | 49.97 | 49.66 | 49.59 |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+
+| MP | H36M_3D |  Avg  |   80  |  160  |  200  |  320  |  400  |
++--------------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 34.96 | 39.55 | 36.45 | 35.29 | 32.21 | 31.28 |
++--------------+-------+-------+-------+-------+-------+-------+
++---------------+-------+-------+-------+
+| FPE | H36M_3D |  Avg  |  200  |  300  |
++---------------+-------+-------+-------+
+|     MPJPE     | 41.96 | 39.47 | 44.45 |
++---------------+-------+-------+-------+
++--------------+--------+--------+
+| MC | H36M_3D |  Avg   |  0.5   |
++--------------+--------+--------+
+|    MPJPE     | 308.40 | 308.40 |
++--------------+--------+--------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | AMASS |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 330.65 | 336.14 | 334.95 | 334.45 | 334.49 | 333.65 | 333.41 | 331.91 | 331.83 | 331.29 | 331.03 | 330.10 | 329.06 | 327.20 | 325.52 | 323.65 | 321.79 |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++------------+-------+--------+--------+-------+-------+-------+
+| MP | AMASS |  Avg  |   80   |  160   |  200  |  320  |  400  |
++------------+-------+--------+--------+-------+-------+-------+
+|   MPJPE    | 97.51 | 109.15 | 102.89 | 99.70 | 90.38 | 85.40 |
++------------+-------+--------+--------+-------+-------+-------+
++-------------+--------+--------+--------+
+| FPE | AMASS |  Avg   |  200   |  300   |
++-------------+--------+--------+--------+
+|    MPJPE    | 298.19 | 293.87 | 302.52 |
++-------------+--------+--------+--------+
++------------+-------+-------+
+| MC | AMASS |  Avg  |  0.5  |
++------------+-------+-------+
+|   MPJPE    | 75.32 | 75.32 |
++------------+-------+-------+
+[7 end] Time cost: 173.37min 	| lr: 0.00018830 	| train loss: 0.09003610398367519
+[8 start]
+	Iter: 460/1382; time cost: 55.45min; current batch has {'PW3D_MESH': 8, 'H36M_3D': 564, 'AMASS': 1988} samples
+	Iter: 921/1382; time cost: 110.90min; current batch has {'PW3D_MESH': 4, 'H36M_3D': 652, 'AMASS': 1904} samples
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 22.78s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 22.74s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 22.74s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.19s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 18.89s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 18.85s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 19.02s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 21.41s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 62.39s
+	Evaluating [Motion Prediction] on [AMASS]... costs 61.93s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 62.25s
+	Evaluating [Motion Completion] on [AMASS]... costs 69.21s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_7.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MC.bin
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | PW3D_MESH |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 210.25 | 219.45 | 218.48 | 217.52 | 216.28 | 214.86 | 213.36 | 211.98 | 210.62 | 209.12 | 207.74 | 206.52 | 205.56 | 204.17 | 203.15 | 202.64 | 202.59 |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++----------------+-------+-------+-------+-------+-------+-------+
+| MP | PW3D_MESH |  Avg  |   80  |  160  |  200  |  320  |  400  |
++----------------+-------+-------+-------+-------+-------+-------+
+|     MPJPE      | 90.49 | 99.10 | 94.21 | 91.84 | 85.50 | 81.80 |
++----------------+-------+-------+-------+-------+-------+-------+
++-----------------+--------+--------+--------+
+| FPE | PW3D_MESH |  Avg   |  200   |  300   |
++-----------------+--------+--------+--------+
+|      MPJPE      | 212.21 | 209.27 | 215.16 |
++-----------------+--------+--------+--------+
++----------------+--------+--------+
+| MC | PW3D_MESH |  Avg   |  0.5   |
++----------------+--------+--------+
+|     MPJPE      | 105.55 | 105.55 |
++----------------+--------+--------+
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| PE | H36M_3D |  Avg  |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  |   11  |   12  |   13  |   14  |   15  |   16  |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 48.99 | 53.56 | 52.77 | 52.08 | 51.54 | 50.89 | 50.51 | 49.67 | 49.30 | 48.91 | 48.10 | 47.56 | 47.08 | 46.14 | 45.57 | 45.21 | 44.96 |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+
+| MP | H36M_3D |  Avg  |   80  |  160  |  200  |  320  |  400  |
++--------------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 23.52 | 27.66 | 25.23 | 24.19 | 21.13 | 19.39 |
++--------------+-------+-------+-------+-------+-------+-------+
++---------------+-------+-------+-------+
+| FPE | H36M_3D |  Avg  |  200  |  300  |
++---------------+-------+-------+-------+
+|     MPJPE     | 38.36 | 35.86 | 40.86 |
++---------------+-------+-------+-------+
++--------------+-------+-------+
+| MC | H36M_3D |  Avg  |  0.5  |
++--------------+-------+-------+
+|    MPJPE     | 41.52 | 41.52 |
++--------------+-------+-------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | AMASS |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 317.86 | 324.86 | 323.07 | 321.75 | 321.19 | 320.63 | 321.33 | 320.00 | 320.01 | 319.71 | 318.14 | 317.20 | 316.04 | 313.33 | 311.46 | 309.63 | 307.43 |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++------------+-------+--------+-------+-------+-------+-------+
+| MP | AMASS |  Avg  |   80   |  160  |  200  |  320  |  400  |
++------------+-------+--------+-------+-------+-------+-------+
+|   MPJPE    | 91.74 | 102.91 | 96.49 | 93.68 | 85.32 | 80.30 |
++------------+-------+--------+-------+-------+-------+-------+
++-------------+--------+--------+--------+
+| FPE | AMASS |  Avg   |  200   |  300   |
++-------------+--------+--------+--------+
+|    MPJPE    | 281.54 | 276.86 | 286.21 |
++-------------+--------+--------+--------+
++------------+-------+-------+
+| MC | AMASS |  Avg  |  0.5  |
++------------+-------+-------+
+|   MPJPE    | 68.21 | 68.21 |
++------------+-------+-------+
+[8 end] Time cost: 174.68min 	| lr: 0.00018641 	| train loss: 0.08529304694468619
+[9 start]
+	Iter: 460/1382; time cost: 55.48min; current batch has {'PW3D_MESH': 8, 'H36M_3D': 508, 'AMASS': 2044} samples
+	Iter: 921/1382; time cost: 110.92min; current batch has {'PW3D_MESH': 4, 'H36M_3D': 584, 'AMASS': 1972} samples
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.25s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 22.59s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 22.97s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.09s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 18.89s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 18.95s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 19.06s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 21.27s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.90s
+	Evaluating [Motion Prediction] on [AMASS]... costs 61.80s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.92s
+	Evaluating [Motion Completion] on [AMASS]... costs 68.62s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_8.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MP.bin
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | PW3D_MESH |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 197.30 | 205.01 | 204.20 | 203.19 | 202.18 | 201.11 | 199.95 | 198.64 | 197.55 | 196.51 | 195.35 | 194.16 | 193.40 | 192.31 | 191.32 | 190.94 | 191.04 |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++----------------+-------+-------+-------+-------+-------+-------+
+| MP | PW3D_MESH |  Avg  |   80  |  160  |  200  |  320  |  400  |
++----------------+-------+-------+-------+-------+-------+-------+
+|     MPJPE      | 86.01 | 94.98 | 90.37 | 87.80 | 80.71 | 76.16 |
++----------------+-------+-------+-------+-------+-------+-------+
++-----------------+--------+--------+--------+
+| FPE | PW3D_MESH |  Avg   |  200   |  300   |
++-----------------+--------+--------+--------+
+|      MPJPE      | 200.20 | 196.54 | 203.86 |
++-----------------+--------+--------+--------+
++----------------+--------+--------+
+| MC | PW3D_MESH |  Avg   |  0.5   |
++----------------+--------+--------+
+|     MPJPE      | 105.84 | 105.84 |
++----------------+--------+--------+
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| PE | H36M_3D |  Avg  |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  |   11  |   12  |   13  |   14  |   15  |   16  |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 49.86 | 53.87 | 53.28 | 52.94 | 52.64 | 52.01 | 51.59 | 51.05 | 50.62 | 50.24 | 49.47 | 48.50 | 47.94 | 46.99 | 46.10 | 45.54 | 45.00 |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+
+| MP | H36M_3D |  Avg  |   80  |  160  |  200  |  320  |  400  |
++--------------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 27.63 | 32.35 | 29.70 | 28.38 | 24.79 | 22.93 |
++--------------+-------+-------+-------+-------+-------+-------+
++---------------+-------+-------+-------+
+| FPE | H36M_3D |  Avg  |  200  |  300  |
++---------------+-------+-------+-------+
+|     MPJPE     | 38.61 | 36.24 | 40.97 |
++---------------+-------+-------+-------+
++--------------+-------+-------+
+| MC | H36M_3D |  Avg  |  0.5  |
++--------------+-------+-------+
+|    MPJPE     | 49.81 | 49.81 |
++--------------+-------+-------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | AMASS |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 357.23 | 361.75 | 360.60 | 360.42 | 360.27 | 359.69 | 359.82 | 359.44 | 359.45 | 359.37 | 358.24 | 356.86 | 356.06 | 354.06 | 351.79 | 350.04 | 347.76 |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++------------+-------+--------+-------+-------+-------+-------+
+| MP | AMASS |  Avg  |   80   |  160  |  200  |  320  |  400  |
++------------+-------+--------+-------+-------+-------+-------+
+|   MPJPE    | 90.17 | 101.14 | 95.41 | 92.40 | 83.54 | 78.36 |
++------------+-------+--------+-------+-------+-------+-------+
++-------------+--------+--------+--------+
+| FPE | AMASS |  Avg   |  200   |  300   |
++-------------+--------+--------+--------+
+|    MPJPE    | 323.82 | 320.28 | 327.36 |
++-------------+--------+--------+--------+
++------------+-------+-------+
+| MC | AMASS |  Avg  |  0.5  |
++------------+-------+-------+
+|   MPJPE    | 70.96 | 70.96 |
++------------+-------+-------+
+[9 end] Time cost: 174.00min 	| lr: 0.00018455 	| train loss: 0.08127796973645418
+[10 start]
+	Iter: 460/1382; time cost: 55.42min; current batch has {'PW3D_MESH': 4, 'H36M_3D': 512, 'AMASS': 2044} samples
+	Iter: 921/1382; time cost: 110.85min; current batch has {'PW3D_MESH': 12, 'H36M_3D': 588, 'AMASS': 1960} samples
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 22.93s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 22.71s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.04s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.11s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 18.89s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 19.00s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 19.08s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 21.30s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.81s
+	Evaluating [Motion Prediction] on [AMASS]... costs 61.74s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.82s
+	Evaluating [Motion Completion] on [AMASS]... costs 68.76s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_9.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MC.bin
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | PW3D_MESH |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 187.75 | 196.77 | 195.73 | 194.54 | 193.41 | 192.25 | 190.85 | 189.57 | 188.17 | 186.93 | 185.62 | 184.40 | 183.37 | 181.98 | 180.61 | 179.96 | 179.78 |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++----------------+-------+-------+-------+-------+-------+-------+
+| MP | PW3D_MESH |  Avg  |   80  |  160  |  200  |  320  |  400  |
++----------------+-------+-------+-------+-------+-------+-------+
+|     MPJPE      | 84.24 | 93.70 | 88.86 | 86.20 | 78.64 | 73.81 |
++----------------+-------+-------+-------+-------+-------+-------+
++-----------------+--------+--------+--------+
+| FPE | PW3D_MESH |  Avg   |  200   |  300   |
++-----------------+--------+--------+--------+
+|      MPJPE      | 188.54 | 184.91 | 192.18 |
++-----------------+--------+--------+--------+
++----------------+-------+-------+
+| MC | PW3D_MESH |  Avg  |  0.5  |
++----------------+-------+-------+
+|     MPJPE      | 99.82 | 99.82 |
++----------------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| PE | H36M_3D |  Avg  |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  |   11  |   12  |   13  |   14  |   15  |   16  |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 49.81 | 52.98 | 52.41 | 52.28 | 52.02 | 51.44 | 51.21 | 50.67 | 50.47 | 50.23 | 49.55 | 48.79 | 48.28 | 47.51 | 46.81 | 46.43 | 45.84 |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+
+| MP | H36M_3D |  Avg  |   80  |  160  |  200  |  320  |  400  |
++--------------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 27.68 | 32.78 | 29.71 | 28.36 | 24.71 | 22.86 |
++--------------+-------+-------+-------+-------+-------+-------+
++---------------+-------+-------+-------+
+| FPE | H36M_3D |  Avg  |  200  |  300  |
++---------------+-------+-------+-------+
+|     MPJPE     | 37.69 | 35.21 | 40.18 |
++---------------+-------+-------+-------+
++--------------+------+------+
+| MC | H36M_3D | Avg  | 0.5  |
++--------------+------+------+
+|    MPJPE     | 3.54 | 3.54 |
++--------------+------+------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | AMASS |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 334.33 | 340.10 | 338.60 | 338.53 | 338.22 | 337.57 | 337.64 | 336.78 | 336.42 | 335.78 | 334.21 | 332.79 | 331.84 | 329.91 | 327.91 | 327.24 | 325.81 |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++------------+-------+-------+-------+-------+-------+-------+
+| MP | AMASS |  Avg  |   80  |  160  |  200  |  320  |  400  |
++------------+-------+-------+-------+-------+-------+-------+
+|   MPJPE    | 79.36 | 91.31 | 84.33 | 81.17 | 72.58 | 67.42 |
++------------+-------+-------+-------+-------+-------+-------+
++-------------+--------+--------+--------+
+| FPE | AMASS |  Avg   |  200   |  300   |
++-------------+--------+--------+--------+
+|    MPJPE    | 295.17 | 292.00 | 298.34 |
++-------------+--------+--------+--------+
++------------+-------+-------+
+| MC | AMASS |  Avg  |  0.5  |
++------------+-------+-------+
+|   MPJPE    | 61.29 | 61.29 |
++------------+-------+-------+
+[10 end] Time cost: 174.45min 	| lr: 0.00018270 	| train loss: 0.07740336247294197
+[11 start]
+	Iter: 460/1382; time cost: 55.44min; current batch has {'PW3D_MESH': 4, 'H36M_3D': 524, 'AMASS': 2032} samples
+	Iter: 921/1382; time cost: 110.88min; current batch has {'PW3D_MESH': 12, 'H36M_3D': 604, 'AMASS': 1944} samples
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.00s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 22.81s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 22.84s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.18s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 18.88s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 18.94s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 19.07s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 21.22s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.97s
+	Evaluating [Motion Prediction] on [AMASS]... costs 61.77s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 61.74s
+	Evaluating [Motion Completion] on [AMASS]... costs 68.61s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_10.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_PW3D_MESH_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/best_epoch_AMASS_MP.bin
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | PW3D_MESH |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|     MPJPE      | 188.03 | 196.92 | 196.13 | 195.15 | 194.16 | 192.88 | 191.61 | 190.20 | 188.86 | 187.53 | 186.03 | 184.74 | 183.34 | 182.03 | 180.51 | 179.38 | 179.04 |
++----------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++----------------+-------+-------+-------+-------+-------+-------+
+| MP | PW3D_MESH |  Avg  |   80  |  160  |  200  |  320  |  400  |
++----------------+-------+-------+-------+-------+-------+-------+
+|     MPJPE      | 80.49 | 94.25 | 87.25 | 83.47 | 72.21 | 65.28 |
++----------------+-------+-------+-------+-------+-------+-------+
++-----------------+--------+--------+--------+
+| FPE | PW3D_MESH |  Avg   |  200   |  300   |
++-----------------+--------+--------+--------+
+|      MPJPE      | 192.19 | 189.36 | 195.03 |
++-----------------+--------+--------+--------+
++----------------+-------+-------+
+| MC | PW3D_MESH |  Avg  |  0.5  |
++----------------+-------+-------+
+|     MPJPE      | 93.84 | 93.84 |
++----------------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+| PE | H36M_3D |  Avg  |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  |   11  |   12  |   13  |   14  |   15  |   16  |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 49.09 | 53.02 | 52.43 | 52.05 | 51.62 | 51.10 | 50.53 | 50.02 | 49.65 | 49.19 | 48.52 | 47.60 | 46.92 | 46.53 | 45.88 | 45.43 | 45.02 |
++--------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
++--------------+-------+-------+-------+-------+-------+-------+
+| MP | H36M_3D |  Avg  |   80  |  160  |  200  |  320  |  400  |
++--------------+-------+-------+-------+-------+-------+-------+
+|    MPJPE     | 26.33 | 31.54 | 28.44 | 26.98 | 23.23 | 21.48 |
++--------------+-------+-------+-------+-------+-------+-------+
++---------------+-------+-------+-------+
+| FPE | H36M_3D |  Avg  |  200  |  300  |
++---------------+-------+-------+-------+
+|     MPJPE     | 37.61 | 35.18 | 40.04 |
++---------------+-------+-------+-------+
++--------------+------+------+
+| MC | H36M_3D | Avg  | 0.5  |
++--------------+------+------+
+|    MPJPE     | 6.71 | 6.71 |
++--------------+------+------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+| PE | AMASS |  Avg   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   10   |   11   |   12   |   13   |   14   |   15   |   16   |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|   MPJPE    | 378.51 | 387.94 | 386.58 | 385.90 | 385.28 | 384.62 | 383.47 | 382.34 | 381.27 | 379.67 | 377.61 | 375.35 | 373.30 | 371.33 | 368.99 | 367.35 | 365.10 |
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
++------------+-------+-------+-------+-------+-------+-------+
+| MP | AMASS |  Avg  |   80  |  160  |  200  |  320  |  400  |
++------------+-------+-------+-------+-------+-------+-------+
+|   MPJPE    | 70.92 | 83.29 | 76.75 | 73.52 | 63.41 | 57.65 |
++------------+-------+-------+-------+-------+-------+-------+
++-------------+--------+--------+--------+
+| FPE | AMASS |  Avg   |  200   |  300   |
++-------------+--------+--------+--------+
+|    MPJPE    | 345.46 | 342.57 | 348.35 |
++-------------+--------+--------+--------+
++------------+-------+-------+
+| MC | AMASS |  Avg  |  0.5  |
++------------+-------+-------+
+|   MPJPE    | 64.39 | 64.39 |
++------------+-------+-------+
+[11 end] Time cost: 173.93min 	| lr: 0.00018088 	| train loss: 0.07518367397636849
+[12 start]
+	Iter: 460/1382; time cost: 55.46min; current batch has {'PW3D_MESH': 8, 'H36M_3D': 508, 'AMASS': 2044} samples
+	Iter: 921/1382; time cost: 110.89min; current batch has {'PW3D_MESH': 0, 'H36M_3D': 596, 'AMASS': 1964} samples
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/all_epochs/epoch_11.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00/latest_epoch.bin
+[12 end] Time cost: 166.31min 	| lr: 0.00017907 	| train loss: 0.07270557536663513
+[13 start]
+	Iter: 460/1382; time cost: 55.48min; current batch has {'PW3D_MESH': 0, 'H36M_3D': 616, 'AMASS': 1944} samples

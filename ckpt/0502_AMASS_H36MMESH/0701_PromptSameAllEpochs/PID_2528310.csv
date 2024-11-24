@@ -1,0 +1,6 @@
+EXP_INFO, , ,PID,2528310, , , , ,"train.py --config ckpt/0502_AMASS_H36MMESH/0701_PromptSameAllEpochs/config.yaml -c ckpt/0502_AMASS_H36MMESH/0701_PromptSameAllEpochs/ -gpu 6,7 -bs 256 -vertex_x1000 -out 050207_01 -fix_prompt same_across_all_epochs", , ,Checkpoint,ckpt/0502_AMASS_H36MMESH/0701_PromptSameAllEpochs/, , ,Config,ckpt/0502_AMASS_H36MMESH/0701_PromptSameAllEpochs/config.yaml, , 
+ , , , , , , , , , , , , , , , , , , , 
+Epoch,lr,JOINT,MESH,ALL,AMASS, , , , , , , , , , , , , , , , , , , , , , , ,H36M_MESH, , , , , , , , , , , , , , , , , , , , , , , 
+ , , , , ,MP, , , , , , , , , ,MC, , , , , , ,MIB, , , , , , ,PE, , , , , , , , , ,MC, , , , , , ,MIB, , , , , , 
+ , , , , ,Avg,0,5,10,15,mpve,mpjpe,pa_mpjpe,mpjpe_17j,pa_mpjpe_17j,Avg,0.4,mpve,mpjpe,pa_mpjpe,mpjpe_17j,pa_mpjpe_17j,Avg,0.4,mpve,mpjpe,pa_mpjpe,mpjpe_17j,pa_mpjpe_17j,Avg,0,5,10,15,mpve,mpjpe,pa_mpjpe,mpjpe_17j,pa_mpjpe_17j,Avg,0.4,mpve,mpjpe,pa_mpjpe,mpjpe_17j,pa_mpjpe_17j,Avg,0.4,mpve,mpjpe,pa_mpjpe,mpjpe_17j,pa_mpjpe_17j
+1,0.00020000,0.33224,309.30924,309.64148,252.78,253.3,252.89,252.55,252.44,328.16,282.88,127.9,250.36,116.96,269.21,269.21,328.89,283.56,127.96,251.11,117.1,253.29,253.29,328.45,283.3,127.9,250.89,117.04,327.53,328.33,328.49,327.17,325.95,391.29,346.82,172.54,306.55,160.37,348.76,348.76,392.13,347.13,171.77,306.71,159.69,326.78,326.78,391.7,346.88,171.93,306.51,159.82

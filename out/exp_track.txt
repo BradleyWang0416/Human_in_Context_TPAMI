@@ -1,0 +1,15 @@
+done:
+CUDA_VISIBLE_DEVICES=2,3 nohup python -u train.py --config configs/02_train_on_non_AR/00_func000_model03_T16.yaml -c ckpt/02_train_on_non_AR/00_func000_model03_T16 > out/0200.out &
+CUDA_VISIBLE_DEVICES=2,3 nohup python -u train.py --config configs/02_train_on_non_AR/01_func000_model04_T16.yaml -c ckpt/02_train_on_non_AR/01_func000_model04_T16 > out/0201.out &
+CUDA_VISIBLE_DEVICES=3 nohup python -u train.py --config configs/02_train_on_non_AR/03_func000_model06_T16.yaml -c ckpt/02_train_on_non_AR/03_func000_model06_T16 > out/0203.out &
+CUDA_VISIBLE_DEVICES=7 nohup python -u train.py --config configs/02_train_on_non_AR/05_func000_model08_T16.yaml -c ckpt/02_train_on_non_AR/05_func000_model08_T16 > out/0205.out &
+CUDA_VISIBLE_DEVICES=7 nohup python -u train.py --config configs/02_train_on_non_AR/09_func000_model12_T16.yaml -c ckpt/02_train_on_non_AR/09_func000_model12_T16 > out/0209.out &
+CUDA_VISIBLE_DEVICES=3 nohup python -u train.py --config configs/02_train_on_non_AR/03_func000_model06_T16.yaml -c ckpt/02_train_on_non_AR/03_func000_model06_T16 > out/0203_.out &
+CUDA_VISIBLE_DEVICES=6 nohup python -u train.py --config configs/02_train_on_non_AR/04_func000_model07_T16.yaml -c ckpt/02_train_on_non_AR/04_func000_model07_T16 > out/0204.out &
+CUDA_VISIBLE_DEVICES=5 nohup python -u train.py --config configs/02_train_on_non_AR/08_func000_model11_T16.yaml -c ckpt/02_train_on_non_AR/08_func000_model11_T16.yaml > out/0208.out &
+CUDA_VISIBLE_DEVICES=7 nohup python -u train.py --config configs/02_train_on_non_AR/10_func000_model13_T16.yaml -c ckpt/02_train_on_non_AR/10_func000_model13_T16 > out/0210.out &
+CUDA_VISIBLE_DEVICES=4 nohup python -u train.py --config configs/02_train_on_non_AR/11_func000_model14_T16.yaml -c ckpt/02_train_on_non_AR/11_func000_model14_T16 > out/0211.out &
+
+running:
+[2]- 1280325 Running                 CUDA_VISIBLE_DEVICES=7 nohup python -u train.py --config ckpt/02_train_on_non_AR/03_func000_model06_T16/sub02_multiple_prompts/0302_func000_model06_T16.yaml -c ckpt/02_train_on_non_AR/03_func000_model06_T16/sub02_multiple_prompts > out/020302.out &
+[3]+ 2134462 Running                 CUDA_VISIBLE_DEVICES=3,4,5,6 nohup python -u train.py --config ckpt/02_train_on_non_AR/03_func000_model06_T16/sub03_muptiple_prompts_bs512/0303_func000_model06_T16.yaml -c ckpt/02_train_on_non_AR/03_func000_model06_T16/sub03_muptiple_prompts_bs512 > out/020303.out &

@@ -1,0 +1,66 @@
+Adding new arg: args.config = ckpt/0502_AMASS_H36MMESH/0701_PromptSameAllEpochs/config.yaml
+Adding new arg: args.checkpoint = ckpt/0502_AMASS_H36MMESH/0701_PromptSameAllEpochs/
+Adding new arg: args.seed = 0
+Adding new arg: args.visualize = 
+Adding new arg: args.eval_generalization = False
+Adding new arg: args.quick_debug = False
+Adding new arg: args.gpu = 6,7
+Overriding existing arg: args.batch_size = 256
+Adding new arg: args.classifier_type = task
+Adding new arg: args.num_class = 4
+Adding new arg: args.use_task_id_as_prompt = False
+Adding new arg: args.reverse_query_prompt = False
+Adding new arg: args.shuffle_batch = False
+Adding new arg: args.fix_prompt = same_across_all_epochs
+Adding new arg: args.reverse_query_prompt_per_iter = False
+Adding new arg: args.vertex_x1000 = True
+Adding new arg: args.aug2D = False
+Adding new arg: args.out = 050207_01
+
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6}, 'dataset_to_flag': {'H36M_3D': 0, 'AMASS': 1, 'PW3D_MESH': 2, 'H36M_MESH': 3, 'H36M_MESH_TCMR': 4}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB'}, 'flag_to_dataset': {'0': 'H36M_3D', '1': 'AMASS', '2': 'PW3D_MESH', '3': 'H36M_MESH', '4': 'H36M_MESH_TCMR'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'dataset_task_info': {'train': {'AMASS': ['MP', 'MC', 'MIB'], 'H36M_MESH': ['PE', 'MC', 'MIB']}, 'test': {'AMASS': ['MP', 'MC', 'MIB'], 'H36M_MESH': ['PE', 'MC', 'MIB']}}, 'Mesh': {'enable': True, 'loss_type': 'L1', 'losses': {'loss_3d_pos': 0.5, 'loss_3d_velocity': 10, 'loss_pose': 1000, 'loss_shape': 1, 'loss_norm': 20, 'loss_3d_scale': 0, 'loss_lv': 0, 'loss_lg': 0, 'loss_a': 0, 'loss_av': 0}}, 'dataset_file': {'PW3D_MESH': 'data_icl_gen/VER5_DATA/PW3D_MESH/mesh_det_pw3d_EXTENDED.pkl', 'H36M_MESH': 'data_icl_gen/VER5_DATA/H36M_MESH/mesh_det_h36m_EXTENDED.pkl', 'AMASS': 'data_icl_gen/VER5_DATA/AMASS', 'H36M_3D': 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl', 'H36M_MESH_TCMR': 'data_icl_gen/VER5_DATA/H36M_TCMR/h36m_train_25fps_db_RENAMED.pt'}, 'use_presave_data': True, 'aug': False, 'aug_shuffle_joints': False, 'current_as_history': True, 'clip_len': 16, 'max_len': 16, 'num_joint': 17, 'joint_mask_ratio': 0.4, 'frame_mask_ratio': 0.4, 'presave_folder': 'data_icl_gen/presave_data/', 'dataset_config': {'PW3D_MESH': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_MESH': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'AMASS': {'sample_stride': 1, 'data_stride': {'train': 128, 'test': 256}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_3D': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'scale_3D': 1}, 'H36M_MESH_TCMR': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}}, 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': '5_ICL', 'evaluate_non_AR': '5_ICL', 'train_epoch_non_AR': '5_ICL', 'model_name': 'model_mesh.M01V02_01_NoCatQiPt'}, 'epochs': 120, 'batch_size': 256, 'test_batch_size': 512, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'loss_mpjpe': 1.0, 'n_mpjpe': 0.5, 'loss_velocity': 20.0, 'loss_limb_var': 0, 'loss_limb_gt': 0, 'loss_angle': 0, 'loss_angle_velocity': 0}, 'no_eval': False, 'use_partial_data': False, 'partial_data': None, 'full_data': None, 'name': 'config', 'config': 'ckpt/0502_AMASS_H36MMESH/0701_PromptSameAllEpochs/config.yaml', 'checkpoint': 'ckpt/0502_AMASS_H36MMESH/0701_PromptSameAllEpochs/', 'seed': 0, 'visualize': '', 'eval_generalization': False, 'quick_debug': False, 'gpu': '6,7', 'classifier_type': 'task', 'num_class': 4, 'use_task_id_as_prompt': False, 'reverse_query_prompt': False, 'shuffle_batch': False, 'fix_prompt': 'same_across_all_epochs', 'reverse_query_prompt_per_iter': False, 'vertex_x1000': True, 'aug2D': False, 'out': '050207_01', 'data': None}
+
+python train.py --config ckpt/0502_AMASS_H36MMESH/0701_PromptSameAllEpochs/config.yaml -c ckpt/0502_AMASS_H36MMESH/0701_PromptSameAllEpochs/ -gpu 6,7 -bs 256 -vertex_x1000 -out 050207_01 -fix_prompt same_across_all_epochs
+
+PID:  2528310
+
+Overriding function... Using <prepare_motion> function from [model_mesh.M01V02_01_NoCatQiPt] instead of default from dataset ...
+
+Overriding function... Using <preprocess> function from [model_mesh.M01V02_01_NoCatQiPt] instead of default from dataset ...
+
+Loading dataset...
+	Loading train data from [AMASS] for task: ['MP', 'MC', 'MIB']... Loading presaved... costs 1.89s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'MC', 'MIB']... Loading presaved... costs 0.95s... has 18644/18644 query/prompt samples
+	Training (non-AR) sample count: 65370
+	Loading test data from [AMASS] for task: ['MP']... costs 0.02s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MC']... costs 0.07s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MIB']... costs 0.07s... has 8492/46726 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['PE']... costs 0.01s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MC']... costs 0.03s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MIB']... costs 0.03s... has 3088/18644 query/prompt samples
+
+Loading model...
+	Model: model_mesh.M01V02_01_NoCatQiPt
+	Trainable parameter count: 41.551018M
+
+Training on [['non_AR', 256]] batches for 120 epochs. batch size: 256
+[1 start]
+	Iter: 85/256; time cost: 10.09min; current batch has {'AMASS': 534, 'H36M_MESH': 234} samples; batch_size (total/sub): 768/256
+	Iter: 170/256; time cost: 19.65min; current batch has {'AMASS': 558, 'H36M_MESH': 210} samples; batch_size (total/sub): 768/256
+	Evaluating [MP] on [AMASS]... costs 125.77s
+	Evaluating [MC] on [AMASS]... costs 122.40s
+	Evaluating [MIB] on [AMASS]... costs 124.93s
+	Evaluating [PE] on [H36M_MESH]... costs 45.90s
+	Evaluating [MC] on [H36M_MESH]... costs 45.29s
+	Evaluating [MIB] on [H36M_MESH]... costs 45.68s
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS  |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   1   | 0.00020000 | 0.33224 | 309.30924 | 309.64148 |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 252.78 | 269.21 | 253.29 |   327.53  | 348.76 | 326.78 | 328.16 | 328.89 | 328.45 |   391.29  | 392.13 | 391.70 |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[1 end] Time cost: 37.87min 	| lr: 0.00020000
+[2 start]
+	Iter: 85/256; time cost: 9.77min; current batch has {'AMASS': 582, 'H36M_MESH': 186} samples; batch_size (total/sub): 768/256
+	Iter: 170/256; time cost: 19.31min; current batch has {'AMASS': 531, 'H36M_MESH': 237} samples; batch_size (total/sub): 768/256

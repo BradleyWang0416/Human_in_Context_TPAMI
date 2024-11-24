@@ -1,0 +1,141 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+
+            // "justMyCode": false,
+
+            // "program": "${file}",
+            // "program": "train.py",
+            "program": "train_DDP.py",
+            // "program": "data_icl_gen/VER5_DATA/preprocess_COCO.py",
+            // "program": "data_icl_gen/fps.py",
+            // "program": "data_icl_gen/VER5_DATA/preprocess_h36m_TCMR.py",
+            // "program": "data_icl_gen/preprocess_pw3d.py",
+            // "program": "data_gen/get_amass_context_data.py",
+            // "program": "data_icl_gen/preprocess_amass_3DPWstyle_EXTENDED.py",
+            // "env": {
+            //     "CUDA_VISIBLE_DEVICES": "1,2"
+            // },
+            // "args": [
+            //     "--config", "ckpt/exp09_func442_T16L16_MergeAfterOutput/04_func442_T16L16_MergeAfterOutput.yaml",
+            //     "--checkpoint", "ckpt/exp09_func442_T16L16_MergeAfterOutput"
+            // ]
+            // "args": [
+            //     "--config", "configs/03_train_on_non_AR_ICL/00_func222_model06_T16_DatasetTask4x4.yaml",
+            //     "--evaluate", "ckpt/03_train_on_non_AR_ICL/00_func222_model06_T16_DatasetTask4x4/latest_epoch.bin"
+            // ]
+            // "args": [
+            //         "--config", "configs/default.yaml",
+            //         "--checkpoint", "ckpt/default"
+            //     ]
+            // "args": [
+            //         "--config", "configs/02_train_on_non_AR/00_func000_model03_T16.yaml",
+            //         "--checkpoint", "ckpt/02_train_on_non_AR/00_func000_model03_T16"
+            //     ],
+            // "args": [
+            //     "--config", "configs/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00.yaml",
+            //     "--checkpoint", "ckpt/tmp",
+            //     "-debug",
+            //     "-gpu", "0",
+            //     "-bs", "128",
+            //     "-epochs", "10",
+            //     "-stage", "classifier",
+            //     // "-v",
+            // ],
+            // "args": [
+            //     "--config", "ckpt/0302/01_base030105_Train3DPW/01_config_tmp.yaml",
+            //     "-gpu", "3",
+            //     "--evaluate", "ckpt/0302/01_base030105_Train3DPW/latest_epoch.bin",
+            //     "-normalize_2d", "0",
+            //     "-normalize_3d", "0",
+            //     // "-v", "000",
+            // ],
+            // "args": [
+            //     "-gpu", "5",
+            //     "--config", "configs/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00.yaml",
+            //     "-c", "ckpt/tmp",
+            //     "-stage", "classifier",
+            //     "-classifier_type", "task_dataset",
+            //     "-num_class", "12"
+            //     // "-v",
+            // ],
+            // "args": [
+            //     "-gpu", "3" ,
+            //     "--config", "ckpt/tmp/01_config.yaml" ,
+            //     "-c", "ckpt/tmp" ,
+            //     "-bs", "128" ,
+            //     "-debug",
+            // ],
+            // "args": [
+            //     "-gpu", "3" ,
+            //     "--config", "ckpt/0305_outputSMPL/config_.yaml" ,
+            //     "-c", "ckpt/tmp" ,
+            //     "-bs", "64",
+            //     "-debug",
+            //     "-use_presave_data", "0",
+            //     // "-fix_prompt", "largest_velo"
+            // ],
+            // "args": [
+            //     "-gpu", "3" ,
+            //     "--config", "ckpt/0301/00_Norm2d3d_NoAug/01_func333_model06_T16_DataTask00.yaml",
+            //     "-c", "ckpt/0301/04_base00_DumbCOPY",
+            //     "-bs", "64",
+            //     "-debug",
+            //     "-dumb_task", "COPY"
+            // ],
+            // "args": [
+            //      "--config" , "ckpt/0301/15_base05_dumbTask1/config.yaml",
+            //      "-c" , "ckpt/0301/15_base05_dumbTask1/",
+            //      "-gpu" , "4,5,6,7",
+            //      "-bs" , "512",
+            //      "-normalize_2d" , "0",
+            //      "-normalize_3d" , "0",
+            //      "-dumb_task" , "COPY,COPY2D,FPEhis,MPhis,MP2D,MC2D,MIB2D",
+            //      "-debug"
+            // ],
+            // "args": [
+            //      "--config" , "configs/0501_outputSMPL/config.yaml",
+            //      "-c" , "ckpt/0501/tmp",
+            //      "-gpu" , "0",
+            //      "-bs" , "16",
+            //      "-debug"
+            // ],
+            // "args": [
+            //      "--config" , "ckpt/0801/02_NoAttMask_FCGraph_M01V03/config.yaml",
+            //      "-c" , "ckpt/0801/tmp/",
+            //      "-gpu" , "0",
+            //      "-bs" , "16",
+            //      "-vertex_x1000",
+            //      "-fully_connected_graph",
+            //      "-gpu0_bs", "16",
+            //     //  "-debug",
+            // ],
+            // "args": [
+            //      "--config" , "ckpt/0501/02_base00_nojointloss/config.yaml",
+            //      "--evaluate" , "ckpt/0501/02_base00_nojointloss/latest_epoch/latest_epoch.bin",
+            //      "-gpu" , "2",
+            // ],
+            "args": [
+                "--config", "ckpt/0702_base070100/14_Train4dt_PWstrd1_COCO/config.yaml",
+                "-c", "ckpt/0702_base070100/tmp",
+                "-vertex_x1000",
+                "-fully_connected_graph",
+                "-data_efficient",
+                // "-predict_context",
+                // "-fix_prompt", "FPS_selected",
+                "-gpu", "1,2",
+                "-bs", "4",
+                "-mp", "28888",
+            ],
+            
+        }
+    ]
+}

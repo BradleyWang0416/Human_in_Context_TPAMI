@@ -1,0 +1,366 @@
+Overriding config: batch_size = 752
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6}, 'dataset_to_flag': {'H36M_3D': 0, 'AMASS': 1, 'PW3D_MESH': 2, 'H36M_MESH': 3}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB'}, 'flag_to_dataset': {'0': 'H36M_3D', '1': 'AMASS', '2': 'PW3D_MESH', '3': 'H36M_MESH'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'dataset_task_info': {'train': {'H36M_3D': ['PE', 'MP', 'FPE', 'MC'], 'AMASS': ['PE', 'MP', 'FPE', 'MC']}, 'test': {'H36M_3D': ['PE', 'MP', 'FPE', 'MC', 'MIB'], 'AMASS': ['PE', 'MP', 'FPE', 'MC', 'MIB'], 'PW3D_MESH': ['PE', 'MP', 'FPE', 'MC', 'MIB']}}, 'dataset_file': {'PW3D_MESH': 'data_icl_gen/processed_data/PW3D/mesh_det_pw3d.pkl', 'H36M_MESH': 'data_icl_gen/processed_data/H36M_MESH/mesh_det_h36m.pkl', 'H36M_3D': 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl', 'AMASS': 'data_icl_gen/processed_data/AMASS/amass_joints_h36m_60.pkl'}, 'aug': False, 'aug_shuffle_joints': False, 'clip_len': 16, 'max_len': 16, 'num_joint': 17, 'joint_mask_ratio': 0.4, 'frame_mask_ratio': 0.4, 'presave_folder': 'data_icl_gen/presave_data', 'dataset_config': {'H36M_3D': {'sample_stride': 1, 'data_stride_train': 8, 'data_stride_test': 16, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'scale_3D': 1}, 'PW3D_MESH': {'sample_stride': 1, 'data_stride_train': 1, 'data_stride_test': 32, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True}, 'H36M_MESH': {'sample_stride': 1, 'data_stride_train': 32, 'data_stride_test': 32, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True}, 'AMASS': {'sample_stride': 1, 'data_stride_train': 16, 'data_stride_test': 64, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True}}, 'data_root_path': 'data/non_default_ICL', 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': '3_ICL', 'evaluate_non_AR': '3_ICL', 'train_epoch_non_AR': '3_ICL', 'model_name': 'M06_MixSTE_v0_maxlen'}, 'current_as_history': True, 'rotate_prob': 0.25, 'keep_original_joints': True, 'use_partial_data': False, 'partial_data': {'datasets': {'PE': None, 'MP': None, 'FPE': None, 'MC': None}, 'train_stride': None, 'sample_stride': None, 'clip_len': None, 'num_joints': None, 'drop_ratios_MC': None, 'root_path': None, 'source_file_h36m': None, 'clip_len_2DAR': None, 'batch_size_2DAR': None, 'label_stride_2DAR': None}, 'full_data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.5], 'drop_ratios_MIB': [0.5], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}, 'maxlen': 16, 'dim_in': 3, 'dim_out': 3, 'dim_feat': 256, 'mlp_ratio': 2, 'depth': 5, 'dim_rep': 256, 'num_heads': 8, 'att_fuse': True, 'merge_idx': 2, 'epochs': 120, 'batch_size': 752, 'test_batch_size': 512, 'dropout': 0.0, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'mpjpe': 1.0, 'n_mpjpe': 0.0, 'velocity': 0.0, 'limb_var': 0.0, 'limb_gt': 0.0, 'angle': 0.0, 'angle_velocity': 0.0}, 'label_type_2DAR': 'default', 'rootrel_input': True, 'rootrel_input_2DAR': False, 'rootrel_target_MP': True, 'rootrel_target_PE': True, 'rootrel_target_FPE': True, 'flip_h36m_y_axis': False, 'flip_h36mFPE_y_axis': False, 'scale_h36m_skeleton': 2.0, 'scale_h36mFPE_skeleton': 2.0, 'no_eval': False, 'amass_to_h36m': [[2], [0], [3], [6], [1], [4], [7], [5], [8], [8, 11], [11], [10], [13], [15], [9], [12], [14]], 'name': '01_func333_model06_T16_DataTask00', 'data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.5], 'drop_ratios_MIB': [0.5], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}}
+
+python train.py -gpu 4,5,6,7 --config configs/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00.yaml -c ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug -bs 752
+
+PID:  3307494
+
+Loading dataset...
+	Loading train data from [H36M_3D] for task: ['PE', 'MP', 'FPE', 'MC']... costs 6.32s... has 192880 samples
+	Loading train data from [AMASS] for task: ['PE', 'MP', 'FPE', 'MC']... costs 12.43s... has 346177 samples
+	Training (non-AR) sample count: 539057
+	Loading test data from [H36M_3D] for task: ['PE']... costs 4.74s... has 35088 samples
+	Loading test data from [H36M_3D] for task: ['MP']... costs 4.73s... has 35088 samples
+	Loading test data from [H36M_3D] for task: ['FPE']... costs 4.67s... has 35088 samples
+	Loading test data from [H36M_3D] for task: ['MC']... costs 4.83s... has 35088 samples
+	Loading test data from [H36M_3D] for task: ['MIB']... costs 4.81s... has 35088 samples
+	Loading test data from [AMASS] for task: ['PE']... costs 9.47s... has 29511 samples
+	Loading test data from [AMASS] for task: ['MP']... costs 8.96s... has 29511 samples
+	Loading test data from [AMASS] for task: ['FPE']... costs 8.96s... has 29511 samples
+	Loading test data from [AMASS] for task: ['MC']... costs 9.07s... has 29511 samples
+	Loading test data from [AMASS] for task: ['MIB']... costs 9.36s... has 29511 samples
+	Loading test data from [PW3D_MESH] for task: ['PE']... costs 0.74s... has 1091 samples
+	Loading test data from [PW3D_MESH] for task: ['MP']... costs 0.73s... has 1091 samples
+	Loading test data from [PW3D_MESH] for task: ['FPE']... costs 0.73s... has 1091 samples
+	Loading test data from [PW3D_MESH] for task: ['MC']... costs 0.78s... has 1091 samples
+	Loading test data from [PW3D_MESH] for task: ['MIB']... costs 0.70s... has 1091 samples
+
+Loading model...
+	Model: M06_MixSTE_v0_maxlen
+	Trainable parameter count: 235.739396M
+
+Training on [['non_AR', 717]] batches for 120 epochs. batch size: 752
+[1 start]
+	Iter: 239/717; time cost: 33.35min; current batch has {'H36M_3D': 1052, 'AMASS': 1956} samples
+	Iter: 478/717; time cost: 66.24min; current batch has {'H36M_3D': 1024, 'AMASS': 1984} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 55.39s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 44.92s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 44.82s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 49.04s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 48.87s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 38.57s
+	Evaluating [Motion Prediction] on [AMASS]... costs 38.80s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 38.89s
+	Evaluating [Motion Completion] on [AMASS]... costs 42.21s
+	Evaluating [Motion In Between] on [AMASS]... costs 42.51s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 31.17s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 30.59s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 31.04s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 31.05s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 30.76s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_0.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MIB.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MIB.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MIB.bin
+[1 end] Time cost: 109.37min 	| lr: 0.00020000 	| train loss: 0.14250629400831843
+[2 start]
+	Iter: 239/717; time cost: 33.06min; current batch has {'H36M_3D': 1012, 'AMASS': 1996} samples
+	Iter: 478/717; time cost: 65.95min; current batch has {'H36M_3D': 1084, 'AMASS': 1924} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 48.12s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 37.96s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 38.31s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 42.62s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 42.42s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.12s
+	Evaluating [Motion Prediction] on [AMASS]... costs 32.01s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.14s
+	Evaluating [Motion Completion] on [AMASS]... costs 35.56s
+	Evaluating [Motion In Between] on [AMASS]... costs 35.34s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.67s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 23.81s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 24.11s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.90s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 24.73s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_1.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MC.bin
+[2 end] Time cost: 108.46min 	| lr: 0.00019800 	| train loss: 0.044419453465710995
+[3 start]
+	Iter: 239/717; time cost: 33.03min; current batch has {'H36M_3D': 1116, 'AMASS': 1892} samples
+	Iter: 478/717; time cost: 65.90min; current batch has {'H36M_3D': 1076, 'AMASS': 1932} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 48.08s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 37.85s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 38.02s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 42.65s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 42.26s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.00s
+	Evaluating [Motion Prediction] on [AMASS]... costs 31.94s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.00s
+	Evaluating [Motion Completion] on [AMASS]... costs 35.55s
+	Evaluating [Motion In Between] on [AMASS]... costs 35.16s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.65s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 23.70s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 24.16s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.82s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 24.57s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_2.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_FPE.bin
+[3 end] Time cost: 108.39min 	| lr: 0.00019602 	| train loss: 0.03347250621446319
+[4 start]
+	Iter: 239/717; time cost: 33.06min; current batch has {'H36M_3D': 1036, 'AMASS': 1972} samples
+	Iter: 478/717; time cost: 65.98min; current batch has {'H36M_3D': 1108, 'AMASS': 1900} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 48.45s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 38.07s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 38.02s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 42.61s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 42.52s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 31.98s
+	Evaluating [Motion Prediction] on [AMASS]... costs 31.97s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 31.98s
+	Evaluating [Motion Completion] on [AMASS]... costs 35.47s
+	Evaluating [Motion In Between] on [AMASS]... costs 35.27s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.28s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 24.07s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 24.26s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.91s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 23.83s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_3.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MC.bin
+[4 end] Time cost: 108.66min 	| lr: 0.00019406 	| train loss: 0.026507175300852233
+[5 start]
+	Iter: 239/717; time cost: 33.03min; current batch has {'H36M_3D': 1092, 'AMASS': 1916} samples
+	Iter: 478/717; time cost: 65.92min; current batch has {'H36M_3D': 1060, 'AMASS': 1948} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 48.30s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 37.69s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 37.84s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 42.65s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 42.23s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 31.86s
+	Evaluating [Motion Prediction] on [AMASS]... costs 31.89s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.14s
+	Evaluating [Motion Completion] on [AMASS]... costs 35.47s
+	Evaluating [Motion In Between] on [AMASS]... costs 35.16s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.86s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 24.48s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.92s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 24.12s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 24.11s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_4.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MC.bin
+[5 end] Time cost: 108.57min 	| lr: 0.00019212 	| train loss: 0.0236413409268403
+[6 start]
+	Iter: 239/717; time cost: 33.05min; current batch has {'H36M_3D': 1056, 'AMASS': 1952} samples
+	Iter: 478/717; time cost: 65.90min; current batch has {'H36M_3D': 992, 'AMASS': 2016} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 48.29s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 37.90s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 37.86s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 42.36s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 42.24s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 31.90s
+	Evaluating [Motion Prediction] on [AMASS]... costs 31.86s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 31.88s
+	Evaluating [Motion Completion] on [AMASS]... costs 35.34s
+	Evaluating [Motion In Between] on [AMASS]... costs 35.16s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.90s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 23.73s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.85s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 24.01s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 23.47s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_5.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MC.bin
+[6 end] Time cost: 108.32min 	| lr: 0.00019020 	| train loss: 0.021096122432292298
+[7 start]
+	Iter: 239/717; time cost: 33.09min; current batch has {'H36M_3D': 1088, 'AMASS': 1920} samples
+	Iter: 478/717; time cost: 66.05min; current batch has {'H36M_3D': 1112, 'AMASS': 1896} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 48.38s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 37.91s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 38.01s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 42.63s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 42.54s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.01s
+	Evaluating [Motion Prediction] on [AMASS]... costs 32.02s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 31.98s
+	Evaluating [Motion Completion] on [AMASS]... costs 35.55s
+	Evaluating [Motion In Between] on [AMASS]... costs 35.35s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.67s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 23.10s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 24.44s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.92s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 23.64s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_6.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MC.bin
+[7 end] Time cost: 108.08min 	| lr: 0.00018830 	| train loss: 0.019722295604188988
+[8 start]
+	Iter: 239/717; time cost: 33.06min; current batch has {'H36M_3D': 1044, 'AMASS': 1964} samples
+	Iter: 478/717; time cost: 65.98min; current batch has {'H36M_3D': 1072, 'AMASS': 1936} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 48.27s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 37.90s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 38.00s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 42.73s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 42.35s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 31.95s
+	Evaluating [Motion Prediction] on [AMASS]... costs 32.00s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.09s
+	Evaluating [Motion Completion] on [AMASS]... costs 35.31s
+	Evaluating [Motion In Between] on [AMASS]... costs 35.39s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.40s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 23.36s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 22.98s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.51s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 23.80s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_7.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MP.bin
+[8 end] Time cost: 107.82min 	| lr: 0.00018641 	| train loss: 0.01794724289757801
+[9 start]
+	Iter: 239/717; time cost: 33.09min; current batch has {'H36M_3D': 1004, 'AMASS': 2004} samples
+	Iter: 478/717; time cost: 66.02min; current batch has {'H36M_3D': 1116, 'AMASS': 1892} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 48.28s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 38.04s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 38.18s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 42.83s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 42.67s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.04s
+	Evaluating [Motion Prediction] on [AMASS]... costs 31.97s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.09s
+	Evaluating [Motion Completion] on [AMASS]... costs 35.60s
+	Evaluating [Motion In Between] on [AMASS]... costs 35.37s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.55s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 24.09s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.98s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 24.14s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 23.92s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_8.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MC.bin
+[9 end] Time cost: 107.98min 	| lr: 0.00018455 	| train loss: 0.017040303201678323
+[10 start]
+	Iter: 239/717; time cost: 33.11min; current batch has {'H36M_3D': 1012, 'AMASS': 1996} samples
+	Iter: 478/717; time cost: 66.07min; current batch has {'H36M_3D': 1048, 'AMASS': 1960} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 48.53s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 37.96s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 38.18s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 43.03s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 42.71s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.00s
+	Evaluating [Motion Prediction] on [AMASS]... costs 32.08s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.00s
+	Evaluating [Motion Completion] on [AMASS]... costs 35.65s
+	Evaluating [Motion In Between] on [AMASS]... costs 35.37s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.55s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 23.95s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 24.87s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 23.92s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 24.46s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_9.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MC.bin
+[10 end] Time cost: 107.75min 	| lr: 0.00018270 	| train loss: 0.016060089119976306
+[11 start]
+	Iter: 239/717; time cost: 33.09min; current batch has {'H36M_3D': 1132, 'AMASS': 1876} samples
+	Iter: 478/717; time cost: 66.07min; current batch has {'H36M_3D': 1052, 'AMASS': 1956} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 48.51s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 37.90s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 38.19s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 42.99s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 42.60s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 31.97s
+	Evaluating [Motion Prediction] on [AMASS]... costs 32.03s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.06s
+	Evaluating [Motion Completion] on [AMASS]... costs 36.12s
+	Evaluating [Motion In Between] on [AMASS]... costs 35.63s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 23.54s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 23.97s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 24.32s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 24.38s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 24.25s
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_10.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_H36M_3D_MC.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_PE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_AMASS_FPE.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MP.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/best_epoch_PW3D_MESH_MC.bin
+[11 end] Time cost: 108.63min 	| lr: 0.00018088 	| train loss: 0.015144446067189904
+[12 start]
+	Iter: 239/717; time cost: 33.12min; current batch has {'H36M_3D': 1112, 'AMASS': 1896} samples
+	Iter: 478/717; time cost: 66.09min; current batch has {'H36M_3D': 1056, 'AMASS': 1952} samples
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/all_epochs/epoch_11.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_largedata_NoAug/latest_epoch.bin
+[12 end] Time cost: 99.07min 	| lr: 0.00017907 	| train loss: 0.01458657749297261
+[13 start]
+	Iter: 239/717; time cost: 33.13min; current batch has {'H36M_3D': 1052, 'AMASS': 1956} samples

@@ -1,0 +1,1438 @@
+Adding new arg: args.config = ckpt/0501/07_base00_vx1000/config.yaml
+Adding new arg: args.checkpoint = ckpt/0501/07_base00_vx1000/
+Adding new arg: args.seed = 0
+Adding new arg: args.visualize = 
+Adding new arg: args.eval_generalization = False
+Adding new arg: args.quick_debug = False
+Adding new arg: args.gpu = 6,7
+Overriding existing arg: args.batch_size = 256
+Adding new arg: args.classifier_type = task
+Adding new arg: args.num_class = 4
+Adding new arg: args.use_task_id_as_prompt = False
+Adding new arg: args.reverse_query_prompt = False
+Adding new arg: args.shuffle_batch = False
+Adding new arg: args.reverse_query_prompt_per_iter = False
+Adding new arg: args.vertex_x1000 = True
+Adding new arg: args.aug2D = False
+
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6}, 'dataset_to_flag': {'H36M_3D': 0, 'AMASS': 1, 'PW3D_MESH': 2, 'H36M_MESH': 3, 'H36M_MESH_TCMR': 4}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB'}, 'flag_to_dataset': {'0': 'H36M_3D', '1': 'AMASS', '2': 'PW3D_MESH', '3': 'H36M_MESH', '4': 'H36M_MESH_TCMR'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'dataset_task_info': {'train': {'H36M_MESH': ['PE', 'MP', 'FPE', 'MC', 'MIB']}, 'test': {'H36M_MESH': ['PE', 'MP', 'FPE', 'MC', 'MIB']}}, 'Mesh': {'enable': True, 'loss_type': 'L1', 'losses': {'loss_3d_pos': 0.5, 'loss_3d_velocity': 10, 'loss_pose': 1000, 'loss_shape': 1, 'loss_norm': 20, 'loss_3d_scale': 0, 'loss_lv': 0, 'loss_lg': 0, 'loss_a': 0, 'loss_av': 0}}, 'dataset_file': {'PW3D_MESH': 'data_icl_gen/VER5_DATA/PW3D_MESH/mesh_det_pw3d_EXTENDED.pkl', 'H36M_MESH': 'data_icl_gen/VER5_DATA/H36M_MESH/mesh_det_h36m_EXTENDED.pkl', 'AMASS': 'data_icl_gen/VER5_DATA/AMASS', 'H36M_3D': 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl', 'H36M_MESH_TCMR': 'data_icl_gen/VER5_DATA/H36M_TCMR/h36m_train_25fps_db_RENAMED.pt'}, 'use_presave_data': True, 'aug': False, 'aug_shuffle_joints': False, 'current_as_history': True, 'clip_len': 16, 'max_len': 16, 'num_joint': 17, 'joint_mask_ratio': 0.4, 'frame_mask_ratio': 0.4, 'presave_folder': 'data_icl_gen/presave_data/', 'dataset_config': {'PW3D_MESH': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 16}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_MESH': {'sample_stride': 1, 'data_stride': {'train': 8, 'test': 16}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'AMASS': {'sample_stride': 1, 'data_stride': {'train': 64, 'test': 128}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_3D': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'scale_3D': 1}, 'H36M_MESH_TCMR': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}}, 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': '5_ICL', 'evaluate_non_AR': '5_ICL', 'train_epoch_non_AR': '5_ICL', 'model_name': 'model_mesh.M01V00_MotionAGFormer'}, 'epochs': 120, 'batch_size': 256, 'test_batch_size': 512, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'loss_mpjpe': 1.0, 'n_mpjpe': 0.5, 'loss_velocity': 20.0, 'loss_limb_var': 0, 'loss_limb_gt': 0, 'loss_angle': 0, 'loss_angle_velocity': 0}, 'no_eval': False, 'use_partial_data': False, 'partial_data': None, 'full_data': None, 'name': 'config', 'config': 'ckpt/0501/07_base00_vx1000/config.yaml', 'checkpoint': 'ckpt/0501/07_base00_vx1000/', 'seed': 0, 'visualize': '', 'eval_generalization': False, 'quick_debug': False, 'gpu': '6,7', 'classifier_type': 'task', 'num_class': 4, 'use_task_id_as_prompt': False, 'reverse_query_prompt': False, 'shuffle_batch': False, 'reverse_query_prompt_per_iter': False, 'vertex_x1000': True, 'aug2D': False, 'data': None}
+
+python train.py --config ckpt/0501/07_base00_vx1000/config.yaml -c ckpt/0501/07_base00_vx1000/ -gpu 6,7 -bs 256 -vertex_x1000
+
+PID:  804800
+
+Overriding function... Using <prepare_motion> function from [model_mesh.M01V00_MotionAGFormer] instead of default from dataset ...
+
+Overriding function... Using <preprocess> function from [model_mesh.M01V00_MotionAGFormer] instead of default from dataset ...
+
+Loading dataset...
+	Loading train data from [H36M_MESH] for task: ['PE', 'MP', 'FPE', 'MC', 'MIB']... Loading presaved... costs 7.08s... has 36972/36972 query/prompt samples
+	Training (non-AR) sample count: 36972
+	Loading test data from [H36M_MESH] for task: ['PE']... costs 0.00s... has 6076/36972 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MP']... costs 0.00s... has 6076/36972 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['FPE']... costs 0.00s... has 6076/36972 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MC']... costs 0.03s... has 6076/36972 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MIB']... costs 0.03s... has 6076/36972 query/prompt samples
+
+Loading model...
+	Model: model_mesh.M01V00_MotionAGFormer
+	Trainable parameter count: 59.318483M
+
+Training on [['non_AR', 145]] batches for 120 epochs. batch size: 256
+[1 start]
+	Iter: 48/145; time cost: 9.72min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.79min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 94.94s
+	Evaluating [MP] on [H36M_MESH]... costs 88.45s
+	Evaluating [FPE] on [H36M_MESH]... costs 89.70s
+	Evaluating [MC] on [H36M_MESH]... costs 86.40s
+	Evaluating [MIB] on [H36M_MESH]... costs 87.12s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   1   | 0.00020000 | 0.75696 | 553.47343 | 554.23040 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   253.04  | 250.53 | 253.60 | 267.75 | 253.75 |   356.69  | 353.03 | 356.06 | 354.52 | 356.39 |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[1 end] Time cost: 35.27min 	| lr: 0.00020000
+[2 start]
+	Iter: 48/145; time cost: 9.30min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.40s
+	Evaluating [MP] on [H36M_MESH]... costs 84.24s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.41s
+	Evaluating [MC] on [H36M_MESH]... costs 84.43s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.48s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   2   | 0.00019800 | 0.69093 | 532.04516 | 532.73609 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   156.65  | 174.64 | 178.73 | 192.41 | 152.25 |   217.51  | 239.89 | 244.22 | 230.45 | 212.71 |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[2 end] Time cost: 34.63min 	| lr: 0.00019800
+[3 start]
+	Iter: 48/145; time cost: 9.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.08min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.59s
+	Evaluating [MP] on [H36M_MESH]... costs 84.15s
+	Evaluating [FPE] on [H36M_MESH]... costs 83.95s
+	Evaluating [MC] on [H36M_MESH]... costs 83.98s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.99s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   3   | 0.00019602 | 0.63821 | 490.86692 | 491.50513 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   139.89  | 161.09 | 171.54 | 177.03 | 133.51 |   176.58  | 216.44 | 221.19 | 197.51 | 171.79 |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[3 end] Time cost: 34.36min 	| lr: 0.00019602
+[4 start]
+	Iter: 48/145; time cost: 9.08min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.00min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.77s
+	Evaluating [MP] on [H36M_MESH]... costs 85.02s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.44s
+	Evaluating [MC] on [H36M_MESH]... costs 85.64s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.29s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   4   | 0.00019406 | 0.60939 | 473.49645 | 474.10584 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   162.77  | 168.22 | 187.04 | 193.96 | 148.10 |   195.82  | 212.96 | 233.41 | 209.88 | 173.00 |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[4 end] Time cost: 33.99min 	| lr: 0.00019406
+[5 start]
+	Iter: 48/145; time cost: 9.11min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.01min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.55s
+	Evaluating [MP] on [H36M_MESH]... costs 83.87s
+	Evaluating [FPE] on [H36M_MESH]... costs 83.92s
+	Evaluating [MC] on [H36M_MESH]... costs 85.23s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.14s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   5   | 0.00019212 | 0.60935 | 475.57121 | 476.18056 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   118.29  | 154.62 | 160.27 | 160.89 | 117.19 |   147.18  | 205.41 | 209.60 | 175.38 | 144.53 |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[5 end] Time cost: 34.22min 	| lr: 0.00019212
+[6 start]
+	Iter: 48/145; time cost: 9.09min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 17.99min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.89s
+	Evaluating [MP] on [H36M_MESH]... costs 83.92s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.53s
+	Evaluating [MC] on [H36M_MESH]... costs 84.33s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.01s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   6   | 0.00019020 | 0.58333 | 458.21344 | 458.79677 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   105.51  | 142.59 | 146.12 | 147.00 | 107.80 |   141.60  | 194.93 | 196.89 | 167.23 | 138.61 |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[6 end] Time cost: 34.32min 	| lr: 0.00019020
+[7 start]
+	Iter: 48/145; time cost: 9.13min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.04min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 83.99s
+	Evaluating [MP] on [H36M_MESH]... costs 83.91s
+	Evaluating [FPE] on [H36M_MESH]... costs 83.70s
+	Evaluating [MC] on [H36M_MESH]... costs 83.94s
+	Evaluating [MIB] on [H36M_MESH]... costs 83.62s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   7   | 0.00018830 | 0.57222 | 454.40346 | 454.97568 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   111.74  | 145.16 | 153.43 | 149.47 | 108.84 |   140.32  | 192.61 | 198.96 | 163.90 | 135.79 |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[7 end] Time cost: 33.88min 	| lr: 0.00018830
+[8 start]
+	Iter: 48/145; time cost: 9.11min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.04min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 83.99s
+	Evaluating [MP] on [H36M_MESH]... costs 83.58s
+	Evaluating [FPE] on [H36M_MESH]... costs 83.98s
+	Evaluating [MC] on [H36M_MESH]... costs 84.09s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.90s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   8   | 0.00018641 | 0.54118 | 435.64601 | 436.18718 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   98.30   | 124.07 | 137.13 | 130.12 | 78.99  |   132.42  | 168.28 | 178.65 | 138.81 | 104.18 |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[8 end] Time cost: 34.31min 	| lr: 0.00018641
+[9 start]
+	Iter: 48/145; time cost: 9.12min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.06min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.31s
+	Evaluating [MP] on [H36M_MESH]... costs 84.32s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.21s
+	Evaluating [MC] on [H36M_MESH]... costs 85.26s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.13s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   9   | 0.00018455 | 0.48666 | 405.53459 | 406.02124 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   89.09   | 122.85 | 135.80 | 122.54 | 73.03  |   110.84  | 159.84 | 173.70 | 125.14 | 88.95  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[9 end] Time cost: 34.29min 	| lr: 0.00018455
+[10 start]
+	Iter: 48/145; time cost: 9.11min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.03min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.84s
+	Evaluating [MP] on [H36M_MESH]... costs 83.86s
+	Evaluating [FPE] on [H36M_MESH]... costs 83.30s
+	Evaluating [MC] on [H36M_MESH]... costs 83.57s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.14s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   10  | 0.00018270 | 0.45725 | 388.91926 | 389.37651 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   90.86   | 120.35 | 136.25 | 123.19 | 68.50  |   105.61  | 153.75 | 169.90 | 113.30 | 79.56  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MP] [H36M_MESH,MIB] 
+
+[10 end] Time cost: 33.98min 	| lr: 0.00018270
+[11 start]
+	Iter: 48/145; time cost: 9.11min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.07min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.72s
+	Evaluating [MP] on [H36M_MESH]... costs 85.73s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.15s
+	Evaluating [MC] on [H36M_MESH]... costs 85.56s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.37s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   11  | 0.00018088 | 0.43960 | 378.17974 | 378.61934 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   84.62   | 113.39 | 137.85 | 113.27 | 65.43  |   104.79  | 147.19 | 176.90 | 105.80 | 74.14  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[11 end] Time cost: 34.53min 	| lr: 0.00018088
+[12 start]
+	Iter: 48/145; time cost: 9.31min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.43min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[12 end] Time cost: 27.47min 	| lr: 0.00017907
+[13 start]
+	Iter: 48/145; time cost: 9.31min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.42min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.90s
+	Evaluating [MP] on [H36M_MESH]... costs 85.61s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.36s
+	Evaluating [MC] on [H36M_MESH]... costs 85.44s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.70s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   13  | 0.00017728 | 0.41872 | 364.38698 | 364.80570 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   86.99   | 109.93 | 131.18 | 107.29 | 53.57  |   105.98  | 143.53 | 167.99 | 92.18  | 63.80  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[13 end] Time cost: 34.85min 	| lr: 0.00017728
+[14 start]
+	Iter: 48/145; time cost: 9.32min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.44min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[14 end] Time cost: 27.46min 	| lr: 0.00017550
+[15 start]
+	Iter: 48/145; time cost: 9.24min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.35min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.32s
+	Evaluating [MP] on [H36M_MESH]... costs 84.92s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.51s
+	Evaluating [MC] on [H36M_MESH]... costs 85.59s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.64s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   15  | 0.00017375 | 0.39998 | 351.22443 | 351.62441 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   73.63   | 101.19 | 120.95 | 94.00  | 40.22  |   97.97   | 135.20 | 159.98 | 84.50  | 55.73  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[15 end] Time cost: 34.77min 	| lr: 0.00017375
+[16 start]
+	Iter: 48/145; time cost: 9.29min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.39min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[16 end] Time cost: 27.44min 	| lr: 0.00017201
+[17 start]
+	Iter: 48/145; time cost: 9.32min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.43min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.64s
+	Evaluating [MP] on [H36M_MESH]... costs 85.51s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.56s
+	Evaluating [MC] on [H36M_MESH]... costs 85.94s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.30s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   17  | 0.00017029 | 0.38919 | 342.68448 | 343.07366 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   81.18   | 103.77 | 126.47 | 95.72  | 47.20  |   99.79   | 134.45 | 160.31 | 83.29  | 56.39  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[17 end] Time cost: 34.58min 	| lr: 0.00017029
+[18 start]
+	Iter: 48/145; time cost: 9.30min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.39min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[18 end] Time cost: 27.41min 	| lr: 0.00016859
+[19 start]
+	Iter: 48/145; time cost: 9.32min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.42min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.43s
+	Evaluating [MP] on [H36M_MESH]... costs 85.31s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.26s
+	Evaluating [MC] on [H36M_MESH]... costs 85.16s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.63s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   19  | 0.00016690 | 0.38087 | 336.47136 | 336.85224 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   95.22   | 120.25 | 142.39 | 112.75 | 62.70  |   105.64  | 143.00 | 173.20 | 86.81  | 59.56  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[19 end] Time cost: 34.53min 	| lr: 0.00016690
+[20 start]
+	Iter: 48/145; time cost: 9.31min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.39min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[20 end] Time cost: 27.41min 	| lr: 0.00016523
+[21 start]
+	Iter: 48/145; time cost: 9.30min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.39min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.05s
+	Evaluating [MP] on [H36M_MESH]... costs 85.99s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.83s
+	Evaluating [MC] on [H36M_MESH]... costs 84.93s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.35s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   21  | 0.00016358 | 0.37823 | 335.03532 | 335.41355 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   77.52   | 100.40 | 124.89 | 89.54  | 41.18  |   89.27   | 127.33 | 154.93 | 72.63  | 45.48  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MP] [H36M_MESH,MC] 
+
+[21 end] Time cost: 34.69min 	| lr: 0.00016358
+[22 start]
+	Iter: 48/145; time cost: 9.31min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.39min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[22 end] Time cost: 27.40min 	| lr: 0.00016195
+[23 start]
+	Iter: 48/145; time cost: 9.32min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.42min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.85s
+	Evaluating [MP] on [H36M_MESH]... costs 84.82s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.79s
+	Evaluating [MC] on [H36M_MESH]... costs 86.10s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.93s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   23  | 0.00016033 | 0.36734 | 326.87853 | 327.24587 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   72.36   | 96.58  | 118.08 | 84.00  | 36.20  |   90.28   | 125.76 | 151.63 | 72.46  | 45.05  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[23 end] Time cost: 34.89min 	| lr: 0.00016033
+[24 start]
+	Iter: 48/145; time cost: 9.28min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.35min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[24 end] Time cost: 27.35min 	| lr: 0.00015872
+[25 start]
+	Iter: 48/145; time cost: 9.30min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.35min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.02s
+	Evaluating [MP] on [H36M_MESH]... costs 84.68s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.81s
+	Evaluating [MC] on [H36M_MESH]... costs 84.92s
+	Evaluating [MIB] on [H36M_MESH]... costs 86.18s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   25  | 0.00015714 | 0.36286 | 323.35278 | 323.71564 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   85.97   | 101.06 | 125.01 | 97.89  | 45.91  |   111.57  | 132.71 | 164.35 | 90.65  | 58.46  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[25 end] Time cost: 34.42min 	| lr: 0.00015714
+[26 start]
+	Iter: 48/145; time cost: 9.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.29min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[26 end] Time cost: 27.28min 	| lr: 0.00015556
+[27 start]
+	Iter: 48/145; time cost: 9.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.02s
+	Evaluating [MP] on [H36M_MESH]... costs 84.07s
+	Evaluating [FPE] on [H36M_MESH]... costs 89.58s
+	Evaluating [MC] on [H36M_MESH]... costs 86.37s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.32s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   27  | 0.00015401 | 0.37355 | 330.14893 | 330.52248 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   71.80   | 96.62  | 118.60 | 82.05  | 36.22  |   88.13   | 123.36 | 151.61 | 71.82  | 43.12  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MC] 
+
+[27 end] Time cost: 34.45min 	| lr: 0.00015401
+[28 start]
+	Iter: 48/145; time cost: 9.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[28 end] Time cost: 27.22min 	| lr: 0.00015247
+[29 start]
+	Iter: 48/145; time cost: 9.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.28min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.07s
+	Evaluating [MP] on [H36M_MESH]... costs 84.61s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.07s
+	Evaluating [MC] on [H36M_MESH]... costs 85.85s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.15s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   29  | 0.00015094 | 0.35874 | 320.57041 | 320.92915 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   79.76   | 100.49 | 121.14 | 91.78  | 40.92  |   97.15   | 129.23 | 154.48 | 77.68  | 46.94  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[29 end] Time cost: 34.34min 	| lr: 0.00015094
+[30 start]
+	Iter: 48/145; time cost: 9.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.26min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[30 end] Time cost: 27.21min 	| lr: 0.00014943
+[31 start]
+	Iter: 48/145; time cost: 9.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.26min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 86.55s
+	Evaluating [MP] on [H36M_MESH]... costs 84.41s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.01s
+	Evaluating [MC] on [H36M_MESH]... costs 84.22s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.22s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   31  | 0.00014794 | 0.35221 | 315.97397 | 316.32618 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   73.51   | 94.78  | 118.20 | 79.34  | 37.27  |   92.41   | 123.47 | 152.64 | 72.66  | 46.30  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MP] [H36M_MESH,MC] 
+
+[31 end] Time cost: 34.47min 	| lr: 0.00014794
+[32 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[32 end] Time cost: 27.15min 	| lr: 0.00014646
+[33 start]
+	Iter: 48/145; time cost: 9.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.70s
+	Evaluating [MP] on [H36M_MESH]... costs 86.45s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.01s
+	Evaluating [MC] on [H36M_MESH]... costs 85.21s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.37s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   33  | 0.00014500 | 0.35084 | 315.17911 | 315.52995 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   68.40   | 92.82  | 116.59 | 76.62  | 34.27  |   86.81   | 122.64 | 150.43 | 68.66  | 41.67  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[33 end] Time cost: 34.61min 	| lr: 0.00014500
+[34 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[34 end] Time cost: 27.16min 	| lr: 0.00014355
+[35 start]
+	Iter: 48/145; time cost: 9.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.93s
+	Evaluating [MP] on [H36M_MESH]... costs 85.37s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.62s
+	Evaluating [MC] on [H36M_MESH]... costs 85.17s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.57s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   35  | 0.00014211 | 0.34824 | 312.56502 | 312.91326 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   75.18   | 96.95  | 117.70 | 82.11  | 37.34  |   93.23   | 126.83 | 152.09 | 72.09  | 46.65  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[35 end] Time cost: 34.26min 	| lr: 0.00014211
+[36 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[36 end] Time cost: 27.15min 	| lr: 0.00014069
+[37 start]
+	Iter: 48/145; time cost: 9.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.24min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.47s
+	Evaluating [MP] on [H36M_MESH]... costs 84.14s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.46s
+	Evaluating [MC] on [H36M_MESH]... costs 86.54s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.99s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   37  | 0.00013928 | 0.34372 | 309.20891 | 309.55264 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   71.48   | 91.16  | 122.91 | 74.13  | 33.47  |   86.65   | 119.76 | 157.33 | 68.81  | 42.09  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MP] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[37 end] Time cost: 34.48min 	| lr: 0.00013928
+[38 start]
+	Iter: 48/145; time cost: 9.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[38 end] Time cost: 27.61min 	| lr: 0.00013789
+[39 start]
+	Iter: 48/145; time cost: 9.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.38s
+	Evaluating [MP] on [H36M_MESH]... costs 84.96s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.87s
+	Evaluating [MC] on [H36M_MESH]... costs 85.61s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.00s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   39  | 0.00013651 | 0.34159 | 307.38755 | 307.72914 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   76.04   | 92.08  | 124.20 | 77.19  | 33.51  |   89.12   | 121.64 | 151.62 | 69.64  | 41.59  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[39 end] Time cost: 34.25min 	| lr: 0.00013651
+[40 start]
+	Iter: 48/145; time cost: 9.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[40 end] Time cost: 27.14min 	| lr: 0.00013515
+[41 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 86.36s
+	Evaluating [MP] on [H36M_MESH]... costs 86.04s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.57s
+	Evaluating [MC] on [H36M_MESH]... costs 85.64s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.37s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   41  | 0.00013379 | 0.33929 | 305.19014 | 305.52944 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   70.70   | 92.56  | 118.37 | 75.75  | 35.21  |   86.38   | 121.58 | 150.47 | 71.01  | 42.74  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[41 end] Time cost: 34.34min 	| lr: 0.00013379
+[42 start]
+	Iter: 48/145; time cost: 9.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[42 end] Time cost: 27.06min 	| lr: 0.00013246
+[43 start]
+	Iter: 48/145; time cost: 9.13min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.07min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 83.22s
+	Evaluating [MP] on [H36M_MESH]... costs 83.50s
+	Evaluating [FPE] on [H36M_MESH]... costs 83.63s
+	Evaluating [MC] on [H36M_MESH]... costs 83.44s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.05s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   43  | 0.00013113 | 0.33790 | 303.86838 | 304.20628 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   70.45   | 92.84  | 122.21 | 72.53  | 33.84  |   90.02   | 121.81 | 155.60 | 67.04  | 42.77  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MC] 
+
+[43 end] Time cost: 33.97min 	| lr: 0.00013113
+[44 start]
+	Iter: 48/145; time cost: 9.13min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.06min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[44 end] Time cost: 26.91min 	| lr: 0.00012982
+[45 start]
+	Iter: 48/145; time cost: 9.14min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.08min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.87s
+	Evaluating [MP] on [H36M_MESH]... costs 84.43s
+	Evaluating [FPE] on [H36M_MESH]... costs 83.42s
+	Evaluating [MC] on [H36M_MESH]... costs 84.13s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.46s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   45  | 0.00012852 | 0.33544 | 301.57296 | 301.90841 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   69.53   | 92.35  | 116.18 | 72.88  | 33.70  |   86.65   | 119.23 | 146.82 | 67.56  | 42.26  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,FPE] 
+
+[45 end] Time cost: 34.02min 	| lr: 0.00012852
+[46 start]
+	Iter: 48/145; time cost: 9.11min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.00min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[46 end] Time cost: 26.86min 	| lr: 0.00012724
+[47 start]
+	Iter: 48/145; time cost: 9.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.96s
+	Evaluating [MP] on [H36M_MESH]... costs 84.77s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.39s
+	Evaluating [MC] on [H36M_MESH]... costs 84.52s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.41s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   47  | 0.00012596 | 0.33329 | 299.41352 | 299.74681 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   65.08   | 86.95  | 113.41 | 67.85  | 26.75  |   83.39   | 117.77 | 146.31 | 62.84  | 38.09  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[47 end] Time cost: 34.55min 	| lr: 0.00012596
+[48 start]
+	Iter: 48/145; time cost: 9.17min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.15min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[48 end] Time cost: 27.02min 	| lr: 0.00012471
+[49 start]
+	Iter: 48/145; time cost: 9.17min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.15min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.42s
+	Evaluating [MP] on [H36M_MESH]... costs 85.62s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.89s
+	Evaluating [MC] on [H36M_MESH]... costs 84.83s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.93s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   49  | 0.00012346 | 0.33469 | 299.90923 | 300.24392 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   67.26   | 89.14  | 115.79 | 67.86  | 29.76  |   86.94   | 118.17 | 150.98 | 65.33  | 39.49  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[49 end] Time cost: 34.23min 	| lr: 0.00012346
+[50 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.27min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[50 end] Time cost: 27.19min 	| lr: 0.00012222
+[51 start]
+	Iter: 48/145; time cost: 9.18min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.12min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.64s
+	Evaluating [MP] on [H36M_MESH]... costs 85.48s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.57s
+	Evaluating [MC] on [H36M_MESH]... costs 85.00s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.33s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   51  | 0.00012100 | 0.33078 | 296.59532 | 296.92610 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   63.60   | 87.77  | 112.98 | 64.82  | 26.58  |   87.43   | 119.40 | 150.67 | 65.37  | 41.58  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[51 end] Time cost: 34.36min 	| lr: 0.00012100
+[52 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[52 end] Time cost: 27.21min 	| lr: 0.00011979
+[53 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.15min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.72s
+	Evaluating [MP] on [H36M_MESH]... costs 84.52s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.12s
+	Evaluating [MC] on [H36M_MESH]... costs 87.02s
+	Evaluating [MIB] on [H36M_MESH]... costs 88.95s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   53  | 0.00011859 | 0.32997 | 295.66015 | 295.99013 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   67.45   | 90.49  | 116.30 | 65.73  | 29.73  |   84.06   | 117.57 | 150.59 | 62.65  | 37.44  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[53 end] Time cost: 34.22min 	| lr: 0.00011859
+[54 start]
+	Iter: 48/145; time cost: 9.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.26min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[54 end] Time cost: 27.25min 	| lr: 0.00011741
+[55 start]
+	Iter: 48/145; time cost: 9.17min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.11min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.24s
+	Evaluating [MP] on [H36M_MESH]... costs 85.82s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.95s
+	Evaluating [MC] on [H36M_MESH]... costs 85.65s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.91s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   55  | 0.00011623 | 0.32734 | 293.39867 | 293.72601 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   67.19   | 89.24  | 118.80 | 67.03  | 29.49  |   83.84   | 117.89 | 152.07 | 63.46  | 38.36  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[55 end] Time cost: 34.13min 	| lr: 0.00011623
+[56 start]
+	Iter: 48/145; time cost: 9.17min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[56 end] Time cost: 27.17min 	| lr: 0.00011507
+[57 start]
+	Iter: 48/145; time cost: 9.18min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.10min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.51s
+	Evaluating [MP] on [H36M_MESH]... costs 84.42s
+	Evaluating [FPE] on [H36M_MESH]... costs 86.01s
+	Evaluating [MC] on [H36M_MESH]... costs 86.15s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.19s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   57  | 0.00011392 | 0.32563 | 291.86685 | 292.19248 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   68.05   | 90.09  | 116.45 | 66.80  | 30.01  |   85.32   | 118.61 | 149.74 | 62.77  | 38.93  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[57 end] Time cost: 34.16min 	| lr: 0.00011392
+[58 start]
+	Iter: 48/145; time cost: 9.26min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.41min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[58 end] Time cost: 27.50min 	| lr: 0.00011278
+[59 start]
+	Iter: 48/145; time cost: 9.38min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.50min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 86.48s
+	Evaluating [MP] on [H36M_MESH]... costs 86.50s
+	Evaluating [FPE] on [H36M_MESH]... costs 86.58s
+	Evaluating [MC] on [H36M_MESH]... costs 85.36s
+	Evaluating [MIB] on [H36M_MESH]... costs 86.77s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   59  | 0.00011165 | 0.32406 | 290.52153 | 290.84559 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   67.81   | 87.69  | 116.86 | 67.34  | 28.75  |   83.31   | 115.37 | 146.30 | 61.27  | 35.70  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[59 end] Time cost: 34.74min 	| lr: 0.00011165
+[60 start]
+	Iter: 48/145; time cost: 9.31min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.40min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[60 end] Time cost: 27.42min 	| lr: 0.00011054
+[61 start]
+	Iter: 48/145; time cost: 9.30min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.35min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.88s
+	Evaluating [MP] on [H36M_MESH]... costs 84.97s
+	Evaluating [FPE] on [H36M_MESH]... costs 87.27s
+	Evaluating [MC] on [H36M_MESH]... costs 87.79s
+	Evaluating [MIB] on [H36M_MESH]... costs 86.35s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   61  | 0.00010943 | 0.32244 | 289.19035 | 289.51279 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   68.96   | 88.89  | 116.21 | 66.47  | 29.78  |   88.04   | 118.33 | 150.22 | 63.99  | 39.74  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[61 end] Time cost: 34.51min 	| lr: 0.00010943
+[62 start]
+	Iter: 48/145; time cost: 9.28min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.37min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[62 end] Time cost: 27.37min 	| lr: 0.00010834
+[63 start]
+	Iter: 48/145; time cost: 9.31min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.40min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.33s
+	Evaluating [MP] on [H36M_MESH]... costs 86.56s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.45s
+	Evaluating [MC] on [H36M_MESH]... costs 84.91s
+	Evaluating [MIB] on [H36M_MESH]... costs 86.65s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   63  | 0.00010725 | 0.32144 | 288.38970 | 288.71114 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   66.44   | 90.39  | 116.22 | 65.44  | 29.68  |   83.96   | 120.01 | 150.53 | 62.20  | 38.41  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[63 end] Time cost: 34.51min 	| lr: 0.00010725
+[64 start]
+	Iter: 48/145; time cost: 9.34min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.46min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[64 end] Time cost: 27.50min 	| lr: 0.00010618
+[65 start]
+	Iter: 48/145; time cost: 9.34min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.45min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.19s
+	Evaluating [MP] on [H36M_MESH]... costs 85.86s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.54s
+	Evaluating [MC] on [H36M_MESH]... costs 84.78s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.65s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   65  | 0.00010512 | 0.31924 | 286.68945 | 287.00870 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   63.14   | 87.23  | 111.18 | 63.37  | 28.17  |   82.06   | 116.60 | 145.86 | 60.34  | 37.09  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,FPE] [H36M_MESH,MC] 
+
+[65 end] Time cost: 34.76min 	| lr: 0.00010512
+[66 start]
+	Iter: 48/145; time cost: 9.26min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.34min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[66 end] Time cost: 27.38min 	| lr: 0.00010407
+[67 start]
+	Iter: 48/145; time cost: 9.28min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.37min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.03s
+	Evaluating [MP] on [H36M_MESH]... costs 84.66s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.43s
+	Evaluating [MC] on [H36M_MESH]... costs 86.18s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.69s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   67  | 0.00010303 | 0.31787 | 285.72199 | 286.03986 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   62.00   | 86.73  | 111.94 | 65.67  | 27.43  |   80.33   | 116.84 | 146.57 | 61.34  | 36.41  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] 
+
+[67 end] Time cost: 34.62min 	| lr: 0.00010303
+[68 start]
+	Iter: 48/145; time cost: 9.28min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.32min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[68 end] Time cost: 27.29min 	| lr: 0.00010200
+[69 start]
+	Iter: 48/145; time cost: 9.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.29min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.95s
+	Evaluating [MP] on [H36M_MESH]... costs 85.15s
+	Evaluating [FPE] on [H36M_MESH]... costs 86.00s
+	Evaluating [MC] on [H36M_MESH]... costs 86.06s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.71s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   69  | 0.00010098 | 0.31679 | 284.69335 | 285.01014 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   65.42   | 87.82  | 112.81 | 64.14  | 30.58  |   83.58   | 117.68 | 147.78 | 62.21  | 38.49  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[69 end] Time cost: 34.41min 	| lr: 0.00010098
+[70 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[70 end] Time cost: 27.23min 	| lr: 0.00009997
+[71 start]
+	Iter: 48/145; time cost: 9.33min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.41min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.33s
+	Evaluating [MP] on [H36M_MESH]... costs 84.90s
+	Evaluating [FPE] on [H36M_MESH]... costs 86.06s
+	Evaluating [MC] on [H36M_MESH]... costs 85.37s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.71s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   71  | 0.00009897 | 0.31538 | 283.90386 | 284.21924 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   69.37   | 86.12  | 116.88 | 66.07  | 27.71  |   94.23   | 116.93 | 154.34 | 63.09  | 38.99  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MP] 
+
+[71 end] Time cost: 34.58min 	| lr: 0.00009897
+[72 start]
+	Iter: 48/145; time cost: 9.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.18min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[72 end] Time cost: 27.11min 	| lr: 0.00009798
+[73 start]
+	Iter: 48/145; time cost: 9.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.97s
+	Evaluating [MP] on [H36M_MESH]... costs 85.63s
+	Evaluating [FPE] on [H36M_MESH]... costs 86.52s
+	Evaluating [MC] on [H36M_MESH]... costs 85.87s
+	Evaluating [MIB] on [H36M_MESH]... costs 86.53s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   73  | 0.00009700 | 0.31442 | 283.00753 | 283.32195 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   64.43   | 87.00  | 111.75 | 62.50  | 28.38  |   82.44   | 116.01 | 146.81 | 60.52  | 36.72  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MC] 
+
+[73 end] Time cost: 34.34min 	| lr: 0.00009700
+[74 start]
+	Iter: 48/145; time cost: 9.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[74 end] Time cost: 27.25min 	| lr: 0.00009603
+[75 start]
+	Iter: 48/145; time cost: 9.28min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.31min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.84s
+	Evaluating [MP] on [H36M_MESH]... costs 85.61s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.67s
+	Evaluating [MC] on [H36M_MESH]... costs 86.17s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.13s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   75  | 0.00009507 | 0.31309 | 282.08528 | 282.39837 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   65.71   | 88.81  | 113.76 | 64.09  | 32.39  |   82.75   | 116.74 | 147.67 | 60.99  | 38.01  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[75 end] Time cost: 34.42min 	| lr: 0.00009507
+[76 start]
+	Iter: 48/145; time cost: 9.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.29min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[76 end] Time cost: 27.29min 	| lr: 0.00009412
+[77 start]
+	Iter: 48/145; time cost: 9.24min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.89s
+	Evaluating [MP] on [H36M_MESH]... costs 85.09s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.92s
+	Evaluating [MC] on [H36M_MESH]... costs 85.68s
+	Evaluating [MIB] on [H36M_MESH]... costs 86.05s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   77  | 0.00009318 | 0.31232 | 281.44432 | 281.75664 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   64.83   | 88.32  | 112.01 | 63.12  | 31.61  |   81.29   | 116.35 | 144.60 | 60.29  | 37.81  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[77 end] Time cost: 34.30min 	| lr: 0.00009318
+[78 start]
+	Iter: 48/145; time cost: 9.32min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.45min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[78 end] Time cost: 27.47min 	| lr: 0.00009224
+[79 start]
+	Iter: 48/145; time cost: 9.28min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.34min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.19s
+	Evaluating [MP] on [H36M_MESH]... costs 85.18s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.80s
+	Evaluating [MC] on [H36M_MESH]... costs 85.07s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.44s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   79  | 0.00009132 | 0.31067 | 280.31644 | 280.62710 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   63.88   | 87.63  | 111.22 | 63.17  | 28.97  |   80.63   | 116.05 | 144.65 | 60.05  | 35.02  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[79 end] Time cost: 34.42min 	| lr: 0.00009132
+[80 start]
+	Iter: 48/145; time cost: 9.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.26min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[80 end] Time cost: 27.21min 	| lr: 0.00009041
+[81 start]
+	Iter: 48/145; time cost: 9.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.59s
+	Evaluating [MP] on [H36M_MESH]... costs 85.11s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.88s
+	Evaluating [MC] on [H36M_MESH]... costs 85.79s
+	Evaluating [MIB] on [H36M_MESH]... costs 86.12s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   81  | 0.00008950 | 0.30932 | 279.31572 | 279.62504 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   65.68   | 89.59  | 113.85 | 64.74  | 30.20  |   83.29   | 117.89 | 146.85 | 61.04  | 37.69  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[81 end] Time cost: 34.30min 	| lr: 0.00008950
+[82 start]
+	Iter: 48/145; time cost: 9.27min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.29min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[82 end] Time cost: 27.24min 	| lr: 0.00008861
+[83 start]
+	Iter: 48/145; time cost: 9.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.27min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.47s
+	Evaluating [MP] on [H36M_MESH]... costs 84.72s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.54s
+	Evaluating [MC] on [H36M_MESH]... costs 84.63s
+	Evaluating [MIB] on [H36M_MESH]... costs 86.08s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   83  | 0.00008772 | 0.30898 | 278.94433 | 279.25332 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   61.92   | 86.83  | 110.82 | 60.64  | 26.59  |   80.60   | 116.89 | 145.88 | 58.37  | 35.51  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,FPE] [H36M_MESH,MC] 
+
+[83 end] Time cost: 34.50min 	| lr: 0.00008772
+[84 start]
+	Iter: 48/145; time cost: 9.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.26min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[84 end] Time cost: 27.26min 	| lr: 0.00008685
+[85 start]
+	Iter: 48/145; time cost: 9.29min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.31min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.91s
+	Evaluating [MP] on [H36M_MESH]... costs 85.91s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.29s
+	Evaluating [MC] on [H36M_MESH]... costs 85.73s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.82s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   85  | 0.00008598 | 0.30761 | 278.00056 | 278.30817 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   60.93   | 86.18  | 109.94 | 60.29  | 25.68  |   80.62   | 116.81 | 146.23 | 60.03  | 36.40  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[85 end] Time cost: 34.63min 	| lr: 0.00008598
+[86 start]
+	Iter: 48/145; time cost: 9.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[86 end] Time cost: 27.09min 	| lr: 0.00008512
+[87 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.86s
+	Evaluating [MP] on [H36M_MESH]... costs 85.58s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.44s
+	Evaluating [MC] on [H36M_MESH]... costs 85.96s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.94s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   87  | 0.00008427 | 0.30945 | 279.08400 | 279.39346 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   63.48   | 88.31  | 113.15 | 60.42  | 27.28  |   80.01   | 117.71 | 146.29 | 57.44  | 34.69  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[87 end] Time cost: 34.22min 	| lr: 0.00008427
+[88 start]
+	Iter: 48/145; time cost: 9.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.16min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[88 end] Time cost: 27.09min 	| lr: 0.00008342
+[89 start]
+	Iter: 48/145; time cost: 9.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.62s
+	Evaluating [MP] on [H36M_MESH]... costs 85.17s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.47s
+	Evaluating [MC] on [H36M_MESH]... costs 84.31s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.40s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   89  | 0.00008259 | 0.30468 | 275.83234 | 276.13702 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   61.21   | 85.67  | 109.80 | 59.92  | 24.74  |   80.61   | 116.68 | 144.63 | 57.99  | 35.38  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MP] [H36M_MESH,FPE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[89 end] Time cost: 34.49min 	| lr: 0.00008259
+[90 start]
+	Iter: 48/145; time cost: 9.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.16min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[90 end] Time cost: 27.08min 	| lr: 0.00008176
+[91 start]
+	Iter: 48/145; time cost: 9.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.14min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.96s
+	Evaluating [MP] on [H36M_MESH]... costs 86.13s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.39s
+	Evaluating [MC] on [H36M_MESH]... costs 86.28s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.48s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   91  | 0.00008095 | 0.30491 | 275.80793 | 276.11285 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   61.46   | 85.53  | 109.24 | 60.62  | 26.07  |   79.70   | 116.41 | 144.18 | 58.57  | 35.61  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MP] [H36M_MESH,FPE] 
+
+[91 end] Time cost: 34.34min 	| lr: 0.00008095
+[92 start]
+	Iter: 48/145; time cost: 9.17min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.14min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[92 end] Time cost: 27.02min 	| lr: 0.00008014
+[93 start]
+	Iter: 48/145; time cost: 9.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.17min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.84s
+	Evaluating [MP] on [H36M_MESH]... costs 85.90s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.15s
+	Evaluating [MC] on [H36M_MESH]... costs 85.63s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.15s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   93  | 0.00007934 | 0.30333 | 274.73173 | 275.03507 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   63.88   | 86.97  | 114.09 | 61.29  | 28.59  |   82.03   | 117.76 | 146.94 | 59.40  | 37.11  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[93 end] Time cost: 34.19min 	| lr: 0.00007934
+[94 start]
+	Iter: 48/145; time cost: 9.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.31min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[94 end] Time cost: 27.29min 	| lr: 0.00007854
+[95 start]
+	Iter: 48/145; time cost: 9.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.51s
+	Evaluating [MP] on [H36M_MESH]... costs 84.54s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.56s
+	Evaluating [MC] on [H36M_MESH]... costs 85.46s
+	Evaluating [MIB] on [H36M_MESH]... costs 86.74s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   95  | 0.00007776 | 0.30534 | 276.15444 | 276.45978 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   63.27   | 86.75  | 111.87 | 59.27  | 26.02  |   82.48   | 117.34 | 147.96 | 57.06  | 34.82  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MC] 
+
+[95 end] Time cost: 34.32min 	| lr: 0.00007776
+[96 start]
+	Iter: 48/145; time cost: 9.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[96 end] Time cost: 27.19min 	| lr: 0.00007698
+[97 start]
+	Iter: 48/145; time cost: 9.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.96s
+	Evaluating [MP] on [H36M_MESH]... costs 85.02s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.51s
+	Evaluating [MC] on [H36M_MESH]... costs 85.62s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.96s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   97  | 0.00007621 | 0.30082 | 273.08065 | 273.38147 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   64.01   | 89.39  | 111.34 | 62.73  | 28.60  |   82.02   | 118.66 | 145.85 | 59.28  | 35.03  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[97 end] Time cost: 34.25min 	| lr: 0.00007621
+[98 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[98 end] Time cost: 27.08min 	| lr: 0.00007545
+[99 start]
+	Iter: 48/145; time cost: 9.18min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.14min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.70s
+	Evaluating [MP] on [H36M_MESH]... costs 85.01s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.49s
+	Evaluating [MC] on [H36M_MESH]... costs 86.56s
+	Evaluating [MIB] on [H36M_MESH]... costs 87.53s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|   99  | 0.00007469 | 0.30002 | 272.45441 | 272.75443 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   64.19   | 89.02  | 110.99 | 63.29  | 30.05  |   79.38   | 117.28 | 143.69 | 60.01  | 36.60  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[99 end] Time cost: 34.18min 	| lr: 0.00007469
+[100 start]
+	Iter: 48/145; time cost: 9.14min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.09min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[100 end] Time cost: 27.00min 	| lr: 0.00007395
+[101 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 83.94s
+	Evaluating [MP] on [H36M_MESH]... costs 84.51s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.28s
+	Evaluating [MC] on [H36M_MESH]... costs 84.46s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.43s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|  101  | 0.00007321 | 0.29963 | 272.02303 | 272.32266 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   64.80   | 89.18  | 112.26 | 61.88  | 30.63  |   81.72   | 117.17 | 147.14 | 57.92  | 36.47  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[101 end] Time cost: 34.17min 	| lr: 0.00007321
+[102 start]
+	Iter: 48/145; time cost: 9.17min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.14min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[102 end] Time cost: 27.08min 	| lr: 0.00007247
+[103 start]
+	Iter: 48/145; time cost: 9.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.28min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.23s
+	Evaluating [MP] on [H36M_MESH]... costs 85.13s
+	Evaluating [FPE] on [H36M_MESH]... costs 83.65s
+	Evaluating [MC] on [H36M_MESH]... costs 85.36s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.49s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|  103  | 0.00007175 | 0.29875 | 271.24205 | 271.54080 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   62.00   | 86.66  | 108.90 | 59.55  | 25.63  |   81.43   | 118.79 | 146.14 | 58.49  | 34.85  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,FPE] 
+
+[103 end] Time cost: 34.37min 	| lr: 0.00007175
+[104 start]
+	Iter: 48/145; time cost: 9.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.15min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[104 end] Time cost: 27.05min 	| lr: 0.00007103
+[105 start]
+	Iter: 48/145; time cost: 9.38min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.54min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 87.37s
+	Evaluating [MP] on [H36M_MESH]... costs 88.00s
+	Evaluating [FPE] on [H36M_MESH]... costs 91.59s
+	Evaluating [MC] on [H36M_MESH]... costs 91.38s
+	Evaluating [MIB] on [H36M_MESH]... costs 88.67s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|  105  | 0.00007032 | 0.29725 | 270.44803 | 270.74529 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   61.58   | 86.28  | 111.48 | 57.73  | 25.01  |   81.41   | 117.13 | 146.00 | 57.52  | 35.33  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MC] 
+
+[105 end] Time cost: 35.13min 	| lr: 0.00007032
+[106 start]
+	Iter: 48/145; time cost: 9.29min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.39min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[106 end] Time cost: 27.43min 	| lr: 0.00006962
+[107 start]
+	Iter: 48/145; time cost: 9.28min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.30min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.64s
+	Evaluating [MP] on [H36M_MESH]... costs 85.02s
+	Evaluating [FPE] on [H36M_MESH]... costs 87.08s
+	Evaluating [MC] on [H36M_MESH]... costs 86.45s
+	Evaluating [MIB] on [H36M_MESH]... costs 86.02s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|  107  | 0.00006892 | 0.29687 | 270.13056 | 270.42743 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   64.38   | 87.70  | 112.68 | 65.33  | 23.82  |   84.20   | 120.45 | 150.21 | 61.37  | 35.04  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MIB] 
+
+[107 end] Time cost: 34.43min 	| lr: 0.00006892
+[108 start]
+	Iter: 48/145; time cost: 9.18min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.17min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[108 end] Time cost: 27.10min 	| lr: 0.00006823
+[109 start]
+	Iter: 48/145; time cost: 9.17min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.03s
+	Evaluating [MP] on [H36M_MESH]... costs 84.43s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.35s
+	Evaluating [MC] on [H36M_MESH]... costs 86.00s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.32s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|  109  | 0.00006755 | 0.29555 | 269.13780 | 269.43335 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   64.96   | 90.82  | 111.84 | 73.69  | 28.64  |   84.64   | 122.22 | 147.29 | 67.23  | 38.34  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[109 end] Time cost: 34.22min 	| lr: 0.00006755
+[110 start]
+	Iter: 48/145; time cost: 9.20min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[110 end] Time cost: 27.11min 	| lr: 0.00006688
+[111 start]
+	Iter: 48/145; time cost: 9.18min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.15min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.08s
+	Evaluating [MP] on [H36M_MESH]... costs 85.22s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.02s
+	Evaluating [MC] on [H36M_MESH]... costs 84.14s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.02s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|  111  | 0.00006621 | 0.30103 | 273.03233 | 273.33337 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   60.80   | 87.18  | 109.39 | 59.66  | 26.02  |   78.24   | 116.81 | 144.23 | 56.34  | 33.56  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] 
+
+[111 end] Time cost: 34.24min 	| lr: 0.00006621
+[112 start]
+	Iter: 48/145; time cost: 9.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.16min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[112 end] Time cost: 27.06min 	| lr: 0.00006554
+[113 start]
+	Iter: 48/145; time cost: 9.18min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.04s
+	Evaluating [MP] on [H36M_MESH]... costs 85.60s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.83s
+	Evaluating [MC] on [H36M_MESH]... costs 85.14s
+	Evaluating [MIB] on [H36M_MESH]... costs 86.20s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|  113  | 0.00006489 | 0.29386 | 268.22921 | 268.52307 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   61.78   | 87.44  | 109.48 | 59.40  | 27.67  |   79.05   | 117.70 | 145.40 | 57.78  | 35.66  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[113 end] Time cost: 34.40min 	| lr: 0.00006489
+[114 start]
+	Iter: 48/145; time cost: 9.25min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.31min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[114 end] Time cost: 27.32min 	| lr: 0.00006424
+[115 start]
+	Iter: 48/145; time cost: 9.31min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.41min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 84.59s
+	Evaluating [MP] on [H36M_MESH]... costs 85.42s
+	Evaluating [FPE] on [H36M_MESH]... costs 84.39s
+	Evaluating [MC] on [H36M_MESH]... costs 84.26s
+	Evaluating [MIB] on [H36M_MESH]... costs 85.32s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|  115  | 0.00006360 | 0.29289 | 267.46727 | 267.76016 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   60.63   | 85.41  | 111.12 | 59.48  | 24.16  |   80.05   | 116.47 | 147.86 | 57.67  | 35.00  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MP] 
+
+[115 end] Time cost: 34.64min 	| lr: 0.00006360
+[116 start]
+	Iter: 48/145; time cost: 9.30min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.39min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[116 end] Time cost: 27.43min 	| lr: 0.00006296
+[117 start]
+	Iter: 48/145; time cost: 9.26min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.29min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 85.22s
+	Evaluating [MP] on [H36M_MESH]... costs 84.84s
+	Evaluating [FPE] on [H36M_MESH]... costs 85.08s
+	Evaluating [MC] on [H36M_MESH]... costs 86.02s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.72s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|  117  | 0.00006233 | 0.29220 | 267.03176 | 267.32396 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   64.58   | 88.45  | 113.07 | 62.03  | 27.16  |   82.09   | 118.83 | 148.52 | 58.48  | 34.63  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[117 end] Time cost: 34.38min 	| lr: 0.00006233
+[118 start]
+	Iter: 48/145; time cost: 9.21min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.19min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[118 end] Time cost: 27.14min 	| lr: 0.00006171
+[119 start]
+	Iter: 48/145; time cost: 9.29min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.34min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Evaluating [PE] on [H36M_MESH]... costs 86.05s
+	Evaluating [MP] on [H36M_MESH]... costs 85.34s
+	Evaluating [FPE] on [H36M_MESH]... costs 83.85s
+	Evaluating [MC] on [H36M_MESH]... costs 84.87s
+	Evaluating [MIB] on [H36M_MESH]... costs 84.45s
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | H36M_MESH |        |        |        |        | H36M_MESH |        |        |        |        |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+|  119  | 0.00006109 | 0.29146 | 266.51788 | 266.80934 |     PE    |   MP   |  FPE   |   MC   |  MIB   |     PE    |   MP   |  FPE   |   MC   |  MIB   |
+|       |            |         |           |           |   62.35   | 89.83  | 110.49 | 61.34  | 28.55  |   79.45   | 118.82 | 145.05 | 57.99  | 35.40  |
++-------+------------+---------+-----------+-----------+-----------+--------+--------+--------+--------+-----------+--------+--------+--------+--------+
+	Saving best checkpoints: 
+
+[119 end] Time cost: 34.40min 	| lr: 0.00006109
+[120 start]
+	Iter: 48/145; time cost: 9.22min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+	Iter: 96/145; time cost: 18.23min; current batch has {'H36M_MESH': 1280} samples; batch_size (total/sub): 1280/256
+[120 end] Time cost: 27.17min 	| lr: 0.00006048
+Training took 62.24h
+All results:
++-------+----------------+----------------+-----------------+----------------+-----------------+
+| Epoch | H36M_MESH | PE | H36M_MESH | MP | H36M_MESH | FPE | H36M_MESH | MC | H36M_MESH | MIB |
++-------+----------------+----------------+-----------------+----------------+-----------------+
+|   1   |     253.04     |     250.53     |      253.60     |     267.75     |      253.75     |
+|   2   |     156.65     |     174.64     |      178.73     |     192.41     |      152.25     |
+|   3   |     139.89     |     161.09     |      171.54     |     177.03     |      133.51     |
+|   4   |     162.77     |     168.22     |      187.04     |     193.96     |      148.10     |
+|   5   |     118.29     |     154.62     |      160.27     |     160.89     |      117.19     |
+|   6   |     105.51     |     142.59     |      146.12     |     147.00     |      107.80     |
+|   7   |     111.74     |     145.16     |      153.43     |     149.47     |      108.84     |
+|   8   |     98.30      |     124.07     |      137.13     |     130.12     |      78.99      |
+|   9   |     89.09      |     122.85     |      135.80     |     122.54     |      73.03      |
+|   10  |     90.86      |     120.35     |      136.25     |     123.19     |      68.50      |
+|   11  |     84.62      |     113.39     |      137.85     |     113.27     |      65.43      |
+|   13  |     86.99      |     109.93     |      131.18     |     107.29     |      53.57      |
+|   15  |     73.63      |     101.19     |      120.95     |     94.00      |      40.22      |
+|   17  |     81.18      |     103.77     |      126.47     |     95.72      |      47.20      |
+|   19  |     95.22      |     120.25     |      142.39     |     112.75     |      62.70      |
+|   21  |     77.52      |     100.40     |      124.89     |     89.54      |      41.18      |
+|   23  |     72.36      |     96.58      |      118.08     |     84.00      |      36.20      |
+|   25  |     85.97      |     101.06     |      125.01     |     97.89      |      45.91      |
+|   27  |     71.80      |     96.62      |      118.60     |     82.05      |      36.22      |
+|   29  |     79.76      |     100.49     |      121.14     |     91.78      |      40.92      |
+|   31  |     73.51      |     94.78      |      118.20     |     79.34      |      37.27      |
+|   33  |     68.40      |     92.82      |      116.59     |     76.62      |      34.27      |
+|   35  |     75.18      |     96.95      |      117.70     |     82.11      |      37.34      |
+|   37  |     71.48      |     91.16      |      122.91     |     74.13      |      33.47      |
+|   39  |     76.04      |     92.08      |      124.20     |     77.19      |      33.51      |
+|   41  |     70.70      |     92.56      |      118.37     |     75.75      |      35.21      |
+|   43  |     70.45      |     92.84      |      122.21     |     72.53      |      33.84      |
+|   45  |     69.53      |     92.35      |      116.18     |     72.88      |      33.70      |
+|   47  |     65.08      |     86.95      |      113.41     |     67.85      |      26.75      |
+|   49  |     67.26      |     89.14      |      115.79     |     67.86      |      29.76      |
+|   51  |     63.60      |     87.77      |      112.98     |     64.82      |      26.58      |
+|   53  |     67.45      |     90.49      |      116.30     |     65.73      |      29.73      |
+|   55  |     67.19      |     89.24      |      118.80     |     67.03      |      29.49      |
+|   57  |     68.05      |     90.09      |      116.45     |     66.80      |      30.01      |
+|   59  |     67.81      |     87.69      |      116.86     |     67.34      |      28.75      |
+|   61  |     68.96      |     88.89      |      116.21     |     66.47      |      29.78      |
+|   63  |     66.44      |     90.39      |      116.22     |     65.44      |      29.68      |
+|   65  |     63.14      |     87.23      |      111.18     |     63.37      |      28.17      |
+|   67  |     62.00      |     86.73      |      111.94     |     65.67      |      27.43      |
+|   69  |     65.42      |     87.82      |      112.81     |     64.14      |      30.58      |
+|   71  |     69.37      |     86.12      |      116.88     |     66.07      |      27.71      |
+|   73  |     64.43      |     87.00      |      111.75     |     62.50      |      28.38      |
+|   75  |     65.71      |     88.81      |      113.76     |     64.09      |      32.39      |
+|   77  |     64.83      |     88.32      |      112.01     |     63.12      |      31.61      |
+|   79  |     63.88      |     87.63      |      111.22     |     63.17      |      28.97      |
+|   81  |     65.68      |     89.59      |      113.85     |     64.74      |      30.20      |
+|   83  |     61.92      |     86.83      |      110.82     |     60.64      |      26.59      |
+|   85  |     60.93      |     86.18      |      109.94     |     60.29      |      25.68      |
+|   87  |     63.48      |     88.31      |      113.15     |     60.42      |      27.28      |
+|   89  |     61.21      |     85.67      |      109.80     |     59.92      |      24.74      |
+|   91  |     61.46      |     85.53      |      109.24     |     60.62      |      26.07      |
+|   93  |     63.88      |     86.97      |      114.09     |     61.29      |      28.59      |
+|   95  |     63.27      |     86.75      |      111.87     |     59.27      |      26.02      |
+|   97  |     64.01      |     89.39      |      111.34     |     62.73      |      28.60      |
+|   99  |     64.19      |     89.02      |      110.99     |     63.29      |      30.05      |
+|  101  |     64.80      |     89.18      |      112.26     |     61.88      |      30.63      |
+|  103  |     62.00      |     86.66      |      108.90     |     59.55      |      25.63      |
+|  105  |     61.58      |     86.28      |      111.48     |     57.73      |      25.01      |
+|  107  |     64.38      |     87.70      |      112.68     |     65.33      |      23.82      |
+|  109  |     64.96      |     90.82      |      111.84     |     73.69      |      28.64      |
+|  111  |     60.80      |     87.18      |      109.39     |     59.66      |      26.02      |
+|  113  |     61.78      |     87.44      |      109.48     |     59.40      |      27.67      |
+|  115  |     60.63      |     85.41      |      111.12     |     59.48      |      24.16      |
+|  117  |     64.58      |     88.45      |      113.07     |     62.03      |      27.16      |
+|  119  |     62.35      |     89.83      |      110.49     |     61.34      |      28.55      |
++-------+----------------+----------------+-----------------+----------------+-----------------+
+Best results:

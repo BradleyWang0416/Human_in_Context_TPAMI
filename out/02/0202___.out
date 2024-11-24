@@ -1,0 +1,56 @@
+Training on 4 tasks: ['PE', 'MP', 'MC', 'FPE']
+
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': 0, 'evaluate_non_AR': 0, 'train_epoch_non_AR': 0, 'model_name': 'M05_SiC_CrossAttn'}, 'use_partial_data': False, 'partial_data': {'datasets': {'PE': None, 'MP': None, 'FPE': None, 'MC': None}, 'train_stride': None, 'sample_stride': None, 'clip_len': None, 'num_joints': None, 'drop_ratios_MC': None, 'root_path': None, 'source_file_h36m': None, 'clip_len_2DAR': None, 'batch_size_2DAR': None, 'label_stride_2DAR': None}, 'full_data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.4, 0.6], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}, 'maxlen': 16, 'dim_in': 3, 'dim_out': 3, 'dim_feat': 256, 'mlp_ratio': 2, 'depth': 5, 'dim_rep': 256, 'num_heads': 8, 'att_fuse': True, 'merge_idx': 2, 'epochs': 120, 'batch_size': 640, 'test_batch_size': 512, 'dropout': 0.0, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'mpjpe': 1.0, 'n_mpjpe': 0.0, 'velocity': 0.0, 'limb_var': 0.0, 'limb_gt': 0.0, 'angle': 0.0, 'angle_velocity': 0.0}, 'label_type_2DAR': 'default', 'rootrel_input': True, 'rootrel_input_2DAR': False, 'rootrel_target_MP': True, 'rootrel_target_PE': True, 'rootrel_target_FPE': True, 'flip_h36m_y_axis': False, 'flip_h36mFPE_y_axis': False, 'scale_h36m_skeleton': 2.0, 'scale_h36mFPE_skeleton': 2.0, 'no_eval': False, 'amass_to_h36m': [[2], [0], [3], [6], [1], [4], [7], [5], [8], [8, 11], [11], [10], [13], [15], [9], [12], [14]], 'name': '02_func000_model05_T16', 'data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.4, 0.6], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}}
+
+Loading dataset...
+train sample count: {'PE': 97196, 'MP': 139151, 'FPE': 96596, 'MC': 23049}
+Training (non-AR) sample count: 355992
+test sample count: {'PE': 35328, 'MP': 45619, 'FPE': 17596, 'MC': 9970}
+Testing (non-AR) sample count: 108513
+
+Loading model...
+Model: M05_SiC_CrossAttn
+Trainable parameter count: 21.194541M
+/home/wxs/anaconda3/envs/skeleton_in_context/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py:32: UserWarning: 
+    There is an imbalance between your GPUs. You may want to exclude GPU 1 which
+    has less than 75% of the memory or cores of GPU 0. You can do so by setting
+    the device_ids argument to DataParallel, or by setting the CUDA_VISIBLE_DEVICES
+    environment variable.
+  warnings.warn(imbalance_warn.format(device_ids[min_pos], device_ids[max_pos]))
+
+Training on [['non_AR', 557]] batches for 120 epochs. batch size: 640
+[1 start]
+	Iter: 185/557; time cost: 5.65min; current batch has {'PE': 183, 'MP': 229, 'MC': 53, 'FPE': 175} samples
+	Iter: 371/557; time cost: 11.24min; current batch has {'PE': 180, 'MP': 249, 'MC': 44, 'FPE': 167} samples
+	Evaluating 3D Pose Estimation...
+	Evaluating Future Pose Estimation...
+	Evaluating Motion Prediction...
+	Evaluating Motion Completion...
+	Saving checkpoint to ckpt/02_train_on_non_AR/02_func000_model05_T16/latest_epoch.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/02_func000_model05_T16/best_epoch_PE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/02_func000_model05_T16/best_epoch_MP.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/02_func000_model05_T16/best_epoch_FPE.bin
+	Saving checkpoint to ckpt/02_train_on_non_AR/02_func000_model05_T16/best_epoch_MC.bin
++---------+-------+-----------+---------+--------+-------+-------+--------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|    PE   |  Avg  | Direction | Discuss | Eating | Greet | Phone | Photo  |  Pose | Purchase | Sitting | SittingDown | Smoke |  Wait |  Walk | WalkDog | WalkTwo |
++---------+-------+-----------+---------+--------+-------+-------+--------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
+|  MPJPE  | 93.02 |   73.87   |  80.98  | 83.39  | 94.29 | 83.59 | 111.30 | 77.17 |  102.89  |  105.98 |    149.82   | 81.37 | 89.84 | 78.44 |  97.99  |  84.37  |
+| P-MPJPE | 71.14 |   59.77   |  62.35  | 64.61  | 71.14 | 64.80 | 77.91  | 56.31 |  75.04   |  78.33  |    115.34   | 64.41 | 66.38 | 66.36 |  73.19  |  71.10  |
++---------+-------+-----------+---------+--------+-------+-------+--------+-------+----------+---------+-------------+-------+-------+-------+---------+---------+
++-------+-------+-------+-------+-------+-------+-------+
+|   MP  |  Avg  |   80  |  160  |  200  |  320  |  400  |
++-------+-------+-------+-------+-------+-------+-------+
+| MPJPE | 73.65 | 52.16 | 64.62 | 70.76 | 86.53 | 94.16 |
++-------+-------+-------+-------+-------+-------+-------+
++-------+--------+--------+--------+
+|   MC  |  Avg   |  0.4   |  0.6   |
++-------+--------+--------+--------+
+| MPJPE | 119.62 | 121.89 | 117.35 |
++-------+--------+--------+--------+
++-------+--------+-------+--------+
+|  FPE  |  Avg   |  200  |  300   |
++-------+--------+-------+--------+
+| MPJPE | 103.13 | 99.67 | 106.59 |
++-------+--------+-------+--------+
+[1 end] Time cost: 19.11min 	| lr: 0.00020000 	| train loss: 0.11609313228181428
+[2 start]

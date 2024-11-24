@@ -1,0 +1,1225 @@
+Overriding config: batch_size = 256
+Overriding config: no_eval = True
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6}, 'dataset_to_flag': {'H36M_3D': 0, 'AMASS': 1, 'PW3D_MESH': 2, 'H36M_MESH': 3}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB'}, 'flag_to_dataset': {'0': 'H36M_3D', '1': 'AMASS', '2': 'PW3D_MESH', '3': 'H36M_MESH'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'dataset_task_info': {'train': {'PW3D_MESH': ['PE', 'MP', 'FPE', 'MC'], 'H36M_3D': ['PE', 'MP', 'FPE', 'MC'], 'AMASS': ['PE', 'MP', 'FPE', 'MC']}, 'test': {'PW3D_MESH': ['PE', 'MP', 'FPE', 'MC'], 'H36M_3D': ['PE', 'MP', 'FPE', 'MC'], 'AMASS': ['PE', 'MP', 'FPE', 'MC']}}, 'dataset_file': {'PW3D_MESH': 'data_icl_gen/processed_data/PW3D/mesh_det_pw3d.pkl', 'H36M_MESH': 'data_icl_gen/processed_data/H36M_MESH/mesh_det_h36m.pkl', 'H36M_3D': 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl', 'AMASS': 'data_icl_gen/processed_data/AMASS/amass_joints_h36m_60.pkl'}, 'clip_len': 16, 'num_joint': 17, 'sample_stride': 1, 'data_stride': 8, 'joint_mask_ratio': 0.4, 'frame_mask_ratio': 0.4, 'presave_folder': 'data_icl_gen/presave_data', 'dataset_config': {'PW3D_MESH': {'sample_stride': 1, 'data_stride_train': 1, 'data_stride_test': 32, 'read_confidence': True, 'rootrel_input': True, 'rootrel_target': True, 'flip': True}, 'H36M_MESH': {'sample_stride': 1, 'data_stride_train': 32, 'data_stride_test': 32, 'read_confidence': True, 'rootrel_input': True, 'rootrel_target': True, 'flip': True}, 'H36M_3D': {'sample_stride': 1, 'data_stride_train': 64, 'data_stride_test': 64, 'read_confidence': True, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'scale_3D': 0.298}, 'AMASS': {'sample_stride': 1, 'data_stride_train': 256, 'data_stride_test': 256, 'read_confidence': True, 'rootrel_input': True, 'rootrel_target': True, 'flip': True}}, 'data_root_path': 'data/non_default_ICL', 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': '3_ICL', 'evaluate_non_AR': '3_ICL', 'train_epoch_non_AR': '3_ICL', 'model_name': 'M06_MixSTE_v0'}, 'current_as_history': True, 'aug': True, 'rotate_prob': 0.25, 'keep_original_joints': True, 'use_partial_data': False, 'partial_data': {'datasets': {'PE': None, 'MP': None, 'FPE': None, 'MC': None}, 'train_stride': None, 'sample_stride': None, 'clip_len': None, 'num_joints': None, 'drop_ratios_MC': None, 'root_path': None, 'source_file_h36m': None, 'clip_len_2DAR': None, 'batch_size_2DAR': None, 'label_stride_2DAR': None}, 'full_data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.5], 'drop_ratios_MIB': [0.5], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}, 'maxlen': 16, 'dim_in': 3, 'dim_out': 3, 'dim_feat': 256, 'mlp_ratio': 2, 'depth': 5, 'dim_rep': 256, 'num_heads': 8, 'att_fuse': True, 'merge_idx': 2, 'epochs': 120, 'batch_size': 256, 'test_batch_size': 512, 'dropout': 0.0, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'mpjpe': 1.0, 'n_mpjpe': 0.0, 'velocity': 0.0, 'limb_var': 0.0, 'limb_gt': 0.0, 'angle': 0.0, 'angle_velocity': 0.0}, 'label_type_2DAR': 'default', 'rootrel_input': True, 'rootrel_input_2DAR': False, 'rootrel_target_MP': True, 'rootrel_target_PE': True, 'rootrel_target_FPE': True, 'flip_h36m_y_axis': False, 'flip_h36mFPE_y_axis': False, 'scale_h36m_skeleton': 2.0, 'scale_h36mFPE_skeleton': 2.0, 'no_eval': True, 'amass_to_h36m': [[2], [0], [3], [6], [1], [4], [7], [5], [8], [8, 11], [11], [10], [13], [15], [9], [12], [14]], 'name': '01_func333_model06_T16_DataTask00', 'data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.5], 'drop_ratios_MIB': [0.5], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}}
+
+python train.py -gpu 6 --config configs/03_train_on_non_AR_ICL/01_func333_model06_T16_DataTask00.yaml -c ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset -classifier_type task_dataset -num_class 12 -stage classifier -no_eval -bs 256
+
+PID:  49782
+
+Loading dataset...
+	Loading train data from [PW3D_MESH] for task: ['PE', 'MP', 'FPE', 'MC']... costs 0.88s... has 21678 samples
+	Loading train data from [H36M_3D] for task: ['PE', 'MP', 'FPE', 'MC']... costs 1.59s... has 24376 samples
+	Loading train data from [AMASS] for task: ['PE', 'MP', 'FPE', 'MC']... costs 2.91s... has 25106 samples
+	Training (non-AR) sample count: 71160
+	Loading test data from [PW3D_MESH] for task: ['PE']... costs 0.65s... has 1091 samples
+	Loading test data from [PW3D_MESH] for task: ['MP']... costs 0.65s... has 1091 samples
+	Loading test data from [PW3D_MESH] for task: ['FPE']... costs 0.65s... has 1091 samples
+	Loading test data from [PW3D_MESH] for task: ['MC']... costs 0.65s... has 1091 samples
+	Loading test data from [H36M_3D] for task: ['PE']... costs 1.11s... has 8860 samples
+	Loading test data from [H36M_3D] for task: ['MP']... costs 1.02s... has 8860 samples
+	Loading test data from [H36M_3D] for task: ['FPE']... costs 1.08s... has 8860 samples
+	Loading test data from [H36M_3D] for task: ['MC']... costs 1.15s... has 8860 samples
+	Loading test data from [AMASS] for task: ['PE']... costs 2.19s... has 8492 samples
+	Loading test data from [AMASS] for task: ['MP']... costs 1.75s... has 8492 samples
+	Loading test data from [AMASS] for task: ['FPE']... costs 1.75s... has 8492 samples
+	Loading test data from [AMASS] for task: ['MC']... costs 1.80s... has 8492 samples
+
+Loading model...
+Model: M06_MixSTE_v0_classifier
+[MODEL INFO] prompt_enabled: True
+Trainable parameter count: 51.525644M
+
+Training on [['non_AR', 278]] batches for 120 epochs. batch size: 256
+[1 start]
+	Iter: 92/278; time cost: 7.84min; current batch has {'PW3D_MESH': 320, 'H36M_3D': 376, 'AMASS': 328} samples
+	Iter: 185/278; time cost: 15.53min; current batch has {'PW3D_MESH': 296, 'H36M_3D': 332, 'AMASS': 396} samples
+
+Average training accuracy: 90.3158723075184
+	Evaluating [PW3D_MESH-PE]... costs 24.45s
+	Evaluating [PW3D_MESH-MP]... costs 24.54s
+	Evaluating [PW3D_MESH-FPE]... costs 24.39s
+	Evaluating [PW3D_MESH-MC]... costs 24.66s
+	Evaluating [H36M_3D-PE]... costs 14.58s
+	Evaluating [H36M_3D-MP]... costs 14.74s
+	Evaluating [H36M_3D-FPE]... costs 14.84s
+	Evaluating [H36M_3D-MC]... costs 14.82s
+	Evaluating [AMASS-PE]... costs 14.28s
+	Evaluating [AMASS-MP]... costs 14.36s
+	Evaluating [AMASS-FPE]... costs 14.35s
+	Evaluating [AMASS-MC]... costs 14.35s
+Accuracy:  0.9364121889063601
+Accuracy on ('PW3D_MESH', 'PE'):  0.5847846012832264
+Accuracy on ('PW3D_MESH', 'MP'):  0.5215398716773603
+Accuracy on ('PW3D_MESH', 'FPE'):  0.28139321723189736
+Accuracy on ('PW3D_MESH', 'MC'):  0.9266727772685609
+Accuracy on ('H36M_3D', 'PE'):  0.9310383747178329
+Accuracy on ('H36M_3D', 'MP'):  0.9994356659142212
+Accuracy on ('H36M_3D', 'FPE'):  0.8816027088036117
+Accuracy on ('H36M_3D', 'MC'):  0.9936794582392776
+Accuracy on ('AMASS', 'PE'):  0.9991756947715497
+Accuracy on ('AMASS', 'MP'):  0.898728214790391
+Accuracy on ('AMASS', 'FPE'):  0.9996467263306642
+Accuracy on ('AMASS', 'MC'):  0.9692651907677814
+Each acc [0.93 1.   0.58 1.   0.9  0.52 0.88 1.   0.28 0.99 0.97 0.93]
+[1 end] Time cost: 26.71min 	| lr: 0.00020000 	| train loss: 0.20427351764389884
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_0.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[2 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 316, 'H36M_3D': 348, 'AMASS': 360} samples
+	Iter: 185/278; time cost: 15.46min; current batch has {'PW3D_MESH': 344, 'H36M_3D': 324, 'AMASS': 356} samples
+
+Average training accuracy: 97.5353589911255
+	Evaluating [PW3D_MESH-PE]... costs 23.59s
+	Evaluating [PW3D_MESH-MP]... costs 23.43s
+	Evaluating [PW3D_MESH-FPE]... costs 23.39s
+	Evaluating [PW3D_MESH-MC]... costs 23.79s
+	Evaluating [H36M_3D-PE]... costs 13.79s
+	Evaluating [H36M_3D-MP]... costs 13.89s
+	Evaluating [H36M_3D-FPE]... costs 13.98s
+	Evaluating [H36M_3D-MC]... costs 14.04s
+	Evaluating [AMASS-PE]... costs 13.38s
+	Evaluating [AMASS-MP]... costs 13.46s
+	Evaluating [AMASS-FPE]... costs 13.38s
+	Evaluating [AMASS-MC]... costs 13.43s
+Accuracy:  0.9416038605432956
+Accuracy on ('PW3D_MESH', 'PE'):  0.12190650779101742
+Accuracy on ('PW3D_MESH', 'MP'):  0.7268560953253895
+Accuracy on ('PW3D_MESH', 'FPE'):  0.2071494042163153
+Accuracy on ('PW3D_MESH', 'MC'):  0.9963336388634281
+Accuracy on ('H36M_3D', 'PE'):  0.9873589164785553
+Accuracy on ('H36M_3D', 'MP'):  0.9955981941309255
+Accuracy on ('H36M_3D', 'FPE'):  0.7867945823927766
+Accuracy on ('H36M_3D', 'MC'):  0.9983069977426636
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9872821479039096
+Accuracy on ('AMASS', 'FPE'):  0.9987046632124352
+Accuracy on ('AMASS', 'MC'):  0.9989401789919925
+Each acc [0.99 1.   0.12 1.   0.99 0.73 0.79 1.   0.21 1.   1.   1.  ]
+[2 end] Time cost: 26.46min 	| lr: 0.00019800 	| train loss: 0.060234685109345334
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_1.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[3 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 336, 'H36M_3D': 316, 'AMASS': 372} samples
+	Iter: 185/278; time cost: 15.44min; current batch has {'PW3D_MESH': 328, 'H36M_3D': 332, 'AMASS': 364} samples
+
+Average training accuracy: 97.65394158500563
+	Evaluating [PW3D_MESH-PE]... costs 24.19s
+	Evaluating [PW3D_MESH-MP]... costs 24.05s
+	Evaluating [PW3D_MESH-FPE]... costs 24.37s
+	Evaluating [PW3D_MESH-MC]... costs 24.65s
+	Evaluating [H36M_3D-PE]... costs 13.78s
+	Evaluating [H36M_3D-MP]... costs 13.90s
+	Evaluating [H36M_3D-FPE]... costs 13.96s
+	Evaluating [H36M_3D-MC]... costs 14.04s
+	Evaluating [AMASS-PE]... costs 13.46s
+	Evaluating [AMASS-MP]... costs 13.43s
+	Evaluating [AMASS-FPE]... costs 13.44s
+	Evaluating [AMASS-MC]... costs 13.46s
+Accuracy:  0.9622214390283577
+Accuracy on ('PW3D_MESH', 'PE'):  0.48029330889092575
+Accuracy on ('PW3D_MESH', 'MP'):  0.8331805682859762
+Accuracy on ('PW3D_MESH', 'FPE'):  0.5252062328139322
+Accuracy on ('PW3D_MESH', 'MC'):  0.999083409715857
+Accuracy on ('H36M_3D', 'PE'):  0.8829571106094808
+Accuracy on ('H36M_3D', 'MP'):  0.9980812641083522
+Accuracy on ('H36M_3D', 'FPE'):  0.9590293453724605
+Accuracy on ('H36M_3D', 'MC'):  0.9971783295711061
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9910504003768252
+Accuracy on ('AMASS', 'FPE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MC'):  1.0
+Each acc [0.88 1.   0.48 1.   0.99 0.83 0.96 1.   0.53 1.   1.   1.  ]
+[3 end] Time cost: 26.50min 	| lr: 0.00019602 	| train loss: 0.05645753390812348
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_2.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[4 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 280, 'H36M_3D': 428, 'AMASS': 316} samples
+	Iter: 185/278; time cost: 15.45min; current batch has {'PW3D_MESH': 276, 'H36M_3D': 388, 'AMASS': 360} samples
+
+Average training accuracy: 97.87836026051919
+	Evaluating [PW3D_MESH-PE]... costs 23.43s
+	Evaluating [PW3D_MESH-MP]... costs 23.80s
+	Evaluating [PW3D_MESH-FPE]... costs 24.11s
+	Evaluating [PW3D_MESH-MC]... costs 24.44s
+	Evaluating [H36M_3D-PE]... costs 13.75s
+	Evaluating [H36M_3D-MP]... costs 13.86s
+	Evaluating [H36M_3D-FPE]... costs 13.96s
+	Evaluating [H36M_3D-MC]... costs 14.04s
+	Evaluating [AMASS-PE]... costs 13.46s
+	Evaluating [AMASS-MP]... costs 13.44s
+	Evaluating [AMASS-FPE]... costs 13.47s
+	Evaluating [AMASS-MC]... costs 13.47s
+Accuracy:  0.9660440275443257
+Accuracy on ('PW3D_MESH', 'PE'):  0.6535288725939505
+Accuracy on ('PW3D_MESH', 'MP'):  0.8936755270394133
+Accuracy on ('PW3D_MESH', 'FPE'):  0.7002749770852429
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.8581264108352145
+Accuracy on ('H36M_3D', 'MP'):  0.9985327313769752
+Accuracy on ('H36M_3D', 'FPE'):  0.9749435665914221
+Accuracy on ('H36M_3D', 'MC'):  0.999548532731377
+Accuracy on ('AMASS', 'PE'):  0.9991756947715497
+Accuracy on ('AMASS', 'MP'):  0.9803344324069713
+Accuracy on ('AMASS', 'FPE'):  0.9996467263306642
+Accuracy on ('AMASS', 'MC'):  0.9987046632124352
+Each acc [0.86 1.   0.65 1.   0.98 0.89 0.97 1.   0.7  1.   1.   1.  ]
+[4 end] Time cost: 26.49min 	| lr: 0.00019406 	| train loss: 0.05100106792825964
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_3.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[5 start]
+	Iter: 92/278; time cost: 7.77min; current batch has {'PW3D_MESH': 280, 'H36M_3D': 404, 'AMASS': 340} samples
+	Iter: 185/278; time cost: 15.47min; current batch has {'PW3D_MESH': 320, 'H36M_3D': 336, 'AMASS': 368} samples
+
+Average training accuracy: 97.92472941519546
+	Evaluating [PW3D_MESH-PE]... costs 24.47s
+	Evaluating [PW3D_MESH-MP]... costs 24.32s
+	Evaluating [PW3D_MESH-FPE]... costs 24.27s
+	Evaluating [PW3D_MESH-MC]... costs 23.60s
+	Evaluating [H36M_3D-PE]... costs 13.73s
+	Evaluating [H36M_3D-MP]... costs 13.84s
+	Evaluating [H36M_3D-FPE]... costs 13.94s
+	Evaluating [H36M_3D-MC]... costs 14.06s
+	Evaluating [AMASS-PE]... costs 13.43s
+	Evaluating [AMASS-MP]... costs 13.46s
+	Evaluating [AMASS-FPE]... costs 13.45s
+	Evaluating [AMASS-MC]... costs 13.43s
+Accuracy:  0.9579108604890745
+Accuracy on ('PW3D_MESH', 'PE'):  0.8029330889092575
+Accuracy on ('PW3D_MESH', 'MP'):  0.7781851512373968
+Accuracy on ('PW3D_MESH', 'FPE'):  0.4766269477543538
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9870203160270881
+Accuracy on ('H36M_3D', 'MP'):  0.999548532731377
+Accuracy on ('H36M_3D', 'FPE'):  0.8206546275395034
+Accuracy on ('H36M_3D', 'MC'):  0.9994356659142212
+Accuracy on ('AMASS', 'PE'):  0.9996467263306642
+Accuracy on ('AMASS', 'MP'):  0.9710315591144607
+Accuracy on ('AMASS', 'FPE'):  0.9870466321243523
+Accuracy on ('AMASS', 'MC'):  0.9994112105511069
+Each acc [0.99 1.   0.8  1.   0.97 0.78 0.82 0.99 0.48 1.   1.   1.  ]
+[5 end] Time cost: 26.52min 	| lr: 0.00019212 	| train loss: 0.04974281117144182
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_4.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[6 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 308, 'H36M_3D': 308, 'AMASS': 408} samples
+	Iter: 185/278; time cost: 15.46min; current batch has {'PW3D_MESH': 260, 'H36M_3D': 392, 'AMASS': 372} samples
+
+Average training accuracy: 98.48412007307836
+	Evaluating [PW3D_MESH-PE]... costs 23.90s
+	Evaluating [PW3D_MESH-MP]... costs 23.54s
+	Evaluating [PW3D_MESH-FPE]... costs 23.55s
+	Evaluating [PW3D_MESH-MC]... costs 23.64s
+	Evaluating [H36M_3D-PE]... costs 13.80s
+	Evaluating [H36M_3D-MP]... costs 13.86s
+	Evaluating [H36M_3D-FPE]... costs 13.93s
+	Evaluating [H36M_3D-MC]... costs 13.96s
+	Evaluating [AMASS-PE]... costs 13.45s
+	Evaluating [AMASS-MP]... costs 13.42s
+	Evaluating [AMASS-FPE]... costs 13.43s
+	Evaluating [AMASS-MC]... costs 13.43s
+Accuracy:  0.9703139402483327
+Accuracy on ('PW3D_MESH', 'PE'):  0.7094408799266728
+Accuracy on ('PW3D_MESH', 'MP'):  0.851512373968836
+Accuracy on ('PW3D_MESH', 'FPE'):  0.7506874427131073
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.918510158013544
+Accuracy on ('H36M_3D', 'MP'):  0.9972911963882618
+Accuracy on ('H36M_3D', 'FPE'):  0.9523702031602709
+Accuracy on ('H36M_3D', 'MC'):  0.9980812641083522
+Accuracy on ('AMASS', 'PE'):  0.9997644842204427
+Accuracy on ('AMASS', 'MP'):  0.9799811587376355
+Accuracy on ('AMASS', 'FPE'):  0.999057936881771
+Accuracy on ('AMASS', 'MC'):  0.9912859161563825
+Each acc [0.92 1.   0.71 1.   0.98 0.85 0.95 1.   0.75 1.   0.99 1.  ]
+[6 end] Time cost: 26.47min 	| lr: 0.00019020 	| train loss: 0.03568019652940172
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_5.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[7 start]
+	Iter: 92/278; time cost: 7.75min; current batch has {'PW3D_MESH': 288, 'H36M_3D': 396, 'AMASS': 340} samples
+	Iter: 185/278; time cost: 15.45min; current batch has {'PW3D_MESH': 284, 'H36M_3D': 376, 'AMASS': 364} samples
+
+Average training accuracy: 98.49169771555516
+	Evaluating [PW3D_MESH-PE]... costs 23.64s
+	Evaluating [PW3D_MESH-MP]... costs 24.05s
+	Evaluating [PW3D_MESH-FPE]... costs 23.53s
+	Evaluating [PW3D_MESH-MC]... costs 23.42s
+	Evaluating [H36M_3D-PE]... costs 13.80s
+	Evaluating [H36M_3D-MP]... costs 13.84s
+	Evaluating [H36M_3D-FPE]... costs 13.92s
+	Evaluating [H36M_3D-MC]... costs 14.04s
+	Evaluating [AMASS-PE]... costs 13.43s
+	Evaluating [AMASS-MP]... costs 13.44s
+	Evaluating [AMASS-FPE]... costs 13.44s
+	Evaluating [AMASS-MC]... costs 13.40s
+Accuracy:  0.964241175513745
+Accuracy on ('PW3D_MESH', 'PE'):  0.6076993583868011
+Accuracy on ('PW3D_MESH', 'MP'):  0.7864344637946837
+Accuracy on ('PW3D_MESH', 'FPE'):  0.6351970669110908
+Accuracy on ('PW3D_MESH', 'MC'):  0.9862511457378552
+Accuracy on ('H36M_3D', 'PE'):  0.9757336343115124
+Accuracy on ('H36M_3D', 'MP'):  0.9998871331828443
+Accuracy on ('H36M_3D', 'FPE'):  0.8658013544018058
+Accuracy on ('H36M_3D', 'MC'):  0.9998871331828443
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9836316533207725
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9977626000942064
+Each acc [0.98 1.   0.61 1.   0.98 0.79 0.87 1.   0.64 1.   1.   0.99]
+[7 end] Time cost: 26.46min 	| lr: 0.00018830 	| train loss: 0.03523798052911653
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_6.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[8 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 296, 'H36M_3D': 384, 'AMASS': 344} samples
+	Iter: 185/278; time cost: 15.45min; current batch has {'PW3D_MESH': 264, 'H36M_3D': 392, 'AMASS': 368} samples
+
+Average training accuracy: 98.36428290862831
+	Evaluating [PW3D_MESH-PE]... costs 23.41s
+	Evaluating [PW3D_MESH-MP]... costs 23.96s
+	Evaluating [PW3D_MESH-FPE]... costs 23.87s
+	Evaluating [PW3D_MESH-MC]... costs 23.55s
+	Evaluating [H36M_3D-PE]... costs 13.82s
+	Evaluating [H36M_3D-MP]... costs 13.91s
+	Evaluating [H36M_3D-FPE]... costs 13.94s
+	Evaluating [H36M_3D-MC]... costs 14.00s
+	Evaluating [AMASS-PE]... costs 13.46s
+	Evaluating [AMASS-MP]... costs 13.51s
+	Evaluating [AMASS-FPE]... costs 13.45s
+	Evaluating [AMASS-MC]... costs 13.43s
+Accuracy:  0.9621129968009543
+Accuracy on ('PW3D_MESH', 'PE'):  0.41154903758020167
+Accuracy on ('PW3D_MESH', 'MP'):  0.7901008249312558
+Accuracy on ('PW3D_MESH', 'FPE'):  0.44912923923006415
+Accuracy on ('PW3D_MESH', 'MC'):  0.999083409715857
+Accuracy on ('H36M_3D', 'PE'):  0.9121896162528217
+Accuracy on ('H36M_3D', 'MP'):  0.9950338600451467
+Accuracy on ('H36M_3D', 'FPE'):  0.9505643340857788
+Accuracy on ('H36M_3D', 'MC'):  0.9996613995485327
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9936410739519548
+Accuracy on ('AMASS', 'FPE'):  0.9994112105511069
+Accuracy on ('AMASS', 'MC'):  1.0
+Each acc [0.91 1.   0.41 1.   0.99 0.79 0.95 1.   0.45 1.   1.   1.  ]
+[8 end] Time cost: 26.47min 	| lr: 0.00018641 	| train loss: 0.03848358177288482
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_7.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[9 start]
+	Iter: 92/278; time cost: 7.75min; current batch has {'PW3D_MESH': 256, 'H36M_3D': 412, 'AMASS': 356} samples
+	Iter: 185/278; time cost: 15.44min; current batch has {'PW3D_MESH': 328, 'H36M_3D': 344, 'AMASS': 352} samples
+
+Average training accuracy: 98.75420534567867
+	Evaluating [PW3D_MESH-PE]... costs 23.57s
+	Evaluating [PW3D_MESH-MP]... costs 23.59s
+	Evaluating [PW3D_MESH-FPE]... costs 23.47s
+	Evaluating [PW3D_MESH-MC]... costs 23.79s
+	Evaluating [H36M_3D-PE]... costs 13.81s
+	Evaluating [H36M_3D-MP]... costs 13.85s
+	Evaluating [H36M_3D-FPE]... costs 13.95s
+	Evaluating [H36M_3D-MC]... costs 13.96s
+	Evaluating [AMASS-PE]... costs 13.43s
+	Evaluating [AMASS-MP]... costs 13.50s
+	Evaluating [AMASS-FPE]... costs 13.49s
+	Evaluating [AMASS-MC]... costs 13.45s
+Accuracy:  0.9566908854307867
+Accuracy on ('PW3D_MESH', 'PE'):  0.24197983501374887
+Accuracy on ('PW3D_MESH', 'MP'):  0.8157653528872594
+Accuracy on ('PW3D_MESH', 'FPE'):  0.3226397800183318
+Accuracy on ('PW3D_MESH', 'MC'):  0.997250229147571
+Accuracy on ('H36M_3D', 'PE'):  0.9130925507900677
+Accuracy on ('H36M_3D', 'MP'):  0.9998871331828443
+Accuracy on ('H36M_3D', 'FPE'):  0.9503386004514672
+Accuracy on ('H36M_3D', 'MC'):  0.9974040632054176
+Accuracy on ('AMASS', 'PE'):  0.9996467263306642
+Accuracy on ('AMASS', 'MP'):  0.9795101271785209
+Accuracy on ('AMASS', 'FPE'):  0.999057936881771
+Accuracy on ('AMASS', 'MC'):  0.9992934526613283
+Each acc [0.91 1.   0.24 1.   0.98 0.82 0.95 1.   0.32 1.   1.   1.  ]
+[9 end] Time cost: 26.46min 	| lr: 0.00018455 	| train loss: 0.029183918511178412
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_8.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[10 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 332, 'H36M_3D': 348, 'AMASS': 344} samples
+	Iter: 185/278; time cost: 15.45min; current batch has {'PW3D_MESH': 300, 'H36M_3D': 412, 'AMASS': 312} samples
+
+Average training accuracy: 98.71536364658273
+	Evaluating [PW3D_MESH-PE]... costs 23.87s
+	Evaluating [PW3D_MESH-MP]... costs 23.41s
+	Evaluating [PW3D_MESH-FPE]... costs 23.95s
+	Evaluating [PW3D_MESH-MC]... costs 23.54s
+	Evaluating [H36M_3D-PE]... costs 13.81s
+	Evaluating [H36M_3D-MP]... costs 13.88s
+	Evaluating [H36M_3D-FPE]... costs 13.98s
+	Evaluating [H36M_3D-MC]... costs 13.98s
+	Evaluating [AMASS-PE]... costs 13.42s
+	Evaluating [AMASS-MP]... costs 13.47s
+	Evaluating [AMASS-FPE]... costs 13.44s
+	Evaluating [AMASS-MC]... costs 13.43s
+Accuracy:  0.9634685246434962
+Accuracy on ('PW3D_MESH', 'PE'):  0.4381301558203483
+Accuracy on ('PW3D_MESH', 'MP'):  0.8276810265811182
+Accuracy on ('PW3D_MESH', 'FPE'):  0.3226397800183318
+Accuracy on ('PW3D_MESH', 'MC'):  0.9908340971585701
+Accuracy on ('H36M_3D', 'PE'):  0.9608352144469526
+Accuracy on ('H36M_3D', 'MP'):  0.9913092550790068
+Accuracy on ('H36M_3D', 'FPE'):  0.9295711060948081
+Accuracy on ('H36M_3D', 'MC'):  0.9996613995485327
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.989284032030146
+Accuracy on ('AMASS', 'FPE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MC'):  0.9997644842204427
+Each acc [0.96 1.   0.44 0.99 0.99 0.83 0.93 1.   0.32 1.   1.   0.99]
+[10 end] Time cost: 26.47min 	| lr: 0.00018270 	| train loss: 0.030083709798641035
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_9.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[11 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 308, 'H36M_3D': 340, 'AMASS': 376} samples
+	Iter: 185/278; time cost: 15.45min; current batch has {'PW3D_MESH': 324, 'H36M_3D': 356, 'AMASS': 344} samples
+
+Average training accuracy: 98.70542740221504
+	Evaluating [PW3D_MESH-PE]... costs 23.72s
+	Evaluating [PW3D_MESH-MP]... costs 23.65s
+	Evaluating [PW3D_MESH-FPE]... costs 23.68s
+	Evaluating [PW3D_MESH-MC]... costs 23.43s
+	Evaluating [H36M_3D-PE]... costs 13.75s
+	Evaluating [H36M_3D-MP]... costs 13.87s
+	Evaluating [H36M_3D-FPE]... costs 13.96s
+	Evaluating [H36M_3D-MC]... costs 13.96s
+	Evaluating [AMASS-PE]... costs 13.39s
+	Evaluating [AMASS-MP]... costs 13.41s
+	Evaluating [AMASS-FPE]... costs 13.45s
+	Evaluating [AMASS-MC]... costs 13.43s
+Accuracy:  0.9580870791086049
+Accuracy on ('PW3D_MESH', 'PE'):  0.19615032080659944
+Accuracy on ('PW3D_MESH', 'MP'):  0.7103574702108157
+Accuracy on ('PW3D_MESH', 'FPE'):  0.2832263978001833
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9845372460496614
+Accuracy on ('H36M_3D', 'MP'):  0.9997742663656884
+Accuracy on ('H36M_3D', 'FPE'):  0.8923250564334085
+Accuracy on ('H36M_3D', 'MC'):  0.999548532731377
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9977626000942064
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9998822421102214
+Each acc [0.98 1.   0.2  1.   1.   0.71 0.89 1.   0.28 1.   1.   1.  ]
+[11 end] Time cost: 26.46min 	| lr: 0.00018088 	| train loss: 0.030819794123535037
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_10.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[12 start]
+	Iter: 92/278; time cost: 7.78min; current batch has {'PW3D_MESH': 292, 'H36M_3D': 420, 'AMASS': 312} samples
+	Iter: 185/278; time cost: 15.48min; current batch has {'PW3D_MESH': 312, 'H36M_3D': 356, 'AMASS': 356} samples
+
+Average training accuracy: 99.02935910353557
+	Evaluating [PW3D_MESH-PE]... costs 23.72s
+	Evaluating [PW3D_MESH-MP]... costs 23.62s
+	Evaluating [PW3D_MESH-FPE]... costs 23.43s
+	Evaluating [PW3D_MESH-MC]... costs 23.41s
+	Evaluating [H36M_3D-PE]... costs 13.82s
+	Evaluating [H36M_3D-MP]... costs 13.89s
+	Evaluating [H36M_3D-FPE]... costs 13.97s
+	Evaluating [H36M_3D-MC]... costs 14.00s
+	Evaluating [AMASS-PE]... costs 13.44s
+	Evaluating [AMASS-MP]... costs 13.51s
+	Evaluating [AMASS-FPE]... costs 13.46s
+	Evaluating [AMASS-MC]... costs 13.47s
+Accuracy:  0.95890039581413
+Accuracy on ('PW3D_MESH', 'PE'):  0.2392300641613199
+Accuracy on ('PW3D_MESH', 'MP'):  0.6709440879926672
+Accuracy on ('PW3D_MESH', 'FPE'):  0.36480293308890926
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9670428893905192
+Accuracy on ('H36M_3D', 'MP'):  0.9998871331828443
+Accuracy on ('H36M_3D', 'FPE'):  0.9218961625282167
+Accuracy on ('H36M_3D', 'MC'):  0.9992099322799097
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9813942534149788
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  1.0
+Each acc [0.97 1.   0.24 1.   0.98 0.67 0.92 1.   0.36 1.   1.   1.  ]
+[12 end] Time cost: 26.50min 	| lr: 0.00017907 	| train loss: 0.022662439358911875
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_11.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[13 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 328, 'H36M_3D': 368, 'AMASS': 328} samples
+	Iter: 185/278; time cost: 15.46min; current batch has {'PW3D_MESH': 280, 'H36M_3D': 380, 'AMASS': 364} samples
+
+Average training accuracy: 99.04270779957875
+	Evaluating [PW3D_MESH-PE]... costs 23.56s
+	Evaluating [PW3D_MESH-MP]... costs 23.64s
+	Evaluating [PW3D_MESH-FPE]... costs 23.39s
+	Evaluating [PW3D_MESH-MC]... costs 23.57s
+	Evaluating [H36M_3D-PE]... costs 13.81s
+	Evaluating [H36M_3D-MP]... costs 13.86s
+	Evaluating [H36M_3D-FPE]... costs 13.96s
+	Evaluating [H36M_3D-MC]... costs 14.00s
+	Evaluating [AMASS-PE]... costs 13.39s
+	Evaluating [AMASS-MP]... costs 13.51s
+	Evaluating [AMASS-FPE]... costs 13.44s
+	Evaluating [AMASS-MC]... costs 13.44s
+Accuracy:  0.9606354714525837
+Accuracy on ('PW3D_MESH', 'PE'):  0.4069660861594867
+Accuracy on ('PW3D_MESH', 'MP'):  0.45187901008249315
+Accuracy on ('PW3D_MESH', 'FPE'):  0.3620531622364803
+Accuracy on ('PW3D_MESH', 'MC'):  0.995417048579285
+Accuracy on ('H36M_3D', 'PE'):  0.951354401805869
+Accuracy on ('H36M_3D', 'MP'):  0.9989841986455982
+Accuracy on ('H36M_3D', 'FPE'):  0.9457110609480812
+Accuracy on ('H36M_3D', 'MC'):  1.0
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.996349505416863
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9992934526613283
+Each acc [0.95 1.   0.41 1.   1.   0.45 0.95 1.   0.36 1.   1.   1.  ]
+[13 end] Time cost: 26.48min 	| lr: 0.00017728 	| train loss: 0.022467153615612627
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_12.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[14 start]
+	Iter: 92/278; time cost: 7.77min; current batch has {'PW3D_MESH': 320, 'H36M_3D': 328, 'AMASS': 376} samples
+	Iter: 185/278; time cost: 15.47min; current batch has {'PW3D_MESH': 316, 'H36M_3D': 328, 'AMASS': 380} samples
+
+Average training accuracy: 99.06207846223022
+	Evaluating [PW3D_MESH-PE]... costs 24.01s
+	Evaluating [PW3D_MESH-MP]... costs 23.64s
+	Evaluating [PW3D_MESH-FPE]... costs 23.47s
+	Evaluating [PW3D_MESH-MC]... costs 23.42s
+	Evaluating [H36M_3D-PE]... costs 13.79s
+	Evaluating [H36M_3D-MP]... costs 13.87s
+	Evaluating [H36M_3D-FPE]... costs 13.96s
+	Evaluating [H36M_3D-MC]... costs 13.98s
+	Evaluating [AMASS-PE]... costs 13.44s
+	Evaluating [AMASS-MP]... costs 13.46s
+	Evaluating [AMASS-FPE]... costs 13.45s
+	Evaluating [AMASS-MC]... costs 13.46s
+Accuracy:  0.9609472428563682
+Accuracy on ('PW3D_MESH', 'PE'):  0.29605866177818513
+Accuracy on ('PW3D_MESH', 'MP'):  0.7424381301558204
+Accuracy on ('PW3D_MESH', 'FPE'):  0.30339138405132904
+Accuracy on ('PW3D_MESH', 'MC'):  0.999083409715857
+Accuracy on ('H36M_3D', 'PE'):  0.968510158013544
+Accuracy on ('H36M_3D', 'MP'):  0.9992099322799097
+Accuracy on ('H36M_3D', 'FPE'):  0.9135440180586908
+Accuracy on ('H36M_3D', 'MC'):  0.9990970654627539
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9987046632124352
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  1.0
+Each acc [0.97 1.   0.3  1.   1.   0.74 0.91 1.   0.3  1.   1.   1.  ]
+[14 end] Time cost: 26.49min 	| lr: 0.00017550 	| train loss: 0.022071656106353324
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_13.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[15 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 324, 'H36M_3D': 328, 'AMASS': 372} samples
+	Iter: 185/278; time cost: 15.46min; current batch has {'PW3D_MESH': 280, 'H36M_3D': 412, 'AMASS': 332} samples
+
+Average training accuracy: 99.21162400743087
+	Evaluating [PW3D_MESH-PE]... costs 23.41s
+	Evaluating [PW3D_MESH-MP]... costs 23.69s
+	Evaluating [PW3D_MESH-FPE]... costs 23.64s
+	Evaluating [PW3D_MESH-MC]... costs 23.39s
+	Evaluating [H36M_3D-PE]... costs 13.78s
+	Evaluating [H36M_3D-MP]... costs 13.90s
+	Evaluating [H36M_3D-FPE]... costs 13.96s
+	Evaluating [H36M_3D-MC]... costs 14.05s
+	Evaluating [AMASS-PE]... costs 13.47s
+	Evaluating [AMASS-MP]... costs 13.47s
+	Evaluating [AMASS-FPE]... costs 13.45s
+	Evaluating [AMASS-MC]... costs 13.58s
+Accuracy:  0.9609065770210921
+Accuracy on ('PW3D_MESH', 'PE'):  0.4784601283226398
+Accuracy on ('PW3D_MESH', 'MP'):  0.4903758020164986
+Accuracy on ('PW3D_MESH', 'FPE'):  0.3748854262144821
+Accuracy on ('PW3D_MESH', 'MC'):  0.9835013748854262
+Accuracy on ('H36M_3D', 'PE'):  0.9576749435665914
+Accuracy on ('H36M_3D', 'MP'):  0.9984198645598195
+Accuracy on ('H36M_3D', 'FPE'):  0.9335214446952596
+Accuracy on ('H36M_3D', 'MC'):  0.999548532731377
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.993876589731512
+Accuracy on ('AMASS', 'FPE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MC'):  0.9971738106453132
+Each acc [0.96 1.   0.48 1.   0.99 0.49 0.93 1.   0.37 1.   1.   0.98]
+[15 end] Time cost: 26.47min 	| lr: 0.00017375 	| train loss: 0.018778963699862955
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_14.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[16 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 324, 'H36M_3D': 336, 'AMASS': 364} samples
+	Iter: 185/278; time cost: 15.45min; current batch has {'PW3D_MESH': 316, 'H36M_3D': 424, 'AMASS': 284} samples
+
+Average training accuracy: 99.19516395965069
+	Evaluating [PW3D_MESH-PE]... costs 23.57s
+	Evaluating [PW3D_MESH-MP]... costs 23.42s
+	Evaluating [PW3D_MESH-FPE]... costs 24.03s
+	Evaluating [PW3D_MESH-MC]... costs 23.52s
+	Evaluating [H36M_3D-PE]... costs 13.77s
+	Evaluating [H36M_3D-MP]... costs 13.91s
+	Evaluating [H36M_3D-FPE]... costs 13.95s
+	Evaluating [H36M_3D-MC]... costs 13.98s
+	Evaluating [AMASS-PE]... costs 13.44s
+	Evaluating [AMASS-MP]... costs 13.50s
+	Evaluating [AMASS-FPE]... costs 13.46s
+	Evaluating [AMASS-MC]... costs 13.47s
+Accuracy:  0.9572330965678035
+Accuracy on ('PW3D_MESH', 'PE'):  0.2538955087076077
+Accuracy on ('PW3D_MESH', 'MP'):  0.43538038496791936
+Accuracy on ('PW3D_MESH', 'FPE'):  0.3235563703024748
+Accuracy on ('PW3D_MESH', 'MC'):  0.9816681943171403
+Accuracy on ('H36M_3D', 'PE'):  0.9375846501128668
+Accuracy on ('H36M_3D', 'MP'):  0.9992099322799097
+Accuracy on ('H36M_3D', 'FPE'):  0.9601580135440181
+Accuracy on ('H36M_3D', 'MC'):  0.9978555304740406
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9978803579839849
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9979981158737635
+Each acc [0.94 1.   0.25 1.   1.   0.44 0.96 1.   0.32 1.   1.   0.98]
+[16 end] Time cost: 26.47min 	| lr: 0.00017201 	| train loss: 0.018961134416837642
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_15.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[17 start]
+	Iter: 92/278; time cost: 7.77min; current batch has {'PW3D_MESH': 344, 'H36M_3D': 312, 'AMASS': 368} samples
+	Iter: 185/278; time cost: 15.46min; current batch has {'PW3D_MESH': 340, 'H36M_3D': 348, 'AMASS': 336} samples
+
+Average training accuracy: 99.26190743986652
+	Evaluating [PW3D_MESH-PE]... costs 23.50s
+	Evaluating [PW3D_MESH-MP]... costs 23.55s
+	Evaluating [PW3D_MESH-FPE]... costs 24.06s
+	Evaluating [PW3D_MESH-MC]... costs 23.43s
+	Evaluating [H36M_3D-PE]... costs 13.83s
+	Evaluating [H36M_3D-MP]... costs 13.87s
+	Evaluating [H36M_3D-FPE]... costs 13.98s
+	Evaluating [H36M_3D-MC]... costs 14.00s
+	Evaluating [AMASS-PE]... costs 13.47s
+	Evaluating [AMASS-MP]... costs 13.42s
+	Evaluating [AMASS-FPE]... costs 13.45s
+	Evaluating [AMASS-MC]... costs 13.44s
+Accuracy:  0.9701241663503768
+Accuracy on ('PW3D_MESH', 'PE'):  0.611365719523373
+Accuracy on ('PW3D_MESH', 'MP'):  0.5985334555453712
+Accuracy on ('PW3D_MESH', 'FPE'):  0.5792850595783685
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9375846501128668
+Accuracy on ('H36M_3D', 'MP'):  0.9996613995485327
+Accuracy on ('H36M_3D', 'FPE'):  0.9667042889390519
+Accuracy on ('H36M_3D', 'MC'):  0.9988713318284425
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9977626000942064
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9996467263306642
+Each acc [0.94 1.   0.61 1.   1.   0.6  0.97 1.   0.58 1.   1.   1.  ]
+[17 end] Time cost: 26.48min 	| lr: 0.00017029 	| train loss: 0.017815547594227935
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_16.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[18 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 244, 'H36M_3D': 436, 'AMASS': 344} samples
+	Iter: 185/278; time cost: 15.46min; current batch has {'PW3D_MESH': 312, 'H36M_3D': 332, 'AMASS': 380} samples
+
+Average training accuracy: 99.29778833183454
+	Evaluating [PW3D_MESH-PE]... costs 23.56s
+	Evaluating [PW3D_MESH-MP]... costs 24.25s
+	Evaluating [PW3D_MESH-FPE]... costs 23.60s
+	Evaluating [PW3D_MESH-MC]... costs 23.56s
+	Evaluating [H36M_3D-PE]... costs 13.76s
+	Evaluating [H36M_3D-MP]... costs 13.89s
+	Evaluating [H36M_3D-FPE]... costs 13.95s
+	Evaluating [H36M_3D-MC]... costs 14.00s
+	Evaluating [AMASS-PE]... costs 13.46s
+	Evaluating [AMASS-MP]... costs 13.44s
+	Evaluating [AMASS-FPE]... costs 13.44s
+	Evaluating [AMASS-MC]... costs 13.43s
+Accuracy:  0.962167217914656
+Accuracy on ('PW3D_MESH', 'PE'):  0.37396883593033914
+Accuracy on ('PW3D_MESH', 'MP'):  0.8047662694775435
+Accuracy on ('PW3D_MESH', 'FPE'):  0.3611365719523373
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9870203160270881
+Accuracy on ('H36M_3D', 'MP'):  0.9990970654627539
+Accuracy on ('H36M_3D', 'FPE'):  0.8863431151241535
+Accuracy on ('H36M_3D', 'MC'):  0.9997742663656884
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9924634950541686
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9997644842204427
+Each acc [0.99 1.   0.37 1.   0.99 0.8  0.89 1.   0.36 1.   1.   1.  ]
+[18 end] Time cost: 26.48min 	| lr: 0.00016859 	| train loss: 0.01673646659610509
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_17.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[19 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 336, 'H36M_3D': 360, 'AMASS': 328} samples
+	Iter: 185/278; time cost: 15.46min; current batch has {'PW3D_MESH': 316, 'H36M_3D': 384, 'AMASS': 324} samples
+
+Average training accuracy: 99.3605673527546
+	Evaluating [PW3D_MESH-PE]... costs 23.56s
+	Evaluating [PW3D_MESH-MP]... costs 23.50s
+	Evaluating [PW3D_MESH-FPE]... costs 23.62s
+	Evaluating [PW3D_MESH-MC]... costs 23.59s
+	Evaluating [H36M_3D-PE]... costs 13.83s
+	Evaluating [H36M_3D-MP]... costs 13.90s
+	Evaluating [H36M_3D-FPE]... costs 13.95s
+	Evaluating [H36M_3D-MC]... costs 14.02s
+	Evaluating [AMASS-PE]... costs 13.42s
+	Evaluating [AMASS-MP]... costs 13.45s
+	Evaluating [AMASS-FPE]... costs 13.46s
+	Evaluating [AMASS-MC]... costs 13.44s
+Accuracy:  0.9607303584015615
+Accuracy on ('PW3D_MESH', 'PE'):  0.3483043079743355
+Accuracy on ('PW3D_MESH', 'MP'):  0.7543538038496792
+Accuracy on ('PW3D_MESH', 'FPE'):  0.4472960586617782
+Accuracy on ('PW3D_MESH', 'MC'):  0.998166819431714
+Accuracy on ('H36M_3D', 'PE'):  0.9939051918735892
+Accuracy on ('H36M_3D', 'MP'):  0.9998871331828443
+Accuracy on ('H36M_3D', 'FPE'):  0.8760722347629797
+Accuracy on ('H36M_3D', 'MC'):  0.9998871331828443
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9857512953367875
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9955252001884126
+Each acc [0.99 1.   0.35 1.   0.99 0.75 0.88 1.   0.45 1.   1.   1.  ]
+[19 end] Time cost: 26.47min 	| lr: 0.00016690 	| train loss: 0.01513206165796062
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_18.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[20 start]
+	Iter: 92/278; time cost: 7.75min; current batch has {'PW3D_MESH': 320, 'H36M_3D': 420, 'AMASS': 284} samples
+	Iter: 185/278; time cost: 15.45min; current batch has {'PW3D_MESH': 320, 'H36M_3D': 316, 'AMASS': 388} samples
+
+Average training accuracy: 99.36874718974819
+	Evaluating [PW3D_MESH-PE]... costs 23.95s
+	Evaluating [PW3D_MESH-MP]... costs 23.48s
+	Evaluating [PW3D_MESH-FPE]... costs 23.67s
+	Evaluating [PW3D_MESH-MC]... costs 23.77s
+	Evaluating [H36M_3D-PE]... costs 13.77s
+	Evaluating [H36M_3D-MP]... costs 13.90s
+	Evaluating [H36M_3D-FPE]... costs 13.98s
+	Evaluating [H36M_3D-MC]... costs 14.02s
+	Evaluating [AMASS-PE]... costs 13.44s
+	Evaluating [AMASS-MP]... costs 13.46s
+	Evaluating [AMASS-FPE]... costs 13.44s
+	Evaluating [AMASS-MC]... costs 13.45s
+Accuracy:  0.9607303584015615
+Accuracy on ('PW3D_MESH', 'PE'):  0.3721356553620532
+Accuracy on ('PW3D_MESH', 'MP'):  0.7259395050412466
+Accuracy on ('PW3D_MESH', 'FPE'):  0.6067827681026581
+Accuracy on ('PW3D_MESH', 'MC'):  0.9926672777268561
+Accuracy on ('H36M_3D', 'PE'):  0.9470654627539503
+Accuracy on ('H36M_3D', 'MP'):  0.9996613995485327
+Accuracy on ('H36M_3D', 'FPE'):  0.9431151241534989
+Accuracy on ('H36M_3D', 'MC'):  0.9998871331828443
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9719736222326896
+Accuracy on ('AMASS', 'FPE'):  0.9994112105511069
+Accuracy on ('AMASS', 'MC'):  0.9698539802166746
+Each acc [0.95 1.   0.37 1.   0.97 0.73 0.94 1.   0.61 1.   0.97 0.99]
+[20 end] Time cost: 26.47min 	| lr: 0.00016523 	| train loss: 0.015259398384743769
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_19.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[21 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 324, 'H36M_3D': 348, 'AMASS': 352} samples
+	Iter: 185/278; time cost: 15.46min; current batch has {'PW3D_MESH': 336, 'H36M_3D': 356, 'AMASS': 332} samples
+
+Average training accuracy: 99.44030824753878
+	Evaluating [PW3D_MESH-PE]... costs 23.68s
+	Evaluating [PW3D_MESH-MP]... costs 23.45s
+	Evaluating [PW3D_MESH-FPE]... costs 23.81s
+	Evaluating [PW3D_MESH-MC]... costs 23.53s
+	Evaluating [H36M_3D-PE]... costs 13.76s
+	Evaluating [H36M_3D-MP]... costs 13.88s
+	Evaluating [H36M_3D-FPE]... costs 14.00s
+	Evaluating [H36M_3D-MC]... costs 13.98s
+	Evaluating [AMASS-PE]... costs 13.44s
+	Evaluating [AMASS-MP]... costs 13.49s
+	Evaluating [AMASS-FPE]... costs 13.44s
+	Evaluating [AMASS-MC]... costs 13.43s
+Accuracy:  0.9654747058504581
+Accuracy on ('PW3D_MESH', 'PE'):  0.3290559120073327
+Accuracy on ('PW3D_MESH', 'MP'):  0.7021081576535289
+Accuracy on ('PW3D_MESH', 'FPE'):  0.5618698441796517
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9179458239277652
+Accuracy on ('H36M_3D', 'MP'):  0.9992099322799097
+Accuracy on ('H36M_3D', 'FPE'):  0.9708803611738149
+Accuracy on ('H36M_3D', 'MC'):  0.9988713318284425
+Accuracy on ('AMASS', 'PE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MP'):  0.9989401789919925
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  1.0
+Each acc [0.92 1.   0.33 1.   1.   0.7  0.97 1.   0.56 1.   1.   1.  ]
+[21 end] Time cost: 26.48min 	| lr: 0.00016358 	| train loss: 0.013016143522586291
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_20.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[22 start]
+	Iter: 92/278; time cost: 7.77min; current batch has {'PW3D_MESH': 324, 'H36M_3D': 336, 'AMASS': 364} samples
+	Iter: 185/278; time cost: 15.46min; current batch has {'PW3D_MESH': 312, 'H36M_3D': 372, 'AMASS': 340} samples
+
+Average training accuracy: 99.45937781025181
+	Evaluating [PW3D_MESH-PE]... costs 23.58s
+	Evaluating [PW3D_MESH-MP]... costs 24.01s
+	Evaluating [PW3D_MESH-FPE]... costs 23.53s
+	Evaluating [PW3D_MESH-MC]... costs 23.60s
+	Evaluating [H36M_3D-PE]... costs 13.74s
+	Evaluating [H36M_3D-MP]... costs 13.87s
+	Evaluating [H36M_3D-FPE]... costs 13.97s
+	Evaluating [H36M_3D-MC]... costs 14.02s
+	Evaluating [AMASS-PE]... costs 13.45s
+	Evaluating [AMASS-MP]... costs 13.48s
+	Evaluating [AMASS-FPE]... costs 13.46s
+	Evaluating [AMASS-MC]... costs 13.44s
+Accuracy:  0.9670064523125305
+Accuracy on ('PW3D_MESH', 'PE'):  0.42804766269477545
+Accuracy on ('PW3D_MESH', 'MP'):  0.6544454628780935
+Accuracy on ('PW3D_MESH', 'FPE'):  0.4702108157653529
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9674943566591422
+Accuracy on ('H36M_3D', 'MP'):  0.9996613995485327
+Accuracy on ('H36M_3D', 'FPE'):  0.9384875846501128
+Accuracy on ('H36M_3D', 'MC'):  0.9998871331828443
+Accuracy on ('AMASS', 'PE'):  0.9994112105511069
+Accuracy on ('AMASS', 'MP'):  0.9989401789919925
+Accuracy on ('AMASS', 'FPE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MC'):  0.9996467263306642
+Each acc [0.97 1.   0.43 1.   1.   0.65 0.94 1.   0.47 1.   1.   1.  ]
+[22 end] Time cost: 26.48min 	| lr: 0.00016195 	| train loss: 0.012983267701672945
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_21.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[23 start]
+	Iter: 92/278; time cost: 7.76min; current batch has {'PW3D_MESH': 300, 'H36M_3D': 364, 'AMASS': 360} samples
+	Iter: 185/278; time cost: 15.46min; current batch has {'PW3D_MESH': 344, 'H36M_3D': 296, 'AMASS': 384} samples
+
+Average training accuracy: 99.46534959532374
+	Evaluating [PW3D_MESH-PE]... costs 23.47s
+	Evaluating [PW3D_MESH-MP]... costs 23.52s
+	Evaluating [PW3D_MESH-FPE]... costs 23.74s
+	Evaluating [PW3D_MESH-MC]... costs 23.48s
+	Evaluating [H36M_3D-PE]... costs 13.81s
+	Evaluating [H36M_3D-MP]... costs 13.93s
+	Evaluating [H36M_3D-FPE]... costs 13.96s
+	Evaluating [H36M_3D-MC]... costs 13.98s
+	Evaluating [AMASS-PE]... costs 13.46s
+	Evaluating [AMASS-MP]... costs 13.49s
+	Evaluating [AMASS-FPE]... costs 13.46s
+	Evaluating [AMASS-MC]... costs 13.46s
+Accuracy:  0.9647969419291872
+Accuracy on ('PW3D_MESH', 'PE'):  0.26581118240146656
+Accuracy on ('PW3D_MESH', 'MP'):  0.8221814848762603
+Accuracy on ('PW3D_MESH', 'FPE'):  0.3538038496791934
+Accuracy on ('PW3D_MESH', 'MC'):  0.999083409715857
+Accuracy on ('H36M_3D', 'PE'):  0.9545146726862302
+Accuracy on ('H36M_3D', 'MP'):  0.9989841986455982
+Accuracy on ('H36M_3D', 'FPE'):  0.9507900677200903
+Accuracy on ('H36M_3D', 'MC'):  0.9998871331828443
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9968205369759774
+Accuracy on ('AMASS', 'FPE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MC'):  0.9977626000942064
+Each acc [0.95 1.   0.27 1.   1.   0.82 0.95 1.   0.35 1.   1.   1.  ]
+[23 end] Time cost: 26.49min 	| lr: 0.00016033 	| train loss: 0.012875463021000476
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_22.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[24 start]
+	Iter: 92/278; time cost: 7.77min; current batch has {'PW3D_MESH': 308, 'H36M_3D': 344, 'AMASS': 372} samples
+	Iter: 185/278; time cost: 15.47min; current batch has {'PW3D_MESH': 312, 'H36M_3D': 324, 'AMASS': 388} samples
+
+Average training accuracy: 99.52366232014388
+	Evaluating [PW3D_MESH-PE]... costs 23.74s
+	Evaluating [PW3D_MESH-MP]... costs 23.81s
+	Evaluating [PW3D_MESH-FPE]... costs 23.47s
+	Evaluating [PW3D_MESH-MC]... costs 23.61s
+	Evaluating [H36M_3D-PE]... costs 13.77s
+	Evaluating [H36M_3D-MP]... costs 13.92s
+	Evaluating [H36M_3D-FPE]... costs 13.94s
+	Evaluating [H36M_3D-MC]... costs 13.98s
+	Evaluating [AMASS-PE]... costs 13.41s
+	Evaluating [AMASS-MP]... costs 13.44s
+	Evaluating [AMASS-FPE]... costs 13.46s
+	Evaluating [AMASS-MC]... costs 13.43s
+Accuracy:  0.958317518841837
+Accuracy on ('PW3D_MESH', 'PE'):  0.28780934922089824
+Accuracy on ('PW3D_MESH', 'MP'):  0.6773602199816682
+Accuracy on ('PW3D_MESH', 'FPE'):  0.17506874427131072
+Accuracy on ('PW3D_MESH', 'MC'):  0.999083409715857
+Accuracy on ('H36M_3D', 'PE'):  0.9103837471783296
+Accuracy on ('H36M_3D', 'MP'):  0.999548532731377
+Accuracy on ('H36M_3D', 'FPE'):  0.9751693002257337
+Accuracy on ('H36M_3D', 'MC'):  1.0
+Accuracy on ('AMASS', 'PE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MP'):  0.9974093264248705
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9995289684408856
+Each acc [0.91 1.   0.29 1.   1.   0.68 0.98 1.   0.18 1.   1.   1.  ]
+[24 end] Time cost: 26.50min 	| lr: 0.00015872 	| train loss: 0.011565185133686559
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_23.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[25 start]
+	Iter: 92/278; time cost: 7.77min; current batch has {'PW3D_MESH': 332, 'H36M_3D': 384, 'AMASS': 308} samples
+	Iter: 185/278; time cost: 15.48min; current batch has {'PW3D_MESH': 348, 'H36M_3D': 356, 'AMASS': 320} samples
+
+Average training accuracy: 99.53525460881295
+	Evaluating [PW3D_MESH-PE]... costs 23.96s
+	Evaluating [PW3D_MESH-MP]... costs 23.39s
+	Evaluating [PW3D_MESH-FPE]... costs 23.80s
+	Evaluating [PW3D_MESH-MC]... costs 23.41s
+	Evaluating [H36M_3D-PE]... costs 13.77s
+	Evaluating [H36M_3D-MP]... costs 13.94s
+	Evaluating [H36M_3D-FPE]... costs 13.92s
+	Evaluating [H36M_3D-MC]... costs 13.98s
+	Evaluating [AMASS-PE]... costs 13.43s
+	Evaluating [AMASS-MP]... costs 13.46s
+	Evaluating [AMASS-FPE]... costs 13.45s
+	Evaluating [AMASS-MC]... costs 13.43s
+Accuracy:  0.9617741148403188
+Accuracy on ('PW3D_MESH', 'PE'):  0.29605866177818513
+Accuracy on ('PW3D_MESH', 'MP'):  0.8148487626031164
+Accuracy on ('PW3D_MESH', 'FPE'):  0.3629697525206233
+Accuracy on ('PW3D_MESH', 'MC'):  0.9816681943171403
+Accuracy on ('H36M_3D', 'PE'):  0.9724604966139955
+Accuracy on ('H36M_3D', 'MP'):  0.9985327313769752
+Accuracy on ('H36M_3D', 'FPE'):  0.9170428893905191
+Accuracy on ('H36M_3D', 'MC'):  0.9977426636568849
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9855157795572304
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  1.0
+Each acc [0.97 1.   0.3  1.   0.99 0.81 0.92 1.   0.36 1.   1.   0.98]
+[25 end] Time cost: 26.50min 	| lr: 0.00015714 	| train loss: 0.0112077250293113
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_24.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[26 start]
+	Iter: 92/278; time cost: 7.78min; current batch has {'PW3D_MESH': 300, 'H36M_3D': 392, 'AMASS': 332} samples
+	Iter: 185/278; time cost: 15.49min; current batch has {'PW3D_MESH': 308, 'H36M_3D': 344, 'AMASS': 372} samples
+
+Average training accuracy: 99.52356195707115
+	Evaluating [PW3D_MESH-PE]... costs 23.55s
+	Evaluating [PW3D_MESH-MP]... costs 23.42s
+	Evaluating [PW3D_MESH-FPE]... costs 24.27s
+	Evaluating [PW3D_MESH-MC]... costs 23.47s
+	Evaluating [H36M_3D-PE]... costs 13.79s
+	Evaluating [H36M_3D-MP]... costs 13.86s
+	Evaluating [H36M_3D-FPE]... costs 13.94s
+	Evaluating [H36M_3D-MC]... costs 14.05s
+	Evaluating [AMASS-PE]... costs 13.47s
+	Evaluating [AMASS-MP]... costs 13.48s
+	Evaluating [AMASS-FPE]... costs 13.47s
+	Evaluating [AMASS-MC]... costs 13.44s
+Accuracy:  0.9632516401886895
+Accuracy on ('PW3D_MESH', 'PE'):  0.2373968835930339
+Accuracy on ('PW3D_MESH', 'MP'):  0.7323556370302475
+Accuracy on ('PW3D_MESH', 'FPE'):  0.41979835013748856
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9437923250564334
+Accuracy on ('H36M_3D', 'MP'):  0.9976297968397291
+Accuracy on ('H36M_3D', 'FPE'):  0.9555304740406321
+Accuracy on ('H36M_3D', 'MC'):  0.9998871331828443
+Accuracy on ('AMASS', 'PE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MP'):  0.995407442298634
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  1.0
+Each acc [0.94 1.   0.24 1.   1.   0.73 0.96 1.   0.42 1.   1.   1.  ]
+[26 end] Time cost: 26.52min 	| lr: 0.00015556 	| train loss: 0.011405329401398592
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_25.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[27 start]
+	Iter: 92/278; time cost: 7.77min; current batch has {'PW3D_MESH': 312, 'H36M_3D': 296, 'AMASS': 416} samples
+	Iter: 185/278; time cost: 15.47min; current batch has {'PW3D_MESH': 324, 'H36M_3D': 336, 'AMASS': 364} samples
+
+Average training accuracy: 99.61675191097122
+	Evaluating [PW3D_MESH-PE]... costs 23.68s
+	Evaluating [PW3D_MESH-MP]... costs 23.32s
+	Evaluating [PW3D_MESH-FPE]... costs 23.55s
+	Evaluating [PW3D_MESH-MC]... costs 23.46s
+	Evaluating [H36M_3D-PE]... costs 13.71s
+	Evaluating [H36M_3D-MP]... costs 13.83s
+	Evaluating [H36M_3D-FPE]... costs 13.83s
+	Evaluating [H36M_3D-MC]... costs 13.91s
+	Evaluating [AMASS-PE]... costs 13.38s
+	Evaluating [AMASS-MP]... costs 13.38s
+	Evaluating [AMASS-FPE]... costs 13.40s
+	Evaluating [AMASS-MC]... costs 13.40s
+Accuracy:  0.9608252453505395
+Accuracy on ('PW3D_MESH', 'PE'):  0.27497708524289644
+Accuracy on ('PW3D_MESH', 'MP'):  0.7653528872593951
+Accuracy on ('PW3D_MESH', 'FPE'):  0.3629697525206233
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9042889390519188
+Accuracy on ('H36M_3D', 'MP'):  0.9989841986455982
+Accuracy on ('H36M_3D', 'FPE'):  0.9778781038374718
+Accuracy on ('H36M_3D', 'MC'):  0.9940180586907449
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9952896844088553
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9997644842204427
+Each acc [0.9  1.   0.27 1.   1.   0.77 0.98 1.   0.36 0.99 1.   1.  ]
+[27 end] Time cost: 26.47min 	| lr: 0.00015401 	| train loss: 0.009495658347077551
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_26.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[28 start]
+	Iter: 92/278; time cost: 7.77min; current batch has {'PW3D_MESH': 300, 'H36M_3D': 356, 'AMASS': 368} samples
+	Iter: 185/278; time cost: 15.47min; current batch has {'PW3D_MESH': 272, 'H36M_3D': 372, 'AMASS': 380} samples
+
+Average training accuracy: 99.62332589592008
+	Evaluating [PW3D_MESH-PE]... costs 23.71s
+	Evaluating [PW3D_MESH-MP]... costs 23.50s
+	Evaluating [PW3D_MESH-FPE]... costs 23.76s
+	Evaluating [PW3D_MESH-MC]... costs 23.62s
+	Evaluating [H36M_3D-PE]... costs 13.70s
+	Evaluating [H36M_3D-MP]... costs 13.83s
+	Evaluating [H36M_3D-FPE]... costs 13.84s
+	Evaluating [H36M_3D-MC]... costs 13.89s
+	Evaluating [AMASS-PE]... costs 13.36s
+	Evaluating [AMASS-MP]... costs 13.34s
+	Evaluating [AMASS-FPE]... costs 13.42s
+	Evaluating [AMASS-MC]... costs 13.41s
+Accuracy:  0.9633058613023912
+Accuracy on ('PW3D_MESH', 'PE'):  0.41704857928505956
+Accuracy on ('PW3D_MESH', 'MP'):  0.696608615948671
+Accuracy on ('PW3D_MESH', 'FPE'):  0.35838680109990834
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9869074492099322
+Accuracy on ('H36M_3D', 'MP'):  0.9992099322799097
+Accuracy on ('H36M_3D', 'FPE'):  0.8981941309255079
+Accuracy on ('H36M_3D', 'MC'):  0.9997742663656884
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.998469147432878
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  1.0
+Each acc [0.99 1.   0.42 1.   1.   0.7  0.9  1.   0.36 1.   1.   1.  ]
+[28 end] Time cost: 26.48min 	| lr: 0.00015247 	| train loss: 0.008868794353956015
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_27.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[29 start]
+	Iter: 92/278; time cost: 7.77min; current batch has {'PW3D_MESH': 332, 'H36M_3D': 324, 'AMASS': 368} samples
+	Iter: 185/278; time cost: 15.47min; current batch has {'PW3D_MESH': 336, 'H36M_3D': 388, 'AMASS': 300} samples
+
+Average training accuracy: 99.60024168165468
+	Evaluating [PW3D_MESH-PE]... costs 23.93s
+	Evaluating [PW3D_MESH-MP]... costs 23.85s
+	Evaluating [PW3D_MESH-FPE]... costs 23.65s
+	Evaluating [PW3D_MESH-MC]... costs 24.00s
+	Evaluating [H36M_3D-PE]... costs 13.71s
+	Evaluating [H36M_3D-MP]... costs 13.83s
+	Evaluating [H36M_3D-FPE]... costs 13.87s
+	Evaluating [H36M_3D-MC]... costs 13.90s
+	Evaluating [AMASS-PE]... costs 13.35s
+	Evaluating [AMASS-MP]... costs 13.39s
+	Evaluating [AMASS-FPE]... costs 13.40s
+	Evaluating [AMASS-MC]... costs 13.39s
+Accuracy:  0.9674266659437185
+Accuracy on ('PW3D_MESH', 'PE'):  0.4711274060494959
+Accuracy on ('PW3D_MESH', 'MP'):  0.7598533455545371
+Accuracy on ('PW3D_MESH', 'FPE'):  0.38130155820348305
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9774266365688488
+Accuracy on ('H36M_3D', 'MP'):  0.999548532731377
+Accuracy on ('H36M_3D', 'FPE'):  0.9279909706546275
+Accuracy on ('H36M_3D', 'MC'):  0.9994356659142212
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9958784738577484
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9991756947715497
+Each acc [0.98 1.   0.47 1.   1.   0.76 0.93 1.   0.38 1.   1.   1.  ]
+[29 end] Time cost: 26.50min 	| lr: 0.00015094 	| train loss: 0.009827122220302555
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_28.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[30 start]
+	Iter: 92/278; time cost: 7.77min; current batch has {'PW3D_MESH': 256, 'H36M_3D': 352, 'AMASS': 416} samples
+	Iter: 185/278; time cost: 15.47min; current batch has {'PW3D_MESH': 292, 'H36M_3D': 396, 'AMASS': 336} samples
+
+Average training accuracy: 99.68098623932694
+	Evaluating [PW3D_MESH-PE]... costs 23.49s
+	Evaluating [PW3D_MESH-MP]... costs 23.99s
+	Evaluating [PW3D_MESH-FPE]... costs 23.78s
+	Evaluating [PW3D_MESH-MC]... costs 23.51s
+	Evaluating [H36M_3D-PE]... costs 13.73s
+	Evaluating [H36M_3D-MP]... costs 13.80s
+	Evaluating [H36M_3D-FPE]... costs 13.89s
+	Evaluating [H36M_3D-MC]... costs 13.92s
+	Evaluating [AMASS-PE]... costs 13.38s
+	Evaluating [AMASS-MP]... costs 13.38s
+	Evaluating [AMASS-FPE]... costs 13.40s
+	Evaluating [AMASS-MC]... costs 13.39s
+Accuracy:  0.9625467657105677
+Accuracy on ('PW3D_MESH', 'PE'):  0.3281393217231897
+Accuracy on ('PW3D_MESH', 'MP'):  0.7314390467461045
+Accuracy on ('PW3D_MESH', 'FPE'):  0.3400549954170486
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9133182844243792
+Accuracy on ('H36M_3D', 'MP'):  0.9989841986455982
+Accuracy on ('H36M_3D', 'FPE'):  0.9770880361173815
+Accuracy on ('H36M_3D', 'MC'):  0.9989841986455982
+Accuracy on ('AMASS', 'PE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MP'):  0.9971738106453132
+Accuracy on ('AMASS', 'FPE'):  0.9997644842204427
+Accuracy on ('AMASS', 'MC'):  0.9998822421102214
+Each acc [0.91 1.   0.33 1.   1.   0.73 0.98 1.   0.34 1.   1.   1.  ]
+[30 end] Time cost: 26.49min 	| lr: 0.00014943 	| train loss: 0.0077807799970804215
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_29.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[31 start]
+	Iter: 92/278; time cost: 7.78min; current batch has {'PW3D_MESH': 284, 'H36M_3D': 344, 'AMASS': 396} samples
+	Iter: 185/278; time cost: 15.48min; current batch has {'PW3D_MESH': 292, 'H36M_3D': 416, 'AMASS': 316} samples
+
+Average training accuracy: 99.69087230215827
+	Evaluating [PW3D_MESH-PE]... costs 23.78s
+	Evaluating [PW3D_MESH-MP]... costs 23.44s
+	Evaluating [PW3D_MESH-FPE]... costs 23.36s
+	Evaluating [PW3D_MESH-MC]... costs 23.11s
+	Evaluating [H36M_3D-PE]... costs 13.73s
+	Evaluating [H36M_3D-MP]... costs 13.82s
+	Evaluating [H36M_3D-FPE]... costs 13.88s
+	Evaluating [H36M_3D-MC]... costs 13.92s
+	Evaluating [AMASS-PE]... costs 13.37s
+	Evaluating [AMASS-MP]... costs 13.42s
+	Evaluating [AMASS-FPE]... costs 13.38s
+	Evaluating [AMASS-MC]... costs 13.42s
+Accuracy:  0.967928211245459
+Accuracy on ('PW3D_MESH', 'PE'):  0.4005499541704858
+Accuracy on ('PW3D_MESH', 'MP'):  0.8001833180568286
+Accuracy on ('PW3D_MESH', 'FPE'):  0.4317140238313474
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9727990970654627
+Accuracy on ('H36M_3D', 'MP'):  0.9994356659142212
+Accuracy on ('H36M_3D', 'FPE'):  0.9334085778781038
+Accuracy on ('H36M_3D', 'MC'):  0.9997742663656884
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.996349505416863
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9994112105511069
+Each acc [0.97 1.   0.4  1.   1.   0.8  0.93 1.   0.43 1.   1.   1.  ]
+[31 end] Time cost: 26.48min 	| lr: 0.00014794 	| train loss: 0.007747022682731362
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_30.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[32 start]
+	Iter: 92/278; time cost: 7.77min; current batch has {'PW3D_MESH': 360, 'H36M_3D': 312, 'AMASS': 352} samples
+	Iter: 185/278; time cost: 15.47min; current batch has {'PW3D_MESH': 308, 'H36M_3D': 392, 'AMASS': 324} samples
+
+Average training accuracy: 99.70667996852518
+	Evaluating [PW3D_MESH-PE]... costs 23.64s
+	Evaluating [PW3D_MESH-MP]... costs 23.46s
+	Evaluating [PW3D_MESH-FPE]... costs 23.71s
+	Evaluating [PW3D_MESH-MC]... costs 23.50s
+	Evaluating [H36M_3D-PE]... costs 13.72s
+	Evaluating [H36M_3D-MP]... costs 13.85s
+	Evaluating [H36M_3D-FPE]... costs 13.89s
+	Evaluating [H36M_3D-MC]... costs 13.92s
+	Evaluating [AMASS-PE]... costs 13.40s
+	Evaluating [AMASS-MP]... costs 13.40s
+	Evaluating [AMASS-FPE]... costs 13.40s
+	Evaluating [AMASS-MC]... costs 13.41s
+Accuracy:  0.9649189394350159
+Accuracy on ('PW3D_MESH', 'PE'):  0.29789184234647115
+Accuracy on ('PW3D_MESH', 'MP'):  0.7864344637946837
+Accuracy on ('PW3D_MESH', 'FPE'):  0.2676443629697525
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9611738148984199
+Accuracy on ('H36M_3D', 'MP'):  0.9988713318284425
+Accuracy on ('H36M_3D', 'FPE'):  0.9551918735891648
+Accuracy on ('H36M_3D', 'MC'):  0.9996613995485327
+Accuracy on ('AMASS', 'PE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MP'):  0.9961139896373057
+Accuracy on ('AMASS', 'FPE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MC'):  0.9998822421102214
+Each acc [0.96 1.   0.3  1.   1.   0.79 0.96 1.   0.27 1.   1.   1.  ]
+[32 end] Time cost: 26.48min 	| lr: 0.00014646 	| train loss: 0.007706164791021339
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_31.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[33 start]
+	Iter: 92/278; time cost: 7.78min; current batch has {'PW3D_MESH': 368, 'H36M_3D': 252, 'AMASS': 404} samples
+	Iter: 185/278; time cost: 15.49min; current batch has {'PW3D_MESH': 232, 'H36M_3D': 376, 'AMASS': 416} samples
+
+Average training accuracy: 99.7351337679856
+	Evaluating [PW3D_MESH-PE]... costs 23.78s
+	Evaluating [PW3D_MESH-MP]... costs 23.50s
+	Evaluating [PW3D_MESH-FPE]... costs 23.45s
+	Evaluating [PW3D_MESH-MC]... costs 23.40s
+	Evaluating [H36M_3D-PE]... costs 13.71s
+	Evaluating [H36M_3D-MP]... costs 13.84s
+	Evaluating [H36M_3D-FPE]... costs 13.89s
+	Evaluating [H36M_3D-MC]... costs 13.93s
+	Evaluating [AMASS-PE]... costs 13.38s
+	Evaluating [AMASS-MP]... costs 13.38s
+	Evaluating [AMASS-FPE]... costs 13.42s
+	Evaluating [AMASS-MC]... costs 13.41s
+Accuracy:  0.9594426069511468
+Accuracy on ('PW3D_MESH', 'PE'):  0.2832263978001833
+Accuracy on ('PW3D_MESH', 'MP'):  0.5765352887259395
+Accuracy on ('PW3D_MESH', 'FPE'):  0.20348304307974335
+Accuracy on ('PW3D_MESH', 'MC'):  0.9945004582951421
+Accuracy on ('H36M_3D', 'PE'):  0.9806997742663657
+Accuracy on ('H36M_3D', 'MP'):  0.9984198645598195
+Accuracy on ('H36M_3D', 'FPE'):  0.9290067720090294
+Accuracy on ('H36M_3D', 'MC'):  0.9996613995485327
+Accuracy on ('AMASS', 'PE'):  1.0
+Accuracy on ('AMASS', 'MP'):  0.9937588318417334
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9996467263306642
+Each acc [0.98 1.   0.28 1.   0.99 0.58 0.93 1.   0.2  1.   1.   0.99]
+[33 end] Time cost: 26.50min 	| lr: 0.00014500 	| train loss: 0.006441759785384878
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_32.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[34 start]
+	Iter: 92/278; time cost: 7.78min; current batch has {'PW3D_MESH': 376, 'H36M_3D': 332, 'AMASS': 316} samples
+	Iter: 185/278; time cost: 15.48min; current batch has {'PW3D_MESH': 312, 'H36M_3D': 324, 'AMASS': 388} samples
+
+Average training accuracy: 99.75094143435251
+	Evaluating [PW3D_MESH-PE]... costs 23.85s
+	Evaluating [PW3D_MESH-MP]... costs 23.36s
+	Evaluating [PW3D_MESH-FPE]... costs 23.70s
+	Evaluating [PW3D_MESH-MC]... costs 23.35s
+	Evaluating [H36M_3D-PE]... costs 13.71s
+	Evaluating [H36M_3D-MP]... costs 13.79s
+	Evaluating [H36M_3D-FPE]... costs 13.88s
+	Evaluating [H36M_3D-MC]... costs 13.96s
+	Evaluating [AMASS-PE]... costs 13.36s
+	Evaluating [AMASS-MP]... costs 13.40s
+	Evaluating [AMASS-FPE]... costs 13.38s
+	Evaluating [AMASS-MC]... costs 13.43s
+Accuracy:  0.9743805237759584
+Accuracy on ('PW3D_MESH', 'PE'):  0.7488542621448213
+Accuracy on ('PW3D_MESH', 'MP'):  0.8927589367552704
+Accuracy on ('PW3D_MESH', 'FPE'):  0.5857011915673694
+Accuracy on ('PW3D_MESH', 'MC'):  1.0
+Accuracy on ('H36M_3D', 'PE'):  0.9426636568848759
+Accuracy on ('H36M_3D', 'MP'):  0.9984198645598195
+Accuracy on ('H36M_3D', 'FPE'):  0.9599322799097065
+Accuracy on ('H36M_3D', 'MC'):  0.9984198645598195
+Accuracy on ('AMASS', 'PE'):  0.9998822421102214
+Accuracy on ('AMASS', 'MP'):  0.9822185586434291
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9995289684408856
+Each acc [0.94 1.   0.75 1.   0.98 0.89 0.96 1.   0.59 1.   1.   1.  ]
+[34 end] Time cost: 26.49min 	| lr: 0.00014355 	| train loss: 0.006457152760613556
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_33.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[35 start]
+	Iter: 92/278; time cost: 7.78min; current batch has {'PW3D_MESH': 288, 'H36M_3D': 352, 'AMASS': 384} samples
+	Iter: 185/278; time cost: 15.48min; current batch has {'PW3D_MESH': 336, 'H36M_3D': 344, 'AMASS': 344} samples
+
+Average training accuracy: 99.76780294514388
+	Evaluating [PW3D_MESH-PE]... costs 23.35s
+	Evaluating [PW3D_MESH-MP]... costs 23.56s
+	Evaluating [PW3D_MESH-FPE]... costs 23.77s
+	Evaluating [PW3D_MESH-MC]... costs 23.22s
+	Evaluating [H36M_3D-PE]... costs 13.78s
+	Evaluating [H36M_3D-MP]... costs 13.87s
+	Evaluating [H36M_3D-FPE]... costs 13.86s
+	Evaluating [H36M_3D-MC]... costs 14.00s
+	Evaluating [AMASS-PE]... costs 13.55s
+	Evaluating [AMASS-MP]... costs 13.37s
+	Evaluating [AMASS-FPE]... costs 13.40s
+	Evaluating [AMASS-MC]... costs 13.39s
+Accuracy:  0.9617334490050425
+Accuracy on ('PW3D_MESH', 'PE'):  0.16406966086159486
+Accuracy on ('PW3D_MESH', 'MP'):  0.7250229147571036
+Accuracy on ('PW3D_MESH', 'FPE'):  0.21814848762603117
+Accuracy on ('PW3D_MESH', 'MC'):  0.999083409715857
+Accuracy on ('H36M_3D', 'PE'):  0.9602708803611738
+Accuracy on ('H36M_3D', 'MP'):  0.9998871331828443
+Accuracy on ('H36M_3D', 'FPE'):  0.9579006772009029
+Accuracy on ('H36M_3D', 'MC'):  0.9998871331828443
+Accuracy on ('AMASS', 'PE'):  0.9997644842204427
+Accuracy on ('AMASS', 'MP'):  0.9970560527555347
+Accuracy on ('AMASS', 'FPE'):  1.0
+Accuracy on ('AMASS', 'MC'):  0.9996467263306642
+Each acc [0.96 1.   0.16 1.   1.   0.73 0.96 1.   0.22 1.   1.   1.  ]
+[35 end] Time cost: 26.49min 	| lr: 0.00014211 	| train loss: 0.006253498150159339
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/all_epochs/epoch_34.bin
+	Saving checkpoint to ckpt/03_train_on_non_AR_ICL/01_classifier_taskdataset/latest_epoch.bin
+[36 start]
+	Iter: 92/278; time cost: 7.78min; current batch has {'PW3D_MESH': 252, 'H36M_3D': 364, 'AMASS': 408} samples
+	Iter: 185/278; time cost: 15.48min; current batch has {'PW3D_MESH': 344, 'H36M_3D': 324, 'AMASS': 356} samples

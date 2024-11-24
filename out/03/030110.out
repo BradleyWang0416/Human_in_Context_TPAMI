@@ -1,0 +1,99 @@
+Adding new arg: args.config = ckpt/0301/10_base05_ModelGlobalv2/config.yaml
+Adding new arg: args.checkpoint = ckpt/0301/10_base05_ModelGlobalv2/
+Adding new arg: args.seed = 0
+Adding new arg: args.visualize = 
+Adding new arg: args.eval_generalization = False
+Adding new arg: args.quick_debug = False
+Adding new arg: args.gpu = 4,5
+Overriding existing arg: args.batch_size = 376
+Adding new arg: args.classifier_type = task
+Adding new arg: args.num_class = 4
+Overriding existing arg: args.normalize_2d = 0
+Overriding existing arg: args.normalize_3d = 0
+Adding new arg: args.use_task_id_as_prompt = False
+Adding new arg: args.reverse_query_prompt = False
+Adding new arg: args.shuffle_batch = False
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6}, 'dataset_to_flag': {'H36M_3D': 0, 'AMASS': 1, 'PW3D_MESH': 2, 'H36M_MESH': 3}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB'}, 'flag_to_dataset': {'0': 'H36M_3D', '1': 'AMASS', '2': 'PW3D_MESH', '3': 'H36M_MESH'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'dataset_task_info': {'train': {'H36M_3D': ['PE', 'MP', 'FPE', 'MC'], 'AMASS': ['PE', 'MP', 'FPE', 'MC']}, 'test': {'H36M_3D': ['PE', 'MP', 'FPE', 'MC', 'MIB'], 'AMASS': ['PE', 'MP', 'FPE', 'MC', 'MIB'], 'PW3D_MESH': ['PE', 'MP', 'FPE', 'MC', 'MIB']}}, 'dataset_file': {'PW3D_MESH': 'data_icl_gen/processed_data/PW3D/mesh_det_pw3d.pkl', 'H36M_MESH': 'data_icl_gen/processed_data/H36M_MESH/mesh_det_h36m.pkl', 'H36M_3D': 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl', 'AMASS': 'data_icl_gen/processed_data/AMASS/amass_joints_h36m_60.pkl'}, 'use_presave_data': True, 'normalize_2d': 0, 'normalize_3d': 0, 'aug': False, 'aug_shuffle_joints': False, 'clip_len': 16, 'max_len': 16, 'num_joint': 17, 'joint_mask_ratio': 0.4, 'frame_mask_ratio': 0.4, 'presave_folder': 'data_icl_gen/presave_data', 'dataset_config': {'H36M_3D': {'sample_stride': 1, 'data_stride_train': 16, 'data_stride_test': 32, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'scale_3D': 1}, 'PW3D_MESH': {'sample_stride': 1, 'data_stride_train': 1, 'data_stride_test': 16, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'return_3d': True}, 'AMASS': {'sample_stride': 1, 'data_stride_train': 64, 'data_stride_test': 128, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'return_3d': True}, 'H36M_MESH': {'sample_stride': 1, 'data_stride_train': 32, 'data_stride_test': 32, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'return_3d': True}}, 'data_root_path': 'data/non_default_ICL', 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': '3_ICL', 'evaluate_non_AR': '3_ICL', 'train_epoch_non_AR': '3_ICL', 'model_name': 'M06_MixSTE_v0_maxlen_global_v2'}, 'current_as_history': True, 'rotate_prob': 0.25, 'keep_original_joints': True, 'use_partial_data': False, 'partial_data': {'datasets': {'PE': None, 'MP': None, 'FPE': None, 'MC': None}, 'train_stride': None, 'sample_stride': None, 'clip_len': None, 'num_joints': None, 'drop_ratios_MC': None, 'root_path': None, 'source_file_h36m': None, 'clip_len_2DAR': None, 'batch_size_2DAR': None, 'label_stride_2DAR': None}, 'full_data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.5], 'drop_ratios_MIB': [0.5], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}, 'maxlen': 16, 'dim_in': 3, 'dim_out': 3, 'dim_feat': 256, 'mlp_ratio': 2, 'depth': 5, 'dim_rep': 256, 'num_heads': 8, 'att_fuse': True, 'merge_idx': 2, 'epochs': 120, 'batch_size': 376, 'test_batch_size': 512, 'dropout': 0.0, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'mpjpe': 1.0, 'n_mpjpe': 0.0, 'velocity': 0.0, 'limb_var': 0.0, 'limb_gt': 0.0, 'angle': 0.0, 'angle_velocity': 0.0}, 'label_type_2DAR': 'default', 'rootrel_input': True, 'rootrel_input_2DAR': False, 'rootrel_target_MP': True, 'rootrel_target_PE': True, 'rootrel_target_FPE': True, 'flip_h36m_y_axis': False, 'flip_h36mFPE_y_axis': False, 'scale_h36m_skeleton': 2.0, 'scale_h36mFPE_skeleton': 2.0, 'no_eval': False, 'amass_to_h36m': [[2], [0], [3], [6], [1], [4], [7], [5], [8], [8, 11], [11], [10], [13], [15], [9], [12], [14]], 'name': 'config', 'config': 'ckpt/0301/10_base05_ModelGlobalv2/config.yaml', 'checkpoint': 'ckpt/0301/10_base05_ModelGlobalv2/', 'seed': 0, 'visualize': '', 'eval_generalization': False, 'quick_debug': False, 'gpu': '4,5', 'classifier_type': 'task', 'num_class': 4, 'use_task_id_as_prompt': False, 'reverse_query_prompt': False, 'shuffle_batch': False, 'data': {'datasets': {'PE': 'H36M', 'MP': 'AMASS', 'FPE': 'H36M_FPE', 'MC': '3DPW_MC', '2DAR': 'NTU60_2DAR'}, 'train_stride': 16, 'sample_stride': 1, 'clip_len': 16, 'num_joints': 17, 'drop_ratios_MC': [0.5], 'drop_ratios_MIB': [0.5], 'root_path': 'data', 'source_file_h36m': 'source_data/H36M.pkl', 'clip_len_2DAR': 9999999, 'batch_size_2DAR': 9999999, 'label_stride_2DAR': 9999999}}
+
+python train.py --config ckpt/0301/10_base05_ModelGlobalv2/config.yaml -c ckpt/0301/10_base05_ModelGlobalv2/ -gpu 4,5 -bs 376 -normalize_2d 0 -normalize_3d 0
+
+PID:  802046
+
+Loading dataset...
+	Loading train data from [H36M_3D] for task: ['PE', 'MP', 'FPE', 'MC']... costs 3.91s... has 96596 samples
+	Loading train data from [AMASS] for task: ['PE', 'MP', 'FPE', 'MC']... costs 5.09s... has 89678 samples
+	Training (non-AR) sample count: 186274
+	Loading test data from [H36M_3D] for task: ['PE']... costs 3.05s... has 17596 samples
+	Loading test data from [H36M_3D] for task: ['MP']... costs 2.93s... has 17596 samples
+	Loading test data from [H36M_3D] for task: ['FPE']... costs 2.94s... has 17596 samples
+	Loading test data from [H36M_3D] for task: ['MC']... costs 3.12s... has 17596 samples
+	Loading test data from [H36M_3D] for task: ['MIB']... costs 2.95s... has 17596 samples
+	Loading test data from [AMASS] for task: ['PE']... costs 3.90s... has 15516 samples
+	Loading test data from [AMASS] for task: ['MP']... costs 3.43s... has 15516 samples
+	Loading test data from [AMASS] for task: ['FPE']... costs 3.42s... has 15516 samples
+	Loading test data from [AMASS] for task: ['MC']... costs 3.76s... has 15516 samples
+	Loading test data from [AMASS] for task: ['MIB']... costs 3.85s... has 15516 samples
+	Loading test data from [PW3D_MESH] for task: ['PE']... costs 0.46s... has 2165 samples
+	Loading test data from [PW3D_MESH] for task: ['MP']... costs 0.44s... has 2165 samples
+	Loading test data from [PW3D_MESH] for task: ['FPE']... costs 0.45s... has 2165 samples
+	Loading test data from [PW3D_MESH] for task: ['MC']... costs 0.45s... has 2165 samples
+	Loading test data from [PW3D_MESH] for task: ['MIB']... costs 0.45s... has 2165 samples
+
+Loading model...
+	Model: M06_MixSTE_v0_maxlen_global_v2
+	Trainable parameter count: 269.396228M
+
+Training on [['non_AR', 496]] batches for 120 epochs. batch size: 376
+[1 start]
+	Iter: 165/496; time cost: 23.10min; current batch has {'H36M_3D': 728, 'AMASS': 776} samples
+	Iter: 330/496; time cost: 45.78min; current batch has {'H36M_3D': 852, 'AMASS': 652} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 43.50s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 36.15s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 36.17s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 38.69s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 38.74s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 32.42s
+	Evaluating [Motion Prediction] on [AMASS]... costs 32.42s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 32.69s
+	Evaluating [Motion Completion] on [AMASS]... costs 34.89s
+	Evaluating [Motion In Between] on [AMASS]... costs 34.66s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 9.53s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 9.54s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 9.56s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 9.82s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 9.72s
++-------+------------+------------+--------------+--------------+---------------+--------------+---------------+------------+------------+-------------+------------+-------------+----------------+----------------+-----------------+----------------+-----------------+
+| Epoch |     lr     | train_loss | H36M_3D | PE | H36M_3D | MP | H36M_3D | FPE | H36M_3D | MC | H36M_3D | MIB | AMASS | PE | AMASS | MP | AMASS | FPE | AMASS | MC | AMASS | MIB | PW3D_MESH | PE | PW3D_MESH | MP | PW3D_MESH | FPE | PW3D_MESH | MC | PW3D_MESH | MIB |
++-------+------------+------------+--------------+--------------+---------------+--------------+---------------+------------+------------+-------------+------------+-------------+----------------+----------------+-----------------+----------------+-----------------+
+|   1   | 0.00020000 |  0.32758   |    436.18    |    204.36    |     204.36    |    213.47    |     204.64    |   417.45   |   417.27   |    417.27   |   439.46   |    417.54   |     420.70     |     420.77     |      420.77     |     443.11     |      420.68     |
++-------+------------+------------+--------------+--------------+---------------+--------------+---------------+------------+------------+-------------+------------+-------------+----------------+----------------+-----------------+----------------+-----------------+
+	Saving best checkpoints: [H36M_3D,PE] [H36M_3D,MP] [H36M_3D,FPE] [H36M_3D,MC] [H36M_3D,MIB] [AMASS,PE] [AMASS,MP] [AMASS,FPE] [AMASS,MC] [AMASS,MIB] [PW3D_MESH,PE] [PW3D_MESH,MP] [PW3D_MESH,FPE] [PW3D_MESH,MC] [PW3D_MESH,MIB] 
+
+[1 end] Time cost: 75.71min 	| lr: 0.00020000 	| train loss: 0.3275770822053119
+[2 start]
+	Iter: 165/496; time cost: 23.36min; current batch has {'H36M_3D': 756, 'AMASS': 748} samples
+	Iter: 330/496; time cost: 46.04min; current batch has {'H36M_3D': 776, 'AMASS': 728} samples
+	Evaluating [3D Pose Estimation] on [H36M_3D]... costs 36.84s
+	Evaluating [Motion Prediction] on [H36M_3D]... costs 31.11s
+	Evaluating [Future Pose Estimation] on [H36M_3D]... costs 31.09s
+	Evaluating [Motion Completion] on [H36M_3D]... costs 34.11s
+	Evaluating [Motion In Between] on [H36M_3D]... costs 34.09s
+	Evaluating [3D Pose Estimation] on [AMASS]... costs 27.46s
+	Evaluating [Motion Prediction] on [AMASS]... costs 27.61s
+	Evaluating [Future Pose Estimation] on [AMASS]... costs 27.55s
+	Evaluating [Motion Completion] on [AMASS]... costs 30.01s
+	Evaluating [Motion In Between] on [AMASS]... costs 29.62s
+	Evaluating [3D Pose Estimation] on [PW3D_MESH]... costs 4.63s
+	Evaluating [Motion Prediction] on [PW3D_MESH]... costs 4.53s
+	Evaluating [Future Pose Estimation] on [PW3D_MESH]... costs 4.68s
+	Evaluating [Motion Completion] on [PW3D_MESH]... costs 4.83s
+	Evaluating [Motion In Between] on [PW3D_MESH]... costs 4.64s
++-------+------------+------------+--------------+--------------+---------------+--------------+---------------+------------+------------+-------------+------------+-------------+----------------+----------------+-----------------+----------------+-----------------+
+| Epoch |     lr     | train_loss | H36M_3D | PE | H36M_3D | MP | H36M_3D | FPE | H36M_3D | MC | H36M_3D | MIB | AMASS | PE | AMASS | MP | AMASS | FPE | AMASS | MC | AMASS | MIB | PW3D_MESH | PE | PW3D_MESH | MP | PW3D_MESH | FPE | PW3D_MESH | MC | PW3D_MESH | MIB |
++-------+------------+------------+--------------+--------------+---------------+--------------+---------------+------------+------------+-------------+------------+-------------+----------------+----------------+-----------------+----------------+-----------------+
+|   2   | 0.00019800 |  0.30860   |    443.26    |    208.30    |     208.30    |    216.73    |     208.59    |   420.55   |   420.41   |    420.41   |   441.89   |    420.64   |     421.89     |     421.96     |      421.96     |     443.44     |      421.87     |
++-------+------------+------------+--------------+--------------+---------------+--------------+---------------+------------+------------+-------------+------------+-------------+----------------+----------------+-----------------+----------------+-----------------+
+	Saving best checkpoints: 
+
+[2 end] Time cost: 74.39min 	| lr: 0.00019800 	| train loss: 0.30859554352240653
+[3 start]

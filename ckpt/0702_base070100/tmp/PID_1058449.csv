@@ -1,0 +1,6 @@
+EXP_INFO, , ,PID,1058449, , , , ,train_DDP.py --config ckpt/0702_base070100/14_Train4dt_PWstrd1_COCO/config.yaml -c ckpt/0702_base070100/tmp -vertex_x1000 -fully_connected_graph -data_efficient -gpu 1 -bs 16 -debug -mp 8888, , ,Checkpoint,ckpt/0702_base070100/tmp, , ,Config,ckpt/0702_base070100/14_Train4dt_PWstrd1_COCO/config.yaml, , 
+ , , , , , , , , , , , , , , , , , , , 
+Epoch,lr,JOINT,MESH,ALL,COCO, , , , , , , , , , , , , , , , , , , , , , , , , , 
+ , , , , ,PE, , , , , , , , , ,MC, , , , , , ,MeshCompletion, , , , , , , , , 
+ , , , , ,Avg,0,5,10,15,mpve,mpjpe,pa_mpjpe,mpjpe_17j,pa_mpjpe_17j,Avg,0.4,mpve,mpjpe,pa_mpjpe,mpjpe_17j,pa_mpjpe_17j,Avg,0,5,10,15,mpve,mpjpe,pa_mpjpe,mpjpe_17j,pa_mpjpe_17j
+1,0.00020000,0.77932,500.45030,501.22962,304.54,304.54,304.54,304.54,304.54,293.53,258.31,131.28,230.81,122.01,322.56,322.56,294.04,258.79,131.21,231.34,121.95,314.8,314.8,314.8,314.8,314.8,303.98,267.29,133.9,240.64,124.9

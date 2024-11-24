@@ -1,0 +1,826 @@
+Adding new arg: args.config = ckpt/0502_AMASS_H36MMESH/98_smalldata_ApcbHecb_Mmotionbert_vx1000/config.yaml
+Adding new arg: args.checkpoint = ckpt/0502_AMASS_H36MMESH/98_smalldata_ApcbHecb_Mmotionbert_vx1000/
+Adding new arg: args.seed = 0
+Adding new arg: args.visualize = 
+Adding new arg: args.eval_generalization = False
+Adding new arg: args.quick_debug = False
+Adding new arg: args.gpu = 0
+Overriding existing arg: args.batch_size = 720
+Adding new arg: args.classifier_type = task
+Adding new arg: args.num_class = 4
+Adding new arg: args.use_task_id_as_prompt = False
+Adding new arg: args.reverse_query_prompt = False
+Adding new arg: args.shuffle_batch = False
+Adding new arg: args.reverse_query_prompt_per_iter = False
+Adding new arg: args.vertex_x1000 = True
+Adding new arg: args.aug2D = False
+Adding new arg: args.out = 050298
+
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6}, 'dataset_to_flag': {'H36M_3D': 0, 'AMASS': 1, 'PW3D_MESH': 2, 'H36M_MESH': 3, 'H36M_MESH_TCMR': 4}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB'}, 'flag_to_dataset': {'0': 'H36M_3D', '1': 'AMASS', '2': 'PW3D_MESH', '3': 'H36M_MESH', '4': 'H36M_MESH_TCMR'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'dataset_task_info': {'train': {'AMASS': ['MP', 'MC', 'MIB'], 'H36M_MESH': ['PE', 'MC', 'MIB']}, 'test': {'AMASS': ['MP', 'MC', 'MIB'], 'H36M_MESH': ['PE', 'MC', 'MIB']}}, 'Mesh': {'enable': True, 'loss_type': 'L1', 'losses': {'loss_3d_pos': 0.5, 'loss_3d_velocity': 10, 'loss_pose': 1000, 'loss_shape': 1, 'loss_norm': 20, 'loss_3d_scale': 0, 'loss_lv': 0, 'loss_lg': 0, 'loss_a': 0, 'loss_av': 0}}, 'dataset_file': {'PW3D_MESH': 'data_icl_gen/VER5_DATA/PW3D_MESH/mesh_det_pw3d_EXTENDED.pkl', 'H36M_MESH': 'data_icl_gen/VER5_DATA/H36M_MESH/mesh_det_h36m_EXTENDED.pkl', 'AMASS': 'data_icl_gen/VER5_DATA/AMASS', 'H36M_3D': 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl', 'H36M_MESH_TCMR': 'data_icl_gen/VER5_DATA/H36M_TCMR/h36m_train_25fps_db_RENAMED.pt'}, 'use_presave_data': True, 'aug': False, 'aug_shuffle_joints': False, 'current_as_history': True, 'clip_len': 16, 'max_len': 16, 'num_joint': 17, 'joint_mask_ratio': 0.4, 'frame_mask_ratio': 0.4, 'presave_folder': 'data_icl_gen/presave_data/', 'dataset_config': {'PW3D_MESH': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': True, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_MESH': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': True, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'AMASS': {'sample_stride': 1, 'data_stride': {'train': 128, 'test': 256}, 'read_confidence': True, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_3D': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': True, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'scale_3D': 1}, 'H36M_MESH_TCMR': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': True, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}}, 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': '5_ICL', 'evaluate_non_AR': '5_ICL', 'train_epoch_non_AR': '5_ICL', 'model_name': 'model_mesh.M98V00_MotionBERT'}, 'epochs': 120, 'batch_size': 720, 'test_batch_size': 512, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'loss_mpjpe': 1.0, 'n_mpjpe': 0.5, 'loss_velocity': 20.0, 'loss_limb_var': 0, 'loss_limb_gt': 0, 'loss_angle': 0, 'loss_angle_velocity': 0}, 'no_eval': False, 'use_partial_data': False, 'partial_data': None, 'full_data': None, 'name': 'config', 'config': 'ckpt/0502_AMASS_H36MMESH/98_smalldata_ApcbHecb_Mmotionbert_vx1000/config.yaml', 'checkpoint': 'ckpt/0502_AMASS_H36MMESH/98_smalldata_ApcbHecb_Mmotionbert_vx1000/', 'seed': 0, 'visualize': '', 'eval_generalization': False, 'quick_debug': False, 'gpu': '0', 'classifier_type': 'task', 'num_class': 4, 'use_task_id_as_prompt': False, 'reverse_query_prompt': False, 'shuffle_batch': False, 'reverse_query_prompt_per_iter': False, 'vertex_x1000': True, 'aug2D': False, 'out': '050298', 'data': None}
+
+python train.py --config ckpt/0502_AMASS_H36MMESH/98_smalldata_ApcbHecb_Mmotionbert_vx1000/config.yaml -c ckpt/0502_AMASS_H36MMESH/98_smalldata_ApcbHecb_Mmotionbert_vx1000/ -gpu 0 -bs 720 -vertex_x1000 -out 050298
+
+PID:  4040344
+
+Overriding function... Using <prepare_motion> function from [model_mesh.M98V00_MotionBERT] instead of default from dataset ...
+
+Overriding function... Using <preprocess> function from [model_mesh.M98V00_MotionBERT] instead of default from dataset ...
+
+Failed to create symlink for out file.
+
+Loading dataset...
+	Loading train data from [AMASS] for task: ['MP', 'MC', 'MIB']... Loading presaved... Loading joint masks... Loading frame masks... costs 1.28s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'MC', 'MIB']... Loading presaved... Loading joint masks... Loading frame masks... costs 0.74s... has 18644/18644 query/prompt samples
+	Training (non-AR) sample count: 65370
+	Loading test data from [AMASS] for task: ['MP']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MC']... Loading joint masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MIB']... Loading frame masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['PE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MC']... Loading joint masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MIB']... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+
+Loading model...
+	Model: model_mesh.M98V00_MotionBERT
+	Trainable parameter count: 19.82635M
+
+Training on [['non_AR', 91]] batches for 120 epochs. batch size: 720
+[1 start]
+	Iter: 30/91; time cost: 6.11min; current batch has {'AMASS': 1572, 'H36M_MESH': 588} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.81min; current batch has {'AMASS': 1524, 'H36M_MESH': 636} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 106.98s
+	Evaluating [MC] on [AMASS]... costs 106.46s
+	Evaluating [MIB] on [AMASS]... costs 106.14s
+	Evaluating [PE] on [H36M_MESH]... costs 40.91s
+	Evaluating [MC] on [H36M_MESH]... costs 40.21s
+	Evaluating [MIB] on [H36M_MESH]... costs 42.37s
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS  |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   1   | 0.00020000 | 0.58996 | 463.21752 | 463.80748 |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 135.48 | 152.02 | 134.91 |   262.63  | 284.07 | 257.39 | 173.56 | 192.11 | 174.66 |   373.18  | 377.81 | 364.84 |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[1 end] Time cost: 24.87min 	| lr: 0.00020000
+[2 start]
+	Iter: 30/91; time cost: 6.00min; current batch has {'AMASS': 1554, 'H36M_MESH': 606} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.73min; current batch has {'AMASS': 1539, 'H36M_MESH': 621} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.88s
+	Evaluating [MC] on [AMASS]... costs 105.47s
+	Evaluating [MIB] on [AMASS]... costs 105.09s
+	Evaluating [PE] on [H36M_MESH]... costs 38.67s
+	Evaluating [MC] on [H36M_MESH]... costs 39.93s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.03s
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS  |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   2   | 0.00019800 | 0.44008 | 359.47537 | 359.91545 |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 119.26 | 135.21 | 117.89 |   252.46  | 276.59 | 247.32 | 146.84 | 156.70 | 144.76 |   355.35  | 364.99 | 349.59 |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[2 end] Time cost: 24.80min 	| lr: 0.00019800
+[3 start]
+	Iter: 30/91; time cost: 5.89min; current batch has {'AMASS': 1524, 'H36M_MESH': 636} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.59min; current batch has {'AMASS': 1548, 'H36M_MESH': 612} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.32s
+	Evaluating [MC] on [AMASS]... costs 105.05s
+	Evaluating [MIB] on [AMASS]... costs 108.68s
+	Evaluating [PE] on [H36M_MESH]... costs 39.74s
+	Evaluating [MC] on [H36M_MESH]... costs 39.31s
+	Evaluating [MIB] on [H36M_MESH]... costs 41.77s
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS  |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   3   | 0.00019602 | 0.41381 | 346.30516 | 346.71897 |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 108.17 | 123.78 | 107.37 |   225.20  | 268.74 | 219.77 | 141.56 | 145.45 | 137.16 |   334.79  | 358.70 | 329.28 |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[3 end] Time cost: 24.76min 	| lr: 0.00019602
+[4 start]
+	Iter: 30/91; time cost: 5.95min; current batch has {'AMASS': 1536, 'H36M_MESH': 624} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.62min; current batch has {'AMASS': 1539, 'H36M_MESH': 621} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 104.90s
+	Evaluating [MC] on [AMASS]... costs 105.19s
+	Evaluating [MIB] on [AMASS]... costs 103.99s
+	Evaluating [PE] on [H36M_MESH]... costs 39.43s
+	Evaluating [MC] on [H36M_MESH]... costs 38.84s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.39s
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS  |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   4   | 0.00019406 | 0.38512 | 333.14265 | 333.52777 |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 113.03 | 125.72 | 109.13 |   212.67  | 241.19 | 199.67 | 134.47 | 135.17 | 127.51 |   322.85  | 337.67 | 312.13 |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[4 end] Time cost: 24.57min 	| lr: 0.00019406
+[5 start]
+	Iter: 30/91; time cost: 5.90min; current batch has {'AMASS': 1497, 'H36M_MESH': 663} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.59min; current batch has {'AMASS': 1545, 'H36M_MESH': 615} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.94s
+	Evaluating [MC] on [AMASS]... costs 109.18s
+	Evaluating [MIB] on [AMASS]... costs 106.19s
+	Evaluating [PE] on [H36M_MESH]... costs 40.06s
+	Evaluating [MC] on [H36M_MESH]... costs 41.31s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.93s
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS  |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   5   | 0.00019212 | 0.37248 | 326.22848 | 326.60096 |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 106.10 | 115.52 | 93.69  |   194.15  | 233.28 | 186.60 | 134.94 | 127.35 | 116.83 |   290.62  | 315.20 | 282.04 |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[5 end] Time cost: 24.79min 	| lr: 0.00019212
+[6 start]
+	Iter: 30/91; time cost: 5.91min; current batch has {'AMASS': 1554, 'H36M_MESH': 606} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.57min; current batch has {'AMASS': 1542, 'H36M_MESH': 618} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 104.69s
+	Evaluating [MC] on [AMASS]... costs 106.37s
+	Evaluating [MIB] on [AMASS]... costs 106.62s
+	Evaluating [PE] on [H36M_MESH]... costs 39.38s
+	Evaluating [MC] on [H36M_MESH]... costs 39.50s
+	Evaluating [MIB] on [H36M_MESH]... costs 40.55s
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS  |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   6   | 0.00019020 | 0.36197 | 320.43606 | 320.79803 |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 103.97 | 112.04 | 89.07  |   178.06  | 218.97 | 166.02 | 129.36 | 120.64 | 107.99 |   261.29  | 287.11 | 242.07 |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[6 end] Time cost: 24.67min 	| lr: 0.00019020
+[7 start]
+	Iter: 30/91; time cost: 5.90min; current batch has {'AMASS': 1548, 'H36M_MESH': 612} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.56min; current batch has {'AMASS': 1611, 'H36M_MESH': 549} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 106.74s
+	Evaluating [MC] on [AMASS]... costs 107.50s
+	Evaluating [MIB] on [AMASS]... costs 107.31s
+	Evaluating [PE] on [H36M_MESH]... costs 39.28s
+	Evaluating [MC] on [H36M_MESH]... costs 38.74s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.00s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   7   | 0.00018830 | 0.35089 | 308.74508 | 309.09597 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 98.27 | 104.94 | 80.99  |   163.91  | 199.84 | 157.22 | 128.42 | 117.51 | 103.45 |   192.64  | 221.03 | 184.25 |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[7 end] Time cost: 24.70min 	| lr: 0.00018830
+[8 start]
+	Iter: 30/91; time cost: 5.91min; current batch has {'AMASS': 1530, 'H36M_MESH': 630} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.60min; current batch has {'AMASS': 1530, 'H36M_MESH': 630} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.05s
+	Evaluating [MC] on [AMASS]... costs 107.83s
+	Evaluating [MIB] on [AMASS]... costs 107.05s
+	Evaluating [PE] on [H36M_MESH]... costs 39.73s
+	Evaluating [MC] on [H36M_MESH]... costs 39.23s
+	Evaluating [MIB] on [H36M_MESH]... costs 42.09s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   8   | 0.00018641 | 0.33500 | 298.97284 | 299.30785 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 97.50 | 101.89 | 76.03  |   135.63  | 173.95 | 132.16 | 119.95 | 108.41 | 94.00  |   166.89  | 195.26 | 160.55 |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[8 end] Time cost: 24.75min 	| lr: 0.00018641
+[9 start]
+	Iter: 30/91; time cost: 5.90min; current batch has {'AMASS': 1488, 'H36M_MESH': 672} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.57min; current batch has {'AMASS': 1560, 'H36M_MESH': 600} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 104.86s
+	Evaluating [MC] on [AMASS]... costs 103.98s
+	Evaluating [MIB] on [AMASS]... costs 104.80s
+	Evaluating [PE] on [H36M_MESH]... costs 38.76s
+	Evaluating [MC] on [H36M_MESH]... costs 39.03s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.29s
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS  |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   9   | 0.00018455 | 0.32376 | 290.46115 | 290.78492 |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 103.56 | 109.81 | 80.79  |   128.97  | 166.09 | 125.66 | 123.09 | 112.09 | 95.34  |   160.72  | 188.73 | 153.13 |
++-------+------------+---------+-----------+-----------+--------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[9 end] Time cost: 24.50min 	| lr: 0.00018455
+[10 start]
+	Iter: 30/91; time cost: 5.89min; current batch has {'AMASS': 1563, 'H36M_MESH': 597} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.59min; current batch has {'AMASS': 1602, 'H36M_MESH': 558} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.09s
+	Evaluating [MC] on [AMASS]... costs 107.32s
+	Evaluating [MIB] on [AMASS]... costs 106.40s
+	Evaluating [PE] on [H36M_MESH]... costs 39.31s
+	Evaluating [MC] on [H36M_MESH]... costs 39.67s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.01s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   10  | 0.00018270 | 0.30657 | 281.56566 | 281.87223 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 96.77 | 100.18 | 73.31  |   120.70  | 154.05 | 112.42 | 117.90 | 103.21 | 87.72  |   131.51  | 159.10 | 122.18 |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[10 end] Time cost: 24.68min 	| lr: 0.00018270
+[11 start]
+	Iter: 30/91; time cost: 5.92min; current batch has {'AMASS': 1578, 'H36M_MESH': 582} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.61min; current batch has {'AMASS': 1527, 'H36M_MESH': 633} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 104.48s
+	Evaluating [MC] on [AMASS]... costs 104.46s
+	Evaluating [MIB] on [AMASS]... costs 105.42s
+	Evaluating [PE] on [H36M_MESH]... costs 38.90s
+	Evaluating [MC] on [H36M_MESH]... costs 39.56s
+	Evaluating [MIB] on [H36M_MESH]... costs 40.44s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   11  | 0.00018088 | 0.29623 | 275.14157 | 275.43780 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 92.79 | 95.03  | 66.95  |   107.73  | 142.72 | 102.78 | 115.82 | 98.86  | 83.15  |   121.04  | 150.57 | 114.30 |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[11 end] Time cost: 24.63min 	| lr: 0.00018088
+[12 start]
+	Iter: 30/91; time cost: 5.90min; current batch has {'AMASS': 1557, 'H36M_MESH': 603} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.65min; current batch has {'AMASS': 1518, 'H36M_MESH': 642} samples; batch_size (total/sub): 2160/720
+[12 end] Time cost: 17.31min 	| lr: 0.00017907
+[13 start]
+	Iter: 30/91; time cost: 5.92min; current batch has {'AMASS': 1590, 'H36M_MESH': 570} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.59min; current batch has {'AMASS': 1467, 'H36M_MESH': 693} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.20s
+	Evaluating [MC] on [AMASS]... costs 105.87s
+	Evaluating [MIB] on [AMASS]... costs 107.95s
+	Evaluating [PE] on [H36M_MESH]... costs 39.29s
+	Evaluating [MC] on [H36M_MESH]... costs 40.60s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.65s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   13  | 0.00017728 | 0.27981 | 266.30292 | 266.58273 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 95.53 | 95.25  | 69.46  |   92.13   | 122.81 | 85.65  | 113.44 | 94.86  | 78.54  |   111.01  | 135.84 | 100.47 |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[13 end] Time cost: 24.66min 	| lr: 0.00017728
+[14 start]
+	Iter: 30/91; time cost: 5.98min; current batch has {'AMASS': 1596, 'H36M_MESH': 564} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.67min; current batch has {'AMASS': 1551, 'H36M_MESH': 609} samples; batch_size (total/sub): 2160/720
+[14 end] Time cost: 17.34min 	| lr: 0.00017550
+[15 start]
+	Iter: 30/91; time cost: 5.92min; current batch has {'AMASS': 1551, 'H36M_MESH': 609} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.60min; current batch has {'AMASS': 1542, 'H36M_MESH': 618} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.27s
+	Evaluating [MC] on [AMASS]... costs 106.31s
+	Evaluating [MIB] on [AMASS]... costs 107.02s
+	Evaluating [PE] on [H36M_MESH]... costs 40.18s
+	Evaluating [MC] on [H36M_MESH]... costs 40.08s
+	Evaluating [MIB] on [H36M_MESH]... costs 42.04s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   15  | 0.00017375 | 0.26306 | 257.48251 | 257.74557 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 93.52 | 91.14  | 66.07  |   90.50   | 114.19 | 82.54  | 110.26 | 89.36  | 72.32  |   107.89  | 125.64 | 94.80  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[15 end] Time cost: 24.75min 	| lr: 0.00017375
+[16 start]
+	Iter: 30/91; time cost: 5.88min; current batch has {'AMASS': 1566, 'H36M_MESH': 594} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.59min; current batch has {'AMASS': 1527, 'H36M_MESH': 633} samples; batch_size (total/sub): 2160/720
+[16 end] Time cost: 17.25min 	| lr: 0.00017201
+[17 start]
+	Iter: 30/91; time cost: 5.92min; current batch has {'AMASS': 1587, 'H36M_MESH': 573} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.59min; current batch has {'AMASS': 1581, 'H36M_MESH': 579} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.69s
+	Evaluating [MC] on [AMASS]... costs 104.18s
+	Evaluating [MIB] on [AMASS]... costs 105.32s
+	Evaluating [PE] on [H36M_MESH]... costs 39.46s
+	Evaluating [MC] on [H36M_MESH]... costs 39.88s
+	Evaluating [MIB] on [H36M_MESH]... costs 38.83s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS  |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+|   17  | 0.00017029 | 0.25746 | 252.88011 | 253.13757 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP   |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 89.59 | 89.38  | 62.55  |   95.55   | 116.09 | 81.18  | 108.60 | 89.72  | 72.00  |   106.58  | 123.82 | 91.37  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+--------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,MIB] 
+
+[17 end] Time cost: 24.57min 	| lr: 0.00017029
+[18 start]
+	Iter: 30/91; time cost: 5.94min; current batch has {'AMASS': 1569, 'H36M_MESH': 591} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.62min; current batch has {'AMASS': 1542, 'H36M_MESH': 618} samples; batch_size (total/sub): 2160/720
+[18 end] Time cost: 17.31min 	| lr: 0.00016859
+[19 start]
+	Iter: 30/91; time cost: 5.89min; current batch has {'AMASS': 1605, 'H36M_MESH': 555} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.55min; current batch has {'AMASS': 1506, 'H36M_MESH': 654} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 106.21s
+	Evaluating [MC] on [AMASS]... costs 105.70s
+	Evaluating [MIB] on [AMASS]... costs 117.13s
+	Evaluating [PE] on [H36M_MESH]... costs 42.63s
+	Evaluating [MC] on [H36M_MESH]... costs 40.58s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.49s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   19  | 0.00016690 | 0.24761 | 246.13331 | 246.38092 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 83.39 | 87.54  | 60.20  |   80.94   | 105.67 | 73.08  | 98.09 | 85.26  | 66.25  |   102.93  | 117.50 | 89.04  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[19 end] Time cost: 24.89min 	| lr: 0.00016690
+[20 start]
+	Iter: 30/91; time cost: 5.91min; current batch has {'AMASS': 1557, 'H36M_MESH': 603} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.58min; current batch has {'AMASS': 1590, 'H36M_MESH': 570} samples; batch_size (total/sub): 2160/720
+[20 end] Time cost: 17.24min 	| lr: 0.00016523
+[21 start]
+	Iter: 30/91; time cost: 5.93min; current batch has {'AMASS': 1599, 'H36M_MESH': 561} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.60min; current batch has {'AMASS': 1539, 'H36M_MESH': 621} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.04s
+	Evaluating [MC] on [AMASS]... costs 104.65s
+	Evaluating [MIB] on [AMASS]... costs 105.62s
+	Evaluating [PE] on [H36M_MESH]... costs 40.67s
+	Evaluating [MC] on [H36M_MESH]... costs 40.07s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.15s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   21  | 0.00016358 | 0.24201 | 243.05219 | 243.29420 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 71.84 | 84.16  | 54.91  |   88.31   | 112.72 | 76.97  | 87.64 | 83.71  | 65.61  |   99.45   | 116.10 | 85.81  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] 
+
+[21 end] Time cost: 24.59min 	| lr: 0.00016358
+[22 start]
+	Iter: 30/91; time cost: 5.90min; current batch has {'AMASS': 1551, 'H36M_MESH': 609} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.62min; current batch has {'AMASS': 1530, 'H36M_MESH': 630} samples; batch_size (total/sub): 2160/720
+[22 end] Time cost: 17.28min 	| lr: 0.00016195
+[23 start]
+	Iter: 30/91; time cost: 5.93min; current batch has {'AMASS': 1509, 'H36M_MESH': 651} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.61min; current batch has {'AMASS': 1491, 'H36M_MESH': 669} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.60s
+	Evaluating [MC] on [AMASS]... costs 104.71s
+	Evaluating [MIB] on [AMASS]... costs 105.30s
+	Evaluating [PE] on [H36M_MESH]... costs 38.68s
+	Evaluating [MC] on [H36M_MESH]... costs 39.73s
+	Evaluating [MIB] on [H36M_MESH]... costs 38.84s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   23  | 0.00016033 | 0.22659 | 234.59463 | 234.82122 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 72.64 | 85.89  | 60.49  |   82.49   | 101.28 | 73.03  | 77.62 | 77.82  | 59.04  |   94.09   | 107.65 | 80.64  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[23 end] Time cost: 24.56min 	| lr: 0.00016033
+[24 start]
+	Iter: 30/91; time cost: 5.95min; current batch has {'AMASS': 1542, 'H36M_MESH': 618} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.66min; current batch has {'AMASS': 1515, 'H36M_MESH': 645} samples; batch_size (total/sub): 2160/720
+[24 end] Time cost: 17.34min 	| lr: 0.00015872
+[25 start]
+	Iter: 30/91; time cost: 5.90min; current batch has {'AMASS': 1557, 'H36M_MESH': 603} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.58min; current batch has {'AMASS': 1581, 'H36M_MESH': 579} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 103.67s
+	Evaluating [MC] on [AMASS]... costs 104.71s
+	Evaluating [MIB] on [AMASS]... costs 105.97s
+	Evaluating [PE] on [H36M_MESH]... costs 38.95s
+	Evaluating [MC] on [H36M_MESH]... costs 39.43s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.45s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   25  | 0.00015714 | 0.21906 | 228.86155 | 229.08061 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 63.57 | 80.64  | 53.17  |   83.85   | 100.61 | 70.10  | 72.70 | 75.83  | 57.62  |   92.83   | 104.22 | 77.03  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[25 end] Time cost: 24.56min 	| lr: 0.00015714
+[26 start]
+	Iter: 30/91; time cost: 5.91min; current batch has {'AMASS': 1635, 'H36M_MESH': 525} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.58min; current batch has {'AMASS': 1530, 'H36M_MESH': 630} samples; batch_size (total/sub): 2160/720
+[26 end] Time cost: 17.27min 	| lr: 0.00015556
+[27 start]
+	Iter: 30/91; time cost: 5.92min; current batch has {'AMASS': 1554, 'H36M_MESH': 606} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.61min; current batch has {'AMASS': 1581, 'H36M_MESH': 579} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 103.77s
+	Evaluating [MC] on [AMASS]... costs 105.37s
+	Evaluating [MIB] on [AMASS]... costs 106.81s
+	Evaluating [PE] on [H36M_MESH]... costs 39.45s
+	Evaluating [MC] on [H36M_MESH]... costs 39.06s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.32s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   27  | 0.00015401 | 0.21107 | 224.70744 | 224.91851 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 55.68 | 75.83  | 46.28  |   80.59   | 94.39  | 64.20  | 70.82 | 74.96  | 58.15  |   98.13   | 104.11 | 78.87  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[27 end] Time cost: 24.67min 	| lr: 0.00015401
+[28 start]
+	Iter: 30/91; time cost: 5.92min; current batch has {'AMASS': 1524, 'H36M_MESH': 636} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.59min; current batch has {'AMASS': 1518, 'H36M_MESH': 642} samples; batch_size (total/sub): 2160/720
+[28 end] Time cost: 17.24min 	| lr: 0.00015247
+[29 start]
+	Iter: 30/91; time cost: 5.90min; current batch has {'AMASS': 1581, 'H36M_MESH': 579} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.57min; current batch has {'AMASS': 1545, 'H36M_MESH': 615} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 106.98s
+	Evaluating [MC] on [AMASS]... costs 106.71s
+	Evaluating [MIB] on [AMASS]... costs 115.94s
+	Evaluating [PE] on [H36M_MESH]... costs 39.13s
+	Evaluating [MC] on [H36M_MESH]... costs 40.66s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.53s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   29  | 0.00015094 | 0.20514 | 220.53958 | 220.74472 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 57.89 | 78.99  | 49.75  |   88.96   | 104.98 | 72.19  | 68.78 | 74.05  | 57.08  |   93.09   | 99.03  | 71.97  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: 
+
+[29 end] Time cost: 24.78min 	| lr: 0.00015094
+[30 start]
+	Iter: 30/91; time cost: 6.00min; current batch has {'AMASS': 1521, 'H36M_MESH': 639} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.74min; current batch has {'AMASS': 1548, 'H36M_MESH': 612} samples; batch_size (total/sub): 2160/720
+[30 end] Time cost: 17.49min 	| lr: 0.00014943
+[31 start]
+	Iter: 30/91; time cost: 5.98min; current batch has {'AMASS': 1518, 'H36M_MESH': 642} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.71min; current batch has {'AMASS': 1569, 'H36M_MESH': 591} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 106.43s
+	Evaluating [MC] on [AMASS]... costs 105.07s
+	Evaluating [MIB] on [AMASS]... costs 104.75s
+	Evaluating [PE] on [H36M_MESH]... costs 39.48s
+	Evaluating [MC] on [H36M_MESH]... costs 40.24s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.47s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   31  | 0.00014794 | 0.20134 | 217.92558 | 218.12692 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 59.68 | 78.11  | 52.55  |   76.82   | 92.18  | 63.06  | 63.62 | 68.82  | 51.66  |   90.41   | 99.12  | 71.20  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[31 end] Time cost: 24.78min 	| lr: 0.00014794
+[32 start]
+	Iter: 30/91; time cost: 5.96min; current batch has {'AMASS': 1548, 'H36M_MESH': 612} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.71min; current batch has {'AMASS': 1551, 'H36M_MESH': 609} samples; batch_size (total/sub): 2160/720
+[32 end] Time cost: 17.43min 	| lr: 0.00014646
+[33 start]
+	Iter: 30/91; time cost: 6.00min; current batch has {'AMASS': 1476, 'H36M_MESH': 684} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.72min; current batch has {'AMASS': 1554, 'H36M_MESH': 606} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 104.27s
+	Evaluating [MC] on [AMASS]... costs 109.68s
+	Evaluating [MIB] on [AMASS]... costs 106.80s
+	Evaluating [PE] on [H36M_MESH]... costs 41.52s
+	Evaluating [MC] on [H36M_MESH]... costs 41.00s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.79s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   33  | 0.00014500 | 0.20197 | 217.66826 | 217.87023 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 54.47 | 75.10  | 47.53  |   86.11   | 101.74 | 70.90  | 63.48 | 69.16  | 52.15  |   90.47   | 96.03  | 70.07  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] 
+
+[33 end] Time cost: 24.88min 	| lr: 0.00014500
+[34 start]
+	Iter: 30/91; time cost: 5.97min; current batch has {'AMASS': 1551, 'H36M_MESH': 609} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.76min; current batch has {'AMASS': 1593, 'H36M_MESH': 567} samples; batch_size (total/sub): 2160/720
+[34 end] Time cost: 17.49min 	| lr: 0.00014355
+[35 start]
+	Iter: 30/91; time cost: 5.98min; current batch has {'AMASS': 1509, 'H36M_MESH': 651} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.72min; current batch has {'AMASS': 1575, 'H36M_MESH': 585} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.05s
+	Evaluating [MC] on [AMASS]... costs 106.35s
+	Evaluating [MIB] on [AMASS]... costs 107.72s
+	Evaluating [PE] on [H36M_MESH]... costs 40.09s
+	Evaluating [MC] on [H36M_MESH]... costs 39.42s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.36s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   35  | 0.00014211 | 0.19280 | 212.60129 | 212.79409 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 56.36 | 75.89  | 47.81  |   86.01   | 101.79 | 71.25  | 62.89 | 67.90  | 50.70  |   86.01   | 92.53  | 66.54  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: 
+
+[35 end] Time cost: 24.76min 	| lr: 0.00014211
+[36 start]
+	Iter: 30/91; time cost: 5.96min; current batch has {'AMASS': 1569, 'H36M_MESH': 591} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.69min; current batch has {'AMASS': 1497, 'H36M_MESH': 663} samples; batch_size (total/sub): 2160/720
+[36 end] Time cost: 17.43min 	| lr: 0.00014069
+[37 start]
+	Iter: 30/91; time cost: 5.96min; current batch has {'AMASS': 1524, 'H36M_MESH': 636} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.69min; current batch has {'AMASS': 1590, 'H36M_MESH': 570} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 107.10s
+	Evaluating [MC] on [AMASS]... costs 109.73s
+	Evaluating [MIB] on [AMASS]... costs 109.30s
+	Evaluating [PE] on [H36M_MESH]... costs 38.83s
+	Evaluating [MC] on [H36M_MESH]... costs 40.16s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.48s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   37  | 0.00013928 | 0.18879 | 210.32703 | 210.51583 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 56.26 | 74.68  | 48.29  |   82.31   | 99.80  | 69.45  | 61.41 | 66.34  | 49.93  |   87.10   | 92.63  | 66.99  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MC] 
+
+[37 end] Time cost: 24.87min 	| lr: 0.00013928
+[38 start]
+	Iter: 30/91; time cost: 5.94min; current batch has {'AMASS': 1521, 'H36M_MESH': 639} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.70min; current batch has {'AMASS': 1521, 'H36M_MESH': 639} samples; batch_size (total/sub): 2160/720
+[38 end] Time cost: 17.47min 	| lr: 0.00013789
+[39 start]
+	Iter: 30/91; time cost: 5.95min; current batch has {'AMASS': 1551, 'H36M_MESH': 609} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.67min; current batch has {'AMASS': 1548, 'H36M_MESH': 612} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.72s
+	Evaluating [MC] on [AMASS]... costs 106.17s
+	Evaluating [MIB] on [AMASS]... costs 106.41s
+	Evaluating [PE] on [H36M_MESH]... costs 38.28s
+	Evaluating [MC] on [H36M_MESH]... costs 39.31s
+	Evaluating [MIB] on [H36M_MESH]... costs 38.72s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   39  | 0.00013651 | 0.18778 | 208.28721 | 208.47499 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 55.37 | 70.41  | 48.32  |   68.72   | 86.37  | 58.76  | 60.24 | 65.13  | 48.69  |   83.50   | 90.16  | 65.18  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MC] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[39 end] Time cost: 24.71min 	| lr: 0.00013651
+[40 start]
+	Iter: 30/91; time cost: 5.97min; current batch has {'AMASS': 1551, 'H36M_MESH': 609} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.69min; current batch has {'AMASS': 1560, 'H36M_MESH': 600} samples; batch_size (total/sub): 2160/720
+[40 end] Time cost: 17.40min 	| lr: 0.00013515
+[41 start]
+	Iter: 30/91; time cost: 5.96min; current batch has {'AMASS': 1557, 'H36M_MESH': 603} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.71min; current batch has {'AMASS': 1581, 'H36M_MESH': 579} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 106.48s
+	Evaluating [MC] on [AMASS]... costs 104.67s
+	Evaluating [MIB] on [AMASS]... costs 106.64s
+	Evaluating [PE] on [H36M_MESH]... costs 39.45s
+	Evaluating [MC] on [H36M_MESH]... costs 39.74s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.13s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   41  | 0.00013379 | 0.18704 | 206.41862 | 206.60567 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 59.47 | 73.98  | 52.62  |   70.67   | 88.06  | 60.33  | 60.18 | 65.05  | 49.14  |   85.51   | 90.38  | 66.41  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: 
+
+[41 end] Time cost: 24.72min 	| lr: 0.00013379
+[42 start]
+	Iter: 30/91; time cost: 5.98min; current batch has {'AMASS': 1551, 'H36M_MESH': 609} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.69min; current batch has {'AMASS': 1539, 'H36M_MESH': 621} samples; batch_size (total/sub): 2160/720
+[42 end] Time cost: 17.43min 	| lr: 0.00013246
+[43 start]
+	Iter: 30/91; time cost: 5.96min; current batch has {'AMASS': 1545, 'H36M_MESH': 615} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.68min; current batch has {'AMASS': 1569, 'H36M_MESH': 591} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.52s
+	Evaluating [MC] on [AMASS]... costs 106.47s
+	Evaluating [MIB] on [AMASS]... costs 104.72s
+	Evaluating [PE] on [H36M_MESH]... costs 39.71s
+	Evaluating [MC] on [H36M_MESH]... costs 40.13s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.43s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   43  | 0.00013113 | 0.18545 | 206.96046 | 207.14591 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 57.83 | 72.24  | 51.63  |   72.39   | 92.82  | 64.46  | 61.97 | 65.71  | 50.93  |   84.51   | 88.97  | 64.73  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: 
+
+[43 end] Time cost: 24.68min 	| lr: 0.00013113
+[44 start]
+	Iter: 30/91; time cost: 5.94min; current batch has {'AMASS': 1557, 'H36M_MESH': 603} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.65min; current batch has {'AMASS': 1503, 'H36M_MESH': 657} samples; batch_size (total/sub): 2160/720
+[44 end] Time cost: 17.35min 	| lr: 0.00012982
+[45 start]
+	Iter: 30/91; time cost: 5.99min; current batch has {'AMASS': 1566, 'H36M_MESH': 594} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.73min; current batch has {'AMASS': 1566, 'H36M_MESH': 594} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.72s
+	Evaluating [MC] on [AMASS]... costs 105.83s
+	Evaluating [MIB] on [AMASS]... costs 107.37s
+	Evaluating [PE] on [H36M_MESH]... costs 40.99s
+	Evaluating [MC] on [H36M_MESH]... costs 38.90s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.14s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   45  | 0.00012852 | 0.18034 | 203.35997 | 203.54030 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 49.24 | 62.71  | 41.92  |   64.68   | 79.52  | 51.83  | 60.70 | 64.57  | 48.98  |   79.51   | 86.89  | 63.24  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[45 end] Time cost: 24.88min 	| lr: 0.00012852
+[46 start]
+	Iter: 30/91; time cost: 5.94min; current batch has {'AMASS': 1458, 'H36M_MESH': 702} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.66min; current batch has {'AMASS': 1554, 'H36M_MESH': 606} samples; batch_size (total/sub): 2160/720
+[46 end] Time cost: 17.37min 	| lr: 0.00012724
+[47 start]
+	Iter: 30/91; time cost: 5.99min; current batch has {'AMASS': 1560, 'H36M_MESH': 600} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.74min; current batch has {'AMASS': 1503, 'H36M_MESH': 657} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.01s
+	Evaluating [MC] on [AMASS]... costs 105.20s
+	Evaluating [MIB] on [AMASS]... costs 106.24s
+	Evaluating [PE] on [H36M_MESH]... costs 38.94s
+	Evaluating [MC] on [H36M_MESH]... costs 39.11s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.89s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   47  | 0.00012596 | 0.17729 | 201.95324 | 202.13053 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 50.13 | 64.20  | 42.65  |   63.47   | 77.31  | 49.26  | 60.58 | 65.02  | 49.88  |   81.85   | 84.81  | 62.27  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [H36M_MESH,PE] [H36M_MESH,MC] [H36M_MESH,MIB] 
+
+[47 end] Time cost: 24.77min 	| lr: 0.00012596
+[48 start]
+	Iter: 30/91; time cost: 5.95min; current batch has {'AMASS': 1623, 'H36M_MESH': 537} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.67min; current batch has {'AMASS': 1527, 'H36M_MESH': 633} samples; batch_size (total/sub): 2160/720
+[48 end] Time cost: 17.38min 	| lr: 0.00012471
+[49 start]
+	Iter: 30/91; time cost: 5.93min; current batch has {'AMASS': 1524, 'H36M_MESH': 636} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.63min; current batch has {'AMASS': 1506, 'H36M_MESH': 654} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 104.67s
+	Evaluating [MC] on [AMASS]... costs 104.89s
+	Evaluating [MIB] on [AMASS]... costs 105.50s
+	Evaluating [PE] on [H36M_MESH]... costs 39.12s
+	Evaluating [MC] on [H36M_MESH]... costs 39.09s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.21s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   49  | 0.00012346 | 0.17622 | 200.55682 | 200.73304 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 45.60 | 60.38  | 37.78  |   71.31   | 86.05  | 57.13  | 57.55 | 61.43  | 46.25  |   81.93   | 87.15  | 63.69  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MP] [AMASS,MC] [AMASS,MIB] 
+
+[49 end] Time cost: 24.60min 	| lr: 0.00012346
+[50 start]
+	Iter: 30/91; time cost: 5.95min; current batch has {'AMASS': 1572, 'H36M_MESH': 588} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.72min; current batch has {'AMASS': 1569, 'H36M_MESH': 591} samples; batch_size (total/sub): 2160/720
+[50 end] Time cost: 17.43min 	| lr: 0.00012222
+[51 start]
+	Iter: 30/91; time cost: 5.94min; current batch has {'AMASS': 1554, 'H36M_MESH': 606} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.64min; current batch has {'AMASS': 1488, 'H36M_MESH': 672} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 103.79s
+	Evaluating [MC] on [AMASS]... costs 103.55s
+	Evaluating [MIB] on [AMASS]... costs 103.83s
+	Evaluating [PE] on [H36M_MESH]... costs 39.00s
+	Evaluating [MC] on [H36M_MESH]... costs 39.15s
+	Evaluating [MIB] on [H36M_MESH]... costs 38.92s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   51  | 0.00012100 | 0.17416 | 199.35172 | 199.52587 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 50.09 | 63.87  | 42.92  |   65.90   | 79.70  | 51.70  | 58.05 | 61.50  | 46.70  |   82.22   | 84.97  | 61.47  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: 
+
+[51 end] Time cost: 24.49min 	| lr: 0.00012100
+[52 start]
+	Iter: 30/91; time cost: 5.97min; current batch has {'AMASS': 1545, 'H36M_MESH': 615} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.68min; current batch has {'AMASS': 1530, 'H36M_MESH': 630} samples; batch_size (total/sub): 2160/720
+[52 end] Time cost: 17.39min 	| lr: 0.00011979
+[53 start]
+	Iter: 30/91; time cost: 5.97min; current batch has {'AMASS': 1575, 'H36M_MESH': 585} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.69min; current batch has {'AMASS': 1530, 'H36M_MESH': 630} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 104.71s
+	Evaluating [MC] on [AMASS]... costs 103.87s
+	Evaluating [MIB] on [AMASS]... costs 106.52s
+	Evaluating [PE] on [H36M_MESH]... costs 39.16s
+	Evaluating [MC] on [H36M_MESH]... costs 39.96s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.70s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   53  | 0.00011859 | 0.17268 | 198.04306 | 198.21575 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 53.19 | 67.68  | 45.99  |   65.03   | 77.72  | 50.88  | 58.44 | 61.83  | 46.59  |   83.09   | 85.14  | 62.62  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: 
+
+[53 end] Time cost: 24.63min 	| lr: 0.00011859
+[54 start]
+	Iter: 30/91; time cost: 5.94min; current batch has {'AMASS': 1572, 'H36M_MESH': 588} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.65min; current batch has {'AMASS': 1521, 'H36M_MESH': 639} samples; batch_size (total/sub): 2160/720
+[54 end] Time cost: 17.36min 	| lr: 0.00011741
+[55 start]
+	Iter: 30/91; time cost: 6.00min; current batch has {'AMASS': 1506, 'H36M_MESH': 654} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.77min; current batch has {'AMASS': 1551, 'H36M_MESH': 609} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.26s
+	Evaluating [MC] on [AMASS]... costs 104.83s
+	Evaluating [MIB] on [AMASS]... costs 104.60s
+	Evaluating [PE] on [H36M_MESH]... costs 39.12s
+	Evaluating [MC] on [H36M_MESH]... costs 40.41s
+	Evaluating [MIB] on [H36M_MESH]... costs 38.74s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   55  | 0.00011623 | 0.16912 | 196.72993 | 196.89906 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 47.28 | 62.57  | 39.56  |   82.11   | 93.81  | 67.15  | 57.68 | 61.68  | 46.53  |   82.33   | 82.87  | 61.58  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: 
+
+[55 end] Time cost: 24.74min 	| lr: 0.00011623
+[56 start]
+	Iter: 30/91; time cost: 5.95min; current batch has {'AMASS': 1521, 'H36M_MESH': 639} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.65min; current batch has {'AMASS': 1551, 'H36M_MESH': 609} samples; batch_size (total/sub): 2160/720
+[56 end] Time cost: 17.37min 	| lr: 0.00011507
+[57 start]
+	Iter: 30/91; time cost: 5.94min; current batch has {'AMASS': 1476, 'H36M_MESH': 684} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.67min; current batch has {'AMASS': 1602, 'H36M_MESH': 558} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 104.85s
+	Evaluating [MC] on [AMASS]... costs 104.75s
+	Evaluating [MIB] on [AMASS]... costs 105.15s
+	Evaluating [PE] on [H36M_MESH]... costs 38.98s
+	Evaluating [MC] on [H36M_MESH]... costs 39.46s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.36s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   57  | 0.00011392 | 0.16907 | 195.64180 | 195.81087 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 50.82 | 65.45  | 42.85  |   72.36   | 86.25  | 57.86  | 60.19 | 62.79  | 49.49  |   79.67   | 82.75  | 60.08  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: 
+
+[57 end] Time cost: 24.60min 	| lr: 0.00011392
+[58 start]
+	Iter: 30/91; time cost: 5.94min; current batch has {'AMASS': 1503, 'H36M_MESH': 657} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.65min; current batch has {'AMASS': 1575, 'H36M_MESH': 585} samples; batch_size (total/sub): 2160/720
+[58 end] Time cost: 17.35min 	| lr: 0.00011278
+[59 start]
+	Iter: 30/91; time cost: 5.94min; current batch has {'AMASS': 1593, 'H36M_MESH': 567} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.66min; current batch has {'AMASS': 1518, 'H36M_MESH': 642} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 103.19s
+	Evaluating [MC] on [AMASS]... costs 105.73s
+	Evaluating [MIB] on [AMASS]... costs 105.49s
+	Evaluating [PE] on [H36M_MESH]... costs 39.21s
+	Evaluating [MC] on [H36M_MESH]... costs 39.11s
+	Evaluating [MIB] on [H36M_MESH]... costs 38.64s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   59  | 0.00011165 | 0.16856 | 194.59411 | 194.76267 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 56.05 | 68.40  | 48.90  |   69.51   | 86.39  | 60.82  | 56.26 | 60.09  | 44.90  |   84.05   | 83.44  | 62.56  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: 
+
+[59 end] Time cost: 24.58min 	| lr: 0.00011165
+[60 start]
+	Iter: 30/91; time cost: 5.96min; current batch has {'AMASS': 1509, 'H36M_MESH': 651} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.69min; current batch has {'AMASS': 1578, 'H36M_MESH': 582} samples; batch_size (total/sub): 2160/720
+[60 end] Time cost: 17.42min 	| lr: 0.00011054
+[61 start]
+	Iter: 30/91; time cost: 5.98min; current batch has {'AMASS': 1518, 'H36M_MESH': 642} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.70min; current batch has {'AMASS': 1584, 'H36M_MESH': 576} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 104.97s
+	Evaluating [MC] on [AMASS]... costs 105.36s
+	Evaluating [MIB] on [AMASS]... costs 106.77s
+	Evaluating [PE] on [H36M_MESH]... costs 39.58s
+	Evaluating [MC] on [H36M_MESH]... costs 39.85s
+	Evaluating [MIB] on [H36M_MESH]... costs 39.02s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   61  | 0.00010943 | 0.16711 | 193.51167 | 193.67878 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 54.00 | 69.89  | 46.82  |   87.79   | 101.96 | 75.55  | 57.29 | 61.56  | 46.58  |   79.15   | 83.07  | 60.52  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: 
+
+[61 end] Time cost: 24.69min 	| lr: 0.00010943
+[62 start]
+	Iter: 30/91; time cost: 5.93min; current batch has {'AMASS': 1554, 'H36M_MESH': 606} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.67min; current batch has {'AMASS': 1491, 'H36M_MESH': 669} samples; batch_size (total/sub): 2160/720
+[62 end] Time cost: 17.39min 	| lr: 0.00010834
+[63 start]
+	Iter: 30/91; time cost: 5.96min; current batch has {'AMASS': 1614, 'H36M_MESH': 546} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.66min; current batch has {'AMASS': 1560, 'H36M_MESH': 600} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 104.46s
+	Evaluating [MC] on [AMASS]... costs 104.20s
+	Evaluating [MIB] on [AMASS]... costs 103.65s
+	Evaluating [PE] on [H36M_MESH]... costs 38.87s
+	Evaluating [MC] on [H36M_MESH]... costs 39.03s
+	Evaluating [MIB] on [H36M_MESH]... costs 38.71s
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        | H36M_MESH |        |        | AMASS |        |        | H36M_MESH |        |        |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+|   63  | 0.00010725 | 0.16616 | 192.73156 | 192.89772 |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |   MP  |   MC   |  MIB   |     PE    |   MC   |  MIB   |
+|       |            |         |           |           | 45.75 | 59.94  | 38.29  |   63.25   | 78.17  | 49.49  | 57.09 | 60.59  | 45.86  |   78.56   | 85.07  | 61.28  |
++-------+------------+---------+-----------+-----------+-------+--------+--------+-----------+--------+--------+-------+--------+--------+-----------+--------+--------+
+	Saving best checkpoints: [AMASS,MC] [H36M_MESH,PE] 
+
+[63 end] Time cost: 24.57min 	| lr: 0.00010725
+[64 start]
+	Iter: 30/91; time cost: 5.94min; current batch has {'AMASS': 1542, 'H36M_MESH': 618} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.65min; current batch has {'AMASS': 1542, 'H36M_MESH': 618} samples; batch_size (total/sub): 2160/720
+[64 end] Time cost: 17.37min 	| lr: 0.00010618
+[65 start]
+	Iter: 30/91; time cost: 5.95min; current batch has {'AMASS': 1557, 'H36M_MESH': 603} samples; batch_size (total/sub): 2160/720
+	Iter: 60/91; time cost: 11.67min; current batch has {'AMASS': 1521, 'H36M_MESH': 639} samples; batch_size (total/sub): 2160/720
+	Evaluating [MP] on [AMASS]... costs 105.75s
+	Evaluating [MC] on [AMASS]... costs 104.11s
+	Evaluating [MIB] on [AMASS]... 
