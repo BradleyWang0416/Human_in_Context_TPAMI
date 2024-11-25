@@ -47,7 +47,7 @@ from scipy.spatial.transform import Rotation as R
 
 
 class MotionDatasetICL(Dataset):
-    def __init__(self, args, data_split, TASK=None, DATASET_NAME=None, SLICED_DATA=None, PROMPT_LOG=None):
+    def __init__(self, args, data_split, TASK=None, DATASET_NAME=None, SLICED_DATA=None, PROMPT_LOG=None, **kwargs):
         """
         dataset_task_info:
             train:
@@ -110,7 +110,7 @@ class MotionDatasetICL(Dataset):
                 self.prompt_log = PROMPT_LOG
         if self.is_train: self.sliced_data_dict = {}
         for dataset_name in self.datasets:
-            print(f"\tLoading {data_split} data from [{dataset_name}] for task: {self.task_dict[dataset_name]}...", end=' ')
+            if kwargs.get('rank', 0) == 0: print(f"\tLoading {data_split} data from [{dataset_name}] for task: {self.task_dict[dataset_name]}...", end=' ')
             st = time.time()
 
             dt_file = self.dataset_file[dataset_name]
@@ -128,7 +128,8 @@ class MotionDatasetICL(Dataset):
                                                 res = [1920, 1920] if dataset_name == 'PW3D_MESH' else None,
                                                 use_global_orient = self.dataset_config[dataset_name]['use_global_orient'],
                                                 return_skel3d=True,
-                                                return_smpl=self.use_smpl)
+                                                return_smpl=self.use_smpl,
+                                                **kwargs)
                 elif dataset_name == 'H36M_3D':
                     raise NotImplementedError
                 else:
@@ -152,7 +153,7 @@ class MotionDatasetICL(Dataset):
                     presave_file = os.path.join(presave_folder, 'sliced_data.pkl')
                     datareader_config_file = os.path.join(presave_folder, 'datareader_config.pkl')
                     if not os.path.exists(presave_file):
-                        print("Presaving...", end=' ')
+                        if kwargs.get('rank', 0) == 0: print("Presaving...", end=' ')
                         os.makedirs(presave_folder, exist_ok=True)
                         sliced_data = datareader.get_all_data()   # this step will change the self.split_id from None to the actual split_ids
                         datareader_config = get_class_attributes(datareader)
@@ -161,7 +162,7 @@ class MotionDatasetICL(Dataset):
                         with open(datareader_config_file, 'wb') as f:
                             pickle.dump(datareader_config, f)
                     else:
-                        print("Loading presaved...", end=' ')
+                        if kwargs.get('rank', 0) == 0: print("Loading presaved...", end=' ')
                         with open(datareader_config_file, 'rb') as f:
                             datareader_config = pickle.load(f)
                         assert datareader_config == get_class_attributes(datareader)
@@ -313,7 +314,7 @@ class MotionDatasetICL(Dataset):
                 joint_mask_presave_file = os.path.join(joint_mask_presave_path, 'joint_masks.pkl')
                 joint_mask_config_file = os.path.join(joint_mask_presave_path, 'joint_mask_config.pkl')
                 if not os.path.exists(joint_mask_presave_file):
-                    print("Presaving joint masks...", end=' ')
+                    if kwargs.get('rank', 0) == 0: print("Presaving joint masks...", end=' ')
                     os.makedirs(joint_mask_presave_path, exist_ok=True)
                     joint_masks = [random.sample(range(1,self.num_joint), int(self.joint_mask_ratio*self.num_joint)) for _ in range(num_query)]
                     joint_masks_config = {
@@ -331,7 +332,7 @@ class MotionDatasetICL(Dataset):
                     with open(joint_mask_config_file, 'wb') as f:
                         pickle.dump(joint_masks_config, f)
                 else:
-                    print("Loading joint masks...", end=' ')
+                    if kwargs.get('rank', 0) == 0: print("Loading joint masks...", end=' ')
                     with open(joint_mask_config_file, 'rb') as f:
                         joint_masks_config = pickle.load(f)
                     assert joint_masks_config == {
@@ -357,7 +358,7 @@ class MotionDatasetICL(Dataset):
                 frame_mask_presave_file = os.path.join(frame_mask_presave_path, 'frame_masks.pkl')
                 frame_mask_config_file = os.path.join(frame_mask_presave_path, 'frame_mask_config.pkl')
                 if not os.path.exists(frame_mask_presave_file):
-                    print("Presaving frame masks...", end=' ')
+                    if kwargs.get('rank', 0) == 0: print("Presaving frame masks...", end=' ')
                     os.makedirs(frame_mask_presave_path, exist_ok=True)
                     frame_masks = [random.sample(range(self.clip_len), int(self.frame_mask_ratio*self.clip_len)) for _ in range(num_query)]
                     frame_masks_config = {
@@ -374,7 +375,7 @@ class MotionDatasetICL(Dataset):
                     with open(frame_mask_config_file, 'wb') as f:
                         pickle.dump(frame_masks_config, f)
                 else:
-                    print("Loading frame masks...", end=' ')
+                    if kwargs.get('rank', 0) == 0: print("Loading frame masks...", end=' ')
                     with open(frame_mask_config_file, 'rb') as f:
                         frame_masks_config = pickle.load(f)
                     assert frame_masks_config == {
@@ -390,7 +391,7 @@ class MotionDatasetICL(Dataset):
                         frame_masks = pickle.load(f)
                 frame_mask_dict[dataset_name] = frame_masks
 
-            print(f"costs {time.time()-st:.2f}s... has {num_query}/{num_prompt} query/prompt samples")
+            if kwargs.get('rank', 0) == 0: print(f"costs {time.time()-st:.2f}s... has {num_query}/{num_prompt} query/prompt samples")
 
         self.query_list = query_list
         self.query_dict = query_dict
@@ -613,7 +614,8 @@ def collate_func(batch):    # batch: list, len=batch_size. list element: tuple c
 class DataReaderMesh(object):
     def __init__(self, dataset_name, split, n_frames, sample_stride, data_stride, read_confidence,
                  dt_root='', dt_file='', res=[1920, 1920],
-                 use_global_orient=True, return_skel3d=True, return_smpl=True):
+                 use_global_orient=True, return_skel3d=True, return_smpl=True,
+                 **kwargs):
         
         self.dt_root = dt_root
         self.dt_file = dt_file
@@ -633,6 +635,8 @@ class DataReaderMesh(object):
 
         self.split_id = None
         self.dt_dataset = None
+
+        self.rank = kwargs.get('rank', 0)
     
     def get_amass_dataset(self):
         dt_dataset = {}
@@ -703,7 +707,8 @@ class DataReaderMesh(object):
                 joints_2d[idx, :, :] = joints_2d[idx, :, :] / res_w * 2 - [1, res_h / res_w]
         else:
             # raise ValueError('No resolution information provided')
-            if designated_split == 'train': print('(No resolution information provided for normalizing 2D joints...)', end=' ')
+            if designated_split == 'train': 
+                if self.rank == 0: print('(No resolution information provided for normalizing 2D joints...)', end=' ')
 
         if self.read_confidence:
             if 'confidence' in self.dt_dataset[split]:

@@ -52,8 +52,8 @@ CONNECTIONS_H36M_J17_JOINT = {10: [9], 9: [8, 10], 8: [7, 9], 14: [15, 8], 15: [
                               7: [0, 8], 0: [1, 7], 1: [2, 0], 2: [3, 1], 4: [5, 0], 5: [6, 4], 16: [15], 13: [12], 3: [2], 6: [5]}
 
 class MotionDatasetICL(MotionDatasetICL_VER7):
-    def __init__(self, args, data_split, TASK=None, DATASET_NAME=None, SLICED_DATA=None, PROMPT_LOG=None):
-        super().__init__(args, data_split, TASK, DATASET_NAME, SLICED_DATA, PROMPT_LOG)
+    def __init__(self, args, data_split, TASK=None, DATASET_NAME=None, SLICED_DATA=None, PROMPT_LOG=None, **kwargs):
+        super().__init__(args, data_split, TASK, DATASET_NAME, SLICED_DATA, PROMPT_LOG, **kwargs)
 
         for dataset_name in self.query_dict.keys():
             assert self.query_dict[dataset_name]['smpl_pose'].shape[-2:] == (24, 3)

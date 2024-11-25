@@ -977,3 +977,44 @@ Training on [['non_AR', 187]] batches for 120 epochs. batch size: 92
 	Iter: 62/187; time cost: 13.31min; current batch has {'AMASS': 344, 'H36M_MESH': 144, 'COCO': 93} samples; batch_size (total/sub): 581/29
 	[check randomness] query_id: 0, prompt_id: 33873
 	Iter: 124/187; time cost: 25.96min; current batch has {'AMASS': 344, 'H36M_MESH': 152, 'COCO': 90} samples; batch_size (total/sub): 586/34
+	Evaluating [PE] on [AMASS]... costs 23.23s
+	Evaluating [FPE] on [AMASS]... costs 23.19s
+	Evaluating [MC] on [AMASS]... costs 23.00s
+	Evaluating [MP] on [AMASS]... costs 22.90s
+	Evaluating [MIB] on [AMASS]... costs 22.93s
+	Evaluating [MeshCompletion] on [AMASS]... costs 22.75s
+	Evaluating [MeshPred] on [AMASS]... costs 22.71s
+	Evaluating [MeshInBetween] on [AMASS]... costs 22.90s
+	Evaluating [PE] on [H36M_MESH]... costs 8.99s
+	Evaluating [FPE] on [H36M_MESH]... costs 8.98s
+	Evaluating [MC] on [H36M_MESH]... costs 9.06s
+	Evaluating [MP] on [H36M_MESH]... costs 9.03s
+	Evaluating [MIB] on [H36M_MESH]... costs 9.09s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 9.00s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 8.96s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 8.93s
+	Evaluating [PE] on [PW3D_MESH]... costs 6.53s
+	Evaluating [FPE] on [PW3D_MESH]... costs 6.52s
+	Evaluating [MC] on [PW3D_MESH]... costs 6.54s
+	Evaluating [MP] on [PW3D_MESH]... costs 6.53s
+	Evaluating [MIB] on [PW3D_MESH]... costs 6.53s
+	Evaluating [MeshCompletion] on [PW3D_MESH]... costs 6.50s
+	Evaluating [MeshPred] on [PW3D_MESH]... costs 6.49s
+	Evaluating [MeshInBetween] on [PW3D_MESH]... costs 6.52s
+	Evaluating [PE] on [COCO]... costs 14.52s
+	Evaluating [MC] on [COCO]... costs 14.53s
+	Evaluating [MeshCompletion] on [COCO]... costs 14.57s
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               | COCO |        |                | AMASS |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               | COCO |        |                |
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+
+|   21  | 0.00016358 | 0.30709 | 270.35285 | 270.65994 |   PE  |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |  PE  |   MC   | MeshCompletion |   PE  |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 89.59 | 104.78 | 119.12 | 103.63 | 89.36  |     104.37     |  105.58  |     94.37     |   154.63  | 184.66 | 186.18 | 180.80 | 149.38 |     169.29     |  189.79  |     158.05    |   132.88  | 142.87 | 147.59 | 130.54 | 119.43 |     130.92     |  139.27  |     125.38    | 8.71 | 10.19  |      8.80      | 98.43 | 119.86 | 115.00 | 117.90 | 96.52  |     119.30     |  116.20  |     100.93    |   178.37  | 224.62 | 201.66 | 220.82 | 170.86 |     193.61     |  224.71  |     172.76    |   164.97  | 179.05 | 168.59 | 161.77 | 144.76 |     156.87     |  168.29  |     146.11    | 9.60 | 10.19  |      9.75      |
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+
+	Saving best checkpoints: [PW3D_MESH,MeshCompletion] [PW3D_MESH,MeshInBetween] 
+
+[21 end] Time cost: 45.90min 	| lr: 0.00016358
+[22 start]
+	Total sub-batch: 6
+	DDP is being applied.
+	Iter: 62/187; time cost: 13.14min; current batch has {'AMASS': 416, 'H36M_MESH': 104, 'COCO': 81} samples; batch_size (total/sub): 601/49
+	[check randomness] query_id: 0, prompt_id: 7941

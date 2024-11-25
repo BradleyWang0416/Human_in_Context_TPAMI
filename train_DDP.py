@@ -234,7 +234,7 @@ def train_with_config(rank, world_size, args, opts):
             except:
                 print(f'\tNo customized <collate_func> found for ver{dataset_VER}. Use default collate_fn.')
         if dataset_VER in ['8_ICL']:
-            train_dataset = DATASET(args, data_split='train')
+            train_dataset = DATASET(args, data_split='train', rank=rank)
             try:
                 collate_func = import_function(func_name=f'funcs_and_classes.Non_AR.dataset.ver{dataset_VER}.collate_func_train')
                 trainloader_params.update({'collate_fn': collate_func})
@@ -275,7 +275,8 @@ def train_with_config(rank, world_size, args, opts):
                         'data_split': 'test', 
                         'TASK': eval_task, 
                         'DATASET_NAME': dataset_name, 
-                        'SLICED_DATA': train_dataset.sliced_data_dict[dataset_name]
+                        'SLICED_DATA': train_dataset.sliced_data_dict[dataset_name],
+                        'rank': rank
                     }
                     if hasattr(train_dataset, 'prompt_log'):
                         test_dataset_params['PROMPT_LOG'] = train_dataset.prompt_log

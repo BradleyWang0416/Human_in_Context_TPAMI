@@ -52,8 +52,8 @@ CONNECTIONS_H36M_J17_JOINT = {10: [9], 9: [8, 10], 8: [7, 9], 14: [15, 8], 15: [
                               7: [0, 8], 0: [1, 7], 1: [2, 0], 2: [3, 1], 4: [5, 0], 5: [6, 4], 16: [15], 13: [12], 3: [2], 6: [5]}
 
 class MotionDatasetICL(MotionDatasetICL_VER5):
-    def __init__(self, args, data_split, TASK=None, DATASET_NAME=None, SLICED_DATA=None, PROMPT_LOG=None):
-        super().__init__(args, data_split, TASK, DATASET_NAME, SLICED_DATA, PROMPT_LOG)
+    def __init__(self, args, data_split, TASK=None, DATASET_NAME=None, SLICED_DATA=None, PROMPT_LOG=None, **kwargs):
+        super().__init__(args, data_split, TASK, DATASET_NAME, SLICED_DATA, PROMPT_LOG, **kwargs)
 
         for dataset_name in self.query_dict.keys():
             self.query_dict[dataset_name]['smpl_pose'] = self.query_dict[dataset_name]['smpl_pose'].reshape(self.query_dict[dataset_name]['smpl_pose'].shape[0], -1, 24, 3)
@@ -66,7 +66,7 @@ class MotionDatasetICL(MotionDatasetICL_VER5):
         for dataset_name in self.datasets:
             n_frames = self.dataset_config[dataset_name].get('clip_len', self.clip_len) * 2
             if 'MeshCompletion' in self.task_dict[dataset_name]:
-                print(f"\tPreparing {data_split} [mesh joint masks] from [{dataset_name}] for task: [MeshCompletion]...", end=' ')
+                if kwargs.get('rank', 0) == 0: print(f"\tPreparing {data_split} [mesh joint masks] from [{dataset_name}] for task: [MeshCompletion]...", end=' ')
                 mesh_joint_mask_presave_path = os.path.join(args.presave_folder, 'mesh_joint_masks', dataset_name,
                                                 f'nframes{self.dataset_config[dataset_name].get("clip_len", self.clip_len) * 2} - samplestride{self.dataset_config[dataset_name]["sample_stride"]} - '
                                                 +f'datastridetrain{self.dataset_config[dataset_name]["data_stride"]["train"]} - datastridetest{self.dataset_config[dataset_name]["data_stride"]["test"]} - '
@@ -76,7 +76,7 @@ class MotionDatasetICL(MotionDatasetICL_VER5):
                 mesh_joint_mask_presave_file = os.path.join(mesh_joint_mask_presave_path, 'mesh_joint_masks.pkl')
                 mesh_joint_mask_config_file = os.path.join(mesh_joint_mask_presave_path, 'mesh_joint_mask_config.pkl')
                 if not os.path.exists(mesh_joint_mask_presave_file):
-                    print("Presaving mesh joint masks...")
+                    if kwargs.get('rank', 0) == 0: print("Presaving mesh joint masks...")
                     os.makedirs(mesh_joint_mask_presave_path, exist_ok=True)
                     mesh_joint_masks = [random.sample(range(1,self.num_mesh_joint), int(self.mesh_joint_mask_ratio*self.num_mesh_joint)) for _ in range(self.num_query_dict[dataset_name])]
                     mesh_joint_masks_config = {
@@ -94,7 +94,7 @@ class MotionDatasetICL(MotionDatasetICL_VER5):
                     with open(mesh_joint_mask_config_file, 'wb') as f:
                         pickle.dump(mesh_joint_masks_config, f)
                 else:
-                    print("Loading mesh joint masks...")
+                    if kwargs.get('rank', 0) == 0: print("Loading mesh joint masks...")
                     with open(mesh_joint_mask_config_file, 'rb') as f:
                         mesh_joint_masks_config = pickle.load(f)
                     assert mesh_joint_masks_config == {
