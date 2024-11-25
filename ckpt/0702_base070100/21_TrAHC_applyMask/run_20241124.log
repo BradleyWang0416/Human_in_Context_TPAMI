@@ -824,3 +824,156 @@ Training on [['non_AR', 187]] batches for 120 epochs. batch size: 92
 [15 start]
 	Total sub-batch: 7
 	DDP is being applied.
+	Iter: 62/187; time cost: 13.28min; current batch has {'AMASS': 344, 'H36M_MESH': 56, 'COCO': 126} samples; batch_size (total/sub): 526/66
+	[check randomness] query_id: 0, prompt_id: 25721
+	Iter: 124/187; time cost: 25.99min; current batch has {'AMASS': 320, 'H36M_MESH': 160, 'COCO': 96} samples; batch_size (total/sub): 576/24
+	Evaluating [PE] on [AMASS]... costs 23.31s
+	Evaluating [FPE] on [AMASS]... costs 22.89s
+	Evaluating [MC] on [AMASS]... costs 23.09s
+	Evaluating [MP] on [AMASS]... costs 23.14s
+	Evaluating [MIB] on [AMASS]... costs 23.09s
+	Evaluating [MeshCompletion] on [AMASS]... costs 22.95s
+	Evaluating [MeshPred] on [AMASS]... costs 22.89s
+	Evaluating [MeshInBetween] on [AMASS]... costs 22.91s
+	Evaluating [PE] on [H36M_MESH]... costs 9.09s
+	Evaluating [FPE] on [H36M_MESH]... costs 9.13s
+	Evaluating [MC] on [H36M_MESH]... costs 9.13s
+	Evaluating [MP] on [H36M_MESH]... costs 9.09s
+	Evaluating [MIB] on [H36M_MESH]... costs 9.11s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 9.05s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 9.03s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 9.06s
+	Evaluating [PE] on [PW3D_MESH]... costs 6.58s
+	Evaluating [FPE] on [PW3D_MESH]... costs 6.60s
+	Evaluating [MC] on [PW3D_MESH]... costs 6.65s
+	Evaluating [MP] on [PW3D_MESH]... costs 6.60s
+	Evaluating [MIB] on [PW3D_MESH]... costs 6.62s
+	Evaluating [MeshCompletion] on [PW3D_MESH]... costs 6.58s
+	Evaluating [MeshPred] on [PW3D_MESH]... costs 6.56s
+	Evaluating [MeshInBetween] on [PW3D_MESH]... costs 6.58s
+	Evaluating [PE] on [COCO]... costs 14.62s
+	Evaluating [MC] on [COCO]... costs 14.67s
+	Evaluating [MeshCompletion] on [COCO]... costs 14.63s
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               | COCO |        |                | AMASS  |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               | COCO |        |                |
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+
+|   15  | 0.00017375 | 0.33039 | 283.57878 | 283.90917 |   PE  |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |  PE  |   MC   | MeshCompletion |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 86.91 | 101.05 | 115.84 | 99.85  | 87.31  |     106.27     |  105.96  |     96.36     |   154.62  | 183.65 | 185.18 | 177.28 | 145.76 |     234.33     |  242.94  |     231.83    |   131.26  | 139.18 | 145.60 | 130.37 | 119.21 |     172.42     |  176.92  |     175.06    | 8.24 | 10.14  |      8.83      | 102.55 | 122.97 | 119.30 | 120.50 | 101.42 |     129.97     |  126.43  |     112.91    |   193.36  | 235.82 | 217.44 | 230.50 | 185.12 |     319.78     |  323.72  |     312.04    |   170.83  | 183.15 | 178.60 | 172.73 | 156.60 |     243.89     |  247.59  |     245.78    | 9.87 | 10.91  |     10.86      |
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+
+	Saving best checkpoints: [AMASS,PE] [AMASS,FPE] [AMASS,MC] [AMASS,MIB] [AMASS,MeshCompletion] [AMASS,MeshPred] [AMASS,MeshInBetween] [H36M_MESH,PE] [H36M_MESH,FPE] [H36M_MESH,MIB] [H36M_MESH,MeshInBetween] [PW3D_MESH,PE] [PW3D_MESH,FPE] [PW3D_MESH,MC] [PW3D_MESH,MP] [PW3D_MESH,MIB] [PW3D_MESH,MeshCompletion] [PW3D_MESH,MeshPred] [PW3D_MESH,MeshInBetween] [COCO,PE] [COCO,MC] [COCO,MeshCompletion] 
+
+[15 end] Time cost: 47.03min 	| lr: 0.00017375
+[16 start]
+	Total sub-batch: 7
+	DDP is being applied.
+	Iter: 62/187; time cost: 13.20min; current batch has {'AMASS': 376, 'H36M_MESH': 144, 'COCO': 81} samples; batch_size (total/sub): 601/49
+	Iter: 124/187; time cost: 25.90min; current batch has {'AMASS': 336, 'H36M_MESH': 96, 'COCO': 114} samples; batch_size (total/sub): 546/86
+	[check randomness] query_id: 0, prompt_id: 13458
+[16 end] Time cost: 39.84min 	| lr: 0.00017201
+[17 start]
+	Total sub-batch: 7
+	DDP is being applied.
+	[check randomness] query_id: 0, prompt_id: 14814
+	Iter: 62/187; time cost: 13.57min; current batch has {'AMASS': 360, 'H36M_MESH': 128, 'COCO': 93} samples; batch_size (total/sub): 581/29
+	Iter: 124/187; time cost: 26.30min; current batch has {'AMASS': 328, 'H36M_MESH': 128, 'COCO': 105} samples; batch_size (total/sub): 561/9
+	Evaluating [PE] on [AMASS]... costs 23.06s
+	Evaluating [FPE] on [AMASS]... costs 22.92s
+	Evaluating [MC] on [AMASS]... costs 22.98s
+	Evaluating [MP] on [AMASS]... costs 22.87s
+	Evaluating [MIB] on [AMASS]... costs 22.87s
+	Evaluating [MeshCompletion] on [AMASS]... costs 22.83s
+	Evaluating [MeshPred] on [AMASS]... costs 22.93s
+	Evaluating [MeshInBetween] on [AMASS]... costs 22.80s
+	Evaluating [PE] on [H36M_MESH]... costs 9.02s
+	Evaluating [FPE] on [H36M_MESH]... costs 9.05s
+	Evaluating [MC] on [H36M_MESH]... costs 9.05s
+	Evaluating [MP] on [H36M_MESH]... costs 9.29s
+	Evaluating [MIB] on [H36M_MESH]... costs 9.14s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 9.12s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 9.08s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 8.98s
+	Evaluating [PE] on [PW3D_MESH]... costs 6.58s
+	Evaluating [FPE] on [PW3D_MESH]... costs 6.54s
+	Evaluating [MC] on [PW3D_MESH]... costs 6.55s
+	Evaluating [MP] on [PW3D_MESH]... costs 6.61s
+	Evaluating [MIB] on [PW3D_MESH]... costs 6.58s
+	Evaluating [MeshCompletion] on [PW3D_MESH]... costs 6.52s
+	Evaluating [MeshPred] on [PW3D_MESH]... costs 6.50s
+	Evaluating [MeshInBetween] on [PW3D_MESH]... costs 6.52s
+	Evaluating [PE] on [COCO]... costs 14.67s
+	Evaluating [MC] on [COCO]... costs 14.58s
+	Evaluating [MeshCompletion] on [COCO]... costs 14.44s
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               | COCO |        |                | AMASS  |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               | COCO |        |                |
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+
+|   17  | 0.00017029 | 0.32763 | 282.31318 | 282.64081 |   PE  |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |  PE  |   MC   | MeshCompletion |   PE   |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 85.90 | 99.68  | 115.77 | 98.47  | 85.34  |     103.05     |  100.26  |     91.54     |   151.87  | 184.74 | 181.31 | 178.83 | 145.32 |     222.85     |  233.68  |     220.47    |   129.90  | 139.86 | 145.62 | 127.85 | 116.14 |     162.51     |  167.98  |     163.22    | 8.40 | 10.07  |      8.96      | 105.43 | 126.07 | 123.99 | 123.40 | 102.84 |     128.71     |  122.61  |     109.54    |   186.89  | 234.95 | 210.69 | 229.23 | 180.60 |     310.18     |  315.95  |     300.65    |   170.99  | 185.71 | 176.76 | 169.94 | 152.54 |     234.51     |  239.47  |     233.77    | 9.98 | 10.69  |     10.90      |
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+--------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+
+	Saving best checkpoints: [AMASS,PE] [AMASS,FPE] [AMASS,MC] [AMASS,MP] [AMASS,MIB] [AMASS,MeshCompletion] [AMASS,MeshPred] [AMASS,MeshInBetween] [H36M_MESH,PE] [H36M_MESH,MIB] [H36M_MESH,MeshCompletion] [H36M_MESH,MeshPred] [H36M_MESH,MeshInBetween] [PW3D_MESH,PE] [PW3D_MESH,MP] [PW3D_MESH,MIB] [PW3D_MESH,MeshCompletion] [PW3D_MESH,MeshPred] [PW3D_MESH,MeshInBetween] [COCO,MC] 
+
+[17 end] Time cost: 46.64min 	| lr: 0.00017029
+[18 start]
+	Total sub-batch: 6
+	DDP is being applied.
+	Iter: 62/187; time cost: 13.90min; current batch has {'AMASS': 352, 'H36M_MESH': 144, 'COCO': 90} samples; batch_size (total/sub): 586/34
+	Iter: 124/187; time cost: 26.76min; current batch has {'AMASS': 352, 'H36M_MESH': 112, 'COCO': 102} samples; batch_size (total/sub): 566/14
+	[check randomness] query_id: 0, prompt_id: 809
+
+	Epoch info dict failed to be created and saved.
+
+[18 end] Time cost: 40.13min 	| lr: 0.00016859
+[19 start]
+	Total sub-batch: 6
+	DDP is being applied.
+	Iter: 62/187; time cost: 13.71min; current batch has {'AMASS': 376, 'H36M_MESH': 112, 'COCO': 93} samples; batch_size (total/sub): 581/29
+	Iter: 124/187; time cost: 26.48min; current batch has {'AMASS': 336, 'H36M_MESH': 128, 'COCO': 102} samples; batch_size (total/sub): 566/14
+	[check randomness] query_id: 0, prompt_id: 14982
+	Evaluating [PE] on [AMASS]... costs 23.24s
+	Evaluating [FPE] on [AMASS]... costs 23.26s
+	Evaluating [MC] on [AMASS]... costs 23.05s
+	Evaluating [MP] on [AMASS]... costs 23.10s
+	Evaluating [MIB] on [AMASS]... costs 23.06s
+	Evaluating [MeshCompletion] on [AMASS]... costs 22.91s
+	Evaluating [MeshPred] on [AMASS]... costs 23.03s
+	Evaluating [MeshInBetween] on [AMASS]... costs 23.05s
+	Evaluating [PE] on [H36M_MESH]... costs 9.07s
+	Evaluating [FPE] on [H36M_MESH]... costs 9.06s
+	Evaluating [MC] on [H36M_MESH]... costs 9.08s
+	Evaluating [MP] on [H36M_MESH]... costs 9.04s
+	Evaluating [MIB] on [H36M_MESH]... costs 9.06s
+	Evaluating [MeshCompletion] on [H36M_MESH]... costs 9.02s
+	Evaluating [MeshPred] on [H36M_MESH]... costs 9.03s
+	Evaluating [MeshInBetween] on [H36M_MESH]... costs 9.07s
+	Evaluating [PE] on [PW3D_MESH]... costs 6.59s
+	Evaluating [FPE] on [PW3D_MESH]... costs 6.58s
+	Evaluating [MC] on [PW3D_MESH]... costs 6.60s
+	Evaluating [MP] on [PW3D_MESH]... costs 6.57s
+	Evaluating [MIB] on [PW3D_MESH]... costs 6.58s
+	Evaluating [MeshCompletion] on [PW3D_MESH]... costs 6.59s
+	Evaluating [MeshPred] on [PW3D_MESH]... costs 6.53s
+	Evaluating [MeshInBetween] on [PW3D_MESH]... costs 6.55s
+	Evaluating [PE] on [COCO]... costs 14.58s
+	Evaluating [MC] on [COCO]... costs 14.66s
+	Evaluating [MeshCompletion] on [COCO]... costs 14.79s
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | AMASS |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               | COCO |        |                | AMASS |        |        |        |        |                |          |               | H36M_MESH |        |        |        |        |                |          |               | PW3D_MESH |        |        |        |        |                |          |               |  COCO |        |                |
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+
+|   19  | 0.00016690 | 0.31113 | 272.38434 | 272.69547 |   PE  |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |  PE  |   MC   | MeshCompletion |   PE  |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |     PE    |  FPE   |   MC   |   MP   |  MIB   | MeshCompletion | MeshPred | MeshInBetween |   PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 79.01 | 94.47  | 107.14 | 93.09  | 78.58  |     95.07      |  96.05   |     84.52     |   159.16  | 189.37 | 175.31 | 170.21 | 135.19 |     158.16     |  179.39  |     148.21    |   159.97  | 166.69 | 153.09 | 129.02 | 117.04 |     133.02     |  139.08  |     127.45    | 9.85 | 10.19  |      8.47      | 99.37 | 120.95 | 116.18 | 118.69 | 97.47  |     121.35     |  118.29  |     102.14    |   203.42  | 245.84 | 212.81 | 227.15 | 178.29 |     204.78     |  230.32  |     184.16    |   203.98  | 213.66 | 186.86 | 173.76 | 157.06 |     170.11     |  178.03  |     159.73    | 11.91 | 11.38  |     10.47      |
++-------+------------+---------+-----------+-----------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+------+--------+----------------+-------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-----------+--------+--------+--------+--------+----------------+----------+---------------+-------+--------+----------------+
+	Saving best checkpoints: [AMASS,PE] [AMASS,FPE] [AMASS,MC] [AMASS,MP] [AMASS,MIB] [AMASS,MeshCompletion] [AMASS,MeshPred] [AMASS,MeshInBetween] [H36M_MESH,MC] [H36M_MESH,MP] [H36M_MESH,MIB] [H36M_MESH,MeshCompletion] [H36M_MESH,MeshPred] [H36M_MESH,MeshInBetween] [PW3D_MESH,MeshCompletion] [PW3D_MESH,MeshPred] [PW3D_MESH,MeshInBetween] [COCO,MeshCompletion] 
+
+[19 end] Time cost: 47.60min 	| lr: 0.00016690
+[20 start]
+	Total sub-batch: 6
+	DDP is being applied.
+	Iter: 62/187; time cost: 13.11min; current batch has {'AMASS': 352, 'H36M_MESH': 144, 'COCO': 90} samples; batch_size (total/sub): 586/34
+	[check randomness] query_id: 0, prompt_id: 29643
+	Iter: 124/187; time cost: 26.02min; current batch has {'AMASS': 288, 'H36M_MESH': 144, 'COCO': 114} samples; batch_size (total/sub): 546/86
+[20 end] Time cost: 40.13min 	| lr: 0.00016523
+[21 start]
+	Total sub-batch: 7
+	DDP is being applied.
+	Iter: 62/187; time cost: 13.31min; current batch has {'AMASS': 344, 'H36M_MESH': 144, 'COCO': 93} samples; batch_size (total/sub): 581/29
+	[check randomness] query_id: 0, prompt_id: 33873
+	Iter: 124/187; time cost: 25.96min; current batch has {'AMASS': 344, 'H36M_MESH': 152, 'COCO': 90} samples; batch_size (total/sub): 586/34
