@@ -106,3 +106,252 @@ Training on [['non_AR', 229]] batches for 120 epochs. batch size: 164
 	Total sub-batch: 3
 	DDP is being applied.
 	Iter: 76/229; time cost: 9.61min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	[check randomness] query_id: 0, prompt_id: 20257
+	Iter: 152/229; time cost: 19.10min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Evaluating [PE] on [COCO]... costs 82.01s
+	Evaluating [MC] on [COCO]... costs 83.79s
+	Evaluating [MeshCompletion] on [COCO]... costs 83.54s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   4   | 0.00019406 | 0.12591 | 142.15456 | 142.28047 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 7.86 |  8.43  |      7.49      | 6.23 |  4.86  |      5.69      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: 
+
+[4 end] Time cost: 32.99min 	| lr: 0.00019406
+[5 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	Iter: 76/229; time cost: 9.53min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	[check randomness] query_id: 0, prompt_id: 29551
+	Iter: 152/229; time cost: 18.95min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Evaluating [PE] on [COCO]... costs 81.15s
+	Evaluating [MC] on [COCO]... costs 82.02s
+	Evaluating [MeshCompletion] on [COCO]... costs 82.52s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   5   | 0.00019212 | 0.12123 | 138.29344 | 138.41466 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 6.05 |  6.51  |      5.15      | 5.94 |  4.63  |      4.93      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: [COCO,PE] [COCO,MC] [COCO,MeshCompletion] 
+
+[5 end] Time cost: 32.96min 	| lr: 0.00019212
+[6 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	[check randomness] query_id: 0, prompt_id: 25494
+	Iter: 76/229; time cost: 9.60min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Iter: 152/229; time cost: 19.02min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Evaluating [PE] on [COCO]... costs 83.29s
+	Evaluating [MC] on [COCO]... costs 83.88s
+	Evaluating [MeshCompletion] on [COCO]... costs 83.69s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   6   | 0.00019020 | 0.11427 | 135.49499 | 135.60926 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 6.27 |  6.66  |      5.57      | 5.92 |  4.43  |      4.92      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: 
+
+[6 end] Time cost: 32.84min 	| lr: 0.00019020
+[7 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	[check randomness] query_id: 0, prompt_id: 30393
+	Iter: 76/229; time cost: 9.64min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Iter: 152/229; time cost: 19.12min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Evaluating [PE] on [COCO]... costs 82.98s
+	Evaluating [MC] on [COCO]... costs 84.14s
+	Evaluating [MeshCompletion] on [COCO]... costs 82.73s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   7   | 0.00018830 | 0.11079 | 133.62811 | 133.73889 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 6.31 |  6.52  |      5.36      | 5.83 |  4.35  |      4.54      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: 
+
+[7 end] Time cost: 33.01min 	| lr: 0.00018830
+[8 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	Iter: 76/229; time cost: 9.51min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Iter: 152/229; time cost: 18.97min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	[check randomness] query_id: 0, prompt_id: 18080
+	Evaluating [PE] on [COCO]... costs 81.51s
+	Evaluating [MC] on [COCO]... costs 83.08s
+	Evaluating [MeshCompletion] on [COCO]... costs 84.23s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   8   | 0.00018641 | 0.10745 | 132.35069 | 132.45814 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 7.71 |  8.02  |      6.84      | 5.80 |  4.19  |      4.12      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: 
+
+[8 end] Time cost: 32.89min 	| lr: 0.00018641
+[9 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	[check randomness] query_id: 0, prompt_id: 19568
+	Iter: 76/229; time cost: 9.63min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Iter: 152/229; time cost: 19.04min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Evaluating [PE] on [COCO]... costs 82.40s
+	Evaluating [MC] on [COCO]... costs 82.32s
+	Evaluating [MeshCompletion] on [COCO]... costs 82.41s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   9   | 0.00018455 | 0.10268 | 131.27736 | 131.38004 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 6.98 |  7.19  |      6.01      | 5.65 |  4.13  |      4.20      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: 
+
+[9 end] Time cost: 32.89min 	| lr: 0.00018455
+[10 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	Iter: 76/229; time cost: 9.60min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Iter: 152/229; time cost: 19.08min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	[check randomness] query_id: 0, prompt_id: 12528
+	Evaluating [PE] on [COCO]... costs 79.55s
+	Evaluating [MC] on [COCO]... costs 80.56s
+	Evaluating [MeshCompletion] on [COCO]... costs 79.58s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   10  | 0.00018270 | 0.10160 | 130.33100 | 130.43260 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 6.67 |  6.90  |      5.75      | 5.53 |  4.06  |      3.96      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: 
+
+[10 end] Time cost: 32.82min 	| lr: 0.00018270
+[11 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	[check randomness] query_id: 0, prompt_id: 11759
+	Iter: 76/229; time cost: 9.57min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Iter: 152/229; time cost: 19.03min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Evaluating [PE] on [COCO]... costs 83.20s
+	Evaluating [MC] on [COCO]... costs 84.75s
+	Evaluating [MeshCompletion] on [COCO]... costs 82.88s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   11  | 0.00018088 | 0.09860 | 129.38586 | 129.48445 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 7.60 |  7.87  |      6.66      | 5.63 |  4.08  |      3.84      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: 
+
+[11 end] Time cost: 32.97min 	| lr: 0.00018088
+[12 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	Iter: 76/229; time cost: 9.59min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	[check randomness] query_id: 0, prompt_id: 1866
+	Iter: 152/229; time cost: 18.94min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+[12 end] Time cost: 28.67min 	| lr: 0.00017907
+[13 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	Iter: 76/229; time cost: 9.58min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Iter: 152/229; time cost: 19.04min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	[check randomness] query_id: 0, prompt_id: 28239
+	Evaluating [PE] on [COCO]... costs 79.38s
+	Evaluating [MC] on [COCO]... costs 79.45s
+	Evaluating [MeshCompletion] on [COCO]... costs 80.25s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   13  | 0.00017728 | 0.09598 | 127.93926 | 128.03525 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 5.33 |  5.68  |      4.05      | 5.39 |  3.94  |      3.72      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: [COCO,PE] [COCO,MC] [COCO,MeshCompletion] 
+
+[13 end] Time cost: 32.90min 	| lr: 0.00017728
+[14 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	Iter: 76/229; time cost: 9.55min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Iter: 152/229; time cost: 19.00min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	[check randomness] query_id: 0, prompt_id: 25669
+[14 end] Time cost: 28.74min 	| lr: 0.00017550
+[15 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	Iter: 76/229; time cost: 9.59min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	[check randomness] query_id: 0, prompt_id: 7132
+	Iter: 152/229; time cost: 18.96min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Evaluating [PE] on [COCO]... costs 81.86s
+	Evaluating [MC] on [COCO]... costs 84.04s
+	Evaluating [MeshCompletion] on [COCO]... costs 83.72s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   15  | 0.00017375 | 0.09707 | 127.06519 | 127.16226 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 7.04 |  7.62  |      6.17      | 5.35 |  3.81  |      3.56      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: 
+
+[15 end] Time cost: 32.81min 	| lr: 0.00017375
+[16 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	Iter: 76/229; time cost: 9.61min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Iter: 152/229; time cost: 19.07min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	[check randomness] query_id: 0, prompt_id: 31341
+[16 end] Time cost: 28.81min 	| lr: 0.00017201
+[17 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	[check randomness] query_id: 0, prompt_id: 27902
+	Iter: 76/229; time cost: 9.48min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Iter: 152/229; time cost: 18.94min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Evaluating [PE] on [COCO]... costs 83.03s
+	Evaluating [MC] on [COCO]... costs 85.47s
+	Evaluating [MeshCompletion] on [COCO]... costs 83.09s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   17  | 0.00017029 | 0.09100 | 126.02388 | 126.11489 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 5.39 |  5.50  |      4.06      | 5.27 |  3.83  |      3.52      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: [COCO,MC] 
+
+[17 end] Time cost: 32.93min 	| lr: 0.00017029
+[18 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	Iter: 76/229; time cost: 9.61min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Iter: 152/229; time cost: 19.03min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	[check randomness] query_id: 0, prompt_id: 9241
+[18 end] Time cost: 28.76min 	| lr: 0.00016859
+[19 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	Iter: 76/229; time cost: 9.59min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	[check randomness] query_id: 0, prompt_id: 27989
+	Iter: 152/229; time cost: 19.04min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+	Evaluating [PE] on [COCO]... costs 80.13s
+	Evaluating [MC] on [COCO]... costs 79.54s
+	Evaluating [MeshCompletion] on [COCO]... costs 78.24s
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+| Epoch |     lr     |  JOINT  |    MESH   |    ALL    | COCO |        |                | COCO |        |                |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+|   19  | 0.00016690 | 0.09080 | 125.22771 | 125.31851 |  PE  |   MC   | MeshCompletion |  PE  |   MC   | MeshCompletion |
+|       |            |         |           |           | 6.76 |  7.38  |      5.94      | 5.14 |  3.72  |      3.46      |
++-------+------------+---------+-----------+-----------+------+--------+----------------+------+--------+----------------+
+	Saving best checkpoints: 
+
+[19 end] Time cost: 32.71min 	| lr: 0.00016690
+[20 start]
+	Total sub-batch: 3
+	DDP is being applied.
+	[check randomness] query_id: 0, prompt_id: 24187
+	Iter: 76/229; time cost: 9.59min; current batch has {'COCO': 492} samples; batch_size (total/sub): 492/164
+/home/wxs/anaconda3/envs/mdm/lib/python3.7/multiprocessing/semaphore_tracker.py:144: UserWarning: semaphore_tracker: There appear to be 2 leaked semaphores to clean up at shutdown
+  len(cache))
+/home/wxs/anaconda3/envs/mdm/lib/python3.7/multiprocessing/semaphore_tracker.py:144: UserWarning: semaphore_tracker: There appear to be 3 leaked semaphores to clean up at shutdown
+  len(cache))
