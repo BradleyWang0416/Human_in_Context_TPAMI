@@ -1,0 +1,89 @@
+Adding new arg: args.config = ckpt/0702_base070100/21_TrAHC_applyMask/config.yaml
+Adding new arg: args.checkpoint = ckpt/0702_base070100/21_TrAHC_applyMask
+Adding new arg: args.seed = 0
+Adding new arg: args.visualize = 
+Adding new arg: args.eval_generalization = False
+Adding new arg: args.quick_debug = False
+Adding new arg: args.gpu = 2,3,4,5,6,7
+Overriding existing arg: args.batch_size = 92
+Adding new arg: args.classifier_type = task
+Adding new arg: args.num_class = 4
+Adding new arg: args.use_task_id_as_prompt = False
+Adding new arg: args.reverse_query_prompt = False
+Adding new arg: args.shuffle_batch = False
+Adding new arg: args.reverse_query_prompt_per_iter = False
+Adding new arg: args.aug2D = False
+Adding new arg: args.deactivate_prompt_branch = False
+Adding new arg: args.gpu0_bs = 0
+Adding new arg: args.train_simultaneously = False
+Adding new arg: args.local_rank = -1
+Adding new arg: args.master_port = 12356
+Adding new arg: args.apply_attnmask = True
+Adding new arg: args.data_efficient = True
+Adding new arg: args.vertex_x1000 = True
+Adding new arg: args.fully_connected_graph = True
+
+Configs: {'tasks': ['PE', 'MP', 'MC', 'FPE'], 'task_to_flag': {'PE': 0, 'MP': 1, 'FPE': 2, 'MC': 3, '2DAR': 4, 'AR': 5, 'MIB': 6, 'MeshRecover': 7, 'FutureMeshRecover': 8, 'MeshPred': 9, 'MeshCompletion': 10, 'MeshInBetween': 11}, 'dataset_to_flag': {'H36M_3D': 0, 'AMASS': 1, 'PW3D_MESH': 2, 'H36M_MESH': 3, 'H36M_MESH_TCMR': 4, 'COCO': 5}, 'flag_to_task': {'0': 'PE', '1': 'MP', '2': 'FPE', '3': 'MC', '4': '2DAR', '5': 'AR', '6': 'MIB', '7': 'MeshRecover', '8': 'FutureMeshRecover', '9': 'MeshPred', '10': 'MeshCompletion', '11': 'MeshInBetween'}, 'flag_to_dataset': {'0': 'H36M_3D', '1': 'AMASS', '2': 'PW3D_MESH', '3': 'H36M_MESH', '4': 'H36M_MESH_TCMR', '5': 'COCO'}, 'task_metrics': {'PE': ['PE e1', 'PE e2'], 'MP': ['MP'], 'FPE': ['FPE'], 'MC': ['MC'], '2DAR': ['2DAR'], 'AR': ['AR']}, 'dataset_task_info': {'train': {'AMASS': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween'], 'H36M_MESH': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween'], 'COCO': ['PE', 'MC', 'MeshCompletion']}, 'test': {'AMASS': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween'], 'H36M_MESH': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween'], 'PW3D_MESH': ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween'], 'COCO': ['PE', 'MC', 'MeshCompletion']}}, 'Mesh': {'enable': True, 'loss_type': 'L1', 'losses': {'loss_3d_pos': 0.5, 'loss_3d_velocity': 10, 'loss_pose': 1000, 'loss_shape': 1, 'loss_norm': 20, 'loss_3d_scale': 0, 'loss_lv': 0, 'loss_lg': 0, 'loss_a': 0, 'loss_av': 0}}, 'dataset_file': {'PW3D_MESH': 'data_icl_gen/VER5_DATA/PW3D_MESH/mesh_det_pw3d_EXTENDED.pkl', 'H36M_MESH': 'data_icl_gen/VER5_DATA/H36M_MESH/mesh_det_h36m_EXTENDED.pkl', 'AMASS': 'data_icl_gen/VER5_DATA/AMASS', 'COCO': 'data_icl_gen/VER5_DATA/COCO/mesh_det_coco_EXTENDED.pkl', 'H36M_3D': 'data_icl_gen/processed_data/H36M_3D/h36m_sh_conf_cam_source_final.pkl', 'H36M_MESH_TCMR': 'data_icl_gen/VER5_DATA/H36M_TCMR/h36m_train_25fps_db_RENAMED.pt'}, 'use_presave_data': True, 'aug': False, 'aug_shuffle_joints': False, 'current_as_history': True, 'clip_len': 16, 'max_len': 16, 'num_joint': 17, 'joint_mask_ratio': 0.4, 'frame_mask_ratio': 0.4, 'mesh_joint_mask_ratio': 0.4, 'presave_folder': 'data_icl_gen/presave_data/', 'dataset_config': {'PW3D_MESH': {'sample_stride': 1, 'data_stride': {'train': 1, 'test': 16}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_MESH': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'AMASS': {'sample_stride': 1, 'data_stride': {'train': 128, 'test': 256}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'COCO': {'sample_stride': 2, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}, 'H36M_3D': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'scale_3D': 1}, 'H36M_MESH_TCMR': {'sample_stride': 1, 'data_stride': {'train': 16, 'test': 32}, 'read_confidence': False, 'rootrel_input': True, 'rootrel_target': True, 'flip': True, 'use_global_orient': True}}, 'func_ver': {'dataset_action_recognition': None, 'evaluate_action_recognition': None, 'train_epoch_action_recognition': None, 'dataset_non_AR': '7_ICL', 'evaluate_non_AR': '7_ICL', 'train_epoch_non_AR': '7_ICL', 'model_name': 'model_mesh_VER7.M01V02_MotionAGFormer'}, 'epochs': 120, 'batch_size': 92, 'test_batch_size': 512, 'learning_rate': 0.0002, 'weight_decay': 0.01, 'lr_decay': 0.99, 'losses': {'loss_mpjpe': 1.0, 'n_mpjpe': 0.5, 'loss_velocity': 20.0, 'loss_limb_var': 0, 'loss_limb_gt': 0, 'loss_angle': 0, 'loss_angle_velocity': 0}, 'no_eval': False, 'use_partial_data': False, 'partial_data': None, 'full_data': None, 'name': 'config', 'config': 'ckpt/0702_base070100/21_TrAHC_applyMask/config.yaml', 'checkpoint': 'ckpt/0702_base070100/21_TrAHC_applyMask', 'seed': 0, 'visualize': '', 'eval_generalization': False, 'quick_debug': False, 'gpu': '2,3,4,5,6,7', 'classifier_type': 'task', 'num_class': 4, 'use_task_id_as_prompt': False, 'reverse_query_prompt': False, 'shuffle_batch': False, 'reverse_query_prompt_per_iter': False, 'aug2D': False, 'deactivate_prompt_branch': False, 'gpu0_bs': 0, 'train_simultaneously': False, 'local_rank': -1, 'master_port': '12356', 'apply_attnmask': True, 'data_efficient': True, 'vertex_x1000': True, 'fully_connected_graph': True, 'data': None}
+
+python train_DDP.py --config ckpt/0702_base070100/21_TrAHC_applyMask/config.yaml -c ckpt/0702_base070100/21_TrAHC_applyMask -vertex_x1000 -fully_connected_graph -data_efficient -apply_attnmask -gpu 2,3,4,5,6,7 -bs 92
+
+PID:  10087
+[Errno 17] File exists: '/home/wxs/wxs/Skeleton-in-Context-tpami/ckpt/0702_base070100/21_TrAHC_applyMask/all_epochs' -> 'ckpt/0702_base070100/21_TrAHC_applyMask/all_epochs'
+[Errno 17] File exists: '/home/wxs/wxs/Skeleton-in-Context-tpami/ckpt/0702_base070100/21_TrAHC_applyMask/best_epochs' -> 'ckpt/0702_base070100/21_TrAHC_applyMask/best_epochs'
+[Errno 17] File exists: '/home/wxs/wxs/Skeleton-in-Context-tpami/ckpt/0702_base070100/21_TrAHC_applyMask/latest_epoch' -> 'ckpt/0702_base070100/21_TrAHC_applyMask/latest_epoch'
+
+Loading dataset...
+	Loading train data from [AMASS] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading joint masks... Loading frame masks... costs 6.32s... has 46726/46726 query/prompt samples
+	Loading train data from [H36M_MESH] for task: ['PE', 'FPE', 'MC', 'MP', 'MIB', 'MeshCompletion', 'MeshPred', 'MeshInBetween']... Loading presaved... Loading joint masks... Loading frame masks... costs 5.35s... has 18644/18644 query/prompt samples
+	Loading train data from [COCO] for task: ['PE', 'MC', 'MeshCompletion']... Loading presaved... Loading joint masks... costs 6.45s... has 37416/37416 query/prompt samples
+	Preparing train [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Preparing train [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+	Training (non-AR) sample count: 102786
+	Training (non-AR) sample count: 102786
+	Training (non-AR) sample count: 102786	Training (non-AR) sample count:
+ 102786
+	Training (non-AR) sample count: 102786
+	Loading test data from [AMASS] for task: ['PE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['FPE']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MC']... Loading joint masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MP']... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MIB']... Loading frame masks... 	Training (non-AR) sample count: 102786
+costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshCompletion']... costs 0.00s... has 8492/46726 query/prompt samples
+	Preparing test [mesh joint masks] from [AMASS] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [AMASS] for task: ['MeshPred']... costs 0.11s... has 8492/46726 query/prompt samples
+	Loading test data from [AMASS] for task: ['MeshInBetween']... Loading frame masks... costs 0.00s... has 8492/46726 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['PE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['FPE']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MC']... Loading joint masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MP']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MIB']... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshCompletion']... costs 0.00s... has 3088/18644 query/prompt samples
+	Preparing test [mesh joint masks] from [H36M_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [H36M_MESH] for task: ['MeshPred']... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [H36M_MESH] for task: ['MeshInBetween']... Loading frame masks... costs 0.00s... has 3088/18644 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['PE']... Loading presaved... costs 4.18s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['FPE']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MC']... Loading presaved... Loading joint masks... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MP']... Loading presaved... costs 0.84s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MIB']... Loading presaved... Loading frame masks... costs 0.83s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MeshCompletion']... Loading presaved... costs 0.85s... has 2165/21678 query/prompt samples
+	Preparing test [mesh joint masks] from [PW3D_MESH] for task: [MeshCompletion]... Loading mesh joint masks...
+	Loading test data from [PW3D_MESH] for task: ['MeshPred']... Loading presaved... costs 0.87s... has 2165/21678 query/prompt samples
+	Loading test data from [PW3D_MESH] for task: ['MeshInBetween']... Loading presaved... Loading frame masks... costs 0.82s... has 2165/21678 query/prompt samples
+	Loading test data from [COCO] for task: ['PE']... costs 0.00s... has 5254/37416 query/prompt samples
+	Loading test data from [COCO] for task: ['MC']... Loading joint masks... costs 0.00s... has 5254/37416 query/prompt samples
+	Loading test data from [COCO] for task: ['MeshCompletion']... costs 0.00s... has 5254/37416 query/prompt samples
+	Preparing test [mesh joint masks] from [COCO] for task: [MeshCompletion]... Loading mesh joint masks...
+
+Loading model...
+	Model: model_mesh_VER7.M01V02_MotionAGFormer
+	Trainable parameter count: 48.895466M
+
+Loading checkpoint ckpt/0702_base070100/21_TrAHC_applyMask/latest_epoch/latest_epoch.bin
+
+Training on [['non_AR', 187]] batches for 120 epochs. batch size: 92
+[25 start]
+	Total sub-batch: 7
+	DDP is being applied.

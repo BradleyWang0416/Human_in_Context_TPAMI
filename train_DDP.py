@@ -193,10 +193,10 @@ def train_with_config(rank, world_size, args, opts):
     
     if hasattr(model_class, 'prepare_motion'):
         setattr(args, 'prepare_motion_function', model_class.prepare_motion)
-        print(f'\nOverriding function... Using <prepare_motion> function from [{model_name}] instead of default from dataset ...')
+        if rank == 0: print(f'\nOverriding function... Using <prepare_motion> function from [{model_name}] instead of default from dataset ...')
     if hasattr(model_class, 'preprocess'):
         setattr(args, 'preprocess_function', model_class.preprocess)
-        print(f'\nOverriding function... Using <preprocess> function from [{model_name}] instead of default from dataset ...')
+        if rank == 0: print(f'\nOverriding function... Using <preprocess> function from [{model_name}] instead of default from dataset ...')
     
 
 
@@ -227,31 +227,31 @@ def train_with_config(rank, world_size, args, opts):
 
     if len([task for task in args.tasks if task not in ['AR']]) > 0:
         if dataset_VER in ['3_ICL', '4_ICL', '5_ICL', '6_ICL', '7_ICL']:
-            train_dataset = DATASET(args, data_split='train')
+            train_dataset = DATASET(args, data_split='train', rank=rank)
             try:
                 collate_func = import_function(func_name=f'funcs_and_classes.Non_AR.dataset.ver{dataset_VER}.collate_func')
                 trainloader_params.update({'collate_fn': collate_func})
             except:
-                print(f'\tNo customized <collate_func> found for ver{dataset_VER}. Use default collate_fn.')
-        if dataset_VER in ['8_ICL']:
+                if rank == 0: print(f'\tNo customized <collate_func> found for ver{dataset_VER}. Use default collate_fn.')
+        elif dataset_VER in ['8_ICL']:
             train_dataset = DATASET(args, data_split='train', rank=rank)
             try:
                 collate_func = import_function(func_name=f'funcs_and_classes.Non_AR.dataset.ver{dataset_VER}.collate_func_train')
                 trainloader_params.update({'collate_fn': collate_func})
             except:
-                print(f'\tNo customized <collate_func> found for ver{dataset_VER}. Use default collate_fn.')
+                if rank == 0: print(f'\tNo customized <collate_func> found for ver{dataset_VER}. Use default collate_fn.')
         else:
             train_dataset = DATASET(args, data_split='train')
-        print('\tTraining (non-AR) sample count:', len(train_dataset))
+        if rank == 0: print('\tTraining (non-AR) sample count:', len(train_dataset))
         train_sampler = DistributedSampler(train_dataset, num_replicas=world_size, rank=rank)
         train_loader['non_AR'] = DataLoader(train_dataset, sampler=train_sampler, **trainloader_params)
 
         if dataset_VER in [0]:
             test_dataset = DATASET(args, data_split='test', prompt_list=train_dataset.prompt_list)
-            print('\tTesting (non-AR) sample count:', len(test_dataset))
+            if rank == 0: print('\tTesting (non-AR) sample count:', len(test_dataset))
         elif dataset_VER in [1]:
             test_dataset = DATASET(args, data_split='test')
-            print('\tTesting (non-AR) sample count:', len(test_dataset))
+            if rank == 0: print('\tTesting (non-AR) sample count:', len(test_dataset))
         elif dataset_VER in ['2_ICL']:
             test_dataset = {}
             dataset_task_info_test = args.dataset_task_info['test']
@@ -332,7 +332,7 @@ def train_with_config(rank, world_size, args, opts):
             collate_func = import_function(func_name=f'funcs_and_classes.Non_AR.dataset.ver{dataset_VER}.collate_func')
             testloader_params.update({'collate_fn': collate_func})
         except:
-            print(f'\tNo customized <collate_func> found for ver{dataset_VER}. Use default collate_fn.')
+            if rank == 0: print(f'\tNo customized <collate_func> found for ver{dataset_VER}. Use default collate_fn.')
         for (dataset, task) in test_dataset.keys():
             sampler = DistributedSampler(test_dataset[(dataset, task)], num_replicas=world_size, rank=rank)
             test_loader[(dataset, task)] = DataLoader(test_dataset[(dataset, task)], sampler=sampler, **testloader_params)
@@ -341,7 +341,7 @@ def train_with_config(rank, world_size, args, opts):
             collate_func = import_function(func_name=f'funcs_and_classes.Non_AR.dataset.ver{dataset_VER}.collate_func_test')
             testloader_params.update({'collate_fn': collate_func})
         except:
-            print(f'\tNo customized <collate_func> found for ver{dataset_VER}. Use default collate_fn.')
+            if rank == 0: print(f'\tNo customized <collate_func> found for ver{dataset_VER}. Use default collate_fn.')
         for (dataset, task) in test_dataset.keys():
             sampler = DistributedSampler(test_dataset[(dataset, task)], num_replicas=world_size, rank=rank)
             test_loader[(dataset, task)] = DataLoader(test_dataset[(dataset, task)], sampler=sampler, **testloader_params)

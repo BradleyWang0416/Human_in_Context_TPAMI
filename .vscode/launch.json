@@ -124,7 +124,7 @@
             //      "-gpu" , "2",
             // ],
             "args": [
-                "--config", "ckpt/0702_base070100/20_TrAHC/config.yaml",
+                "--config", "ckpt/0702_base070100/21_TrAHC_applyMask/config.yaml",
                 "-c", "ckpt/0702_base070100/tmp",
                 "-vertex_x1000",
                 "-fully_connected_graph",
@@ -132,10 +132,10 @@
                 "-apply_attnmask",
                 // "-predict_context",
                 // "-fix_prompt", "FPS_selected",
-                "-gpu", "1",
+                "-gpu", "0,1",
                 "-bs", "64",
                 "-mp", "28888",
-                "-debug"
+                "-fix_prompt", "FPS_selected",
             ],
             
         }

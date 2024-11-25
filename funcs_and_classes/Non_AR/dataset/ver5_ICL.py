@@ -45,6 +45,8 @@ from third_party.motionbert.human_body_prior.body_model.body_model import BodyMo
 from scipy.spatial.transform import Rotation as R
 # from data_gen.angle2joint import ang2joint
 
+from data_icl_gen.fps_v3_velo import farthest_point_sampling
+
 
 class MotionDatasetICL(Dataset):
     def __init__(self, args, data_split, TASK=None, DATASET_NAME=None, SLICED_DATA=None, PROMPT_LOG=None, **kwargs):
@@ -115,40 +117,39 @@ class MotionDatasetICL(Dataset):
 
             dt_file = self.dataset_file[dataset_name]
             n_frames = self.dataset_config[dataset_name].get('clip_len', self.clip_len) * 2
-            if SLICED_DATA is None:
-                if dataset_name in ['H36M_MESH', 'PW3D_MESH', 'H36M_MESH_TCMR', 'AMASS', 'COCO']:
-                    datareader = DataReaderMesh(dataset_name=dataset_name,
-                                                split = data_split,
-                                                n_frames = n_frames, 
-                                                sample_stride = self.dataset_config[dataset_name]['sample_stride'], 
-                                                data_stride = self.dataset_config[dataset_name]['data_stride'],
-                                                read_confidence = self.dataset_config[dataset_name]['read_confidence'],
-                                                dt_root = '', 
-                                                dt_file = dt_file,
-                                                res = [1920, 1920] if dataset_name == 'PW3D_MESH' else None,
-                                                use_global_orient = self.dataset_config[dataset_name]['use_global_orient'],
-                                                return_skel3d=True,
-                                                return_smpl=self.use_smpl,
-                                                **kwargs)
-                elif dataset_name == 'H36M_3D':
-                    raise NotImplementedError
-                else:
-                    raise ValueError(f"Unknown dataset name: {dataset_name}")
-
-                
+            if dataset_name in ['H36M_MESH', 'PW3D_MESH', 'H36M_MESH_TCMR', 'AMASS', 'COCO']:
+                datareader = DataReaderMesh(dataset_name=dataset_name,
+                                            split = data_split,
+                                            n_frames = n_frames, 
+                                            sample_stride = self.dataset_config[dataset_name]['sample_stride'], 
+                                            data_stride = self.dataset_config[dataset_name]['data_stride'],
+                                            read_confidence = self.dataset_config[dataset_name]['read_confidence'],
+                                            dt_root = '', 
+                                            dt_file = dt_file,
+                                            res = [1920, 1920] if dataset_name == 'PW3D_MESH' else None,
+                                            use_global_orient = self.dataset_config[dataset_name]['use_global_orient'],
+                                            return_skel3d=True,
+                                            return_smpl=self.use_smpl,
+                                            **kwargs)
+            elif dataset_name == 'H36M_3D':
+                raise NotImplementedError
+            else:
+                raise ValueError(f"Unknown dataset name: {dataset_name}")
+            
+            presave_folder = os.path.join(args.presave_folder, os.path.splitext(os.path.basename(__file__))[0], dataset_name,
+                                        f'nframes{datareader.n_frames} - samplestride{datareader.sample_stride} - '
+                                        +f'datastridetrain{datareader.data_stride["train"]} - datastridetest{datareader.data_stride["test"]} - '
+                                        +f'readconfidence{int(datareader.read_confidence)} - '
+                                        +f'useglobalorient{int(datareader.use_global_orient)} - '
+                                        +f'returnskel3d_{int(datareader.return_skel3d)} - '
+                                        +f'returnsmpl_{int(datareader.return_smpl)} - '
+                                        +f'filename_{os.path.splitext(os.path.basename(dt_file))[0]}'
+                                        )
+            
+            if SLICED_DATA is None:   
                 if args.use_presave_data:
                     def get_class_attributes(obj):
-                        return {attr: getattr(obj, attr) for attr in dir(obj) if not attr.startswith('__') and not callable(getattr(obj, attr)) and not 'split' in attr and not 'dataset' in attr}
-
-                    presave_folder = os.path.join(args.presave_folder, os.path.splitext(os.path.basename(__file__))[0], dataset_name,
-                                                f'nframes{datareader.n_frames} - samplestride{datareader.sample_stride} - '
-                                                +f'datastridetrain{datareader.data_stride["train"]} - datastridetest{datareader.data_stride["test"]} - '
-                                                +f'readconfidence{int(datareader.read_confidence)} - '
-                                                +f'useglobalorient{int(datareader.use_global_orient)} - '
-                                                +f'returnskel3d_{int(datareader.return_skel3d)} - '
-                                                +f'returnsmpl_{int(datareader.return_smpl)} - '
-                                                +f'filename_{os.path.splitext(os.path.basename(dt_file))[0]}'
-                                                )
+                        return {attr: getattr(obj, attr) for attr in dir(obj) if not attr.startswith('__') and not callable(getattr(obj, attr)) and not 'split' in attr and not 'dataset' in attr and attr != 'rank'}
 
                     presave_file = os.path.join(presave_folder, 'sliced_data.pkl')
                     datareader_config_file = os.path.join(presave_folder, 'datareader_config.pkl')
@@ -284,22 +285,20 @@ class MotionDatasetICL(Dataset):
                 prompt_list[dataset_name] = random.sample(range(num_prompt), num_prompt)
             elif args.get('fix_prompt', None) is not None and args.fix_prompt.split(',')[0] == 'FPS_selected':
                 if len(args.get('fix_prompt', None).split(',')) == 1:
-                    num_key_prompts = sliced_data['train']['joint2d'].shape[0] // 5
+                    num_key_prompts = sliced_data['train']['joint2d'].shape[0] // 10
                 else:
                     num_key_prompts = int(args.get('fix_prompt', None).split(',')[1])
 
-                dataset_folder = os.path.join(args.presave_folder, os.path.splitext(os.path.basename(__file__))[0], dataset_name,
-                                                f'nframes{n_frames} - samplestride{self.dataset_config[dataset_name]["sample_stride"]} - '
-                                                +f'datastridetrain{self.dataset_config[dataset_name]["data_stride"]["train"]} - datastridetest{self.dataset_config[dataset_name]["data_stride"]["test"]} - '
-                                                +f'readconfidence{int(self.dataset_config[dataset_name]["read_confidence"])} - '
-                                                +f'useglobalorient{int(self.dataset_config[dataset_name]["use_global_orient"])} - '
-                                                +f'returnskel3d_{int(True)} - '
-                                                +f'returnsmpl_{int(self.use_smpl)} - '
-                                                +f'filename_{os.path.splitext(os.path.basename(dt_file))[0]}'
-                                              )
+                fps_sorted_indices_file = os.path.join(presave_folder, 'fps_sorted_indices.npy')
+
+                if not os.path.exists(fps_sorted_indices_file):
+                    if kwargs.get('rank', 0) == 0:
+                        _ = farthest_point_sampling(torch.from_numpy(sliced_data['train']['joint3d']).cuda(kwargs.get('rank', 0)), presave_folder, max_len=num_key_prompts)
+                else:
+                    fps_sorted_indices = np.load(fps_sorted_indices_file)
                 
-                fps_sorted_id = np.load(os.path.join(dataset_folder, 'fps_sorted_indices.npy'))
-                prompt_list[dataset_name] = fps_sorted_id[:num_key_prompts]
+                
+                prompt_list[dataset_name] = fps_sorted_indices[:num_key_prompts]
                 num_prompt = len(prompt_list[dataset_name])
             else:
                 prompt_list[dataset_name] = list(range(num_prompt))
@@ -417,8 +416,17 @@ class MotionDatasetICL(Dataset):
     def prepare_chunk(self, data_dict, dataset_name, chunk_id=None):
         chunk_dict = OrderedDict()
 
+        if chunk_id is None:
+            chunk_slice = slice(None)
+        elif isinstance(chunk_id, int):
+            chunk_slice = slice(chunk_id, chunk_id+1)
+        elif isinstance(chunk_id, list) or isinstance(chunk_id, np.ndarray) or isinstance(chunk_id, torch.Tensor):
+            chunk_slice = chunk_id
+
+
+
         for mode in data_dict[dataset_name].keys():
-            chunk = data_dict[dataset_name][mode][chunk_id:chunk_id+1].copy() if chunk_id is not None else data_dict[dataset_name][mode].copy()
+            chunk = data_dict[dataset_name][mode][chunk_slice].copy()
             chunk = torch.from_numpy(chunk).float()
 
             if mode == 'joint2d':
@@ -525,6 +533,8 @@ class MotionDatasetICL(Dataset):
             else:
                 train_chunk_id, train_chunk_distance = self.prompt_list[dataset_name][query_chunk_id]
                 prompt_chunk_id = self.prompt_log[dataset_name][train_chunk_id]
+        elif self.args.get('fix_prompt', None) is not None and self.args.fix_prompt.split(',')[0] == 'FPS_selected':
+            prompt_chunk_id = self.prompt_list[dataset_name]
 
         else:
             prompt_chunk_id = random.choice(self.prompt_list[dataset_name])
